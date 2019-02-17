@@ -113,20 +113,20 @@ class MiniDrawer extends React.Component {
         version          : 'v3.2'
       });
       FB.getLoginStatus(function(response){
+        console.log("getLoginStatus",response)
         if(response.status==='connected')
         {
-          that.setState({
-            loggedIn:true
-          })
+          that.responseFacebook();
         }
       })
       FB.Event.subscribe('auth.statusChange', function(response) {
         if (response.authResponse) {
+          console.log("auth.statusChange", response);
           that.responseFacebook();
         } else {
           console.log('---->User cancelled login or did not fully authorize.');
         }
-      }.bind(this));
+      });
     };
   
     (function(d, s, id){
@@ -236,7 +236,7 @@ The man was taken to the hospital, where doctors determined that he had had a he
             </Typography>
 
             :
-            <div onlogin={this.responseFacebook}            className="fb-login-button" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="true"></div>
+            <div className="fb-login-button" data-size="large" data-button-type="login_with" data-auto-logout-link="false" data-use-continue-as="true"></div>
           }
         </main>
       </div>
