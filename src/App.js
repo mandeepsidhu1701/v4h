@@ -20,6 +20,18 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 
+import {
+  APP_TITLE
+} from './common/i18n';
+
+import intl from 'react-intl-universal'
+import LandingContainer from './components/landing/LandingContainer';
+
+const locales = {
+  "en-US": require('./common/locales/en-US.js'),
+  "de-DE": require('./common/locales/de-DE.js'),
+};
+
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -86,6 +98,7 @@ const styles = theme => ({
 
 class MiniDrawer extends React.Component {
   
+  currentLocale = "en-US";
 
   constructor(props){
     super(props);
@@ -105,6 +118,13 @@ class MiniDrawer extends React.Component {
 
   componentDidMount(){
     let that = this;
+      // react-intl-universal is singleton, so you should init it only once in your app
+      intl.init({
+        currentLocale: this.currentLocale,
+        locales,
+      }).then(() => {
+        document.title = intl.get(APP_TITLE);
+      });
     window.fbAsyncInit = function() {
       FB.init({
         appId            : '2409222039321987',
@@ -148,6 +168,7 @@ class MiniDrawer extends React.Component {
     const { loggedIn } = this.state;
     return (
       <div className={classes.root}>
+        <LandingContainer />
         <CssBaseline />
         <AppBar
           position="fixed"
