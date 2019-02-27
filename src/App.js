@@ -106,6 +106,13 @@ class MiniDrawer extends React.Component {
     this.state = {
       open: false,
     };
+    // react-intl-universal is singleton, so you should init it only once in your app
+    intl.init({
+      currentLocale: this.currentLocale,
+      locales,
+    }).then(() => {
+      document.title = intl.get(APP_TITLE);
+    });
   }
   handleDrawerOpen = () => {
     this.setState({ open: true });
@@ -115,16 +122,8 @@ class MiniDrawer extends React.Component {
     this.setState({ open: false });
   };
 
-
   componentDidMount(){
     let that = this;
-      // react-intl-universal is singleton, so you should init it only once in your app
-      intl.init({
-        currentLocale: this.currentLocale,
-        locales,
-      }).then(() => {
-        document.title = intl.get(APP_TITLE);
-      });
     window.fbAsyncInit = function() {
       FB.init({
         appId            : '2409222039321987',
