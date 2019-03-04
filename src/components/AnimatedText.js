@@ -5,7 +5,7 @@ const styles = theme => ({
   text: {
     display: 'inline-block',
     opacity: '0',
-    marginRight: '0em',
+    marginRight: '0.2em',
     animationName: 'textAnimation',
     animationDuration: '1s',
     animationIterationCount: '1',

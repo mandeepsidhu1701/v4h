@@ -18,12 +18,15 @@
     "redux-form": "latest",
     "redux-logger": "latest",
     "redux-thunk": "latest",
-    "react-intl-universal": "^1.4.3"
+    "react-intl-universal": "^1.4.3",
+    "react-test-renderer": "16.8.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -34,5 +37,20 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "devDependencies": {
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.10.0",
+    "enzyme-to-json": "^3.3.5",
+    "jest": "^23.6.0",
+    "redux-mock-store": "^1.5.3"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./src/__tests__/setup/setupEnzyme.js"
+    ],
+    "testPathIgnorePatterns": [
+      "./src/__tests__/setup/"
+    ]
+  }
 }

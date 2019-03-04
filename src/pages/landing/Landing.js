@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import intl from 'react-intl-universal'
+import intl from 'react-intl-universal';
+import { hashHistory } from 'react-router';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
-import AnimatedText from './AnimatedText';
+import AnimatedText from '../../components/AnimatedText';
 
 import {
   APP_TITLE,
@@ -24,7 +25,7 @@ const styles = theme => ({
     position: 'absolute',
     width: '90%',
     marginLeft: '-45%',
-    top: '10%',
+    top: '6%',
     left: '50%',
     zIndex: '1',
     textAlign: 'center',
@@ -42,7 +43,7 @@ const styles = theme => ({
     zIndex: '1',
     textAlign: 'center',
     fontFamily: 'Calibri',
-    fontSize: '40px',
+    fontSize: '36px',
     fontWeight: '700',
     lineHeight: '1',
     textAlign: 'center',
@@ -79,6 +80,7 @@ class Landing extends React.Component {
   }
 
   handleScrollButtonClick = () => {
+    hashHistory.push('/home');
   };
 
   render() {
@@ -94,7 +96,7 @@ class Landing extends React.Component {
           image="/images/matt-hardy-562566-unsplash@2x.png"
         />
         <CardActions className={classes.actions} disableActionSpacing>
-          <IconButton aria-label="Scroll">
+          <IconButton aria-label="Scroll" onClick={this.handleScrollButtonClick}>
             <img src='/images/scroll-icon-png_02-.png' width={24} height={32.6} alt='scroll' />
           </IconButton>
         </CardActions>

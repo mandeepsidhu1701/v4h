@@ -25,7 +25,7 @@ import {
 } from './common/i18n';
 
 import intl from 'react-intl-universal'
-import LandingContainer from './components/landing/LandingContainer';
+import LandingContainer from './pages/landing/LandingContainer';
 
 const locales = {
   "en-US": require('./common/locales/en-US.js'),
