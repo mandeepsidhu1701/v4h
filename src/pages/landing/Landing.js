@@ -50,6 +50,7 @@ const styles = theme => ({
     color: "white"
   },
   media: {
+    backgroundColor: "#C0D2DE",
     position: 'absolute',
     width: '100%',
     height: '100%',
@@ -67,9 +68,9 @@ const styles = theme => ({
     right: '0'
   },
   "@keyframes scaleAnimation": {
-    from: { transform: 'scale(1.2)' },
-    to: { transform: 'scale(1)' },
-  },
+    from: { opacity: '0.5', transform: 'scale(1.2)' },
+    to: { opacity: '1', transform: 'scale(1)' }
+  }
 });
 
 class Landing extends React.Component {
@@ -81,6 +82,18 @@ class Landing extends React.Component {
 
   handleScrollButtonClick = () => {
     hashHistory.push('/home');
+  };
+
+  componentDidMount(){
+    window.addEventListener('wheel', this.handleScroll);
+  };
+
+  componentWillUnmount(){
+    window.removeEventListener('wheel', this.handleScroll);
+  };
+
+  handleScroll = () => {
+    this.handleScrollButtonClick();
   };
 
   render() {

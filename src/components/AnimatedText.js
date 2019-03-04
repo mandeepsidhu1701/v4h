@@ -7,14 +7,14 @@ const styles = theme => ({
     opacity: '0',
     marginRight: '0.2em',
     animationName: 'textAnimation',
-    animationDuration: '1s',
+    animationDuration: '0.5s',
     animationIterationCount: '1',
     animationFillMode: 'forwards',
     animationTimingFunction: 'ease-out'
   },
   "@keyframes textAnimation": {
     from: {
-      transform: 'scale(1.9, 1.9)',
+      transform: 'scale(3, 3)',
       opacity: '0'
     },
     to: {
