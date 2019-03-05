@@ -26,15 +26,11 @@ const styles = theme => ({
 
 class AnimatedText extends Component {
 
-  constructor(props){
-    super(props);
-  }
-
   render() {
     const { classes, delays, text } = this.props;
     return (
       text.split('').map((letter, index) => {
-        if(letter == ' ') {
+        if(letter === ' ') {
           return (<span style={{marginRight: '0.2em'}} />)
         } else {
           return (<span className={classes.text} style={{animationDelay: delays[index] + 'ms'}}>{letter.toUpperCase()}</span>)

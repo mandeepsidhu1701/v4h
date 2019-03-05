@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import intl from 'react-intl-universal';
-import { hashHistory } from 'react-router';
+import { withRouter } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -46,7 +46,6 @@ const styles = theme => ({
     fontSize: '36px',
     fontWeight: '700',
     lineHeight: '1',
-    textAlign: 'center',
     color: "white"
   },
   media: {
@@ -76,12 +75,8 @@ const styles = theme => ({
 class Landing extends React.Component {
   state = {};
 
-  constructor(props){
-    super(props);
-  }
-
   handleScrollButtonClick = () => {
-    hashHistory.push('/home');
+    this.props.history.push("/home");
   };
 
   componentDidMount(){
@@ -122,4 +117,4 @@ Landing.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Landing);
+export default withRouter(withStyles(styles)(Landing));

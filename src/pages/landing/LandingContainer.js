@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import Landing from './Landing'
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
   }
 }

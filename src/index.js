@@ -2,41 +2,40 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
-import ReactDOM from 'react-dom';
-import { Router, Route, hashHistory, IndexRoute, browserHistory } from 'react-router';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
-import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
 import intl from 'react-intl-universal';
 import rootReducer from './reducers';
-import * as serviceWorker from './serviceWorker';
 
 import './index.css';
 import AppContainer from './AppContainer';
 import HomeContainer from './pages/home/HomeContainer';
 
-const middleware = routerMiddleware(hashHistory)
-
 const store = createStore(
   rootReducer,
   applyMiddleware(
-    middleware,
     thunkMiddleware
   )
 )
 
 window.intl = intl
 window.reduxStore = store
-const history = syncHistoryWithStore(hashHistory, store)
+
+const PrimaryLayout = () => (
+  <div className="primary-layout">
+    <main>
+      <Route path="/" exact component={AppContainer} />
+      <Route path="/home" component={HomeContainer} />
+    </main>
+  </div>
+)
 
 const Root = ({ store }) => (
   <Provider store={store}>
-    <Router history={history}>
-      <Route path="/" component={AppContainer} >
-      </Route>
-      <Route path="/home" component={HomeContainer} >
-      </Route>
+    <Router>
+      <PrimaryLayout />
     </Router>
   </Provider>
 )
-  
+
 render(<Root store={store} />, document.getElementById('root'));
