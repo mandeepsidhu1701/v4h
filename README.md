@@ -1,4 +1,42 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was built for HIGHER CONSCIOUS NESSNETWORK(HCN) which uses AWS-Amplify library to utilize AWS services and resources.
+
+## Project Setup
+
+### Run 'npm install'
+After you did 'git clone' all the code into your local computer, you need to run 'npm install' to install all dependencies in the project.
+'npm install'
+
+### Run 'amplify init'
+To setup aws-amplify configuration, run command 'amplify init' under app folder and choose 'dev' as an environment and follow the sample output below to setup your local environment.
+```
+> amplify init
+Note: It is recommended to run this command from the root of your app directory
+? Do you want to use an existing environment? Yes
+? Choose the environment you would like to use: dev
+? Choose your default editor: Visual Studio Code
+Using default provider  awscloudformation
+
+For more information on AWS Profiles, see:
+https://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html
+
+? Do you want to use an AWS profile? `Yes`
+? Please choose the profile you want to use hcn-web-user
+√ Initialized provider successfully.
+Initialized your environment successfully.
+
+Your project has been successfully initialized and connected to the cloud!
+
+Some next steps:
+"amplify status" will show you what you've added already and if it's locally configured or deployed
+"amplify <category> add" will allow you to add features like user login or a backend API
+"amplify push" will build all your local backend resources and provision it in the cloud
+"amplify publish" will build all your local backend and frontend resources (if you have hosting category added) and provision it in the cloud
+
+Pro tip:
+Try "amplify add api" to create a backend API and then "amplify publish" to deploy everything
+```
+### Run 'npm start'
+The js file 'aws-exports.js' should be generated in /src folder after you run 'amplify init'. And now you are ready to start your app by using 'npm start' command.
 
 ## Available Scripts
 
