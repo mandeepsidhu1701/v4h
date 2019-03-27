@@ -6,10 +6,14 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { createStore, applyMiddleware } from 'redux';
 import intl from 'react-intl-universal';
 import rootReducer from './reducers';
+import Amplify from 'aws-amplify';
+import config from './aws-exports';
 
 import './index.css';
 import AppContainer from './AppContainer';
 import HomeContainer from './pages/home/HomeContainer';
+
+Amplify.configure(config)
 
 const store = createStore(
   rootReducer,

@@ -2,6 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import { withAuthenticator } from 'aws-amplify-react';
 
 import {
   APP_TITLE
@@ -79,7 +80,7 @@ const styles = theme => ({
   },
 });
 
-class MiniDrawer extends React.Component {
+class App extends React.Component {
   
   currentLocale = "en-US";
 
@@ -157,9 +158,11 @@ class MiniDrawer extends React.Component {
   }
 }
 
-MiniDrawer.propTypes = {
+App.propTypes = {
   classes: PropTypes.object.isRequired,
   theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(MiniDrawer);
+export default withAuthenticator(
+  withStyles(styles, { withTheme: true })(App),
+  { includeGreetings: true })
