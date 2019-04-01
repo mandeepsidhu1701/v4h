@@ -2,7 +2,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { withAuthenticator } from 'aws-amplify-react';
 
 import {
   APP_TITLE
@@ -86,7 +85,6 @@ class App extends React.Component {
 
   constructor(props){
     super(props);
-    this.responseFacebook = this.responseFacebook.bind(this);
     this.state = {
       open: false,
     };
@@ -107,44 +105,6 @@ class App extends React.Component {
   };
 
   componentDidMount(){
-    let that = this;
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId            : '2409222039321987',
-        autoLogAppEvents : true,
-        xfbml            : true,
-        version          : 'v3.2'
-      });
-      FB.getLoginStatus(function(response){
-        console.log("getLoginStatus",response)
-        if(response.status==='connected')
-        {
-          that.responseFacebook();
-        }
-      })
-      FB.Event.subscribe('auth.statusChange', function(response) {
-        if (response.authResponse) {
-          console.log("auth.statusChange", response);
-          that.responseFacebook();
-        } else {
-          console.log('---->User cancelled login or did not fully authorize.');
-        }
-      });
-    };
-  
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "https://connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
-  }
-
-  responseFacebook = () => {
-    this.setState({
-      loggedIn:true
-    });
   }
 
   onScroll = () => {
@@ -163,6 +123,4 @@ App.propTypes = {
   theme: PropTypes.object.isRequired,
 };
 
-export default withAuthenticator(
-  withStyles(styles, { withTheme: true })(App),
-  { includeGreetings: true })
+export default withStyles(styles, { withTheme: true })(App);

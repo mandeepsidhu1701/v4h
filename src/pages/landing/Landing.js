@@ -79,11 +79,11 @@ class Landing extends React.Component {
     this.props.history.push("/home");
   };
 
-  componentDidMount(){
+  componentDidMount() {
     window.addEventListener('wheel', this.handleScroll);
   };
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     window.removeEventListener('wheel', this.handleScroll);
   };
 
