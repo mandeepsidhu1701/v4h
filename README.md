@@ -2,14 +2,42 @@ This project was built for HIGHER CONSCIOUS NESSNETWORK(HCN) which uses AWS-Ampl
 
 ## Project Setup
 
+### Check out HCN code
+'git clone git@github.com:visionforhumanity/hcn.git'
+
+### Run 'npm install -g @aws-amplify/cli'
+Install amplify command line tool globally.
+
 ### Run 'npm install'
-After you did 'git clone' all the code into your local computer, you need to run 'npm install' to install all dependencies in the project.
-'npm install'
+Install all dependencies in the project.
+
+### Setup AWS profile and credentials
+```
+On MAC:
+$cd ~/
+$mkdir .aws
+$cd .aws
+$touch config
+$touch credentials
+```
+Update config and credentials file as follows:
+```
+config:
+[default]
+region = ap-southeast-2
+```
+
+```
+credentials:
+[default]
+aws_access_key_id=<YOUR_ACCESS_KEY>
+aws_secret_access_key=<YOUR_SECRET_ACCESS_KEY>
+```
 
 ### Run 'amplify init'
 To setup aws-amplify configuration, run command 'amplify init' under app folder and choose 'dev' as an environment and follow the sample output below to setup your local environment.
 ```
-> amplify init
+$ amplify init
 Note: It is recommended to run this command from the root of your app directory
 ? Do you want to use an existing environment? Yes
 ? Choose the environment you would like to use: dev
@@ -19,9 +47,9 @@ Using default provider  awscloudformation
 For more information on AWS Profiles, see:
 https://docs.aws.amazon.com/cli/latest/userguide/cli-multiple-profiles.html
 
-? Do you want to use an AWS profile? `Yes`
-? Please choose the profile you want to use hcn-web-user
-√ Initialized provider successfully.
+? Do you want to use an AWS profile? Yes
+? Please choose the profile you want to use default
+✔ Initialized provider successfully.
 Initialized your environment successfully.
 
 Your project has been successfully initialized and connected to the cloud!
@@ -35,8 +63,14 @@ Some next steps:
 Pro tip:
 Try "amplify add api" to create a backend API and then "amplify publish" to deploy everything
 ```
+
+### Run 'amplify env pull'
+It will generate 'aws-exports.js' under /src folder.
+
 ### Run 'npm start'
-The js file 'aws-exports.js' should be generated in /src folder after you run 'amplify init'. And now you are ready to start your app by using 'npm start' command.
+The js file 'aws-exports.js' should be generated in /src folder after you run 'amplify env pull'. And now you are ready to start your app by using 'npm start' command.
+
+### ENDS for now
 
 ## Available Scripts
 
