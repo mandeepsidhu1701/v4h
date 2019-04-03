@@ -15,5 +15,39 @@
                 "cognito4aaed1ab": {}
             }
         }
+    },
+    "test": {
+        "awscloudformation": {
+            "AuthRoleName": "hcn-20190404103627-authRole",
+            "UnauthRoleArn": "arn:aws:iam::007655227519:role/hcn-20190404103627-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::007655227519:role/hcn-20190404103627-authRole",
+            "Region": "ap-southeast-2",
+            "DeploymentBucketName": "hcn-20190404103627-deployment",
+            "UnauthRoleName": "hcn-20190404103627-unauthRole",
+            "StackName": "hcn-20190404103627",
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:007655227519:stack/hcn-20190404103627/898757d0-5658-11e9-90de-0204946d82d4"
+        },
+        "categories": {
+            "auth": {
+                "cognito4aaed1ab": {}
+            }
+        }
+    },
+    "prod": {
+        "awscloudformation": {
+            "AuthRoleName": "hcn-20190404104159-authRole",
+            "UnauthRoleArn": "arn:aws:iam::007655227519:role/hcn-20190404104159-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::007655227519:role/hcn-20190404104159-authRole",
+            "Region": "ap-southeast-2",
+            "DeploymentBucketName": "hcn-20190404104159-deployment",
+            "UnauthRoleName": "hcn-20190404104159-unauthRole",
+            "StackName": "hcn-20190404104159",
+            "StackId": "arn:aws:cloudformation:ap-southeast-2:007655227519:stack/hcn-20190404104159/4ffeaf80-5659-11e9-9c89-068b1a8e1450"
+        },
+        "categories": {
+            "auth": {
+                "cognito4aaed1ab": {}
+            }
+        }
     }
 }
