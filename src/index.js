@@ -2,8 +2,10 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import { createStore, applyMiddleware } from 'redux';
+import { Route } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+import { createStore, compose, applyMiddleware } from 'redux';
+import { ConnectedRouter, routerMiddleware } from 'connected-react-router'
 import intl from 'react-intl-universal';
 import rootReducer from './reducers';
 import Amplify from 'aws-amplify';
@@ -15,31 +17,34 @@ import HomeContainer from './pages/home/HomeContainer';
 
 Amplify.configure(config)
 
+const history = createBrowserHistory()
+
 const store = createStore(
-  rootReducer,
-  applyMiddleware(
-    thunkMiddleware
+  rootReducer(history),
+  {},
+  compose(
+    applyMiddleware(
+      thunkMiddleware,
+      routerMiddleware(history)
+    )
   )
 )
 
 window.intl = intl
 window.reduxStore = store
 
-const PrimaryLayout = () => (
-  <div className="primary-layout">
-    <main>
-      <Route path="/" exact component={AppContainer} />
-      <Route path="/home" component={HomeContainer} />
-    </main>
-  </div>
-)
 
-const Root = ({ store }) => (
+const Routes = () => (
   <Provider store={store}>
-    <Router>
-      <PrimaryLayout />
-    </Router>
+    <ConnectedRouter history={history}>
+      <div className="primary-layout">
+        <main>
+          <Route path="/" exact component={AppContainer} />
+          <Route path="/home" component={HomeContainer} />      
+        </main>
+      </div>
+    </ConnectedRouter>
   </Provider>
 )
 
-render(<Root store={store} />, document.getElementById('root'));
+render(<Routes />, document.getElementById('root'));
