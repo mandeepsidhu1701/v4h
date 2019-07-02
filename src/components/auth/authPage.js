@@ -20,12 +20,9 @@ class AuthPage extends Component {
     const {modalShown} = this.state;
     return (
       <section>
-        <div>
-          <p><button type="button" onClick={() => this.showModal(LOGIN)}>Login Modal</button></p>
-          <p><button type="button" onClick={() => this.showModal(SIGNUP)}>Signup Modal</button></p>
-          <p>Modal To Show: {modalShown}</p>
-        </div>
-        <br/>
+          <span className="mr-4"><button type="button" onClick={() => this.showModal(LOGIN)}>Login Modal</button></span>
+          <span className="mr-4"><button type="button" onClick={() => this.showModal(SIGNUP)}>Signup Modal</button></span>
+          <span className="mr-4">Modal To Show: {modalShown}</span>
 
         <div>
           {modalShown === LOGIN ? <SignInModal /> : <SignUpModal /> }
