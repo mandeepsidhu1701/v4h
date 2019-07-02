@@ -64,8 +64,8 @@ class SignIn extends Component {
   };
   render() {
     return ( 
-      <section className="sign-in-base sign-in-textbackground p-3">
-        <div className="card sign-in-card">
+      <section className="login-base login-textbackground p-3">
+        <div className="card login-card">
           <div className="triangle" />
           <div className="card-border-bottom" />
           <div className="card-border-top-1" />

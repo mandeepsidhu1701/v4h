@@ -9,7 +9,7 @@ const SIGNUP = "signup";
 
 class AuthPage extends Component {
   state = {
-    modalShown: LOGIN
+    modalShown: SIGNUP
   }
 
   showModal = (modalName) => {

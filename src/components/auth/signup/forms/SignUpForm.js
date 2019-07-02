@@ -23,7 +23,7 @@ class SignUpForm extends Component {
   render() {
     return (
       <div>
-      <form className="authentication__form">
+      <form className="sign-up-form">
         <input
           type="text"
           name="username"

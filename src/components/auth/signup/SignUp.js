@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from 'react-router';
 import SignUpForm from "./forms/SignUpForm";
 import VerifyForm from "./forms/VerifyForm";
+import SignUpSidebar from "./SignUpSidebar";
 
 import { Auth } from "aws-amplify";
 
@@ -79,15 +80,30 @@ class SignUp extends Component {
   };
   switchComponent = status => {
     this.setState({ status });
-    if(this.state.status === IS_VERIFIED) {
-      this.props.history.push("/protoauth/signin");
-    }
   };
+
   render() {
     console.log(this.state)
     return ( 
-      <section>
-        {this.AuthComponent()}
+      <section className="sign-up-base sign-up-textbackground p-3">
+        <div className="card sign-up-card">
+          <div className="triangle" />
+          <div className="card-border-bottom" />
+          <div className="card-border-top-1" />
+          <div className="card-border-top-2" />
+          <div className="card-border-left" />
+          <div className="card-border-right" />
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-12 col-md-8">
+                {this.AuthComponent()}
+              </div>
+              <div className="col-sm-12 col-md-4">
+                <SignUpSidebar />
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
     );
   }

@@ -16,11 +16,11 @@ class SignInForm extends Component {
 
   render() {
     return (
-      <form className="sign-in-form">
+      <form className="login-form">
         <div className="container">
           <div className="row">
             <div className="col-sm-12 col-md-6">
-              <label for="loginname" className="sign-in-label">E-mail</label>
+              <label for="loginname" className="login-label">E-mail</label>
               <input 
                 id="loginname" 
                 type="text"
@@ -28,11 +28,11 @@ class SignInForm extends Component {
                 value={this.props.username}
                 placeholder="Enter Email"
                 onChange={this.props.handleFormInput}
-                className="form-control sign-in-input"
+                className="form-control login-input"
               />
             </div>
             <div className="col-sm-12 col-md-6">
-              <label for="password" className="sign-in-label">Password</label>
+              <label for="password" className="login-label">Password</label>
               <input 
                 id="password" 
                 type="password"
@@ -40,7 +40,7 @@ class SignInForm extends Component {
                 value={this.props.password}
                 placeholder="Password"
                 onChange={this.props.handleFormInput}
-                className="form-control sign-in-input"
+                className="form-control login-input"
                 />
             </div>
           </div>
@@ -51,18 +51,18 @@ class SignInForm extends Component {
           <div className="row">
             <div className="col-sm-12 col-md-6">
               <div 
-                class="custom-control custom-checkbox sign-in-checkbox-container"
+                className="custom-control custom-checkbox login-checkbox-container"
               >
                 <input 
                   type="checkbox" 
                   onChange={this.props.handleFormInput}
-                  class="custom-control-input sign-in-checkbox" 
+                  className="custom-control-input login-checkbox" 
                   id="remember-me" 
                   name="rememberme" 
                   checked={this.props.rememberme}
                 />
                 <label 
-                  class="custom-control-label sign-in-checkbox-label" 
+                  className="custom-control-label login-checkbox-label" 
                   for="remember-me"
                 >
                   Remember Me
@@ -71,7 +71,7 @@ class SignInForm extends Component {
               
             </div>
             <div className="col-sm-12 col-md-6">
-              <RouterLink to="#" className="float-right sign-in-link">Forgot Password</RouterLink>
+              <RouterLink to="#" className="float-right login-link">Forgot Password</RouterLink>
             </div>
           </div>
 
@@ -83,7 +83,7 @@ class SignInForm extends Component {
                 type="submit"
                 value="LOGIN"
                 onClick={this.handleSignIn}
-                className="btn sign-in-button"
+                className="btn login-button"
               />
             </div>
           </div>

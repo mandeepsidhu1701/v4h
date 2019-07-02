@@ -18,7 +18,7 @@ class VerifyForm extends Component {
 
   render() {
     return (
-      <form className="authentication__form">
+      <form className="auth-form">
         <input
           type="text"
           name="username"
