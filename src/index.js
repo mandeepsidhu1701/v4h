@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { createStore, compose, applyMiddleware } from 'redux';
 import { ConnectedRouter, routerMiddleware } from 'connected-react-router'
@@ -15,6 +15,8 @@ import './index.css';
 import AppContainer from './AppContainer';
 import HomeContainer from './pages/home/HomeContainer';
 import AuthContainer from './components/auth/authPage';
+
+import CheckBox from './components/auth/ui/CheckBox';
 
 Amplify.configure(config)
 

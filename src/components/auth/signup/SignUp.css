@@ -1,7 +1,7 @@
 .sign-up-base {
   outline: none;
   position: relative;
-  top: 4em;
+  top: 2em;
 }
 
 .sign-up-textbackground {
@@ -54,6 +54,16 @@
   transform: scale(.9, 1);
 }
 
+.sign-up-checkbox-label {
+  display: inline-block;
+  color: white;
+  font-size: 0.86em;
+  font-family: Calibri sans-serif monospace;
+  font-weight: 600;
+  margin: 0 0.25em 0.125em;
+  transform: scale(.9, 1);
+}
+
 .sign-up-input {
   font-size: 0.75em;
   padding: 1.8em 1.1em;
@@ -81,8 +91,8 @@
 
 .sign-up-button {
   color: white;
-  background-color: #f5bf1d;
-  border-color: #f5bf1d;
+  background-color: rgba(210,166,95,1);
+  border-color: rgba(210,166,95,1);
   border-radius: 2px;
   padding: 1.25em 4.5em;
   color: white;
@@ -157,27 +167,6 @@
   height: 70%;
   border-right: 3px solid white;
 }
-
-.sign-up-checkbox-container {
-  position: relative;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.sign-up-checkbox-label {
-  color: white;
-  font-size: 1em;
-  font-family: Calibri sans-serif monospace;
-  font-weight: 600;
-  transform: scale(.9, 1);
-}
-
-.sign-up-checkbox {
-  cursor: pointer;
-}
-
 .text-bold-md {
   font-size: 1em;
 }
@@ -191,8 +180,8 @@
   border-right: 2px solid white;
 }
 
-.sign-up-citizen-heading {
-  color: #f5bf1d;
+.sign-up-text-heading {
+  color: rgba(210,166,95,1);
   display: inline-block;
   font-family: Calibri sans-serif monospace;
   font-variant: small-caps;
@@ -203,10 +192,48 @@
   margin: 1em 0 0.5em -0.75em;
 }
 
-.sign-up-citizen-notice {
+.sign-up-text-small {
   color: white;
   font-family: Calibri sans-serif monospace;
-  font-size: 0.84em;
+  font-size: 0.70em;
   line-height: 2em;
+  transform: scale(.9, 1);
+  letter-spacing: 1px;
+  margin-left: -2.66rem;
+  margin-right: -2.66rem;
 }
 
+.text-justify {
+  text-align: justify;
+}
+
+.sign-up-sidebar-heading {
+  border-radius: 0.5em;
+  padding: 0.25rem 1.125rem;
+  margin-top: 1rem;
+  background-color: rgba(29,81,95,1);
+  font-weight: 800;
+  font-size: 1.125rem;
+  transform: scale(.9, 1);
+  letter-spacing: 3px;
+}
+
+.sign-up-sidebar-text-margin {
+  margin-left: -1.25rem;
+}
+
+.text-color-green {
+  color: rgba(69,154,24,1);
+}
+
+.text-color-blue {
+  color: rgba(2,140,243,1);
+}
+
+.text-color-pink {
+  color: rgba(246,115,253,1);
+}
+
+.text-color-yellow {
+  color: rgba(245,193,12,1);
+}

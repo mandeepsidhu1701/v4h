@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import { VERIFY } from '../SignUp';
 
+import CustomCheckBox from '../../ui/CheckBox';
+
 class SignUpForm extends Component {
   handleSignUp = event => {
     event.preventDefault();
@@ -93,23 +95,31 @@ class SignUpForm extends Component {
 
               <section>
 
-                <p className="sign-up-citizen-heading">become a vfh global citizen</p>
-                <p className="sign-up-citizen-notice">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                <p className="sign-up-text-heading">become a vfh global citizen</p>
+                <p className="sign-up-text-small text-justify">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum
                 </p>
 
-                <div className="sign-up-check-container mb-2">
-                  <input type="checkbox" id="donate-igen" className="sign-up-checkbox" />
-                  <label className="sign-up-label text-bold-md" for="donate-igen">Donate $1.00 to the Inter-Generational Equity Fund</label>
-                </div>
+                <CustomCheckBox 
+                  id="donate-igen" 
+                  name="donate" 
+                  label="Donate $1.00 to the Inter-Generational Equity Fund"
+                  onChange={this.props.handleFormInput}
+                  variant="sign-up-label text-bold-md my-2"
+                  checked={this.props.donate}
+                />
 
-                <div className="sign-up-check-container">
-                  <input type="checkbox" id="sanctuary-sign-up" className="sign-up-checkbox" />
-                  <label className="sign-up-label text-bold-md" for="sanctuary-sign-up">Permission to please also sign me up to the Sanctuary Apps and Services</label>
-                </div>
+                <CustomCheckBox 
+                  id="sanctuary-sign-up" 
+                  name="sanctuarySignUp" 
+                  label="Permission to please also sign me up to the Sanctuary Apps and Services"
+                  onChange={this.props.handleFormInput}
+                  variant="sign-up-label text-bold-md my-2"
+                  checked={this.props.sanctuarySignUp}
+                />
 
-                <p className="sign-up-citizen-notice mt-3 mb-5">
-                  <strong>Data Privacy Statement</strong>: In being a part of HCN your data is kept private and confidential, bring used only for the purpose you signed up for.
+                <p className="sign-up-text-small mt-3 mb-5">
+                  <strong>Data Privacy Statement</strong>: In being a part of HCN your data is kept private and confidential, being used only for the purpose you signed up for.
                 </p>
 
               </section>
