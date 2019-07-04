@@ -1,0 +1,239 @@
+.sign-up-base {
+  outline: none;
+  position: relative;
+  top: 2em;
+}
+
+.sign-up-textbackground {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.sign-up-navbar {
+  text-align: center;
+  margin-bottom: 0.75em;
+  min-width: 40%;
+}
+
+.sign-up-navlink {
+  color: rgba(255,255,255,0.9);
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: Calibri sans-serif monospace;
+  padding: 0.25em;
+  margin: 0 0.5em;
+  font-variant: small-caps;
+  font-size: 1.5em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transform: scale(.9, 1);
+}
+
+.sign-up-link {
+  display: inline-block;
+  color: rgba(255,255,255,1.0);
+  text-decoration: none;
+  cursor: pointer;
+  font-family: Calibri sans-serif monospace;
+  font-size: 1em;
+  font-weight: 600;
+  transform: scale(.9, 1);
+}
+
+.sign-up-form {
+  margin: 1em 0 0 0;
+}
+
+.sign-up-label {
+  display: inline-block;
+  color: white;
+  font-size: 0.86em;
+  font-family: Calibri sans-serif monospace;
+  font-weight: 600;
+  margin: 0 0 0.25em 0.125em;
+  transform: scale(.9, 1);
+}
+
+.sign-up-checkbox-label {
+  display: inline-block;
+  color: white;
+  font-size: 0.86em;
+  font-family: Calibri sans-serif monospace;
+  font-weight: 600;
+  margin: 0 0.25em 0.125em;
+  transform: scale(.9, 1);
+}
+
+.sign-up-input {
+  font-size: 0.75em;
+  padding: 1.8em 1.1em;
+  color: #5b6670;
+  border-radius: 0.75em;
+  font-family: Calibri sans-serif monospace;
+  margin-bottom: 2.5em;
+}
+
+.sign-up-divider {
+  border: 1px solid white;
+  margin: 0 0.25em;
+}
+
+.sign-up-card {
+  background-color: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 15px;
+  width: 90%;
+  margin: auto;
+  padding: 3.75em 3em;
+  outline: none;
+  position: relative;
+}
+
+.sign-up-button {
+  color: white;
+  background-color: rgba(210,166,95,1);
+  border-color: rgba(210,166,95,1);
+  border-radius: 2px;
+  padding: 1.25em 4.5em;
+  color: white;
+  font-size: 0.5em;
+  font-family: Calibri sans-serif monospace;
+  font-weight: 600;
+  font-variant: small-caps;
+}
+
+.triangle {
+  position: absolute;
+  margin: auto;
+  top: -7px;
+  left: 0;
+  right: 0;
+  transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  border-right: 2.5px solid white;
+  border-bottom: 2.5px solid white;
+  width: 12px;
+  height: 12px;
+}
+
+.margin-divider-vertical {
+  margin-top: 2.25em;
+}
+
+.card-border-bottom {
+  position: absolute;
+  margin: auto;
+  bottom: -2px;
+  left: 30%;
+  width: 40%;
+  border-bottom: 3px solid white;
+}
+
+.card-border-top-1 {
+  position: absolute;
+  margin: auto;
+  top: -2px;
+  left: 30%;
+  width: 19.3%;
+  border-top: 3px solid white;
+}
+
+.card-border-top-2 {
+  position: absolute;
+  margin: auto;
+  top: -2px;
+  left: 50.7%;
+  width: 19.3%;
+  border-top: 3px solid white;
+}
+
+.card-border-left {
+  position: absolute;
+  margin: auto;
+  left: -2px;
+  top: 15%;
+  height: 70%;
+  border-left: 3px solid white;
+}
+
+.card-border-right {
+  position: absolute;
+  margin: auto;
+  right: -2px;
+  top: 15%;
+  height: 70%;
+  border-right: 3px solid white;
+}
+.text-bold-md {
+  font-size: 1em;
+}
+
+.card-divider-vertical {
+  position: absolute;
+  margin: 0 auto;
+  width: 35.5%;
+  top: 15%;
+  height: 70%;
+  border-right: 2px solid white;
+}
+
+.sign-up-text-heading {
+  color: rgba(210,166,95,1);
+  display: inline-block;
+  font-family: Calibri sans-serif monospace;
+  font-variant: small-caps;
+  font-size: 1.55em;
+  font-weight: 550;
+  letter-spacing: 2px;
+  transform: scale(.9, 1);
+  margin: 1em 0 0.5em -0.75em;
+}
+
+.sign-up-text-small {
+  color: white;
+  font-family: Calibri sans-serif monospace;
+  font-size: 0.70em;
+  line-height: 2em;
+  transform: scale(.9, 1);
+  letter-spacing: 1px;
+  margin-left: -2.66rem;
+  margin-right: -2.66rem;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.sign-up-sidebar-heading {
+  border-radius: 0.5em;
+  padding: 0.25rem 1.125rem;
+  margin-top: 1rem;
+  background-color: rgba(29,81,95,1);
+  font-weight: 800;
+  font-size: 1.125rem;
+  transform: scale(.9, 1);
+  letter-spacing: 3px;
+}
+
+.sign-up-sidebar-text-margin {
+  margin-left: -1.25rem;
+}
+
+.text-color-green {
+  color: rgba(69,154,24,1);
+}
+
+.text-color-blue {
+  color: rgba(2,140,243,1);
+}
+
+.text-color-pink {
+  color: rgba(246,115,253,1);
+}
+
+.text-color-yellow {
+  color: rgba(245,193,12,1);
+}
