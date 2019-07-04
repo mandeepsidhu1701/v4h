@@ -3,6 +3,8 @@ import { Link as RouterLink } from "react-router-dom";
 import { Auth } from "aws-amplify";
 import { IS_LOGGED_IN } from '../SignIn';
 
+import CustomCheckBox from '../../ui/CheckBox';
+
 class SignInForm extends Component {
   handleSignIn = event => {
     event.preventDefault();
@@ -50,24 +52,14 @@ class SignInForm extends Component {
 
           <div className="row">
             <div className="col-sm-12 col-md-6">
-              <div 
-                className="custom-control custom-checkbox login-checkbox-container"
-              >
-                <input 
-                  type="checkbox" 
-                  onChange={this.props.handleFormInput}
-                  className="custom-control-input login-checkbox" 
-                  id="remember-me" 
-                  name="rememberme" 
-                  checked={this.props.rememberme}
-                />
-                <label 
-                  className="custom-control-label login-checkbox-label" 
-                  for="remember-me"
-                >
-                  Remember Me
-                </label>
-              </div>
+              <CustomCheckBox 
+                onChange={this.props.handleFormInput}
+                id="remember-me" 
+                name="rememberme" 
+                checked={this.props.rememberme}
+                variant="login-checkbox-label"
+                label="Remember Me"
+              />
               
             </div>
             <div className="col-sm-12 col-md-6">
