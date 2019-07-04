@@ -14,9 +14,11 @@ import config from './aws-exports';
 import './index.css';
 import AppContainer from './AppContainer';
 import HomeContainer from './pages/home/HomeContainer';
-import AuthContainer from './components/auth/authPage';
 
-import CheckBox from './components/auth/ui/CheckBox';
+/* #DEVELOPMENT remove these components when auth forms are completed */
+import AuthContainer from './components/auth/authPage';
+import AuthVerifyFormContainer from './components/auth/authPageVerifyForm';
+/* #DEVELOPMENT */
 
 Amplify.configure(config)
 
@@ -44,7 +46,10 @@ const Routes = () => (
         <main>
           <Route path="/" exact component={AppContainer} />
           <Route path="/home" component={HomeContainer} />
-          <Route path="/auth" component={AuthContainer} />
+          {/* #DEVELOPMENT remove these two routes when auth forms are completed */}
+            <Route path="/auth" component={AuthContainer} />
+            <Route path="/authVerify" component={AuthVerifyFormContainer} />
+          {/* #DEVELOPMENT */}
         </main>
       </div>
     </ConnectedRouter>

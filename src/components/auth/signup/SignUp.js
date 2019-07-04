@@ -38,6 +38,9 @@ class SignUp extends Component {
         let user = {username:data.username,...data.attributes};
         if(user.email_verified) {
           // TODO: how to verify email and what to do if not ???
+          console.log("USER IS VERIFIED: ", user.username, user.attributes);
+        } else {
+          console.log("UNVERIFIED IS USER: ", user.username, user.attributes);
         }
       })
       .catch(err => console.log(err));
