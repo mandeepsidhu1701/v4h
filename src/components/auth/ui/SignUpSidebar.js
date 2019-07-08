@@ -6,18 +6,18 @@ class SignUpSidebar extends Component {
 
   render() {
     return ( 
-      <aside className="auth-sidebar-base">
+      <aside className="sign-up-sidebar-base">
         <div className="container">
           <div className="row">
-            <div className="col-sm-12 col-md-8">
+            <div className="col-xs-12 col-sm-8">
               <div className="row">
                 <p className="sign-up-sidebar-heading text-color-green">HEALTH</p>
               </div>
               <div className="row">
-                <p className="sign-up-text-small sign-up-sidebar-text-margin">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+                <p className="sign-up-text text-small sign-up-sidebar-text-margin">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
               </div>
             </div>
-            <div className="col-sm-12 col-md-4">
+            <div className="col-xs-12 col-sm-4">
               <div className="pl-4 pt-3">
                 <Sphere type={0} sphereRad={50} width={90} height={90} />
               </div>
@@ -27,15 +27,15 @@ class SignUpSidebar extends Component {
             
           </div>
           <div className="row">
-          <div className="col-sm-12 col-md-8">
+          <div className="col-xs-12 col-sm-8">
               <div className="row">
                 <p className="sign-up-sidebar-heading text-color-blue">PROSPERITY</p>
               </div>
               <div className="row">
-                <p className="sign-up-text-small sign-up-sidebar-text-margin">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+                <p className="sign-up-text text-small sign-up-sidebar-text-margin">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
               </div>
             </div>
-            <div className="col-sm-12 col-md-4">
+            <div className="col-xs-12 col-sm-4">
               <div className="pl-4 pt-3">
                 <Sphere type={1} sphereRad={50} width={90} height={90}/>
               </div>
@@ -45,15 +45,15 @@ class SignUpSidebar extends Component {
             
           </div>
           <div className="row">
-          <div className="col-sm-12 col-md-8">
+          <div className="col-xs-12 col-sm-8">
               <div className="row">
                 <p className="sign-up-sidebar-heading text-color-pink">INSPIRATION</p>
               </div>
               <div className="row">
-                <p className="sign-up-text-small sign-up-sidebar-text-margin">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+                <p className="sign-up-text text-small sign-up-sidebar-text-margin">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
               </div>
             </div>
-            <div className="col-sm-12 col-md-4">
+            <div className="col-xs-12 col-sm-4">
               <div className="pl-4 pt-3">
                 <Sphere type={2} sphereRad={50} width={90} height={90}/>
               </div>
@@ -63,15 +63,15 @@ class SignUpSidebar extends Component {
             
           </div>
           <div className="row">
-          <div className="col-sm-12 col-md-8">
+          <div className="col-xs-12 col-sm-8">
               <div className="row">
                 <p className="sign-up-sidebar-heading text-color-yellow">JOY</p>
               </div>
               <div className="row">
-                <p className="sign-up-text-small sign-up-sidebar-text-margin">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
+                <p className="sign-up-text text-small sign-up-sidebar-text-margin">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
               </div>
             </div>
-            <div className="col-sm-12 col-md-4">
+            <div className="col-xs-12 col-sm-4">
               <div className="pl-4 pt-3">
                 <Sphere type={3} sphereRad={50} width={90} height={90}/>
               </div>

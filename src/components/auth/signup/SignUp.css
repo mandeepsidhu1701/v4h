@@ -44,6 +44,12 @@
   margin: 1em 0 0 0;
 }
 
+@media only screen and (max-width: 767px) {
+  .sign-up-form {
+    margin: 1em 0 1.5em 0;
+  }
+}
+
 .sign-up-label {
   display: inline-block;
   color: white;
@@ -171,13 +177,28 @@
   font-size: 1em;
 }
 
-.card-divider-vertical {
+.card-divider {
   position: absolute;
-  margin: 0 auto;
-  width: 35.5%;
-  top: 15%;
-  height: 70%;
-  border-right: 2px solid white;
+}
+
+@media only screen and (min-width: 768px) {
+  .card-divider {
+    margin: 0 auto;
+    width: 35.5%;
+    top: 15%;
+    height: 70%;
+    border-right: 2px solid white;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .card-divider {
+    margin: auto 0;
+    width: 70%;
+    left: 15%;
+    height: 35.5%;
+    border-top: 2px solid white;
+  }
 }
 
 .sign-up-text-heading {
@@ -192,7 +213,7 @@
   margin: 1em 0 0.5em -0.75em;
 }
 
-.sign-up-text-small {
+.sign-up-text {
   color: white;
   font-family: Calibri sans-serif monospace;
   font-size: 0.70em;
@@ -202,6 +223,19 @@
   margin-left: -2.66rem;
   margin-right: -2.66rem;
 }
+
+.text-small {
+  font-size: 0.7em;
+}
+
+.text-medium {
+  font-size: 1em;
+}
+
+.text-large {
+  font-size: 1.25em;
+}
+
 
 .text-justify {
   text-align: justify;
@@ -236,4 +270,19 @@
 
 .text-color-yellow {
   color: rgba(245,193,12,1);
+}
+
+@media only screen and (max-width: 767px) {
+  .sign-up-sidebar-base {
+    margin: 1.5em 0 0 0;
+  }
+}
+
+.sign-up-error-text {
+  color: rgba(255,72,72,1.0);
+  font-family: Calibri sans-serif monospace;
+  font-size: 0.9em;
+  transform: scale(.9, 1);
+  letter-spacing: 1px;
+  margin-left: -2.66rem;
 }

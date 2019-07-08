@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import { VERIFY } from '../SignUp';
+import { MIN_PASSWORDLENGTH, PASSWORD_REGEX, PHONE_REGEX } from '../../formConstants';
 
 import CustomCheckBox from '../../ui/CheckBox';
+import ErrorBar from '../../ui/ErrorBar';
 
 class SignUpForm extends Component {
   handleSignUp = event => {
@@ -17,18 +19,53 @@ class SignUpForm extends Component {
       },
       validationData: [] 
     })
-      .then(data => console.log(data))
-      .then(()=>this.props.switchComponent(VERIFY)) // switches Sign Up to Verification
-      .catch(err => console.log(err))
+      .then(data => {
+          // returns object containing cognito user, and if user is verified.
+        }
+      ) 
+      .then(() => {
+          this.props.clearErrors();
+          this.props.switchComponent(VERIFY);
+          }
+        )
+      .catch(err => {
+          this.props.handleErrors(err);
+        }
+      )
   };
 
   render() {
+    let errorMessage;
+    if (this.props.inputs.serverError !== null) {
+      const error = this.props.inputs.serverError;
+      if(error.code === "InvalidPasswordException" || error.message.includes(
+        "Value at 'password' failed to satisfy constraint"
+      )) {
+        errorMessage = `Password must have at least ${MIN_PASSWORDLENGTH} characters, and be made of lower case, upper case, special chars and numerals.`;
+      }
+      else if (error.message.includes("Invalid phone number format")) {
+        errorMessage = "Contact Number has an invalid format.";
+      }
+      else if (error.message.includes("Invalid email address format")) {
+        errorMessage = "Email address has an invalid format.";
+      }
+      else {
+        errorMessage = error.message;
+      }
+    }
+    else if (this.props.inputs.error !== null) {
+      errorMessage = this.props.inputs.error
+    } else {
+      errorMessage = null;
+    }
+    
     return (
       <form className="sign-up-form">
         <div className="container">
           <div className="row">
-            <div className="col-sm-12 col-md-6">
-              <label className="sign-up-label" for="username">Name</label>
+            <ErrorBar error={errorMessage} />
+            <div className="col-md-12 col-lg-6">
+              <label className="sign-up-label" htmlFor="username">Name</label>
               <input
                 id="username"
                 type="text"
@@ -41,11 +78,11 @@ class SignUpForm extends Component {
                 required
               />
             </div>
-            <div className="col-sm-12 col-md-6">
-              <label className="sign-up-label" for="username">Phone</label>
+            <div className="col-md-12 col-lg-6">
+              <label className="sign-up-label" htmlFor="username">Phone</label>
               <input
                 type="tel"
-                pattern="+[0-9]{2}[0-9]{2}[0-9]{4}[0-9]{4}"
+                pattern={PHONE_REGEX}
                 name="phone_number"
                 value={this.props.phone_number}
                 placeholder="+642255005500"
@@ -57,8 +94,8 @@ class SignUpForm extends Component {
             </div>
           </div>
           <div className="row">
-            <div className="col-sm-12 col-md-6">
-              <label className="sign-up-label" for="username">E-mail</label>
+            <div className="col-md-12 col-lg-6">
+              <label className="sign-up-label" htmlFor="username">E-mail</label>
               <input
                 type="email"
                 name="email"
@@ -70,16 +107,16 @@ class SignUpForm extends Component {
                 required
               />
             </div>
-            <div className="col-sm-12 col-md-6">
-              <label className="sign-up-label" for="username">Password</label>
+            <div className="col-md-12 col-lg-6">
+              <label className="sign-up-label" htmlFor="username">Password</label>
               <input
                 id="password"
                 type="password"
                 name="password"
                 value={this.props.password}
                 placeholder="Password"
-                minlength="12"
-                pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                minLength={MIN_PASSWORDLENGTH}
+                pattern={PASSWORD_REGEX}
                 title="must have lower case, upper case, numbers and special chars, and a minimum length of 12"
                 onChange={this.props.handleFormInput}
                 className="form-control sign-up-input"
@@ -91,12 +128,12 @@ class SignUpForm extends Component {
 
         <div className="container">
           <div className="row">
-            <div className="col-sm-12">
+            <div className="col-md-12">
 
               <section>
 
                 <p className="sign-up-text-heading">become a vfh global citizen</p>
-                <p className="sign-up-text-small text-justify">
+                <p className="sign-up-text text-small text-justify">
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum
                 </p>
 
@@ -118,7 +155,7 @@ class SignUpForm extends Component {
                   checked={this.props.sanctuarySignUp}
                 />
 
-                <p className="sign-up-text-small mt-3 mb-5">
+                <p className="sign-up-text text-small mt-3 mb-5">
                   <strong>Data Privacy Statement</strong>: In being a part of HCN your data is kept private and confidential, being used only for the purpose you signed up for.
                 </p>
 
