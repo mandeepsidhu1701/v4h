@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { withRouter, Redirect } from 'react-router';
+import { withStyles, Grid } from '@material-ui/core';
 import SignUpForm from "./forms/SignUpForm";
 import VerifyForm from "./forms/VerifyForm";
-import SignUpSidebar from "../ui/SignUpSidebar";
+import SignUpSidebar from "./ui/SignUpSidebar";
+import { containerStyles } from './styles';
 
 import { Auth } from "aws-amplify";
 
-import './SignUp.css';
 
 
 const SIGN_UP = "SignUp";
@@ -114,28 +115,28 @@ class SignUp extends Component {
   };
 
   render() {
+
+    const {classes} = this.props;
     return ( 
-      <section className="sign-up-base sign-up-textbackground p-3">
-        <div className="card sign-up-card">
-          <div className="triangle" />
-          <div className="card-border-bottom" />
-          <div className="card-border-top-1" />
-          <div className="card-border-top-2" />
-          <div className="card-border-left" />
-          <div className="card-border-right" />
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-sm-12 col-md-6 col-lg-7">
+      <section className={classes.signUpBase}>
+        <div className={classes.signUpCard}>
+          <div className={classes.triangle} />
+          <div className={classes.cardBorderBottom} />
+          <div className={classes.cardBorderTopA} />
+          <div className={classes.cardBorderTopB} />
+          <div className={classes.cardBorderLeft} />
+          <div className={classes.cardBorderRight} />
+          <Grid container>
+              <Grid item xs={12} sm={12} md={6} lg={7}>
                 {this.AuthComponent()}
-              </div>
-              <div className="col-sm-12 col-md-1 col-lg-1">
-                <div className="card-divider"></div>
-              </div>
-              <div className="col-sm-12 col-md-5 col-lg-4">
+              </Grid>
+              <Grid item xs={12} sm={12} md={1} lg={1}>
+                <div className={classes.cardDivider}></div>
+              </Grid>
+              <Grid item xs={12} sm={12} md={5} lg={4}>
                 <SignUpSidebar />
-              </div>
-            </div>
-          </div>
+              </Grid>
+          </Grid>
         </div>
       </section>
     );
@@ -144,4 +145,4 @@ class SignUp extends Component {
 
 export { VERIFY, SIGN_UP, IS_VERIFIED };
 
-export default withRouter(SignUp);
+export default withRouter(withStyles(containerStyles)(SignUp));

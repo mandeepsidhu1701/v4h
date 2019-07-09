@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import { withStyles, Grid, FormGroup, InputLabel, TextField, Button } from "@material-ui/core";
 import { Auth } from "aws-amplify";
 import { IS_VERIFIED } from '../SignUp';
 
 import ErrorBar from '../../ui/ErrorBar';
+
+import { verifyFormStyles } from '../styles';
 
 class VerifyForm extends Component {
   handleVerification = event => {
@@ -46,66 +49,96 @@ class VerifyForm extends Component {
       errorMessage = null;
     }
 
+    const {classes} = this.props;
+
     return (
-      <form className="sign-up-form">
-        <div className="container">
-          <div className="row">
-          <ErrorBar error={errorMessage} />
-            <div className="col-md-12">
-              <p className="sign-up-text text-medium mt-3 mb-5">An verification code has been sent to the email you provided. Please enter the code below.</p>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-12 col-lg-6">
-              <label className="sign-up-label" htmlFor="username">Name</label>
-              <input
-                type="text"
-                name="username"
-                id="username"
-                value={this.props.inputs.username}
-                placeholder="Username"
-                onChange={this.props.handleFormInput}
-                className="form-control sign-up-input"
-                required
-              />
-            </div>
-            <div className="col-md-12 col-lg-6">
-              <label className="sign-up-label" htmlFor="verify-code">Verification Code</label>
-              <input
-                type="text"
-                id="verify-code"
-                name="code"
-                value={this.props.code}
-                placeholder="Verification Code"
-                onChange={this.props.handleFormInput}
-                className="form-control sign-up-input"
-                required
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-sm-12">
-              <section>
-                <p className="sign-up-text-heading">become a vfh global citizen</p>
-                <p className="sign-up-text text-small text-justify mb-5">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
-                </p>
+      <form className={classes.signUpForm}>
+        <Grid container>
+          
+          { 
+            errorMessage ? 
+            <Grid item xs={12} sm={12} md={12} lg={12}>
+              <ErrorBar error={errorMessage} />
+            </Grid> :
+            null
+          }
 
-                <p className="sign-up-text text-small text-justify mb-5">
-                <strong>Data Privacy Statement:</strong> In being a part of HCN your data is kept private and confidential, bring used only for the purpose you signed up for.
-                </p>
-                </section>
-            
+          <Grid item xs={12} sm={12} md={12} lg={6}>
+            <p className={`${classes.signUpText} ${classes.textAlert}`}>
+              An verification code has been sent to the email you provided. Please enter the code below.
+            </p>
+          </Grid>
+          <Grid container>
+            <Grid item xs={12} sm={12} md={12} lg={6}>
+              <FormGroup column className={classes.inputGroup}>
+                <InputLabel className={classes.label}>Name</InputLabel>
+                <TextField
+                  id="username"
+                  name="username"
+                  fullWidth
+                  margin="normal"
+                  variant="outlined"
+                  className={classes.input}
+                  value={this.props.inputs.username}
+                  onChange={this.props.handleFormInput}
+                  title="This username must match the one you signed up with"
+                  placeholder="John Doe"
+                  inputProps={{
+                    className: classes.inputBase
+                  }}
+                  required
+                />
+              </FormGroup>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12} lg={6}>
+              <FormGroup column className={classes.inputGroup}>
+                <InputLabel className={classes.label}>Verification Code</InputLabel>
+                <TextField
+                  id="verify-code"
+                  name="code"
+                  fullWidth
+                  margin="normal"
+                  variant="outlined"
+                  className={classes.input}
+                  value={this.props.inputs.username}
+                  onChange={this.props.handleFormInput}
+                  title="This username must match the one you signed up with"
+                  placeholder="John Doe"
+                  inputProps={{
+                    className: classes.inputBase
+                  }}
+                  required
+                />
+              </FormGroup>
+            </Grid>
+          </Grid>
 
-              <input
-                type="submit"
-                value="SUBMIT VERIFICATION"
-                onClick={this.handleVerification}
-                className="btn sign-up-button"
-              />
-            </div>
-          </div>
-        </div>
+          <Grid item xs={12} sm={12} md={12} lg={12}>
+            <section>
+              <p className={classes.signUpText}>
+                become a vfh global citizen
+              </p>
+
+              <p className={`${classes.signUpText} ${classes.textJustify}`}>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+              </p>
+
+              <p className={`${classes.signUpText} ${classes.textJustify}`}>
+                <strong>Data Privacy Statement:</strong>
+                  In being a part of HCN your data is kept private and confidential, bring used only for the purpose you signed up for.
+              </p>
+            </section>
+          </Grid>
+
+          <Grid item xs={12} sm={12} md={12} lg={12}>
+            <Button
+              onClick={this.handleVerification}
+              className={classes.submitButton}
+            >
+              VERIFY
+            </Button>
+          </Grid>
+        </Grid>
       </form>
     );
   }

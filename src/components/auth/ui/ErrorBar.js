@@ -1,16 +1,27 @@
 import React, { Component } from "react";
+import { withStyles } from "@material-ui/core";
+
+const styles = theme => ({
+  errorBar: {
+    color: 'rgba(255,72,72,1.0)',
+    fontFamily: 'Calibri sans-serif monospace',
+    transform: 'scale(.9, 1)',
+    letterSpacing: '1px',
+    marginLeft: '-2.66rem',
+    fontSize: '1rem'
+  }
+});     
 
 class ErrorBar extends Component {
 
   render () {
+    const {classes} = this.props;
     return (
-      <div className="col-md-12">
-        <p className="sign-up-error-text text-medium">
+        <p className={classes.errorBar}>
           <strong>Error:</strong> {this.props.error}
         </p>
-      </div>
     )
   }
 }
 
-export default ErrorBar;
+export default withStyles(styles)(ErrorBar);

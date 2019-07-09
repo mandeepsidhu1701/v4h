@@ -1,10 +1,14 @@
 import React, { Component } from "react";
+import { withStyles, Grid, FormGroup, InputLabel, Checkbox, TextField, Button } from "@material-ui/core";
 import { Auth } from "aws-amplify";
 import { VERIFY } from '../SignUp';
 import { MIN_PASSWORDLENGTH, PASSWORD_REGEX, PHONE_REGEX } from '../../formConstants';
 
-import CustomCheckBox from '../../ui/CheckBox';
 import ErrorBar from '../../ui/ErrorBar';
+
+import CheckboxOutlineCheckedIcon from '../../ui/CheckboxOutlineCheckedIcon';
+
+import { signUpFormStyles } from '../styles';
 
 class SignUpForm extends Component {
   handleSignUp = event => {
@@ -36,7 +40,7 @@ class SignUpForm extends Component {
 
   render() {
     let errorMessage;
-    if (this.props.inputs.serverError !== null) {
+    if (this.props.inputs.serverError) {
       const error = this.props.inputs.serverError;
       if(error.code === "InvalidPasswordException" || error.message.includes(
         "Value at 'password' failed to satisfy constraint"
@@ -53,127 +57,184 @@ class SignUpForm extends Component {
         errorMessage = error.message;
       }
     }
-    else if (this.props.inputs.error !== null) {
+    else if (this.props.inputs.error) {
       errorMessage = this.props.inputs.error
     } else {
       errorMessage = null;
     }
+
+    const { classes } = this.props;
     
     return (
-      <form className="sign-up-form">
-        <div className="container">
-          <div className="row">
-            <ErrorBar error={errorMessage} />
-            <div className="col-md-12 col-lg-6">
-              <label className="sign-up-label" htmlFor="username">Name</label>
-              <input
-                id="username"
-                type="text"
-                name="username"
-                title="This username will be permanent"
-                value={this.props.username}
-                placeholder="John Doe"
-                onChange={this.props.handleFormInput}
-                className="form-control sign-up-input"
-                required
-              />
-            </div>
-            <div className="col-md-12 col-lg-6">
-              <label className="sign-up-label" htmlFor="username">Phone</label>
-              <input
-                type="tel"
-                pattern={PHONE_REGEX}
-                name="phone_number"
-                value={this.props.phone_number}
-                placeholder="+642255005500"
-                title="For example: +6421555217 or +642571755555. Used for verification and account recovery"
-                onChange={this.props.handleFormInput}
-                className="form-control sign-up-input"
-                required
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-12 col-lg-6">
-              <label className="sign-up-label" htmlFor="username">E-mail</label>
-              <input
-                type="email"
-                name="email"
-                value={this.props.email}
-                placeholder="error@mail.com"
-                onChange={this.props.handleFormInput}
-                className="form-control sign-up-input"
-                title="enter a valid email. This email will be used for account verification and recovery"
-                required
-              />
-            </div>
-            <div className="col-md-12 col-lg-6">
-              <label className="sign-up-label" htmlFor="username">Password</label>
-              <input
-                id="password"
-                type="password"
-                name="password"
-                value={this.props.password}
-                placeholder="Password"
-                minLength={MIN_PASSWORDLENGTH}
-                pattern={PASSWORD_REGEX}
-                title="must have lower case, upper case, numbers and special chars, and a minimum length of 12"
-                onChange={this.props.handleFormInput}
-                className="form-control sign-up-input"
-                required
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12">
-
-              <section>
-
-                <p className="sign-up-text-heading">become a vfh global citizen</p>
-                <p className="sign-up-text text-small text-justify">
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum
-                </p>
-
-                <CustomCheckBox 
-                  id="donate-igen" 
-                  name="donate" 
-                  label="Donate $1.00 to the Inter-Generational Equity Fund"
+      <form className={classes.signUpForm}>
+        <Grid container>
+          
+          { 
+            errorMessage ? 
+            <Grid item xs={12} sm={12} md={12} lg={12}>
+              <ErrorBar error={errorMessage} />
+            </Grid> :
+            null
+          }
+            
+          <Grid container>
+            <Grid item xs={12} sm={12} md={12} lg={6}>
+              <FormGroup column className={classes.inputGroup}>
+                <InputLabel className={classes.label}>Name</InputLabel>
+                <TextField
+                  id="username"
+                  name="username"
+                  fullWidth
+                  margin="normal"
+                  variant="outlined"
+                  className={classes.input}
+                  value={this.props.username}
                   onChange={this.props.handleFormInput}
-                  variant="sign-up-label text-bold-md my-2"
-                  checked={this.props.donate}
+                  title="This username will be permanent"
+                  placeholder="John Doe"
+                  inputProps={{
+                    className: classes.inputBase
+                  }}
+                  required
                 />
-
-                <CustomCheckBox 
-                  id="sanctuary-sign-up" 
-                  name="sanctuarySignUp" 
-                  label="Permission to please also sign me up to the Sanctuary Apps and Services"
+              </FormGroup>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12} lg={6}>
+              <FormGroup column className={classes.inputGroup}>
+                <InputLabel className={classes.label}>Phone</InputLabel>
+                <TextField
+                  id="phone"
+                  name="phone_number"
+                  fullWidth
+                  margin="normal"
+                  variant="outlined"
+                  className={classes.input}
+                  value={this.props.phone_number}
                   onChange={this.props.handleFormInput}
-                  variant="sign-up-label text-bold-md my-2"
-                  checked={this.props.sanctuarySignUp}
+                  title="For example: +6421555217 or +642571755555. Used for verification and account recovery"
+                  placeholder="+642255005500"
+                  inputProps={{
+                    className: classes.inputBase,
+                    type: 'tel',
+                    pattern: PHONE_REGEX
+                  }}
+                  required
                 />
+              </FormGroup>
+            </Grid>
+          </Grid>
+          <Grid container>
+            <Grid item xs={12} sm={12} md={12} lg={6}>
+              <FormGroup column className={classes.inputGroup}>
+                <InputLabel className={classes.label}>E-mail</InputLabel>
+                <TextField
+                  id="email"
+                  name="email"
+                  fullWidth
+                  margin="normal"
+                  variant="outlined"
+                  className={classes.input}
+                  value={this.props.email}
+                  onChange={this.props.handleFormInput}
+                  title="Enter a valid email. This email will be used for account verification and recovery"
+                  placeholder="error@mail.com"
+                  inputProps={{
+                    className: classes.inputBase,
+                    type: 'email'
+                  }}
+                  required
+                />
+              </FormGroup>
+            </Grid>
+            <Grid item xs={12} sm={12} md={12} lg={6}>
+              <FormGroup column className={classes.inputGroup}>
+                <InputLabel className={classes.label}>Password</InputLabel>
+                <TextField
+                  id="password"
+                  name="password"
+                  fullWidth
+                  margin="normal"
+                  variant="outlined"
+                  className={classes.input}
+                  value={this.props.password}
+                  onChange={this.props.handleFormInput}
+                  title="Must have lower case, upper case, numbers and special chars, and a minimum length of 12"
+                  inputProps={{
+                    className: classes.inputBase,
+                    type: 'password',
+                    pattern: PASSWORD_REGEX
+                  }}
+                  required
+                />
+              </FormGroup>
+            </Grid>
+          </Grid>
+        </Grid>
 
-                <p className="sign-up-text text-small mt-3 mb-5">
-                  <strong>Data Privacy Statement</strong>: In being a part of HCN your data is kept private and confidential, being used only for the purpose you signed up for.
-                </p>
+        <Grid container>
+          <Grid item xs={12} sm={12} md={12}>
+            <section>
+              <p className={classes.signUpTextHeading}>become a vfh global citizen</p>
+              <p className={`${classes.signUpText} ${classes.textJustify}`}>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum
+              </p>
+            </section>
+          </Grid>
 
-              </section>
-
-              <input
-                type="submit"
-                value="SIGN UP"
-                onClick={this.handleSignUp}
-                className="btn sign-up-button"
+          <Grid item xs={12} sm={12} md={12}>
+            <FormGroup row className={classes.inputGroup}>
+              <Checkbox
+                color="default"
+                id="donate-igen"
+                classes={{root: classes.checkbox, checked: classes.checkboxChecked}}
+                checkedIcon={<CheckboxOutlineCheckedIcon />}
+                checked={this.props.donate}
+                onChange={this.props.handleFormInput}
+                name="donate"
               />
+              <InputLabel className={classes.label}>
+                Donate $1.00 to the Inter-Generational Equity Fund
+              </InputLabel>
+            </FormGroup>
+          </Grid>
 
-            </div>
-          </div>
-        </div>
+          <Grid item xs={12} sm={12} md={12}>
+            <FormGroup row className={classes.inputGroup}>
+              <Checkbox
+                color="default"
+                id="sanctuary-sign-up"
+                classes={{root: classes.checkbox, checked: classes.checkboxChecked}}
+                checkedIcon={<CheckboxOutlineCheckedIcon />}
+                checked={this.props.sanctuarySignUp}
+                onChange={this.props.handleFormInput}
+                name="sanctuarySignUp"
+              />
+              <InputLabel className={classes.label}>
+                Permission to please also sign me up to the Sanctuary Apps and Services
+              </InputLabel>
+            </FormGroup>
+          </Grid>
+
+          <Grid item xs={12} sm={12} md={12}>
+            <section>
+              <p className={`${classes.signUpText} mt-3 mb-5`}>
+                <strong>Data Privacy Statement</strong>: In being a part of HCN your data is kept private and confidential, being used only for the purpose you signed up for.
+              </p>
+            </section>
+          </Grid>
+
+          <Grid item xs={12} sm={12} md={12}>
+            <Button
+              onClick={this.handleSignUp}
+              className={classes.submitButton}
+            >
+              SIGN UP
+            </Button>
+          </Grid>
+        </Grid>
       </form>
     );
   }
 }
 
-export default SignUpForm;
+export default withStyles(signUpFormStyles)(SignUpForm);

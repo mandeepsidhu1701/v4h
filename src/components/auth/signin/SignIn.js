@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import { withRouter, Redirect } from 'react-router';
 import SignInForm from "./forms/SignInForm";
+import { withStyles } from "@material-ui/core";
+import { containerStyles } from './styles';
 
 import { Auth } from "aws-amplify";
 
-import './SignIn.css';
-
 const SIGN_IN = "SignIn";
 const IS_LOGGED_IN = "WelcomeUser";
-
 
 class SignIn extends Component {
 
@@ -98,15 +97,17 @@ class SignIn extends Component {
     this.setState({ status });
   };
   render() {
+
+    const {classes} = this.props;
     return ( 
-      <section className="login-base login-textbackground p-3">
-        <div className="card login-card">
-          <div className="triangle" />
-          <div className="card-border-bottom" />
-          <div className="card-border-top-1" />
-          <div className="card-border-top-2" />
-          <div className="card-border-left" />
-          <div className="card-border-right" />
+      <section className={classes.loginBase} >
+        <div className={classes.loginCard}>
+          <div className={classes.triangle} />
+          <div className={classes.cardBorderBottom} />
+          <div className={classes.cardBorderTopA} />
+          <div className={classes.cardBorderTopB} />
+          <div className={classes.cardBorderLeft} />
+          <div className={classes.cardBorderRight} />
           {this.AuthComponent()}
         </div>
       </section>
@@ -116,4 +117,4 @@ class SignIn extends Component {
 
 export { IS_LOGGED_IN };
 
-export default withRouter(SignIn);
+export default withRouter(withStyles(containerStyles)(SignIn));
