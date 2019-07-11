@@ -18,6 +18,7 @@ import HomeContainer from './pages/home/HomeContainer';
 /* #DEVELOPMENT remove these components when auth forms are completed */
 import AuthSignUpContainer from './components/auth/authPageSignUp';
 import AuthSignInContainer from './components/auth/authPageSignIn';
+import AuthVerifyContainer from './components/auth/authPageVerifySignUp';
 /* #DEVELOPMENT */
 
 Amplify.configure(config)
@@ -48,6 +49,7 @@ const Routes = () => (
           <Route path="/home" component={HomeContainer} />
           {/* #DEVELOPMENT remove these two routes when auth forms are completed */}
           <Route path="/auth/sign-in" component={AuthSignInContainer} />
+          <Route path="/auth/verify" component={AuthVerifyContainer} />
           <Route path="/auth/sign-up" component={AuthSignUpContainer} />
           {/* #DEVELOPMENT */}
         </main>

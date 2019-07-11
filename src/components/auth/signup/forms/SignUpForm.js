@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withStyles, Grid, FormGroup, InputLabel, Checkbox, TextField, Button } from "@material-ui/core";
-import { Auth } from "aws-amplify";
+import { Link as RouterLink } from "react-router-dom";
+
 import { VERIFY } from '../SignUp';
 import { MIN_PASSWORDLENGTH, PASSWORD_REGEX, PHONE_REGEX } from '../../formConstants';
 
@@ -13,45 +14,30 @@ import { signUpFormStyles } from '../styles';
 class SignUpForm extends Component {
   handleSignUp = event => {
     event.preventDefault();
-    const { username, email, password, phone_number } = this.props.inputs;
-    Auth.signUp({
-      username,
-      password,
-      attributes: {
-        email, 
-        phone_number 
-      },
-      validationData: [] 
-    })
-      .then(data => {
-          // returns object containing cognito user, and if user is verified.
-        }
-      ) 
-      .then(() => {
-          this.props.clearErrors();
-          this.props.switchComponent(VERIFY);
-          }
-        )
-      .catch(err => {
-          this.props.handleErrors(err);
-        }
-      )
+    const { username, password, email, phone_number } = this.props.inputs;
+    const callback = () => {
+      this.props.switchComponent(VERIFY);
+    }
+    this.props.handleSignUp(username, password, email, phone_number, callback);
   };
 
   render() {
     let errorMessage;
-    if (this.props.inputs.serverError) {
-      const error = this.props.inputs.serverError;
-      if(error.code === "InvalidPasswordException" || error.message.includes(
+    if (this.props.serverError) {
+      const error = this.props.serverError;
+      if (typeof error  === 'string') {
+        errorMessage = error;
+      }
+      else if(error.code === "InvalidPasswordException" || error.message.includes(
         "Value at 'password' failed to satisfy constraint"
       )) {
-        errorMessage = `Password must have at least ${MIN_PASSWORDLENGTH} characters, and be made of lower case, upper case, special chars and numerals.`;
+        errorMessage = `Password must have a minimum length of ${MIN_PASSWORDLENGTH} characters, no spaces, and at least one uppercase char, one lowercase char, one numeral and one symbol`;
       }
       else if (error.message.includes("Invalid phone number format")) {
-        errorMessage = "Contact Number has an invalid format.";
+        errorMessage = "Contact Number has an invalid format. Valid examples include +64444555 and +6155556666";
       }
       else if (error.message.includes("Invalid email address format")) {
-        errorMessage = "Email address has an invalid format.";
+        errorMessage = "Email address has an invalid format";
       }
       else {
         errorMessage = error.message;
@@ -66,9 +52,11 @@ class SignUpForm extends Component {
     const { classes } = this.props;
     
     return (
-      <form className={classes.signUpForm}>
+      <form 
+        className={classes.signUpForm}
+        onSubmit={this.handleSignUp}
+      >
         <Grid container>
-          
           { 
             errorMessage ? 
             <Grid item xs={12} sm={12} md={12} lg={12}>
@@ -79,7 +67,7 @@ class SignUpForm extends Component {
             
           <Grid container>
             <Grid item xs={12} sm={12} md={12} lg={6}>
-              <FormGroup column className={classes.inputGroup}>
+              <FormGroup className={classes.inputGroup}>
                 <InputLabel className={classes.label}>Name</InputLabel>
                 <TextField
                   id="username"
@@ -100,7 +88,7 @@ class SignUpForm extends Component {
               </FormGroup>
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={6}>
-              <FormGroup column className={classes.inputGroup}>
+              <FormGroup className={classes.inputGroup}>
                 <InputLabel className={classes.label}>Phone</InputLabel>
                 <TextField
                   id="phone"
@@ -111,12 +99,12 @@ class SignUpForm extends Component {
                   className={classes.input}
                   value={this.props.phone_number}
                   onChange={this.props.handleFormInput}
-                  title="For example: +6421555217 or +642571755555. Used for verification and account recovery"
+                  title="Your phone number. Example: +6421555217 or +642571755555. Used for verification and account recovery"
                   placeholder="+642255005500"
                   inputProps={{
                     className: classes.inputBase,
                     type: 'tel',
-                    pattern: PHONE_REGEX
+                    pattern: PHONE_REGEX,
                   }}
                   required
                 />
@@ -125,7 +113,7 @@ class SignUpForm extends Component {
           </Grid>
           <Grid container>
             <Grid item xs={12} sm={12} md={12} lg={6}>
-              <FormGroup column className={classes.inputGroup}>
+              <FormGroup className={classes.inputGroup}>
                 <InputLabel className={classes.label}>E-mail</InputLabel>
                 <TextField
                   id="email"
@@ -147,27 +135,41 @@ class SignUpForm extends Component {
               </FormGroup>
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={6}>
-              <FormGroup column className={classes.inputGroup}>
+              <FormGroup className={classes.inputGroup}>
                 <InputLabel className={classes.label}>Password</InputLabel>
                 <TextField
                   id="password"
                   name="password"
+                  type="password"
                   fullWidth
                   margin="normal"
                   variant="outlined"
                   className={classes.input}
                   value={this.props.password}
                   onChange={this.props.handleFormInput}
-                  title="Must have lower case, upper case, numbers and special chars, and a minimum length of 12"
+                  placeholder="Password"
+                  title="Minimum length of 12, no spaces, at least one each of a-z, A-Z, 0-9, and a symbol"
                   inputProps={{
                     className: classes.inputBase,
-                    type: 'password',
+                    minLength: MIN_PASSWORDLENGTH,
                     pattern: PASSWORD_REGEX
                   }}
                   required
                 />
               </FormGroup>
             </Grid>
+          </Grid>
+        </Grid>
+
+        <Grid container>
+          <Grid item xs={12} sm={12} md={12}>
+            <RouterLink 
+              to="#" 
+              onClick={() => this.props.switchComponent(VERIFY)} 
+              className={classes.signupLink}
+            >
+              I want to verify an existing account
+            </RouterLink>
           </Grid>
         </Grid>
 
@@ -182,7 +184,7 @@ class SignUpForm extends Component {
           </Grid>
 
           <Grid item xs={12} sm={12} md={12}>
-            <FormGroup row className={classes.inputGroup}>
+            <FormGroup row className={classes.checkboxInputGroup}>
               <Checkbox
                 color="default"
                 id="donate-igen"
@@ -199,7 +201,7 @@ class SignUpForm extends Component {
           </Grid>
 
           <Grid item xs={12} sm={12} md={12}>
-            <FormGroup row className={classes.inputGroup}>
+            <FormGroup row className={classes.checkboxInputGroup}>
               <Checkbox
                 color="default"
                 id="sanctuary-sign-up"
@@ -225,7 +227,7 @@ class SignUpForm extends Component {
 
           <Grid item xs={12} sm={12} md={12}>
             <Button
-              onClick={this.handleSignUp}
+              type="submit"
               className={classes.submitButton}
             >
               SIGN UP

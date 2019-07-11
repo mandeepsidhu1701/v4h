@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { withRouter, Redirect } from 'react-router';
+import PropTypes from 'prop-types';
+import { Redirect } from 'react-router';
 import SignInForm from "./forms/SignInForm";
 import { withStyles } from "@material-ui/core";
 import { containerStyles } from './styles';
@@ -15,30 +16,28 @@ class SignIn extends Component {
     username: "",
     password: "",
     rememberme: false,
-    user: null, // will contain our user data object when signed in
     status: SIGN_IN,
-    serverError: null
   }
 
   componentDidMount() {
-    Auth.currentAuthenticatedUser({
-      bypassCache: true // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
-    })
-      .then(user => {
-        if(user.email_verified) {
-          // TODO record user into global state
-
-          console.log(user)
-
-          // user shouldn't be allowed to log in while already authenticated
-          this.setState({user, status: IS_LOGGED_IN})
-        }
+    // double check with server for existing logged-in user.
+    if (this.props.user == null) {
+      //TODO: move checking current authenticated user to under Redux.
+      Auth.currentAuthenticatedUser({
+        // bypassCache: false, check against local cache.
+        // bypassCache: true, force request to server for check. guarantees accuracy.
+        bypassCache: true 
       })
-      .catch(err => {
-        if (err !== "not authenticated") {
-          console.log(err);
-        }
-      });
+        .then(user => {
+          console.log("currentAuthenticatedUser returned:", user);
+          if(user.email_verified) {
+            // TODO record user into global state
+          } 
+        })
+        .catch(err => {
+          // ignore error, as there should not be a logged in user, if signing up / in.
+        });
+    }
   }
 
   // Handle changes to form inputs on sign-up, verification and sign-in
@@ -56,25 +55,21 @@ class SignIn extends Component {
     }
   };
 
-  handleErrors = (error) => {
-    this.setState({serverError: error})
-  }
-
-  clearErrors = () => {
-    this.setState({serverError: null})
-  }
-
   AuthComponent = () => {
+
+    const signInForm = 
+      <SignInForm
+        switchComponent={this.switchComponent}
+        handleFormInput={this.handleFormInput}
+        serverError={this.props.serverError}
+        handleSignIn={this.props.handleSignIn}
+        inputs={this.state}
+      />
+
     switch (this.state.status) {
       case SIGN_IN:
         return (
-          <SignInForm
-            switchComponent={this.switchComponent}
-            handleFormInput={this.handleFormInput}
-            handleErrors={this.handleErrors}
-            clearErrors={this.clearErrors}
-            inputs={this.state}
-          />
+          signInForm
         );
       case IS_LOGGED_IN:
         return (
@@ -82,13 +77,7 @@ class SignIn extends Component {
         );
       default:
         return (
-          <SignInForm
-            switchComponent={this.switchComponent}
-            handleFormInput={this.handleFormInput}
-            handleErrors={this.handleErrors}
-            clearErrors={this.clearErrors}
-            inputs={this.state}
-          />
+          signInForm
         );
     };
   };
@@ -115,6 +104,16 @@ class SignIn extends Component {
   }
 }
 
+SignIn.propTypes = {
+  user: PropTypes.object,
+  serverError: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
+  processingRequest: PropTypes.bool,
+  handleSignIn: PropTypes.func.isRequired,
+}
+
 export { IS_LOGGED_IN };
 
-export default withRouter(withStyles(containerStyles)(SignIn));
+export default withStyles(containerStyles)(SignIn);

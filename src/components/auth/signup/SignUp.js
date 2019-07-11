@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { withRouter, Redirect } from 'react-router';
+import PropTypes from 'prop-types';
+import { Redirect } from 'react-router';
 import { withStyles, Grid } from '@material-ui/core';
 import SignUpForm from "./forms/SignUpForm";
 import VerifyForm from "./forms/VerifyForm";
@@ -7,8 +8,6 @@ import SignUpSidebar from "./ui/SignUpSidebar";
 import { containerStyles } from './styles';
 
 import { Auth } from "aws-amplify";
-
-
 
 const SIGN_UP = "SignUp";
 const VERIFY = "Verify";
@@ -25,29 +24,32 @@ class SignUp extends Component {
     code: "",
     donate: false,
     sanctuarySignUp: false,
-    user: null, // will contain our user data object when signed in
     status: SIGN_UP,
-    serverError: null
   }
 
   componentDidMount() {
     // double check with server for existing logged-in user.
-    Auth.currentAuthenticatedUser({
-      // bypassCache: false, check against local cache.
-      // bypassCache: true, force request to server for check. guarantees accuracy.
-      bypassCache: true 
-    })
-      .then(user => {
-        console.log("currentAuthenticatedUser returned:", user);
-        if(user.email_verified) {
-          // TODO record user into global state
-
-          this.setState({status: IS_VERIFIED})
-        } 
+    if (this.props.user == null) {
+      //TODO: move checking current authenticated user to under Redux.
+      Auth.currentAuthenticatedUser({
+        // bypassCache: false, check against local cache.
+        // bypassCache: true, force request to server for check. guarantees accuracy.
+        bypassCache: true 
       })
-      .catch(err => {
-        // ignore error, as there should not be a logged in user, if signing up / in.
-      });
+        .then(user => {
+          console.log("currentAuthenticatedUser returned:", user);
+          if(user.email_verified) {
+            // TODO record user into global state
+          } 
+        })
+        .catch(err => {
+          // ignore error, as there should not be a logged in user, if signing up / in.
+        });
+    }
+
+    if(this.props.debugVerify) {
+      this.setState({status: VERIFY});
+    }
   }
 
   // Handle changes to form inputs on sign-up, verification and sign-in
@@ -65,48 +67,37 @@ class SignUp extends Component {
     }
   };
 
-  handleErrors = (error) => {
-    this.setState({serverError: error})
-  }
-
-  clearErrors = () => {
-    this.setState({serverError: null})
-  }
-
   AuthComponent = () => {
+
+    const signUpForm = 
+      <SignUpForm
+        switchComponent={this.switchComponent}
+        handleFormInput={this.handleFormInput}
+        handleSignUp={this.props.handleSignUp}
+        inputs={this.state}
+        serverError={this.props.serverError}
+      />
+
     switch (this.state.status) {
       case SIGN_UP:
         return (
-          <SignUpForm
-            switchComponent={this.switchComponent}
-            handleFormInput={this.handleFormInput}
-            handleErrors={this.handleErrors}
-            clearErrors={this.clearErrors}
-            inputs={this.state}
-          />
+          signUpForm
         );
       case VERIFY:
         return (
           <VerifyForm
             switchComponent={this.switchComponent}
             handleFormInput={this.handleFormInput}
-            handleErrors={this.handleErrors}
-            clearErrors={this.clearErrors}
+            handleVerifySignUp={this.props.handleVerifySignUp}
             inputs={this.state}
+            serverError={this.props.serverError}
           />
         );
       case IS_VERIFIED:
-        // navigate to sign in view, as user now exists but has not signed in.
         return <Redirect to="/auth/sign-in" />
       default:
         return (
-          <SignUpForm
-            switchComponent={this.switchComponent}
-            handleFormInput={this.handleFormInput}
-            handleErrors={this.handleErrors}
-            clearErrors={this.clearErrors}
-            inputs={this.state}
-          />
+          signUpForm
         );
     }
   };
@@ -115,7 +106,6 @@ class SignUp extends Component {
   };
 
   render() {
-
     const {classes} = this.props;
     return ( 
       <section className={classes.signUpBase}>
@@ -143,6 +133,17 @@ class SignUp extends Component {
   }
 }
 
+SignUp.propTypes = {
+  user: PropTypes.object,
+  serverError: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
+  processingRequest: PropTypes.bool,
+  handleSignUp: PropTypes.func.isRequired,
+  handleVerifySignUp: PropTypes.func.isRequired,
+}
+
 export { VERIFY, SIGN_UP, IS_VERIFIED };
 
-export default withRouter(withStyles(containerStyles)(SignUp));
+export default withStyles(containerStyles)(SignUp);

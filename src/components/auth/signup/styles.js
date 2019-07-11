@@ -126,7 +126,10 @@ export const sideBarStyles = theme => ({
   signUpSidebarBase: {
     margin: '1rem 0 0 -2rem',
     [theme.breakpoints.down('sm')]: {
-      margin: '2em 0 0 -2rem'
+      margin: '2rem 0 0 -1.5rem'
+    },
+    [theme.breakpoints.down('xs')]: {
+      margin: '2rem 0 0 -1rem'
     }
   },
   signUpSidebarSection: {
@@ -181,6 +184,9 @@ export const signUpFormStyles = theme => ({
   inputGroup: {
     margin: '1rem 1rem 1rem 0',
   },
+  checkboxInputGroup: {
+    margin: '0.5rem 0',
+  },
   input: {
     marginTop: '0.25rem',
     '& fieldset': {
@@ -221,8 +227,20 @@ export const signUpFormStyles = theme => ({
     lineHeight: '2rem',
     transform: 'scale(.9, 1)',
     letterSpacing: '1px',
-    marginLeft: '-2.5rem',
-    marginRight: '-1.75rem'
+    marginLeft: '-5%',
+    marginRight: '-2.5%',
+    [theme.breakpoints.down('md')]: {
+      marginLeft: '-5%',
+      marginRight: '-2.5%',
+    },
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: '-5%',
+      marginRight: '-2.5%',
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: '-5%',
+      marginRight: '0',
+    },
   },
   textJustify: {
     textAlign: 'justify'
@@ -246,7 +264,26 @@ export const signUpFormStyles = theme => ({
   },
   checkboxChecked: {
     
-  }
+  },
+  signupLink: {
+    display: 'inline-block',
+    color: 'rgba(255,255,255,1.0)',
+    textDecoration: 'none',
+    cursor: 'pointer',
+    fontFamily: 'Calibri sans-serif monospace',
+    fontSize: '1rem',
+    fontWeight: 600,
+    '-webkit-transform': 'scale(.9, 1)',
+    transform: 'scale(.9, 1)',
+    marginTop: '1rem',
+    [theme.breakpoints.up('sm')]: {
+      float: 'right',
+      marginRight: '0.5rem'
+    },
+    [theme.breakpoints.down('sm')]: {
+      marginTop: '1rem'
+    },
+  },
 })
 
 export const verifyFormStyles = theme => ({

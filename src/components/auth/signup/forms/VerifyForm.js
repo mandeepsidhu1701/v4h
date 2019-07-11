@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { withStyles, Grid, FormGroup, InputLabel, TextField, Button } from "@material-ui/core";
-import { Auth } from "aws-amplify";
+
+import { MIN_PASSWORDLENGTH } from '../../formConstants';
 import { IS_VERIFIED } from '../SignUp';
 
 import ErrorBar from '../../ui/ErrorBar';
@@ -11,40 +12,39 @@ class VerifyForm extends Component {
   handleVerification = event => {
     event.preventDefault();
     const { username, code } = this.props.inputs;
-    Auth.confirmSignUp(username, code)
-      .then(() => {
-          this.props.clearErrors();
-          this.props.switchComponent(IS_VERIFIED);
-        }
-      )
-      .catch(err => {
-          console.log(err);
-          this.props.handleErrors(err);
-        }
-      );
+    const callback = () => {
+      this.props.switchComponent(IS_VERIFIED)
+    };
+    this.props.handleVerifySignUp(username, code, callback);
   };
 
   render() {
     let errorMessage;
-    if (this.props.inputs.serverError !== null) {
-      const error = this.props.inputs.serverError;
-      if(error.code === "InvalidPasswordException" || error.message.includes(
-        "Value at 'password' failed to satisfy constraint"
-      )) {
-        errorMessage = "Password must have at least {MIN_PASSWORDLENGTH} characters, and be made of lower case, upper case, special chars and numerals."
+    if (this.props.serverError) {
+      const error = this.props.serverError;
+      console.log(error)
+      if (typeof error === 'string') {
+        errorMessage = error;
       }
-      else if (error.message.includes("Invalid phone number format")) {
-        errorMessage = "Contact Number has an invalid format.";
+      else if (error.code === "CodeMismatchException") {
+        errorMessage = "The validation code provided was not correct. Please enter the correct code and try again";
       }
-      else if (error.message.includes("Invalid email address format")) {
-        errorMessage = "Email address has an invalid format.";
+      else if (error.code === "LimitExceededException") {
+        errorMessage = "Verification attempt limit exceeded. Please wait a few minutes and try again";
+      }
+      else if (error.message.includes("Current status is CONFIRMED")) {
+        errorMessage = "This user has already been confirmed. Have you entered the correct username?";
+      }
+      else if (error.code === "UserNotFoundException" || error.message.includes("User is disabled")) {
+        errorMessage = "This user was not recognized. Have you entered the correct username?";
       }
       else {
         errorMessage = error.message;
       }
     }
-    else if (this.props.inputs.error !== null) {
+    else if (this.props.inputs.error) {
       errorMessage = this.props.inputs.error
+      console.log(errorMessage);
     } else {
       errorMessage = null;
     }
@@ -52,25 +52,23 @@ class VerifyForm extends Component {
     const {classes} = this.props;
 
     return (
-      <form className={classes.signUpForm}>
+      <form 
+        className={classes.signUpForm}
+        onSubmit={this.handleVerification}
+      >
         <Grid container>
-          
+          <Grid item xs={12} sm={12} md={12} lg={12}>
           { 
             errorMessage ? 
-            <Grid item xs={12} sm={12} md={12} lg={12}>
-              <ErrorBar error={errorMessage} />
-            </Grid> :
-            null
-          }
-
-          <Grid item xs={12} sm={12} md={12} lg={6}>
+            <ErrorBar error={errorMessage} /> :
             <p className={`${classes.signUpText} ${classes.textAlert}`}>
               An verification code has been sent to the email you provided. Please enter the code below.
             </p>
+          }
           </Grid>
           <Grid container>
             <Grid item xs={12} sm={12} md={12} lg={6}>
-              <FormGroup column className={classes.inputGroup}>
+              <FormGroup className={classes.inputGroup}>
                 <InputLabel className={classes.label}>Name</InputLabel>
                 <TextField
                   id="username"
@@ -91,7 +89,7 @@ class VerifyForm extends Component {
               </FormGroup>
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={6}>
-              <FormGroup column className={classes.inputGroup}>
+              <FormGroup className={classes.inputGroup}>
                 <InputLabel className={classes.label}>Verification Code</InputLabel>
                 <TextField
                   id="verify-code"
@@ -100,9 +98,9 @@ class VerifyForm extends Component {
                   margin="normal"
                   variant="outlined"
                   className={classes.input}
-                  value={this.props.inputs.username}
+                  value={this.props.inputs.code}
                   onChange={this.props.handleFormInput}
-                  title="This username must match the one you signed up with"
+                  title="The Verification code in the email you received"
                   placeholder="John Doe"
                   inputProps={{
                     className: classes.inputBase
@@ -115,7 +113,7 @@ class VerifyForm extends Component {
 
           <Grid item xs={12} sm={12} md={12} lg={12}>
             <section>
-              <p className={classes.signUpText}>
+              <p className={classes.signUpTextHeading}>
                 become a vfh global citizen
               </p>
 
@@ -124,15 +122,14 @@ class VerifyForm extends Component {
               </p>
 
               <p className={`${classes.signUpText} ${classes.textJustify}`}>
-                <strong>Data Privacy Statement:</strong>
-                  In being a part of HCN your data is kept private and confidential, bring used only for the purpose you signed up for.
+                <strong>Data Privacy Statement:</strong> In being a part of HCN your data is kept private and confidential, bring used only for the purpose you signed up for.
               </p>
             </section>
           </Grid>
 
           <Grid item xs={12} sm={12} md={12} lg={12}>
             <Button
-              onClick={this.handleVerification}
+              type="submit"
               className={classes.submitButton}
             >
               VERIFY
@@ -144,4 +141,4 @@ class VerifyForm extends Component {
   }
 }
 
-export default VerifyForm;
+export default withStyles(verifyFormStyles)(VerifyForm);

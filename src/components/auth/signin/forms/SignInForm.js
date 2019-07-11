@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Link as RouterLink } from "react-router-dom";
-import { withStyles, FormGroup, InputLabel, TextField, Button, FormControlLabel, Checkbox } from "@material-ui/core";
+import { withStyles, FormGroup, InputLabel, TextField, Button, Checkbox } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
-import { Auth } from "aws-amplify";
 import { IS_LOGGED_IN } from '../SignIn';
 import { MIN_PASSWORDLENGTH, PASSWORD_REGEX } from '../../formConstants';
 import { formStyles } from '../styles';
@@ -15,19 +14,11 @@ class SignInForm extends Component {
   handleSignIn = event => {
     event.preventDefault();
     const { username, password } = this.props.inputs;
-    Auth.signIn({ username, password })
-      .then(user => {
-        // TODO record user into global state
+    const callback =() => {
+      this.props.switchComponent(IS_LOGGED_IN)
+    };
 
-        console.log(user);
-      })
-      .then(() => {
-        this.props.clearErrors();
-        this.props.switchComponent(IS_LOGGED_IN);
-      })
-      .catch(err => {
-        this.props.handleErrors(err);
-      });
+    this.props.handleSignIn(username, password, callback);
   };
 
   
@@ -36,15 +27,16 @@ class SignInForm extends Component {
     const {classes} = this.props;
 
     let errorMessage;
-    if (this.props.inputs.serverError) {
-      const error = this.props.inputs.serverError;
-      if(error.code === "InvalidPasswordException" || error.message.includes(
-        "Value at 'password' failed to satisfy constraint"
-      )) {
-        errorMessage = `Password must have at least ${MIN_PASSWORDLENGTH} characters, and be made of lower case, upper case, special chars and numerals.`;
+    if (this.props.serverError) {
+      const error = this.props.serverError;
+      if (typeof error === 'string') {
+        errorMessage = error;
       }
       else if (error.code === "UserNotFoundException") {
         errorMessage = "Incorrect username or password.";
+      }
+      else if (error.message.includes("User is disabled")) {
+        errorMessage = "The user has been disabled. Please contact the administrator if you believe this is in error.";
       }
       else if (error.message === "The username should either be a string or one of the sign in types") {
         errorMessage = "Incorrect username or password.";
@@ -59,10 +51,11 @@ class SignInForm extends Component {
       errorMessage = null;
     }
 
-    console.log(errorMessage);
-
     return (
-      <form className={classes.loginForm}>
+      <form 
+        className={classes.loginForm}
+        onSubmit={this.handleSignIn}
+      >
         <Grid container>
           { 
             errorMessage ?
@@ -72,7 +65,7 @@ class SignInForm extends Component {
             null
           }
           <Grid item xs={12} sm={12} md={6}>
-            <FormGroup column className={classes.loginInputGroup}>
+            <FormGroup className={classes.loginInputGroup}>
               <InputLabel className={classes.loginLabel}>E-mail</InputLabel>
               <TextField 
                 id="username"  
@@ -93,7 +86,7 @@ class SignInForm extends Component {
             </FormGroup>
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
-            <FormGroup column className={classes.loginInputGroup}>
+            <FormGroup className={classes.loginInputGroup}>
               <InputLabel className={classes.loginLabel}>Password</InputLabel>
               <TextField 
                 id="password"  
@@ -110,8 +103,6 @@ class SignInForm extends Component {
                 required
                 inputProps={{
                   className: classes.loginInputBase,
-                  minLength: MIN_PASSWORDLENGTH,
-                  pattern: PASSWORD_REGEX
                 }}
               />
             </FormGroup>
@@ -138,7 +129,7 @@ class SignInForm extends Component {
       
           <Grid item xs={12} sm={12}>
             <Button
-              onClick={this.handleSignIn}
+              type="submit"
               className={classes.loginButton}
             >
               LOGIN
