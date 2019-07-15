@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import { signUp, verifySignUp } from '../../../actions/auth';
+import { signUp, verifySignUp, checkAuthenticateUser } from '../../../actions/auth';
 import { withRouter } from 'react-router';
 
-import SignUp from './SignUp';
+import SignUp, { SIGN_UP, VERIFY, IS_VERIFIED } from './SignUp';
 
 const mapStateToProps = state => {
   return {
@@ -23,8 +23,14 @@ const mapDispatchToProps = dispatch => {
       dispatch(
         verifySignUp(username, code, callback)
       );
+    },
+    handleCheckUserIsLoggedIn(callback=null) {
+      dispatch(
+        checkAuthenticateUser(callback)
+      );
     }
   };
 }
 
+export {SIGN_UP, VERIFY, IS_VERIFIED };
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignUp));

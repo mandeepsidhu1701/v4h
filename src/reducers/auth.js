@@ -4,7 +4,15 @@ import {
   AUTH_SIGNEDIN,
   AUTH_SIGNEDOUT,
   AUTH_PROCESSING,
-  AUTH_ERROR
+  AUTH_ERROR,
+  AUTH_AUTHENTICATED,
+  AUTH_CHANGE_PASSWORD,
+  AUTH_FORGOT_PASSWORD_REQUEST,
+  AUTH_FORGOT_PASSWORD_SUBMIT,
+  AUTH_RESEND_SIGNUP,
+  AUTH_UPDATE_ATTRIBUTE,
+  AUTH_VERIFY_ATTRIBUTE,
+  AUTH_VERIFY_ATTRIBUTE_CONFIRM,
 } from '../actions/auth';
 
 const auth = (
@@ -52,6 +60,66 @@ const auth = (
     case AUTH_SIGNEDOUT:
       return {
         user: null,
+        serverError: null,
+        processing: false
+      };
+
+    case AUTH_AUTHENTICATED:
+      let user = null;
+      if (action.payload.user.email_verified) {
+        user = action.payload.user;
+      }
+      return {
+        user: user,
+        serverError: null,
+        processing: false
+      };
+
+    case AUTH_CHANGE_PASSWORD:
+      return {
+        ...state,
+        serverError: null,
+        processing: false
+      };
+    
+    case AUTH_FORGOT_PASSWORD_REQUEST:
+      return {
+        ...state,
+        serverError: null,
+        processing: false
+      };
+
+    case AUTH_FORGOT_PASSWORD_SUBMIT:
+      return {
+        ...state,
+        serverError: null,
+        processing: false
+      };
+
+    case AUTH_RESEND_SIGNUP:
+      return {
+        serverError: null,
+        user: null,
+        processing: false
+      };
+
+    case AUTH_UPDATE_ATTRIBUTE:
+      return {
+        ...state,
+        serverError: null,
+        processing: false
+      };
+
+    case AUTH_VERIFY_ATTRIBUTE:
+      return {
+        ...state,
+        serverError: null,
+        processing: false
+      };
+
+    case AUTH_VERIFY_ATTRIBUTE_CONFIRM:
+      return {
+        ...state,
         serverError: null,
         processing: false
       };

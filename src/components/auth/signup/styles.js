@@ -1,35 +1,30 @@
 export const containerStyles = theme => ({
-  signUpBase: {
-    outline: 'none',
-    position: 'relative',
-    top: '4rem',
-    padding: '1rem',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-  },
   signUpCard: {
     backgroundColor: 'rgba(255,255,255,0.1)',
     border: '1px solid rgba(255,255,255,0.25)',
     borderRadius: '1rem',
-    width: '80%',
-    margin: 'auto',
-    padding: '3rem',
+    marginBottom: '12px',
+    padding: '1.5rem 3rem',
     outline: 'none',
-    position: 'relative',
+    position: 'absolute',
+    top: '112px',
     display: 'flex',
     'flexDirection': 'column',
     wordWrap: 'break-word',
     backgroundClip: 'border-box',
-    [theme.breakpoints.up('md')]: {
-      width: '90%',
-    },
-    [theme.breakpoints.down('md')]: {
-      width: '90%',
+    [theme.breakpoints.up('sm')]: {
+      left: '5%',
+      right: '5%',
     },
     [theme.breakpoints.down('sm')]: {
-      width: '84%',
+      left: '12px',
+      right: '12px',
+      padding: '1.5rem 2rem',
     },
     [theme.breakpoints.down('xs')]: {
-      width: '74%',
+      left: '12px',
+      right: '12px',
+      padding: '1.5rem 1rem',
     },
   },  
   triangle: {
@@ -121,32 +116,59 @@ export const sideBarStyles = theme => ({
     fontSize: '1.2rem',
     transform: 'scale(.9, 1)',
     letterSpacing: '3px',
-    marginBottom: 0
+    marginBottom: 0,
+    marginLeft: 0
+
   },
   signUpSidebarBase: {
-    margin: '1rem 0 0 -2rem',
+    [theme.breakpoints.up('sm')]: {
+      margin: '0.5rem 0 0 -2rem',
+    },
     [theme.breakpoints.down('sm')]: {
-      margin: '2rem 0 0 -1.5rem'
+      margin: '1.5rem 0 0 -1.5rem'
     },
     [theme.breakpoints.down('xs')]: {
-      margin: '2rem 0 0 -1rem'
+      margin: '1.5rem 0 0 -1rem'
     }
   },
   signUpSidebarSection: {
     margin: '0 -1rem 0 0'
   },
   signUpSidebarText: {
-    marginLeft: "-0.5rem",
+    marginLeft: 0,
     color: "white",
     fontFamily: "Calibri sans-serif monospace",
-    fontSize: '0.75rem',
+    fontSize: '0.70rem',
     lineHeight: '1.5rem',
     transform: 'scale(.9, 1)',
     letterSpacing: '1px',
-    textAlign: 'justify'
+    textAlign: 'justify',
+    [theme.breakpoints.down('md')]: {
+      lineHeight: '1.375rem',
+      marginLeft: 0
+    },
+    [theme.breakpoints.down('sm')]: {
+      lineHeight: '1.25rem',
+      marginLeft: 0
+    },
+    [theme.breakpoints.down('xs')]: {
+      lineHeight: '1.125rem',
+      letterSpacing: 0,
+      transform: 'scale(1, 1)',
+      marginLeft: '3.33%'
+    },
   },
   signUpSidebarSphereContainer: {
-    margin: '0.5rem 0 0 1rem'
+    margin: '0.5rem 0 0 2rem',
+    [theme.breakpoints.down('md')]: {
+      margin: '0.5rem 0 1rem 3rem',
+    },
+    [theme.breakpoints.down('sm')]: {
+      margin: '0.5rem 0 2rem 2rem',
+    },
+    [theme.breakpoints.down('xs')]: {
+      margin: '0.5rem 0 1rem 1rem',
+    }
   },
   textGreen: {
     color: 'rgba(69,154,24,1)'
@@ -164,7 +186,7 @@ export const sideBarStyles = theme => ({
 
 export const signUpFormStyles = theme => ({
   signUpForm: {
-    margin: '1rem 0 0 0',
+    margin: '1.25rem 0 0 0',
     [theme.breakpoints.down('md')]: {
       margin: '1rem 0 1.5rem 0',
     },
@@ -182,7 +204,7 @@ export const signUpFormStyles = theme => ({
     },
   },
   inputGroup: {
-    margin: '1rem 1rem 1rem 0',
+    margin: '0.5rem 1rem 1rem 0',
   },
   checkboxInputGroup: {
     margin: '0.5rem 0',
@@ -224,7 +246,7 @@ export const signUpFormStyles = theme => ({
     color: 'white',
     fontFamily: 'Calibri sans-serif monospace',
     fontSize: '0.70rem',
-    lineHeight: '2rem',
+    lineHeight: '1.625rem',
     transform: 'scale(.9, 1)',
     letterSpacing: '1px',
     marginLeft: '-5%',
@@ -232,14 +254,19 @@ export const signUpFormStyles = theme => ({
     [theme.breakpoints.down('md')]: {
       marginLeft: '-5%',
       marginRight: '-2.5%',
+      lineHeight: '1.5rem',
     },
     [theme.breakpoints.down('sm')]: {
       marginLeft: '-5%',
-      marginRight: '-2.5%',
+      marginRight: '-5%',
+      lineHeight: '1.375rem',
     },
     [theme.breakpoints.down('xs')]: {
-      marginLeft: '-5%',
-      marginRight: '0',
+      marginLeft: 0,
+      marginRight: 0,
+      lineHeight: '1.25rem',
+      letterSpacing: 0,
+      transform: 'scale(1, 1)',
     },
   },
   textJustify: {
@@ -254,7 +281,7 @@ export const signUpFormStyles = theme => ({
     fontWeight: 550,
     letterSpacing: '2px',
     transform: 'scale(.9, 1)',
-    margin: '1rem 0 0.5rem -0.75rem',
+    margin: '2rem 0 0 -1rem',
   },
   checkbox: {
     margin: '-0.25rem 1.5rem 0 -0.25rem',
@@ -345,11 +372,28 @@ export const verifyFormStyles = theme => ({
     color: 'white',
     fontFamily: 'Calibri sans-serif monospace',
     fontSize: '0.70rem',
-    lineHeight: '2rem',
+    lineHeight: '1.625rem',
     transform: 'scale(.9, 1)',
     letterSpacing: '1px',
-    marginLeft: '-2.5rem',
-    marginRight: '-1.75rem'
+    marginLeft: '-5%',
+    marginRight: '-2.5%',
+    [theme.breakpoints.down('md')]: {
+      marginLeft: '-5%',
+      marginRight: '-2.5%',
+      lineHeight: '1.5rem',
+    },
+    [theme.breakpoints.down('sm')]: {
+      marginLeft: '-5%',
+      marginRight: '-5%',
+      lineHeight: '1.375rem',
+    },
+    [theme.breakpoints.down('xs')]: {
+      marginLeft: 0,
+      marginRight: 0,
+      lineHeight: '1.25rem',
+      letterSpacing: 0,
+      transform: 'scale(1, 1)',
+    },
   },
   textJustify: {
     textAlign: 'justify'
@@ -366,7 +410,7 @@ export const verifyFormStyles = theme => ({
     fontWeight: 550,
     letterSpacing: '2px',
     transform: 'scale(.9, 1)',
-    margin: '1rem 0 0.5rem -0.75rem',
+    margin: '2rem 0 0 -1rem',
   },
   checkbox: {
     margin: '-0.25rem 1.5rem 0 -0.25rem',

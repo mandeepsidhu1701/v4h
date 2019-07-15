@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { withStyles, Grid, FormGroup, InputLabel, TextField, Button } from "@material-ui/core";
 
-import { MIN_PASSWORDLENGTH } from '../../formConstants';
 import { IS_VERIFIED } from '../SignUp';
 
 import ErrorBar from '../../ui/ErrorBar';
@@ -9,8 +8,10 @@ import ErrorBar from '../../ui/ErrorBar';
 import { verifyFormStyles } from '../styles';
 
 class VerifyForm extends Component {
+
   handleVerification = event => {
     event.preventDefault();
+    this.props.handleVerifyNotice(false);
     const { username, code } = this.props.inputs;
     const callback = () => {
       this.props.switchComponent(IS_VERIFIED)

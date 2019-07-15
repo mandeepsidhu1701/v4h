@@ -12,7 +12,9 @@ export const AUTH_CHANGE_PASSWORD = 'AUTH_CHANGE_PASSWORD';
 export const AUTH_AUTHENTICATED = 'AUTH_AUTHENTICATED';
 export const AUTH_FORGOT_PASSWORD_SUBMIT = 'AUTH_FORGOT_PASSWORD_SUBMIT';
 export const AUTH_FORGOT_PASSWORD_REQUEST = 'AUTH_FORGOT_PASSWORD_REQUEST';
-
+export const AUTH_VERIFY_ATTRIBUTE_CONFIRM = 'AUTH_VERIFY_ATTRIBUTE_CONFIRM';
+export const AUTH_VERIFY_ATTRIBUTE = 'AUTH_VERIFY_ATTRIBUTE';
+export const AUTH_UPDATE_ATTRIBUTE = 'AUTH_UPDATE_ATTRIBUTE';
 
 /**
  * Invoke AWS Cognito sign up with username, password and attributes.
@@ -141,15 +143,16 @@ function userSignedInError(error) {
   }
 }
 
-export function signOut() {
+export function signOut(callback=null) {
   return dispatch => {
     Auth.signOut()
-      .then(data => {
-        console.log("signOut action, SUCCESS. Returned data:", data);
+      .then( () => {
         dispatch(userSignedOut());
+        if(callback) {
+          callback();
+        }
       })
       .catch(err => {
-        console.log("signout action, ERROR.", err);
         dispatch(userSignedOutError(err));
       });
   }
@@ -168,8 +171,6 @@ function userSignedOutError(error) {
   }
 }
 
-
-
 function beginAuthRequest() {
   return {
     type: AUTH_PROCESSING
@@ -183,13 +184,19 @@ function beginAuthRequest() {
  * 
  * @param {string} username 
  */
-export function resendSignUp(username) {
-  return dispatch => Auth.resendSignUp(username)
+export function resendSignUp(username, callback=null) {
+  return dispatch => {
+    dispatch(beginAuthRequest());
+    Auth.resendSignUp(username)
     .then(() => {
       dispatch(userResendSignUp());
+      if(callback) {
+        callback();
+      }
     }).catch(err => {
       dispatch(userResendSignUpError(err));
-  });
+    });
+  }
 }
 
 function userResendSignUp() {
@@ -209,20 +216,26 @@ function userResendSignUpError(error) {
  * Invoke AWS Cognito change password
  * Also @see https://aws-amplify.github.io/docs/js/authentication.
  * 
- * @param {string} oldPassword
- * @param {string} newPassword
+ * @param {string} oldPassword the current user password
+ * @param {string} newPassword the new password to change to
  */
-export function changePassword(oldPassword, newPassword) {
+export function changePassword(oldPassword, newPassword, callback=null) {
   return dispatch => {
+    dispatch(beginAuthRequest());
     Auth.currentAuthenticatedUser()
       .then(
         user => {
           dispatch(beginAuthRequest());
           Auth.changePassword(user, oldPassword, newPassword)
-            .then(dispatch(userChangedPassword(user)))
+            .then(() => {
+              dispatch(userChangedPassword(user))
+              if(callback) {
+                callback();
+              }
+            })
             .catch(err => dispatch(userChangedPasswordError(err)))
         })
-    .catch(err => dispatch(userAuthenticatedError(err)));
+      .catch(err => dispatch(userAuthenticatedError(err)));
   }
 }
 
@@ -240,14 +253,20 @@ function userChangedPasswordError(error) {
   }
 }
 
-
-
-export function checkAuthenticateUser() {
+/**
+ * Invoke AWS Cognito currentAuthenticatedUser
+ * Also @see https://aws-amplify.github.io/docs/js/authentication.
+ * 
+ */
+export function checkAuthenticateUser(callback=null) {
   return dispatch => {
     Auth.currentAuthenticatedUser()
       .then(
         user => {
           dispatch(userAuthenticated(user));
+          if(callback) {
+            callback();
+          }
         })
       .catch(err => 
         dispatch(userAuthenticatedError(err))
@@ -265,16 +284,29 @@ function userAuthenticated(user) {
 function userAuthenticatedError(error) {
   return {
     type: AUTH_ERROR,
-    payload: {error: error}
+    payload: {error: error},
   }
 }
 
-export function userRequestForgotPassword(username) {
+/**
+ * Invoke AWS Cognito forgotPassword
+ * Also @see https://aws-amplify.github.io/docs/js/authentication.
+ * 
+ * This begins the password recovery process. @see userRequestForgotPasswordSubmit 
+ * for completing the recovery process.
+ * 
+ * @param {string} username
+ */
+export function userRequestForgotPassword(username, callback=null) {
   return dispatch => {
+    dispatch(beginAuthRequest());
     Auth.forgotPassword(username)
       .then(
         user => {
           dispatch(userForgotPasswordBegin(user));
+          if(callback) {
+            callback();
+          }
         })
       .catch(err => 
         dispatch(userForgotPasswordError(err))
@@ -289,13 +321,24 @@ function userForgotPasswordBegin(user) {
   }
 }
 
-
-export function userRequestForgotPasswordSubmit(username, code, newPassword) {
+/**
+ * Invoke AWS Cognito forgot password confirmation
+ * Also @see https://aws-amplify.github.io/docs/js/authentication.
+ * 
+ * @param {string} username
+ * @param {string} code confirms the recover password request is authentic
+ * @param {string} newPassword the new password to change to
+ */
+export function userRequestForgotPasswordSubmit(username, code, newPassword, callback=null) {
   return dispatch => {
+    dispatch(beginAuthRequest());
     Auth.forgotPasswordSubmit(username, code, newPassword)
       .then(
         user => {
           dispatch(userForgotPasswordSubmitted(user));
+          if(callback) {
+            callback();
+          }
         })
       .catch(err => 
         dispatch(userForgotPasswordError(err))
@@ -311,6 +354,171 @@ function userForgotPasswordSubmitted(user) {
 }
 
 function userForgotPasswordError(error) {
+  return {
+    type: AUTH_ERROR,
+    payload: {error: error}
+  }
+}
+
+/**
+ * Invoke AWS Cognito verifyCurrentUserAttribute
+ * Also @see https://aws-amplify.github.io/docs/js/authentication.
+ * 
+ * This will only verify the phone number.
+ * 
+ * This begins the verification process. @see verifyPhoneNumberSubmit
+ * for completing the process.
+ */
+export function verifyPhoneNumber(callback=null) {
+  return dispatch => dispatch(verifyAttribute('phone_number', callback));
+}
+
+/**
+ * Invoke AWS Cognito verifyCurrentUserAttributeSubmit
+ * Also @see https://aws-amplify.github.io/docs/js/authentication.
+ * 
+ * This will only verify the phone number.
+ * 
+ * @param {string} code the confirmation code
+ */
+export function verifyPhoneNumberSubmit(code, callback=null) {
+  return dispatch => dispatch(verifyAttributeSubmit('phone_number', code, callback));
+}
+
+
+/**
+ * Invoke AWS Cognito verifyCurrentUserAttribute
+ * Also @see https://aws-amplify.github.io/docs/js/authentication.
+ * 
+ * This will only verify the email.
+ * 
+ * This begins the verification process. @see verifyEmailAddressSubmit
+ * for completing the process.
+ */
+export function verifyEmailAddress(callback=null) {
+  return dispatch => dispatch(verifyAttribute('email', callback));
+}
+
+/**
+ * Invoke AWS Cognito verifyCurrentUserAttribute
+ * Also @see https://aws-amplify.github.io/docs/js/authentication.
+ * 
+ * This will only verify the email.
+ * 
+ * @param {string} code the confirmation code
+ */
+export function verifyEmailAddressSubmit(code, callback=null) {
+  return dispatch => dispatch(verifyAttributeSubmit('email', code, callback));
+}
+
+/**
+ * Invoke AWS Cognito updateUserAttributes
+ * Also @see https://aws-amplify.github.io/docs/js/authentication.
+ * 
+ * This will only verify the phone number.
+ * 
+ * This begins the verification process. @see verifyPhoneNumberSubmit
+ * for completing the process.
+ */
+export function updateUserAttributes(attributes, callback=null) {
+  return dispatch => {
+    dispatch(beginAuthRequest());
+    Auth.currentAuthenticatedUser()
+      .then(
+        user => {
+          Auth.updateUserAttributes(user, attributes)
+            .then(data => {
+              dispatch(updateUserAttributesBegin(data));
+              if(callback) {
+                callback();
+              }
+            })
+            .catch(err => dispatch(updateUserAttributesError(err)));
+        })
+      .catch(err => dispatch(userAuthenticatedError(err)));
+  }
+}
+
+function updateUserAttributesBegin(data) {
+  return {
+    type: AUTH_UPDATE_ATTRIBUTE,
+    payload: {data: data}
+  }
+}
+
+function updateUserAttributesError(error) {
+  return {
+    type: AUTH_ERROR,
+    payload: {error: error}
+  }
+}
+
+/**
+ * Invoke AWS Cognito verifyCurrentUserAttribute
+ * Also @see https://aws-amplify.github.io/docs/js/authentication.
+ * 
+ * This begins the verification process. @see verifyEmailAddressSubmit
+ * for completing the process.
+ * 
+ * @param {string} attribute the attribute to verify, e.g. 'email', 'phone_number'.
+ */
+export function verifyAttribute(attribute, callback=null) {
+  return dispatch => {
+    dispatch(beginAuthRequest());
+    Auth.verifyCurrentUserAttribute(attribute)
+      .then(
+        () => {
+          dispatch(verifyAttributeBegin());
+          if(callback) {
+            callback();
+          }
+        }
+      )
+      .catch(err => 
+        dispatch(verifyAttributeError(err))
+      );
+  }
+}
+
+function verifyAttributeBegin() {
+  return {
+    type: AUTH_VERIFY_ATTRIBUTE,
+  }
+}
+
+/**
+ * Invoke AWS Cognito verifyCurrentUserAttributeSubmit
+ * Also @see https://aws-amplify.github.io/docs/js/authentication.
+ * 
+ * @param {string} attribute the attribute to confirm updating
+ * @param {string} code the confirmation code
+ */
+export function verifyAttributeSubmit(attribute, code, callback=null) {
+  return dispatch => {
+    dispatch(beginAuthRequest());
+    Auth.verifyCurrentUserAttributeSubmit(attribute, code)
+      .then(
+        data => {
+          dispatch(verifyAttributeConfirm(data));
+          if(callback) {
+            callback();
+          }
+        }
+      )
+      .catch(err => 
+        dispatch(verifyAttributeError(err))
+      );
+  }
+}
+
+function verifyAttributeConfirm(data) {
+  return {
+    type: AUTH_VERIFY_ATTRIBUTE_CONFIRM,
+    payload: {data: data}
+  }
+}
+
+function verifyAttributeError(error) {
   return {
     type: AUTH_ERROR,
     payload: {error: error}

@@ -17,6 +17,7 @@ class SignUpForm extends Component {
     const { username, password, email, phone_number } = this.props.inputs;
     const callback = () => {
       this.props.switchComponent(VERIFY);
+      this.props.handleVerifyNotice(true);
     }
     this.props.handleSignUp(username, password, email, phone_number, callback);
   };
@@ -165,7 +166,12 @@ class SignUpForm extends Component {
           <Grid item xs={12} sm={12} md={12}>
             <RouterLink 
               to="#" 
-              onClick={() => this.props.switchComponent(VERIFY)} 
+              onClick={
+                () => {
+                  this.props.handleVerifyNotice(false);
+                  this.props.switchComponent(VERIFY);
+                }
+              } 
               className={classes.signupLink}
             >
               I want to verify an existing account

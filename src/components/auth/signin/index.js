@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import { signIn } from '../../../actions/auth';
+import { signIn, checkAuthenticateUser, signOut } from '../../../actions/auth';
 import { withRouter } from 'react-router';
 
-import SignIn from './SignIn';
+import SignIn, { SIGN_IN, IS_LOGGED_IN } from './SignIn';
 
 const mapStateToProps = state => {
   return {
@@ -18,8 +18,22 @@ const mapDispatchToProps = dispatch => {
       dispatch(
         signIn(username, password, callback)
       );
+    },
+
+    handleSignOut(callback=null) {
+      dispatch(
+        signOut(callback)
+      );
+    },
+
+    handleCheckUserIsLoggedIn(callback=null) {
+      dispatch(
+        checkAuthenticateUser(callback)
+      );
     }
   };
 }
+
+export { SIGN_IN, IS_LOGGED_IN };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignIn));

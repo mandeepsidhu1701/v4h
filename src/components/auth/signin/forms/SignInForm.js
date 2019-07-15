@@ -3,7 +3,6 @@ import { Link as RouterLink } from "react-router-dom";
 import { withStyles, FormGroup, InputLabel, TextField, Button, Checkbox } from "@material-ui/core";
 import { Grid } from "@material-ui/core";
 import { IS_LOGGED_IN } from '../SignIn';
-import { MIN_PASSWORDLENGTH, PASSWORD_REGEX } from '../../formConstants';
 import { formStyles } from '../styles';
 
 import CheckboxOutlineCheckedIcon from '../../ui/CheckboxOutlineCheckedIcon';
@@ -18,6 +17,8 @@ class SignInForm extends Component {
       this.props.switchComponent(IS_LOGGED_IN)
     };
 
+    //TODO find better way of handling sign in when user is already signed in.
+    this.props.handleSignOut();
     this.props.handleSignIn(username, password, callback);
   };
 

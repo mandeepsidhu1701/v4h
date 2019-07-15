@@ -7,8 +7,6 @@ import VerifyForm from "./forms/VerifyForm";
 import SignUpSidebar from "./ui/SignUpSidebar";
 import { containerStyles } from './styles';
 
-import { Auth } from "aws-amplify";
-
 const SIGN_UP = "SignUp";
 const VERIFY = "Verify";
 const IS_VERIFIED = "Verified";
@@ -25,30 +23,16 @@ class SignUp extends Component {
     donate: false,
     sanctuarySignUp: false,
     status: SIGN_UP,
+    oneTimeVerifyNotice: false
   }
 
   componentDidMount() {
     // double check with server for existing logged-in user.
     if (this.props.user == null) {
-      //TODO: move checking current authenticated user to under Redux.
-      Auth.currentAuthenticatedUser({
-        // bypassCache: false, check against local cache.
-        // bypassCache: true, force request to server for check. guarantees accuracy.
-        bypassCache: true 
-      })
-        .then(user => {
-          console.log("currentAuthenticatedUser returned:", user);
-          if(user.email_verified) {
-            // TODO record user into global state
-          } 
-        })
-        .catch(err => {
-          // ignore error, as there should not be a logged in user, if signing up / in.
-        });
-    }
+      //TODO what to do if user already authenticated?
 
-    if(this.props.debugVerify) {
-      this.setState({status: VERIFY});
+      //TODO for now, do nothing. Allow user to sign up. Can replace current active user at sign in.
+      
     }
   }
 
@@ -76,6 +60,7 @@ class SignUp extends Component {
         handleSignUp={this.props.handleSignUp}
         inputs={this.state}
         serverError={this.props.serverError}
+        handleVerifyNotice={this.handleVerifyNotice}
       />
 
     switch (this.state.status) {
@@ -91,10 +76,12 @@ class SignUp extends Component {
             handleVerifySignUp={this.props.handleVerifySignUp}
             inputs={this.state}
             serverError={this.props.serverError}
+            handleVerifyNotice={this.handleVerifyNotice}
           />
         );
       case IS_VERIFIED:
-        return <Redirect to="/auth/sign-in" />
+        this.props.handleCloseForm();
+        return <Redirect to="/" />
       default:
         return (
           signUpForm
@@ -105,11 +92,19 @@ class SignUp extends Component {
     this.setState({ status });
   };
 
+  handleVerifyNotice = verify => {
+    if(verify) {
+      this.setState({ oneTimeVerifyNotice: true });
+    }
+    else {
+      this.setState({ oneTimeVerifyNotice: false });
+    }
+  }
+
   render() {
     const {classes} = this.props;
     return ( 
-      <section className={classes.signUpBase}>
-        <div className={classes.signUpCard}>
+        <section className={classes.signUpCard}>
           <div className={classes.triangle} />
           <div className={classes.cardBorderBottom} />
           <div className={classes.cardBorderTopA} />
@@ -127,8 +122,7 @@ class SignUp extends Component {
                 <SignUpSidebar />
               </Grid>
           </Grid>
-        </div>
-      </section>
+        </section>
     );
   }
 }
@@ -142,6 +136,8 @@ SignUp.propTypes = {
   processingRequest: PropTypes.bool,
   handleSignUp: PropTypes.func.isRequired,
   handleVerifySignUp: PropTypes.func.isRequired,
+  handleCheckUserIsLoggedIn: PropTypes.func.isRequired,
+  handleCloseForm: PropTypes.func.isRequired,
 }
 
 export { VERIFY, SIGN_UP, IS_VERIFIED };

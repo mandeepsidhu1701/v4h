@@ -5,8 +5,6 @@ import SignInForm from "./forms/SignInForm";
 import { withStyles } from "@material-ui/core";
 import { containerStyles } from './styles';
 
-import { Auth } from "aws-amplify";
-
 const SIGN_IN = "SignIn";
 const IS_LOGGED_IN = "WelcomeUser";
 
@@ -22,21 +20,11 @@ class SignIn extends Component {
   componentDidMount() {
     // double check with server for existing logged-in user.
     if (this.props.user == null) {
-      //TODO: move checking current authenticated user to under Redux.
-      Auth.currentAuthenticatedUser({
-        // bypassCache: false, check against local cache.
-        // bypassCache: true, force request to server for check. guarantees accuracy.
-        bypassCache: true 
-      })
-        .then(user => {
-          console.log("currentAuthenticatedUser returned:", user);
-          if(user.email_verified) {
-            // TODO record user into global state
-          } 
-        })
-        .catch(err => {
-          // ignore error, as there should not be a logged in user, if signing up / in.
-        });
+      
+      //TODO what to do if user is already logged in?
+      //TODO check user is logged in
+      //TODO if so, close the modal and redirect to home.
+      
     }
   }
 
@@ -63,6 +51,7 @@ class SignIn extends Component {
         handleFormInput={this.handleFormInput}
         serverError={this.props.serverError}
         handleSignIn={this.props.handleSignIn}
+        handleSignOut={this.props.handleSignOut}
         inputs={this.state}
       />
 
@@ -72,6 +61,7 @@ class SignIn extends Component {
           signInForm
         );
       case IS_LOGGED_IN:
+        this.props.handleCloseForm();
         return (
           <Redirect to="/" />
         );
@@ -89,8 +79,7 @@ class SignIn extends Component {
 
     const {classes} = this.props;
     return ( 
-      <section className={classes.loginBase} >
-        <div className={classes.loginCard}>
+        <section className={classes.loginCard}>
           <div className={classes.triangle} />
           <div className={classes.cardBorderBottom} />
           <div className={classes.cardBorderTopA} />
@@ -98,8 +87,7 @@ class SignIn extends Component {
           <div className={classes.cardBorderLeft} />
           <div className={classes.cardBorderRight} />
           {this.AuthComponent()}
-        </div>
-      </section>
+        </section>
     );
   }
 }
@@ -112,8 +100,12 @@ SignIn.propTypes = {
   ]),
   processingRequest: PropTypes.bool,
   handleSignIn: PropTypes.func.isRequired,
+  handleSignOut: PropTypes.func.isRequired,
+  handleCheckUserIsLoggedIn: PropTypes.func.isRequired,
+  handleCloseForm: PropTypes.func.isRequired,
+
 }
 
-export { IS_LOGGED_IN };
+export { SIGN_IN, IS_LOGGED_IN };
 
 export default withStyles(containerStyles)(SignIn);
