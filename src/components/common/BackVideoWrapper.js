@@ -12,6 +12,7 @@ const styles = {
     maxWidth: '100%'
   },
   backVideoWrapper: {
+    flexGrow: 1,
     position: 'fixed',
     bottom: 0,
     right: 0,
@@ -32,7 +33,7 @@ class BackVideoWrapper extends Component {
       <Fragment>
         <div className={classes.backVideoWrapper}>
           <figure className={classes.parallaxVideoFigure} >
-            <video loop="loop" muted="muted" autoplay="autoplay" className={classes.parallaxVideoContainer}>
+            <video loop="loop" muted="muted" autoPlay="autoplay" className={classes.parallaxVideoContainer}>
               <source src={source} />
             </video>
           </figure>
@@ -44,10 +45,11 @@ class BackVideoWrapper extends Component {
 }
 
 BackVideoWrapper.propTypes = {
-  source: PropTypes.string.isRequired,
-  children: PropTypes.oneOf([
+  source: PropTypes.string,
+  children: PropTypes.oneOfType([
     PropTypes.node,
-    PropTypes.string
+    PropTypes.string,
+    PropTypes.array
   ]).isRequired,
 }
 

@@ -3,7 +3,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import PropTypes from 'prop-types';
 import ParallaxVideo from './BackVideoWrapper';
 
-import Navbar from './NavBar';
+import Navbar from './ui/NavBar';
 
 const styles = theme => ({
 
@@ -24,11 +24,7 @@ class BackVideoWithAppBarWrapper extends Component {
 }
 
 BackVideoWithAppBarWrapper.propTypes = {
-  source: PropTypes.string.isRequired,
-  children: PropTypes.oneOf([
-    PropTypes.node,
-    PropTypes.string
-  ]).isRequired,
+  source: PropTypes.string,
 }
 
 export default withStyles(styles)(BackVideoWithAppBarWrapper);

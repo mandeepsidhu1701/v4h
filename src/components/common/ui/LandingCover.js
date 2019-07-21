@@ -1,25 +1,29 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import intl from 'react-intl-universal';
-import { withRouter } from "react-router-dom";
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
 import IconButton from '@material-ui/core/IconButton';
-import AnimatedText from '../../components/AnimatedText';
+import AnimatedText from './AnimatedText';
 
 import {
   APP_TITLE,
   SECOND_GENOME
-} from '../../common/i18n';
+} from '../../../common/i18n';
 
 const appTitleDelays = [400, 400, 466.667, 66.6667, 266.667, 133.333, 0, 400, 466.667, 66.6667, 266.667, 133.333, 166.667500, 400, 533.333, 300, 666.667, 500, 566.667, 333.333, 400, 400, 466.667, 66.6667, 0, 266.667, 133.333, 166.667, 500, 400, 533.333, 300];
+
+const zIndexBase = 1;
 
 const styles = theme => ({
   card: {
     width: '100%',
-    height: '100%'
+    height: '100%',
+    zIndex: zIndexBase
+  },
+  hidden: {
+    display: 'none',
   },
   genome: {
     position: 'absolute',
@@ -72,27 +76,11 @@ const styles = theme => ({
   }
 });
 
-class Landing extends React.Component {
-  state = {};
-
-  handleScrollButtonClick = () => {
-    this.props.history.push("/home");
-  };
-
-  componentDidMount() {
-    window.addEventListener('wheel', this.handleScroll);
-  };
-
-  componentWillUnmount() {
-    window.removeEventListener('wheel', this.handleScroll);
-  };
-
-  handleScroll = () => {
-    this.handleScrollButtonClick();
-  };
+class LandingCover extends Component {
 
   render() {
-    const { classes } = this.props;
+    const { classes, handleClose } = this.props;
+
     return (
       <Card className={classes.card}>
         <span className={classes.genome}>{intl.get(SECOND_GENOME)}</span>
@@ -104,7 +92,7 @@ class Landing extends React.Component {
           image="/images/matt-hardy-562566-unsplash@2x.png"
         />
         <CardActions className={classes.actions} disableActionSpacing>
-          <IconButton aria-label="Scroll" onClick={this.handleScrollButtonClick}>
+          <IconButton aria-label="Scroll" onClick={() => handleClose()}>
             <img src='/images/scroll-icon-png_02-.png' width={24} height={32.6} alt='scroll' />
           </IconButton>
         </CardActions>
@@ -113,8 +101,5 @@ class Landing extends React.Component {
   }
 }
 
-Landing.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
 
-export default withRouter(withStyles(styles)(Landing));
+export default withStyles(styles)(LandingCover);

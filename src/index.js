@@ -12,8 +12,10 @@ import Amplify from 'aws-amplify';
 import config from './aws-exports';
 
 import './index.css';
-import AppContainer from './AppContainer';
 import HomeContainer from './pages/home/HomeContainer';
+import ArticlesContainer from './pages/articles/ArticlesContainer';
+
+import routes from "./data/routes";
 
 Amplify.configure(config)
 
@@ -33,14 +35,13 @@ const store = createStore(
 window.intl = intl
 window.reduxStore = store
 
-
 const Routes = () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <div className="primary-layout">
         <main>
-          <Route path="/" exact component={AppContainer} />
-          <Route path="/home" component={HomeContainer} />      
+          <Route path={routes.Home} exact component={HomeContainer} />      
+          <Route path={routes.Articles} exact component={ArticlesContainer} />
         </main>
       </div>
     </ConnectedRouter>
