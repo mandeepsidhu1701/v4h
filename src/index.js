@@ -5,7 +5,7 @@ import thunkMiddleware from 'redux-thunk';
 import { Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { createStore, compose, applyMiddleware } from 'redux';
-import { ConnectedRouter, routerMiddleware } from 'connected-react-router'
+import { ConnectedRouter, routerMiddleware } from 'connected-react-router';
 import intl from 'react-intl-universal';
 import rootReducer from './reducers';
 import Amplify from 'aws-amplify';
@@ -14,11 +14,6 @@ import config from './aws-exports';
 import './index.css';
 import AppContainer from './AppContainer';
 import HomeContainer from './pages/home/HomeContainer';
-
-/* #DEVELOPMENT remove these components when auth forms are completed */
-import AuthContainer from './components/auth/authPage';
-import AuthVerifyFormContainer from './components/auth/authPageVerifyForm';
-/* #DEVELOPMENT */
 
 Amplify.configure(config)
 
@@ -46,10 +41,6 @@ const Routes = () => (
         <main>
           <Route path="/" exact component={AppContainer} />
           <Route path="/home" component={HomeContainer} />
-          {/* #DEVELOPMENT remove these two routes when auth forms are completed */}
-            <Route path="/auth" component={AuthContainer} />
-            <Route path="/authVerify" component={AuthVerifyFormContainer} />
-          {/* #DEVELOPMENT */}
         </main>
       </div>
     </ConnectedRouter>

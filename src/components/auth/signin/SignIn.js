@@ -1,43 +1,37 @@
 import React, { Component } from "react";
-
+import PropTypes from 'prop-types';
+import { Redirect } from 'react-router';
 import SignInForm from "./forms/SignInForm";
-
-import { Auth } from "aws-amplify";
-
-import './SignIn.css';
+import { withStyles } from "@material-ui/core";
+import { containerStyles } from './styles';
 
 const SIGN_IN = "SignIn";
 const IS_LOGGED_IN = "WelcomeUser";
 
-
 class SignIn extends Component {
 
   state = {
-    loginname: "",
+    username: "",
     password: "",
     rememberme: false,
-    user: null, // will contain our user data object when signed in
-    status: SIGN_IN
+    status: SIGN_IN,
   }
 
   componentDidMount() {
-    Auth.currentAuthenticatedUser({
-      bypassCache: true // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
-    })
-      .then(data => {
-        let user = {username:data.username,...data.attributes}
-        if(user.email_verified) {
-          this.setState({user, status: IS_LOGGED_IN})
-        }
-      })
-      .catch(err => console.log(err));
+    // double check with server for existing logged-in user.
+    if (this.props.user == null) {
+      
+      //TODO what to do if user is already logged in?
+      //TODO check user is logged in
+      //TODO if so, close the modal and redirect to home.
+      
+    }
   }
 
   // Handle changes to form inputs on sign-up, verification and sign-in
   handleFormInput = event => {
     const {target} = event;
     const {type, checked, value, name} = target;
-    console.log(type, name, value, checked);
     if (type === "checkbox") {
       this.setState({
         [name]: checked
@@ -50,35 +44,68 @@ class SignIn extends Component {
   };
 
   AuthComponent = () => {
-    return (
+
+    const signInForm = 
       <SignInForm
         switchComponent={this.switchComponent}
         handleFormInput={this.handleFormInput}
+        serverError={this.props.serverError}
+        handleSignIn={this.props.handleSignIn}
+        handleSignOut={this.props.handleSignOut}
         inputs={this.state}
       />
-    );
+
+    switch (this.state.status) {
+      case SIGN_IN:
+        return (
+          signInForm
+        );
+      case IS_LOGGED_IN:
+        this.props.handleCloseForm();
+        return (
+          <Redirect to="/" />
+        );
+      default:
+        return (
+          signInForm
+        );
+    };
   };
 
   switchComponent = status => {
     this.setState({ status });
   };
   render() {
+
+    const {classes} = this.props;
     return ( 
-      <section className="login-base login-textbackground p-3">
-        <div className="card login-card">
-          <div className="triangle" />
-          <div className="card-border-bottom" />
-          <div className="card-border-top-1" />
-          <div className="card-border-top-2" />
-          <div className="card-border-left" />
-          <div className="card-border-right" />
+        <section className={classes.loginCard}>
+          <div className={classes.triangle} />
+          <div className={classes.cardBorderBottom} />
+          <div className={classes.cardBorderTopA} />
+          <div className={classes.cardBorderTopB} />
+          <div className={classes.cardBorderLeft} />
+          <div className={classes.cardBorderRight} />
           {this.AuthComponent()}
-        </div>
-      </section>
+        </section>
     );
   }
 }
 
+SignIn.propTypes = {
+  user: PropTypes.object,
+  serverError: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
+  processingRequest: PropTypes.bool,
+  handleSignIn: PropTypes.func.isRequired,
+  handleSignOut: PropTypes.func.isRequired,
+  handleCheckUserIsLoggedIn: PropTypes.func.isRequired,
+  handleCloseForm: PropTypes.func.isRequired,
+
+}
+
 export { SIGN_IN, IS_LOGGED_IN };
 
-export default SignIn;
+export default withStyles(containerStyles)(SignIn);

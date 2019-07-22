@@ -51,22 +51,28 @@ class Sphere extends Component {
     }
 
     componentDidMount() {
-      let type = this.props.type != undefined ? this.props.type : 0;
+      let type = this.props.type !== undefined ? this.props.type : 0;
       Animation.canvasApp(this.canvasId, this.props.sphereRad, this.sphereColors[type]);
     }
 
     render() {
       let {classes} = this.props;
-      let width = this.props.width != undefined ? this.props.width : 70;
-      let height = this.props.width != undefined ? this.props.height : 70;
-      let type = this.props.type != undefined ? this.props.type : 0;
+      let width = this.props.width !== undefined ? this.props.width : 70;
+      let height = this.props.width !== undefined ? this.props.height : 70;
+      let type = this.props.type !== undefined ? this.props.type : 0;
       return (
       <div className={classes.container}>
           <div> 
               <canvas id={this.canvasId} width={width} height={height}></canvas>
           </div>
           <div className={classes.overlay}>
-              <img src={this.overlayImages[type]}  width={width} height={height} class="image"/>
+              <img 
+                src={this.overlayImages[type]}  
+                width={width} 
+                height={height} 
+                className="image" 
+                alt="Animation, Rotating Particle Sphere"
+              />
           </div>
       </div>);
     }

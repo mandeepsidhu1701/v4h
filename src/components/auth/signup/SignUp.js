@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import { withRouter } from 'react-router';
+import PropTypes from 'prop-types';
+import { Redirect } from 'react-router';
+import { withStyles, Grid } from '@material-ui/core';
 import SignUpForm from "./forms/SignUpForm";
 import VerifyForm from "./forms/VerifyForm";
-import SignUpSidebar from "./SignUpSidebar";
-
-import { Auth } from "aws-amplify";
-
-import './SignUp.css';
-
+import SignUpSidebar from "./ui/SignUpSidebar";
+import { containerStyles } from './styles';
 
 const SIGN_UP = "SignUp";
 const VERIFY = "Verify";
@@ -24,33 +22,24 @@ class SignUp extends Component {
     code: "",
     donate: false,
     sanctuarySignUp: false,
-    user: null, // will contain our user data object when signed in
-    status: SIGN_UP
+    status: SIGN_UP,
+    oneTimeVerifyNotice: false
   }
 
   componentDidMount() {
-    Auth.currentAuthenticatedUser({
-      // bypassCache: false, check against local cache.
-      // bypassCache: true, force request to server for check. guarantees accuracy.
-      bypassCache: true 
-    })
-      .then(data => {
-        let user = {username:data.username,...data.attributes};
-        if(user.email_verified) {
-          // TODO: how to verify email and what to do if not ???
-          console.log("USER IS VERIFIED: ", user.username, user.attributes);
-        } else {
-          console.log("UNVERIFIED IS USER: ", user.username, user.attributes);
-        }
-      })
-      .catch(err => console.log(err));
+    // double check with server for existing logged-in user.
+    if (this.props.user == null) {
+      //TODO what to do if user already authenticated?
+
+      //TODO for now, do nothing. Allow user to sign up. Can replace current active user at sign in.
+      
+    }
   }
 
   // Handle changes to form inputs on sign-up, verification and sign-in
   handleFormInput = event => {
     const {target} = event;
     const {type, checked, value, name} = target;
-    console.log(type, name, value, checked);
     if (type === "checkbox") {
       this.setState({
         [name]: checked
@@ -63,30 +52,39 @@ class SignUp extends Component {
   };
 
   AuthComponent = () => {
+
+    const signUpForm = 
+      <SignUpForm
+        switchComponent={this.switchComponent}
+        handleFormInput={this.handleFormInput}
+        handleSignUp={this.props.handleSignUp}
+        inputs={this.state}
+        serverError={this.props.serverError}
+        handleVerifyNotice={this.handleVerifyNotice}
+      />
+
     switch (this.state.status) {
       case SIGN_UP:
         return (
-          <SignUpForm
-            switchComponent={this.switchComponent}
-            handleFormInput={this.handleFormInput}
-            inputs={this.state}
-          />
+          signUpForm
         );
       case VERIFY:
         return (
           <VerifyForm
             switchComponent={this.switchComponent}
             handleFormInput={this.handleFormInput}
+            handleVerifySignUp={this.props.handleVerifySignUp}
             inputs={this.state}
+            serverError={this.props.serverError}
+            handleVerifyNotice={this.handleVerifyNotice}
           />
         );
+      case IS_VERIFIED:
+        this.props.handleCloseForm();
+        return <Redirect to="/" />
       default:
         return (
-          <SignUpForm
-            switchComponent={this.switchComponent}
-            handleFormInput={this.handleFormInput}
-            inputs={this.state}
-          />
+          signUpForm
         );
     }
   };
@@ -94,36 +92,54 @@ class SignUp extends Component {
     this.setState({ status });
   };
 
+  handleVerifyNotice = verify => {
+    if(verify) {
+      this.setState({ oneTimeVerifyNotice: true });
+    }
+    else {
+      this.setState({ oneTimeVerifyNotice: false });
+    }
+  }
+
   render() {
-    console.log(this.state)
+    const {classes} = this.props;
     return ( 
-      <section className="sign-up-base sign-up-textbackground p-3">
-        <div className="card sign-up-card">
-          <div className="triangle" />
-          <div className="card-border-bottom" />
-          <div className="card-border-top-1" />
-          <div className="card-border-top-2" />
-          <div className="card-border-left" />
-          <div className="card-border-right" />
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-sm-12 col-md-7">
+        <section className={classes.signUpCard}>
+          <div className={classes.triangle} />
+          <div className={classes.cardBorderBottom} />
+          <div className={classes.cardBorderTopA} />
+          <div className={classes.cardBorderTopB} />
+          <div className={classes.cardBorderLeft} />
+          <div className={classes.cardBorderRight} />
+          <Grid container>
+              <Grid item xs={12} sm={12} md={6} lg={7}>
                 {this.AuthComponent()}
-              </div>
-              <div className="col-sm-12 col-md-1">
-                <div className="card-divider-vertical"></div>
-              </div>
-              <div className="col-sm-12 col-md-4">
+              </Grid>
+              <Grid item xs={12} sm={12} md={1} lg={1}>
+                <div className={classes.cardDivider}></div>
+              </Grid>
+              <Grid item xs={12} sm={12} md={5} lg={4}>
                 <SignUpSidebar />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+              </Grid>
+          </Grid>
+        </section>
     );
   }
 }
 
+SignUp.propTypes = {
+  user: PropTypes.object,
+  serverError: PropTypes.oneOfType([
+    PropTypes.object,
+    PropTypes.string,
+  ]),
+  processingRequest: PropTypes.bool,
+  handleSignUp: PropTypes.func.isRequired,
+  handleVerifySignUp: PropTypes.func.isRequired,
+  handleCheckUserIsLoggedIn: PropTypes.func.isRequired,
+  handleCloseForm: PropTypes.func.isRequired,
+}
+
 export { VERIFY, SIGN_UP, IS_VERIFIED };
 
-export default withRouter(SignUp);
+export default withStyles(containerStyles)(SignUp);
