@@ -6,23 +6,11 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import NavBar from '../../components/NavBar';
 
-import indigo from '@material-ui/core/colors/indigo';
-import pink from '@material-ui/core/colors/pink';
-import red from '@material-ui/core/colors/red';
-
 import {
   APP_TITLE,
   SECOND_GENOME
 } from '../../common/i18n';
 
-
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#ffffff'
-    }
-  },
-});
 
 const styles = theme => ({
   root: {
@@ -34,19 +22,13 @@ const styles = theme => ({
 });
 
 class Home extends React.Component {
-  state = {};
-
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const { classes } = this.props;
     return (
       <div className={classes.root}>
-        <MuiThemeProvider theme={theme}>
-          <NavBar />
-        </MuiThemeProvider>
+        <NavBar />          
+        <p>A dream you dream alone is only a dream. A dream you dream together is reality. </p>
       </div>
     );
   }

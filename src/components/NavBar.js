@@ -1,22 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import intl from 'react-intl-universal';
-
-import { Link as RouterLink } from 'react-router-dom';
-
+import { Link as RouterLink, withRouter } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
-import Typography from '@material-ui/core/Typography'
-import Grid from '@material-ui/core/Grid';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import MenuIcon from '@material-ui/icons/Menu';
-import AddIcon from '@material-ui/icons/AddCircle';
-import DeleteIcon from '@material-ui/icons/Delete';
+import Typography from '@material-ui/core/Typography';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import Avatar from '@material-ui/core/Avatar';
 
 
+const defaultTheme = createMuiTheme();
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -25,12 +24,21 @@ const theme = createMuiTheme({
   },
   typography: {
     button: {
-      fontSize: 18,
-      fontWeight: 'bold',
-      fontFamily: 'Montserrat, Roboto, Sans-Serif',
       letterSpacing: '3px',
-      margin: '0 8px'
-    }
+      padding: '0.25rem',
+      fontWeight: 'bold',
+      margin: '0 8px',
+      fontSize: '0.5rem',
+      [defaultTheme.breakpoints.only('xl')]: {
+        fontSize: '1rem'
+      },
+      [defaultTheme.breakpoints.only('lg')]: {
+        fontSize: '0.875rem'
+      },
+      [defaultTheme.breakpoints.only('md')]: {
+        fontSize: '0.75rem'
+      },
+    },
   }
 });
 
@@ -47,101 +55,203 @@ const styles = theme => ({
     },
     menuButtonContainer: {
       marginLeft: '4%',
+      '@media (min-width:801px)': {
+        display: 'none',
+      }
     },
     menuButton: {
-      marginTop: 4
+      marginTop: '4px',
     },
-    navLinkContainer: {
+    navContainer: {
       flexGrow: 1,
       display: 'flex',
       justifyContent: 'center',
-      margin: '0 8px'
+      marginLeft: '12.5%',
+    },
+    navLinkContainer: {
+      display: 'flex',
+      justifyContent: 'center',
+      '@media (max-width:800px)': {
+        display: 'none',
+      }
+    },
+    navLogo: {
+      position: 'relative',
+      padding: '0.7rem 0.5rem 0 0.5rem',
+    },
+    navTextNearCentre: {
+      margin: 0,
+      color: '#AAAAAA',
+      letterSpacing: '2px',
+      [theme.breakpoints.only('xl')]: {
+        fontSize: '0.875rem'
+      },
+      [theme.breakpoints.only('lg')]: {
+        fontSize: '0.75rem'
+      },
+      [theme.breakpoints.only('md')]: {
+        fontSize: '0.625rem'
+      },
+      [theme.breakpoints.only('sm')]: {
+        fontSize: '0.5rem'
+      },
+      [theme.breakpoints.only('xs')]: {
+        fontSize: '0.325rem'
+      },
+    },
+    navTextCentre: {
+      position: 'relative',
+      top: '0.25rem',
+      margin: '0 0.25rem',
+      fontWeight: '900',
+      letterSpacing: '2px',
+      [theme.breakpoints.only('xl')]: {
+        fontSize: '1.625rem'
+      },
+      [theme.breakpoints.only('lg')]: {
+        fontSize: '1.5rem'
+      },
+      [theme.breakpoints.only('md')]: {
+        fontSize: '1.325rem'
+      },
+      [theme.breakpoints.only('sm')]: {
+        fontSize: '1.25rem'
+      },
+      [theme.breakpoints.only('xs')]: {
+        fontSize: '1.125rem'
+      },
     },
     navLink: {
-      padding: 2,
-      ...theme.typography.button,
+      ...theme.typography.button
     },
-    navLinkCentre: {
-      margin: '0 4px',
-      fontSize: 24,
-      fontWeight: '900',
-      letterSpacing: '3px',
-    },
-    navLinkNearCentre: {
-      fontSize: 12,
-      color: '#AAAAAA',
-      fontWeight: '500',
-      fontVariant: 'normal',
-      letterSpacing: '3px',
-    },
-    logoContainer: {
-      marginRight: '4%',
-      padding: '4px',
+    iconButtonContainer: {
+      marginRight: '2%',
+      padding: '0 2px',
       border: '1px solid #BBBBBB',
       borderRadius: '36px'
     },
-    logoButton: {
+    metaButton: {
       marginRight: '4px'
     },
-    logoAltButton: {
+    butterflyButton: {
 
+    },
+    metaIcon: {
+      width: '24px',
+      height: '24px'
+    },
+    butterflyIcon: {
+      width: '24px',
+      height: '24px'
     }
   });
+
 
 
 //TODO: change the navbar to use grid, and collapse the main menu properly, upon hitting small device size.
 
 class NavBar extends Component {
 
-    render() {
-        const { classes } = this.props;
-        return (
-          <MuiThemeProvider theme={theme}>
-            <AppBar position="static">
-              <Toolbar className={classes.toolbar} component="nav">
-                <div className={classes.appBarContainer}>
-                  <div className={classes.menuButtonContainer}>
-                    <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-                      <MenuIcon />
-                    </IconButton>
-                  </div>
-                  <div className={classes.navLinkContainer}>
-                    <Button className={classes.navlink} component={RouterLink} to="#">
-                      INTRO
-                    </Button>
-                    <Button className={classes.navlink} component={RouterLink} to="#">
-                      CONTENT
-                    </Button>
-                    <Button className={classes.navlink} component={RouterLink} to="#">
-                      <div className={classes.navLinkNearCentre}>Second</div>
-                      <div className={classes.navLinkCentre}>HCN</div>
-                      <div className={classes.navLinkNearCentre}>Genome</div>
-                    </Button>
-                    <Button className={classes.navlink} component={RouterLink} to="#">
-                      ORGANIZE
-                    </Button>
-                    <Button className={classes.navlink} component={RouterLink} to="#">
-                      CONNECT
-                    </Button>
-                  </div>
-                  <div className={classes.logoContainer}>
-                    <IconButton className={classes.logoButton} color="inherit" aria-label="Logo">
-                      <DeleteIcon />
-                    </IconButton>
-                    <IconButton className={classes.logoAltButton} color="inherit" aria-label="Logo Alt">
-                      <AddIcon />
-                    </IconButton>
-                  </div>
+  state = {
+    anchorEl: null
+  }
+
+  handleMenuClose = () => {
+    this.setState({
+      anchorEl: null
+    });
+  }
+
+  handleMenuOpen = (event) => {
+    this.setState({ anchorEl: event.currentTarget });
+  }
+
+  handleOpenPage = (url) => {
+    this.props.history.push(url);
+  }
+
+  render() {
+    const { classes } = this.props;
+
+    const { anchorEl } = this.state;
+    const open = Boolean(anchorEl);
+
+    return (
+      <MuiThemeProvider theme={theme}>
+        <AppBar position="static">
+          <Toolbar className={classes.toolbar} component="nav">
+            <div className={classes.appBarContainer}>
+
+              <div className={classes.menuButtonContainer}>
+                <IconButton 
+                  className={classes.menuButton} 
+                  aria-label="Main Menu"
+                  aria-owns={open ? 'main-menu' : undefined}
+                  aria-haspopup="true"
+                  onClick={this.handleMenuOpen}
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Menu
+                  id="main-menu" 
+                  anchorEl={anchorEl} 
+                  open={open} 
+                  onClose={this.handleMenuClose}
+                  PaperProps={{
+                    style: {
+                      maxHeight: 400,
+                      width: 120,
+                    },
+                  }}
+                >
+                  <MenuItem onClick={() => this.handleOpenPage("/home")}>Intro</MenuItem>
+                  <MenuItem onClick={() => this.handleOpenPage("/content")}>Content</MenuItem>
+                  <MenuItem onClick={() => this.handleOpenPage("/organize")}>Organize</MenuItem>
+                  <MenuItem onClick={() => this.handleOpenPage("/connect")}>Connect</MenuItem>
+                </Menu>
+              </div>
+
+              <div className={classes.navContainer}>
+                <div className={classes.navLinkContainer}>
+                  <Button className={classes.navlink} component={RouterLink} to="#">
+                    INTRO
+                  </Button>
+                  <Button className={classes.navlink} component={RouterLink} to="#">
+                    CONTENT
+                  </Button>
                 </div>
-              </Toolbar>
-            </AppBar>
-          </MuiThemeProvider>
-        );
-      }
+                <Typography component="span" className={classes.navLogo}>
+                  <span className={classes.navTextNearCentre}>Second</span>
+                  <span className={classes.navTextCentre}>HCN</span>
+                  <span className={classes.navTextNearCentre}>Genome</span>
+                </Typography>
+                <div className={classes.navLinkContainer}>
+                  <Button className={classes.navlink} component={RouterLink} to="#">
+                    ORGANIZE
+                  </Button>
+                  <Button className={classes.navlink} component={RouterLink} to="#">
+                    CONNECT
+                  </Button>
+                </div>
+              </div>
+              <div className={classes.iconButtonContainer}>
+                <IconButton className={classes.metaButton} color="inherit" aria-label="MetaWheel">
+                  <Avatar alt="MetaWheel" src="/images/metawheelAppBar.png" className={classes.metaIcon} />
+                </IconButton>
+                <IconButton className={classes.butterflyButton} color="inherit" aria-label="Butterfly">
+                  <Avatar alt="Butterfly" src="/images/butterflyAppBar.png" className={classes.butterflyIcon} />
+                </IconButton>
+              </div>
+            </div>
+          </Toolbar>
+        </AppBar>
+      </MuiThemeProvider>
+    );
+  }
 }
 
 NavBar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(NavBar);
+export default withRouter(withStyles(styles)(NavBar));
