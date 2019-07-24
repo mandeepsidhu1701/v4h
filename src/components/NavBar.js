@@ -54,19 +54,20 @@ const styles = theme => ({
       width: '100%'
     },
     menuButtonContainer: {
-      marginLeft: '4%',
       '@media (min-width:801px)': {
         display: 'none',
       }
     },
     menuButton: {
-      marginTop: '4px',
+      padding: '8px'
     },
     navContainer: {
       flexGrow: 1,
       display: 'flex',
       justifyContent: 'center',
-      marginLeft: '12.5%',
+      '@media (min-width:801px)': {
+        marginLeft: '12.5%',
+      }
     },
     navLinkContainer: {
       display: 'flex',
