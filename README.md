@@ -13,12 +13,19 @@ Install all dependencies in the project.
 
 ### Setup AWS profile and credentials
 ```
-On MAC:
+On MAC / Linux:
 $cd ~/
 $mkdir .aws
 $cd .aws
 $touch config
 $touch credentials
+
+On Windows:
+$cd ~/
+$mkdir .aws
+$cd .aws
+$type NUL > config
+$type NUL > credentials
 ```
 Update config and credentials file as follows:
 ```
