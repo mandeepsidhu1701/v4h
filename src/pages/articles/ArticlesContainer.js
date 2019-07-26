@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import Article from './Article'
+import Articles from './Articles'
 
 const mapStateToProps = state => {
   return {
@@ -12,4 +12,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Article);
+export default connect(mapStateToProps, mapDispatchToProps)(Articles);

@@ -15,4 +15,4 @@ const cardData = [
   { id: 8, title: title, content: content, image: image, topbtntext: topBtnText, bottombtntext: bottomBtnText }
 ]
 
-export default cardData
+export default cardData;

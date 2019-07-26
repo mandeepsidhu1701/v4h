@@ -12,6 +12,7 @@ const styles = {
     maxWidth: '100%'
   },
   backVideoWrapper: {
+    flexGrow: 1,
     position: 'fixed',
     bottom: 0,
     right: 0,
