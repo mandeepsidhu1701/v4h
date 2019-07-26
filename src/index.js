@@ -14,6 +14,7 @@ import config from './aws-exports';
 import './index.css';
 import AppContainer from './AppContainer';
 import HomeContainer from './pages/home/HomeContainer';
+import ArticleContainer from './pages/article/ArticleContainer';
 
 Amplify.configure(config)
 
@@ -41,6 +42,7 @@ const Routes = () => (
         <main>
           <Route path="/" exact component={AppContainer} />
           <Route path="/home" component={HomeContainer} />      
+          <Route path="/article" component={ArticleContainer} />      
         </main>
       </div>
     </ConnectedRouter>
