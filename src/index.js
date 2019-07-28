@@ -16,6 +16,8 @@ import AppContainer from './AppContainer';
 import HomeContainer from './pages/home/HomeContainer';
 import ArticlesContainer from './pages/articles/ArticlesContainer';
 
+import routes from "./data/routes";
+
 Amplify.configure(config)
 
 const history = createBrowserHistory()
@@ -34,15 +36,14 @@ const store = createStore(
 window.intl = intl
 window.reduxStore = store
 
-
 const Routes = () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <div className="primary-layout">
         <main>
-          <Route path="/" exact component={AppContainer} />
-          <Route path="/home" component={HomeContainer} />      
-          <Route path="/articles" component={ArticlesContainer} />
+          <Route path={routes.Landing} exact component={AppContainer} />
+          <Route path={routes.Home} component={HomeContainer} />      
+          <Route path={routes.Articles} component={ArticlesContainer} />
         </main>
       </div>
     </ConnectedRouter>

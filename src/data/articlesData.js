@@ -4,7 +4,7 @@ const topBtnText = 'TUTORIAL'
 const bottomBtnText = 'READ MORE'
 const image = '/images/article/paella.jpg'
 
-const cardData = [
+const articlesData = [
   { id: 1, title: title, content: content, image: image, topbtntext: topBtnText, bottombtntext: bottomBtnText },
   { id: 2, title: title, content: content, image: image, topbtntext: topBtnText, bottombtntext: bottomBtnText },
   { id: 3, title: title, content: content, image: image, topbtntext: topBtnText, bottombtntext: bottomBtnText },
@@ -15,4 +15,4 @@ const cardData = [
   { id: 8, title: title, content: content, image: image, topbtntext: topBtnText, bottombtntext: bottomBtnText }
 ]
 
-export default cardData;
+export default articlesData;
