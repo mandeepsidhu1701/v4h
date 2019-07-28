@@ -14,6 +14,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import Avatar from '@material-ui/core/Avatar';
 
+import routes from "../../../data/routes";
 
 const defaultTheme = createMuiTheme();
 const theme = createMuiTheme({
@@ -201,16 +202,16 @@ class NavBar extends Component {
                     },
                   }}
                 >
-                  <MenuItem onClick={() => this.handleOpenPage("/home")}>Intro</MenuItem>
-                  <MenuItem onClick={() => this.handleOpenPage("/content")}>Content</MenuItem>
-                  <MenuItem onClick={() => this.handleOpenPage("/organize")}>Organize</MenuItem>
-                  <MenuItem onClick={() => this.handleOpenPage("/connect")}>Connect</MenuItem>
+                  <MenuItem onClick={() => this.handleOpenPage(routes.Home)}>Intro</MenuItem>
+                  <MenuItem onClick={() => this.handleOpenPage(routes.Content)}>Content</MenuItem>
+                  <MenuItem onClick={() => this.handleOpenPage(routes.Organize)}>Organize</MenuItem>
+                  <MenuItem onClick={() => this.handleOpenPage(routes.Connect)}>Connect</MenuItem>
                 </Menu>
               </div>
 
               <div className={classes.navContainer}>
                 <div className={classes.navLinkContainer}>
-                  <Button className={classes.navlink} component={RouterLink} to="#">
+                  <Button className={classes.navlink} component={RouterLink} to={routes.Home}>
                     INTRO
                   </Button>
                   <Button className={classes.navlink} component={RouterLink} to="#">
