@@ -2,10 +2,10 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { createStore, compose, applyMiddleware } from 'redux';
-import { ConnectedRouter, routerMiddleware } from 'connected-react-router'
+import { ConnectedRouter, routerMiddleware } from 'connected-react-router';
 import intl from 'react-intl-universal';
 import rootReducer from './reducers';
 import Amplify from 'aws-amplify';
