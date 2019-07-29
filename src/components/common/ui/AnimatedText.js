@@ -5,7 +5,7 @@ const styles = theme => ({
   text: {
     display: 'inline-block',
     opacity: '0',
-    marginRight: '0.2em',
+    paddingRight: '0.66rem',
     animationName: 'textAnimation',
     animationDuration: '0.5s',
     animationIterationCount: '1',
@@ -14,12 +14,12 @@ const styles = theme => ({
   },
   "@keyframes textAnimation": {
     from: {
-      transform: 'scale(3, 3)',
+      transform: 'scale(3, 2.9)',
       opacity: '0'
     },
     to: {
-      transform: 'scale(1, 1)',
-      opacity: '1'
+      transform: 'scale(1, 0.9)',
+      opacity: '0.98'
     }
   }
 })
@@ -31,9 +31,9 @@ class AnimatedText extends Component {
     return (
       text.split('').map((letter, index) => {
         if(letter === ' ') {
-          return (<span style={{marginRight: '0.2em'}} />)
+          return (<span key={index} style={{marginRight: '1rem'}} />)
         } else {
-          return (<span className={classes.text} style={{animationDelay: delays[index] + 'ms'}}>{letter.toUpperCase()}</span>)
+          return (<span key={index} className={classes.text} style={{animationDelay: delays[index] + 'ms'}}>{letter.toUpperCase()}</span>)
         }
       })
     )
