@@ -110,7 +110,6 @@ const styles = theme => ({
   }
 });
 
-// TODO update landing page to show sign in and sign up links on mouse over (desktop) or always (mobile) and clicking / mouseover shows relevant form.
 
 class Landing extends React.Component {
   state = {
