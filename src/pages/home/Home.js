@@ -4,8 +4,6 @@ import intl from 'react-intl-universal'
 import PageWrapper from '../../components/common/BackVideoWithAppBarWrapper';
 import { withStyles } from '@material-ui/core/styles';
 
-import { withStyles } from '@material-ui/core/styles';
-
 import NavBar from '../../components/NavBar';
 
 const styles = theme => ({
