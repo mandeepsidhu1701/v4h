@@ -17,6 +17,13 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 
+/* 
+  TODO: update signed-in section to show correct butterfly and sanctuary images, for signed in status, and correct links and notifications.
+        double check with redux functions for managing sign in, sign out etc if needed.
+*/
+
+
+
 const theme = createMuiTheme({
   palette: {
     primary: {

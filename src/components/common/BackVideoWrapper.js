@@ -8,8 +8,11 @@ const styles = {
     position: 'relative',
   },
   parallaxVideoContainer: {
-    width: '100%',
-    maxWidth: '100%'
+    position: 'fixed',
+    right: 0,
+    bottom: 0,
+    minWidth: '100%', 
+    minHeight: '100%',
   },
   backVideoWrapper: {
     flexGrow: 1,

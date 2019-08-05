@@ -12,10 +12,12 @@ const styles = theme => ({
 class BackVideoWithAppBarWrapper extends Component {
 
   render() {
+    const variant = this.props.className;
+
     const { source, children } = this.props;
 
     return (
-        <ParallaxVideo source={source}>
+        <ParallaxVideo source={source} variant={variant} >
           <Navbar />
           {children}
         </ParallaxVideo>

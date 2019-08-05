@@ -7,6 +7,17 @@ const styles = theme => ({
     lineHeight: 1.5,
     fontWeight: 500,
   },
+  buttonBase: {
+    border: 'solid 2px rgba(205,164,96, 1)',
+    fontWeight: 700,
+    marginBottom: '4rem',
+    fontSize: '0.5rem',
+    backgroundColor: 'rgba(255,255,255,0.25)',
+    padding: '0.25rem 1.25rem'
+  },
+  linkBase: {
+    textDecoration: 'none'
+  },
 
   /** Landing cover styles */
   landingRoot: {
@@ -18,13 +29,7 @@ const styles = theme => ({
     left: 0,
     zIndex: 90,
     width: '100%',
-    height: '100%',
-    [theme.breakpoints.only('sm')]: {
-      overflowY: 'visible',
-    },
-    [theme.breakpoints.only('xs')]: {
-      overflowY: 'visible',
-    }
+    height: '100%'
   },
   landingImage: {
     position: 'absolute',
@@ -40,12 +45,15 @@ const styles = theme => ({
     top: '-100%',
   },
   genome: {
+    backgroundColor: 'rgba(255,255,255,0.5)',
+    borderRadius: '0.5rem',
     position: 'absolute',
-    width: '90%',
-    marginLeft: '-45%',
+    width: '40%',
+    marginLeft: '-20%',
+    padding: '0.25rem',
     top: '46px',
     left: '50%',
-    zIndex: 91,
+    zIndex: 93,
     textAlign: 'center',
     fontFamily: 'Roboto',
     fontSize: '1.75rem',
@@ -89,15 +97,13 @@ const styles = theme => ({
     top: '95px',    
     left: '50%',
     textAlign: 'center',
-    fontFamily: 'Roboto',
     fontSize: '1.125rem',
     fontWeight: 900,
-    opacity: '1',
     [theme.breakpoints.only('xs')]: {
       fontSize: '1rem',
     },
-    '@media (max-width:212px)': {
-      top: '108px',
+    '@media (max-width:521px)': {
+      top: '120px',
     }
   },
   modalOverflow: {
@@ -130,7 +136,7 @@ const styles = theme => ({
     zIndex: 91,
     display: 'block',
     textAlign: "center",
-    position: 'fixed',
+    position: 'absolute',
     bottom: '32px',
     left: '0',
     right: '0'
@@ -178,7 +184,10 @@ const styles = theme => ({
   /** Home Page styles */
   mainPageBackground: {
     backgroundColor: 'rgba(0,80,180,1)',
-    /* overflowX: 'hidden' */
+    overflowX: 'hidden'
+  },
+  overflowHidden: {
+    overflow: 'hidden',
   },
   gridContainerPadding: {
     padding: '0.5rem 4rem',
@@ -237,53 +246,136 @@ const styles = theme => ({
     }
   },
   butterflyGreyIcon: {
-
+    width: '10%',
+    [theme.breakpoints.only('sm')]: {
+      width: '100%',
+      margin: '2rem 0'
+    },
+    [theme.breakpoints.only('xs')]: {
+      width: '100%',
+      margin: '2rem 0'
+    }
   },
   aboutUsContainer: {
-
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '10% 12.5%',
+    backgroundColor: 'rgba(255,255,255,0.1)',
+    border: '1px solid white',
+    [theme.breakpoints.only('sm')]: {
+      padding: '8%',
+    },
+    [theme.breakpoints.only('xs')]: {
+      padding: '5%',
+    }
   },
   aboutUsTitle: {
-
+    color: 'black',
+    fontWeight: 700,
+    fontSize: '1.125rem',
+    paddingBottom: '4rem',
+    letterSpacing: '3px'
+    
   },
   aboutUsText: {
+    color: 'black',
+    fontSize: '0.75rem',
+    lineHeight: 2,
 
   },
   metamorphicMediaContainer: {
-
+    padding: '0 20%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    
   },
   metamorphicMediaTitle: {
-
+    textAlign: 'center',
+    margin: '4rem 0 1rem 0',
+    letterSpacing: '4px',
+    fontSize: '1rem'
   },
   metamorphicMediaText: {
-
+    fontWeight: 900,
+    lineHeight: 2,
+    textAlign: 'center',
+    marginBottom: '2rem'
   },
   metamorphicMediaCaption: {
-
+    opacity: 0.75,
+    fontSize: '0.75rem',
+    fontWeight: 700,
+    marginBottom: '1rem'
   },
   metamorphicMediaButton: {
-
+    
   },
   videoParentContainer: {
-
+    backgroundColor: 'rgba(255,255,255,0.33)',
+    [theme.breakpoints.only('sm')]: {
+      marginBottom: '4rem'
+    },
+    [theme.breakpoints.only('xs')]: {
+      marginBottom: '4rem'
+    }
   },
   videoContainer: {
-
+    position: 'relative',
   },
   videoContainerTitle: {
-
+    fontWeight: 900,
+    color: 'black',
+    position: 'absolute',
+    top: '3%',
+    left: 0,
+    right: 0,
+    textAlign: 'center',
+  },
+  videoVolunteers: {
+    width: '100%',
+  },
+  videoVolunteerPlayButton: {
+    position: 'absolute',
+    color: 'white',
+    opacity: 0.8,
+    left: '1%',
+    bottom: '1%',
+  },
+  videoVolunteerPlayIcon: {
+    width: '3rem',
+    height: '3rem',
   },
   videoCaption: {
-
+    padding: '1.5rem 3rem',
+    fontSize: '0.625rem',
+    border: '1px solid white',
+    textAlign: 'center',
+    [theme.breakpoints.only('sm')]: {
+      padding: '1rem 2rem',
+      fontSize: '0.5rem',
+    },
+    [theme.breakpoints.only('xs')]: {
+      padding: '0.5rem 1rem',
+      fontSize: '0.5rem',
+    }
   },
   corePrincipalsContainer: {
     position: 'relative',
-    alignItems: 'stretch',
-    flexDirection: 'column',
-    marginBottom: '10%',
+    height: '150%',
+    [theme.breakpoints.only('sm')]: {
+      height: '4rem',
+      marginBottom: '75%'
+    },
+    [theme.breakpoints.only('xs')]: {
+      height: '4rem',
+      marginBottom: '75%'
+    }
   },
   corePrincipalsImage: {
     width: '100%',
-    height: 'auto',
+    position: 'absolute',
+    top: 0,
+    left: 0,
   },
   corePrincipalsTitle: {
     position: 'absolute',
@@ -296,22 +388,70 @@ const styles = theme => ({
     fontSize: '0.9rem',
   },
   corePrincipalsPanel: {
-    position: 'relative',
-    bottom: '4rem',
-    left: '0',
+    position: 'absolute',
+    left: 0,
+    top: '92%',
     width: '100%',
     height: '30%',
     backgroundColor: 'rgba(0,0,0,0.5)',
   },
   corePrincipalsText: {
-
+    position: 'relative',
+    top: '10%',
+    left: '7.5%',
+    width: '85%',
+    textAlign: 'justify',
+    fontSize: "0.8rem",
   },
-  corePrincipalsInfoGraphic: {
-
+  corePrincipalsDivider: {
+    borderTop: 'solid 1px rgb(210,167,95)',
+    position: 'absolute',
+    left: "7.5%",
+    width: '85%',
+    top: '60%',
+    [theme.breakpoints.only('sm')]: {
+      display: 'none'
+    },
+    [theme.breakpoints.only('xs')]: {
+      display: 'none'
+    }
+  },
+  corePrincipalsButton: {
+    color: 'rgb(210,167,95)',
+    fontSize: '1.125rem',
+    position: 'relative',
+    marginTop: '3.6%'
+  },
+  corePrinciplesBlip: {
+    borderRadius: '50%',
+    backgroundColor: 'rgb(210,167,95)',
+    border: '1px solid rgb(210,167,95)',
+    height: '5px',
+    width: '5px',
+    display: 'inline-block',
+    position: 'relative',
+    marginTop: 0
+  },
+  corePrincipalsButtonVision: {
+    left: '4%',
+  },
+  corePrincipalsButtonMission: {
+    left: '8%',
+  },
+  corePrincipalsButtonCharter: {
+    left: '12%',
+  },
+  corePrincipalsButtonCompass: {
+    left: '18%',
+  },
+  corePrincipalsButtonMetawheel: {
+    left: '21%',
+  },
+  corePrincipalsButtonInitiatives: {
+    left: '24%',
   },
   urbanSanctuaryContainer: {
     alignItems: 'center',
-    flexDirection: 'column',
     justifyContent: 'center',
   },
   urbanSanctuaryImage: {
@@ -327,14 +467,10 @@ const styles = theme => ({
     }
   },
   urbanSanctuaryButton: {
-    border: 'solid 2px',
-    borderColor: 'rgba(205,164,96, 1)',
-    fontSize: '0.5rem',
-    fontWeight: 700,
-    marginBottom: '4rem',
+
   },
   metawheelContainer: {
-
+    marginTop: '25%'
   },
   metawheelImage: {
     width: "100%",
