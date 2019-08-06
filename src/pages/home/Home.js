@@ -18,7 +18,7 @@ import SignUpModal, { SIGN_UP } from '../../components/auth/signup';
 import SignInModal, { SIGN_IN } from '../../components/auth/signin';
 import { userRequestForgotPasswordSubmit } from '../../actions/auth';
 
-import Carousel from '../../components/home/CorePrinciplesCarousel';
+import {Carousel, CarouselSlide} from '../../components/home/CorePrinciplesCarousel';
 
 import styles from './HomeStyles';
 
@@ -26,8 +26,6 @@ import styles from './HomeStyles';
 //TODO: what to do about spheres, correct size and position for small real-estate screens / mobile?
 
 //TODO: finish Carousel section
-
-//TODO: test webpage and fix found issues with landing drawer, and screen scroll.
 
 //TODO: test all links: sanctuary store, connect me, take me deeper, metawheel, fix links that are not working.
 
@@ -51,7 +49,7 @@ const landingState = {
 class Home extends React.Component {
 
   state = {
-    landing: landingState.SHOW,
+    landing: landingState.HIDE,
     showModal: false,
     authForm: SIGN_UP,
     showAuthLinks: false,
@@ -60,31 +58,14 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.refs.vidRef.addEventListener("ended", () => {this.setState({playingVolunteerVideo: false})});
-    
-    /* Don't know how else to prevent Y overflow showing when it shouldn't */
-    document.body.style.overflowY = "hidden";
-
-    this.refs.landingScrollRef.addEventListener("click", () => {document.body.style.overflowY = null;});
   }
 
   componentDidUnMount() {
     this.refs.vidRef.removeEventListener("ended", () => {this.setState({playingVolunteerVideo: false})});
-
-    document.body.style.overflowY = null;
-
-    this.refs.landingScrollRef.removeEventListener("click", () => {document.body.style.overflowY = null;});
   }
 
   handleShowAuthLinks = () => {
     this.setState({showAuthLinks: true});
-  }
-
-  handleShowCorePrinciple = (principle) => {
-    this.setState(
-      {
-        showCorePrincipal: principle
-      }
-    );
   }
 
   handleVolunteerVideoState = () => {
@@ -146,6 +127,12 @@ class Home extends React.Component {
       highlightedAuthLinkClass = classes.authLinkHighlight;
     }
 
+    const slides = data.corePrincipals.map((principle, i) => {
+      return (
+        <CarouselSlide key={principle.name} imageURL={principle.image} title={principle.name} text={principle.text} />
+      );
+    });
+
     return (
       <React.Fragment>
         <div className={rootClass}>
@@ -159,7 +146,7 @@ class Home extends React.Component {
             onMouseEnter={this.handleShowAuthLinks}
             onClick={this.handleShowAuthLinks}
           >
-            {"Second Genome"}
+            Second Genome
           </span>
           <span
             className={showAuthLinks ? `${classes.fontBase} ${classes.authSpan}` : classes.hidden}
@@ -341,11 +328,9 @@ class Home extends React.Component {
           </Grid>
           <Grid container className={classes.gridContainerPadding}>
             <Grid item xs={12} sm={12} md={9}>
-              <Grid container className={classes.corePrincipalsContainer}>
-                <Grid item>
-                  <Carousel />  
-                </Grid>
-              </Grid>
+              <Carousel direction="right" titlePosition="bottom" speed={8000}>  
+                {slides}
+              </Carousel>
             </Grid>
             <Grid item xs={12} sm={12} md={2}>
               <Grid container direction="column" className={classes.urbanSanctuaryContainer}>

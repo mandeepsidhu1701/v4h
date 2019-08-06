@@ -24,7 +24,7 @@ const styles = theme => ({
     backgroundColor: "#C0D2DE",
     overflowX: 'hidden',
     overflowY: 'hidden',
-    position: 'absolute',
+    position: 'fixed',
     top: 0,
     left: 0,
     zIndex: 90,
