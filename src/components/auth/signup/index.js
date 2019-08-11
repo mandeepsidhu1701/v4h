@@ -14,9 +14,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    handleSignUp(username, password, email, phone_number, callback=null) {
+    handleSignUp(username, password, email, phone_number, sanctuarySignUp, callback=null) {
       dispatch(
-        signUp(username, password, email, phone_number, callback)
+        signUp(username, password, email, phone_number, sanctuarySignUp, callback)
       );
     },
     handleVerifySignUp(username, code, callback=null) {

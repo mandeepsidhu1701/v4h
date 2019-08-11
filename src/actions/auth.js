@@ -1,6 +1,8 @@
 
 import { Auth } from 'aws-amplify';
 
+import siteTypes from '../data/auth';
+
 export const AUTH_SIGNEDUP = 'AUTH_SIGNEDUP';
 export const AUTH_VERIFIED = 'AUTH_VERIFIED';
 export const AUTH_SIGNEDIN = 'AUTH_SIGNEDIN';
@@ -16,6 +18,10 @@ export const AUTH_VERIFY_ATTRIBUTE_CONFIRM = 'AUTH_VERIFY_ATTRIBUTE_CONFIRM';
 export const AUTH_VERIFY_ATTRIBUTE = 'AUTH_VERIFY_ATTRIBUTE';
 export const AUTH_UPDATE_ATTRIBUTE = 'AUTH_UPDATE_ATTRIBUTE';
 
+
+//TODO: update sign in action to check that the account is for HCN or BOTH systems. sign in for Sanctuary only accounts should be rejected.
+
+
 /**
  * Invoke AWS Cognito sign up with username, password and attributes.
  * Also @see https://aws-amplify.github.io/docs/js/authentication.
@@ -24,18 +30,37 @@ export const AUTH_UPDATE_ATTRIBUTE = 'AUTH_UPDATE_ATTRIBUTE';
  * @param {string} password
  * @param {string} email
  * @param {string} phone_number
+ * @param {Boolean} sanctuarySignUp indicates if account is for HCN only or both HCN and Sanctuary.
  * @param {function} callback
  */
-export function signUp(username, password, email, phone_number, callback=null) {
+export function signUp(username, password, email, phone_number, sanctuarySignUp, callback=null) {
   return dispatch => {
     dispatch(beginAuthRequest());
+    let siteType;
+    if (sanctuarySignUp) {
+      /* 
+        TODO: if account already exists on Sanctuary Store with this username / email / phone number combo, 
+        simply change the siteType attribute to BOTH and request a new account verification.
+
+        TODO: change safety checking for existing accounts. If account exists and is signed up to HCN or BOTH, fail.
+        Otherwise, proceed with the above update.
+
+        Otherwise create a new account.
+      */
+
+      siteType = siteTypes.BOTH;
+
+    } else {
+      siteType = siteTypes.HCN;
+    }
     Auth.signUp(
       {
         username, 
         password, 
         attributes: {
           email, 
-          phone_number
+          phone_number,
+          siteType
         },
         validationData: []
       }
