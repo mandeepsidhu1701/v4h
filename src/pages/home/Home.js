@@ -25,8 +25,6 @@ import styles from './HomeStyles';
 
 //TODO: what to do about spheres, correct size and position for small real-estate screens / mobile?
 
-//TODO: finish Carousel section
-
 //TODO: test all links: sanctuary store, connect me, take me deeper, metawheel, fix links that are not working.
 
 //TODO: update second genome logo to on mobile always show authlinks
@@ -49,7 +47,7 @@ const landingState = {
 class Home extends React.Component {
 
   state = {
-    landing: landingState.HIDE,
+    landing: landingState.SHOW,
     showModal: false,
     authForm: SIGN_UP,
     showAuthLinks: false,
@@ -112,14 +110,14 @@ class Home extends React.Component {
     const { landing, showModal, authForm, playingVolunteerVideo, showAuthLinks } = this.state;
     const { classes } = this.props;
 
-    let rootClass;
+    let landingRoot;
     if (landing === landingState.SCROLL) {
-      rootClass = `${classes.landingRoot} ${classes.landingScrollUp}`;
+      landingRoot = `${classes.landingRoot} ${classes.landingScrollUp}`;
     }
     else if (landing === landingState.HIDE) {
-      rootClass = classes.hidden;
+      landingRoot = classes.hidden;
     } else {
-      rootClass = classes.landingRoot;
+      landingRoot = classes.landingRoot;
     }
 
     let highlightedAuthLinkClass = null;
@@ -133,13 +131,14 @@ class Home extends React.Component {
       );
     });
 
+
     return (
       <React.Fragment>
-        <div className={rootClass}>
+        <div className={landingRoot}>
           <img 
             src="/images/matt-hardy-562566-unsplash@2x.png" 
             alt="Background aesthetics"
-            className={classes.landingImage}
+            className={`${classes.landingImage} ${classes.landingImageAnimation}`}
           />
           <span
             className={classes.genome}

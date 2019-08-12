@@ -38,11 +38,12 @@ const styles = theme => ({
     top: '0',
     left: '0',
     zIndex: 90,
-    animation: '5s ease-out 0s 1 scaleAnimation',
+  },
+  landingImageAnimation: {
+    animation: '$scaleAnimation 5s 1 ease-out',
   },
   landingScrollUp: {
-    animation: '0.5s ease-out 0s 1 moveLandingUp',
-    top: '-100%',
+    animation: '$moveLandingUp 3s 1 linear',
   },
   genome: {
     backgroundColor: 'rgba(255,255,255,0.5)',
@@ -145,8 +146,8 @@ const styles = theme => ({
     display: 'none',
   },
   "@keyframes scaleAnimation": {
-    from: { transform: 'scale(1.2)' },
-    to: { transform: 'scale(1)' }
+    from: { width: '134%', height: '134%', top: '-17%', left: '-17%'},
+    to: { width: '100%', height: '100%', top: '0',left: '0'}
   },
   "@keyframes moveLandingUp": {
     from: { top: '0%' },
