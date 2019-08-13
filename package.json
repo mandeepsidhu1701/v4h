@@ -21,12 +21,14 @@
     "react-router-redux": "latest",
     "react-scripts": "2.1.5",
     "react-test-renderer": "16.8.3",
+    "react-video-cover": "^1.2.2",
     "redux": "latest",
     "redux-form": "latest",
     "redux-logger": "latest",
     "redux-thunk": "latest"
   },
   "scripts": {
+    "svgr": "svgr -d src/Icons/ assets/",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
