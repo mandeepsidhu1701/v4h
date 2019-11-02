@@ -5,6 +5,7 @@ export default {
   "Quotes": "/quotes",
   // URL for individual quotes
   "Articles": "/articles",
+  "ArticlesContent": "/articles/:id",
   // URL for individual articles
   "Videos": "/videos",
   // URL for individual Videos

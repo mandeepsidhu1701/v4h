@@ -15,6 +15,7 @@ import './index.css';
 import AppContainer from './AppContainer';
 import HomeContainer from './pages/home/HomeContainer';
 import ArticlesContainer from './pages/articles/ArticlesContainer';
+import ArticlesContentContainer from './pages/articles/ArticlesContentContainer';
 
 import routes from "./data/routes";
 
@@ -43,7 +44,8 @@ const Routes = () => (
         <main>
           <Route path={routes.Landing} exact component={AppContainer} />
           <Route path={routes.Home} component={HomeContainer} />      
-          <Route path={routes.Articles} component={ArticlesContainer} />
+          <Route path={routes.Articles} exact component={ArticlesContainer} />
+          <Route path={routes.ArticlesContent} component={ArticlesContentContainer} />
         </main>
       </div>
     </ConnectedRouter>

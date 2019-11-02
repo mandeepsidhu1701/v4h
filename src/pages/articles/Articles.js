@@ -1,25 +1,17 @@
 import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import { withRouter } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import PageWrapper from '../../components/common/BackVideoWithAppBarWrapper';
 import CardBox from '../../components/common/ui/CardBox';
 import articlesData from '../../data/articlesData';
 
-const styles = theme => ({
-  root: {
-    flexGrow: 1
-  }
-})
-
 class Articles extends Component {
 
-  handleClick = (param) => {
-    console.log('this is:', param)
+  handleClick = (id) => {
+    this.props.history.push('/articles/'+ id)
   }
 
   render() {
-    const { classes } = this.props
-    
     return (
       <PageWrapper>
         <Grid container direction="row" justify="flex-start" alignItems="flex-start">
@@ -42,4 +34,4 @@ class Articles extends Component {
   }
 }
 
-export default withStyles(styles)(Articles);
+export default withRouter(Articles);
