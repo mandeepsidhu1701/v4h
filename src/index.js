@@ -15,7 +15,7 @@ import './index.css';
 import AppContainer from './AppContainer';
 import HomeContainer from './pages/home/HomeContainer';
 import ArticleContainer from './pages/article/ArticleContainer';
-
+import QuotesMainContainer from './pages/quotes/QuotesMainContainer';
 Amplify.configure(config)
 
 const history = createBrowserHistory()
@@ -43,6 +43,7 @@ const Routes = () => (
           <Route path="/" exact component={AppContainer} />
           <Route path="/home" component={HomeContainer} />      
           <Route path="/article" component={ArticleContainer} />      
+          <Route path="/content/quotes" component={QuotesMainContainer} />
         </main>
       </div>
     </ConnectedRouter>
