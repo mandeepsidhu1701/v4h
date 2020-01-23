@@ -1,4 +1,4 @@
-const picURI = '/images/video/videogrid1.png'
+const picURI = '/images/videogrid1.png'
 
 
 export const vitalityData = [

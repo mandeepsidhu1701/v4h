@@ -31,7 +31,6 @@ const styles = theme => ({
 
 const style = {
   overflow: 'hidden',
-  //backgroundImage : 'url(/images/pics.jpg)'
   backgroundImage : 'url(/images/matt-hardy-562566-unsplash@2x.png)',
   backgroundPosition : 'center',
   backgroundRepeat : 'no-repeat',
@@ -53,8 +52,7 @@ class QuotesMain extends Component {
     this.goDetail = this.goDetail.bind(this);
     this.goExpanded = this.goExpanded.bind(this);
     this.state = {
-      detailPage : true,
-      //detailPage : false,
+      detailPage : false,
       prodid : null,
       expanded : false,
     }
