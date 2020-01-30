@@ -8,7 +8,7 @@ import NavBar from './NavBar';
 
   class QuotesMainPage extends Component {
     render() {
-      const rowNum = [1, 2];
+      const rowNum = [1, 2, 3, 4, 5];
         return (
           <>
             {/** navigation bar */}

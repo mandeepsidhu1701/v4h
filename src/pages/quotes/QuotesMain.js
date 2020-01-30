@@ -2,6 +2,7 @@ import React , { Component } from 'react';
 import Home from '../home/Home'
 import { withStyles } from '@material-ui/core/styles';
 
+import Background from '../../components/Background'
 import QuotesDetail from './QuotesDetail';
 import QuotesMainPage from './QuotesMainPage'
 import QuotesMainExpandedPage from './QuotesMainExpandedPage'
@@ -30,10 +31,10 @@ const styles = theme => ({
 })
 
 const style = {
-  overflow: 'hidden',
-  backgroundImage : 'url(/images/matt-hardy-562566-unsplash@2x.png)',
-  backgroundPosition : 'center',
-  backgroundRepeat : 'no-repeat',
+  //overflow: 'hidden',
+  //backgroundImage : 'url(/images/matt-hardy-562566-unsplash@2x.png)',
+  //backgroundPosition : 'center',
+  //backgroundRepeat : 'no-repeat',
   backgroundSize : '100% auto, cover',
 };
 
@@ -60,8 +61,9 @@ class QuotesMain extends Component {
   
   render() {
       return (
-        <div style={style}> 
-          <Home />
+        <div style={style}>
+          <Home></Home>
+          <Background></Background>
           {this.state.detailPage ? (
               <QuotesDetail prodid={this.state.prodid}></QuotesDetail>
             ) : (
