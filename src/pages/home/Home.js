@@ -146,6 +146,7 @@ class Home extends React.Component {
             onClick={this.handleShowAuthLinks}
           >
             Second Genome
+            hello
           </span>
           <span
             className={showAuthLinks ? `${classes.fontBase} ${classes.authSpan}` : classes.hidden}
