@@ -4,48 +4,48 @@ Pink - #FB02FE
 Yellow - #FEC503
 */
 // window.addEventListener("load", windowLoadHandler, false);
-var sphereRad = 30;
-var radius_sp=1;
+let sphereRad = 30;
+let radius_sp=1;
 
 // function windowLoadHandler() {
 // 	canvasApp();
 // }
 export function canvasApp(id = "sphere-health", sphereRad = 30, rgb = {r:101, g:187, b:25}) {
 	this.sphereRad = sphereRad;
-	var theCanvas = document.getElementById(id);
-    var context = theCanvas.getContext("2d");	    
-	var displayWidth, displayHeight;	
-	var timer;
-	var wait;
-	var count;
-	var numToAddEachFrame;
-	var particleList;
-	var recycleBin;
-	var particleAlpha;
-	var {r,g,b} = rgb;
-	var fLen;
-	var m;
-	var projCenterX, projCenterY;
-	var zMax;
-	var turnAngle;
-	var turnSpeed;
-	var sphereCenterX, sphereCenterY, sphereCenterZ;
-	var particleRad;
-	var zeroAlphaDepth;
-	var randAccelX, randAccelY, randAccelZ;
-	var gravity;
-	var rgbString;
+	let theCanvas = document.getElementById(id);
+    let context = theCanvas.getContext("2d");	    
+	let displayWidth, displayHeight;	
+	let timer;
+	let wait;
+	let count;
+	let numToAddEachFrame;
+	let particleList;
+	let recycleBin;
+	let particleAlpha;
+	let {r,g,b} = rgb;
+	let fLen;
+	let m;
+	let projCenterX, projCenterY;
+	let zMax;
+	let turnAngle;
+	let turnSpeed;
+	let sphereCenterX, sphereCenterY, sphereCenterZ;
+	let particleRad;
+	let zeroAlphaDepth;
+	let randAccelX, randAccelY, randAccelZ;
+	let gravity;
+	let rgbString;
 	//we are defining a lot of variables used in the screen update functions globally so that they don't have to be redefined every frame.
-	var p;
-	var outsideTest;
-	var nextParticle;
-	var sinAngle;
-	var cosAngle;
-	var rotX, rotZ;
-	var depthAlphaFactor;
-	var i;
-	var theta, phi;
-	var x0, y0, z0;
+	let p;
+	let outsideTest;
+	let nextParticle;
+	let sinAngle;
+	let cosAngle;
+	let rotX, rotZ;
+	let depthAlphaFactor;
+	let i;
+	let theta, phi;
+	let x0, y0, z0;
 		
 	init();
 	
@@ -106,7 +106,7 @@ export function canvasApp(id = "sphere-health", sphereRad = 30, rgb = {r:101, g:
 				//We use the addParticle function to add a new particle. The parameters set the position and velocity components.
 				//Note that the velocity parameters will cause the particle to initially fly outwards away from the sphere center (after
 				//it becomes unstuck).
-				var p = addParticle(x0, sphereCenterY + y0, sphereCenterZ + z0, 0.012*x0, 0.002*y0, 0.002*z0);
+				let p = addParticle(x0, sphereCenterY + y0, sphereCenterZ + z0, 0.012*x0, 0.002*y0, 0.002*z0);
 				
 				//we set some "envelope" parameters which will control the evolving alpha of the particles.
 				p.attack = 50;
@@ -215,8 +215,8 @@ export function canvasApp(id = "sphere-health", sphereRad = 30, rgb = {r:101, g:
 	}
 		
 	function addParticle(x0,y0,z0,vx0,vy0,vz0) {
-		var newParticle;
-		var color;
+		let newParticle;
+		let color;
 		
 		//check recycle bin for available drop:
 		if (recycleBin.first != null) {

@@ -1,2 +1,2 @@
-import sphere from "./sphere"
+import sphere from './sphere';
 export default sphere;
