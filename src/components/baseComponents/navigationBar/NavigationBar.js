@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import intl from 'react-intl-universal';
 import {Link as RouterLink, withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import routes from '../../../../data/routes';
+import routes from '../../../data/routes';
 import {withStyles} from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';

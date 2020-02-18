@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { withStyles, Grid } from '@material-ui/core';
-import Sphere from '../../../common/ui/sphere';
+import Sphere from '../../../baseComponents/sphere';
 import { sideBarStyles } from '../styles';
 
 class SignUpSidebar extends Component {

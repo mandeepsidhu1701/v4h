@@ -1,21 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import {withStyles} from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
-import Modal from '@material-ui/core/Modal';
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
 import {withRouter, Link as RouterLink} from 'react-router-dom';
-import routes from '../../data/routes';
-
-import AnimatedText from '../../components/common/ui/AnimatedText';
-import PageWrapper from '../../components/common/backVideoWithNavBarWrapper/BackVideoWithNavBarWrapper';
-import Sphere from '../../components/common/ui/sphere';
-
+import PropTypes from 'prop-types';
+import {withStyles, IconButton, Modal, Grid, Button} from '@material-ui/core';
 import PlayCircleOutline from '@material-ui/icons/PlayCircleOutline';
-
+import {
+  Sphere,
+  AnimatedText,
+  BackVideoWithNavBarWrapper as PageWrapper
+} from '../../components/baseComponents';
 import SignUpModal, {SIGN_UP} from '../../components/auth/signup';
 import SignInModal, {SIGN_IN} from '../../components/auth/signin';
+
+import routes from '../../data/routes';
 import {userRequestForgotPasswordSubmit} from '../../actions/auth';
 
 import {

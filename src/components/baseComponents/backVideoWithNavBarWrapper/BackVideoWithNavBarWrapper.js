@@ -3,7 +3,7 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import PropTypes from 'prop-types';
 import ParallaxVideo from './BackVideoWrapper';
 
-import NavigationBar from '../ui/navigationBar/NavigationBar';
+import NavigationBar from '../navigationBar/NavigationBar';
 
 const styles = (theme) => ({});
 
