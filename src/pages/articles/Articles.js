@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import PageWrapper from '../../components/common/BackVideoWithAppBarWrapper';
+import PageWrapper from '../../components/common/backVideoWithNavBarWrapper/BackVideoWithNavBarWrapper';
 import CardBox from '../../components/common/ui/CardBox';
 import articlesData from '../../data/articlesData';
 
