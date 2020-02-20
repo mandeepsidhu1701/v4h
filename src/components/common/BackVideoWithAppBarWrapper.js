@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import ParallaxVideo from './BackVideoWrapper';
 
 import Navbar from './ui/NavBar';
-
+import Footer from './ui/Footer';
 const styles = theme => ({
 
 });
@@ -20,6 +20,7 @@ class BackVideoWithAppBarWrapper extends Component {
         <ParallaxVideo source={source} variant={variant} >
           <Navbar />
           {children}
+          <Footer />
         </ParallaxVideo>
     );
   }
