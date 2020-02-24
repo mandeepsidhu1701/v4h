@@ -14,6 +14,7 @@ import config from './aws-exports';
 import './index.css';
 import HomeContainer from './pages/home/HomeContainer';
 import ArticlesContainer from './pages/articles/ArticlesContainer';
+import LandingContainer from './pages/landing/LandingContainer';
 
 import routes from "./data/routes";
 
@@ -42,6 +43,7 @@ const Routes = () => (
         <main>
           <Route path={routes.Home} exact component={HomeContainer} />      
           <Route path={routes.Articles} exact component={ArticlesContainer} />
+          <Route path="/landing" component={LandingContainer} />
         </main>
       </div>
     </ConnectedRouter>
