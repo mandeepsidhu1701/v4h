@@ -37,6 +37,7 @@ const Routes = () => (
         <main>
           <Route path={routes.Home} exact component={HomeContainer} />
           <Route path={routes.Articles} exact component={ArticlesContainer} />
+          <Route path="/" exact component={AppContainer} />
         </main>
       </div>
     </ConnectedRouter>
