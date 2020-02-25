@@ -14,40 +14,32 @@ import config from './aws-exports';
 import './index.css';
 import HomeContainer from './pages/home/HomeContainer';
 import ArticlesContainer from './pages/articles/ArticlesContainer';
-import LandingContainer from './pages/landing/LandingContainer';
 
-import routes from "./data/routes";
+import routes from './data/routes';
+import Layout from './components/common/ui/Layout';
 
-Amplify.configure(config)
+Amplify.configure(config);
 
-const history = createBrowserHistory()
+const history = createBrowserHistory();
 
 const store = createStore(
   rootReducer(history),
   {},
-  compose(
-    applyMiddleware(
-      thunkMiddleware,
-      routerMiddleware(history)
-    )
-  )
-)
+  compose(applyMiddleware(thunkMiddleware, routerMiddleware(history)))
+);
 
-window.intl = intl
-window.reduxStore = store
+window.intl = intl;
+window.reduxStore = store;
 
 const Routes = () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <div className="primary-layout">
-        <main>
-          <Route path={routes.Home} exact component={HomeContainer} />      
-          <Route path={routes.Articles} exact component={ArticlesContainer} />
-          <Route path="/landing" component={LandingContainer} />
-        </main>
-      </div>
+      <Layout>
+        <Route path={routes.Home} exact component={HomeContainer} />
+        <Route path={routes.Articles} exact component={ArticlesContainer} />
+      </Layout>
     </ConnectedRouter>
   </Provider>
-)
+);
 
 render(<Routes />, document.getElementById('root'));
