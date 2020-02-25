@@ -78,7 +78,7 @@ class Footer extends Component {
     const { classes } = this.props;
     return (
       <Grid container className={classes.root}>
-        <Container maxWidth="lg">
+        <div maxWidth="lg">
           <footer>
             <Grid container>
               <Grid item sm={3} xs={12}>
@@ -114,7 +114,7 @@ class Footer extends Component {
               </Grid>
             </Grid>
           </footer>
-        </Container>
+        </div>
       </Grid>
     );
   }
