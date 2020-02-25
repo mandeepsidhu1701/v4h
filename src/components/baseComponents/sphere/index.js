@@ -1,3 +1,3 @@
-import Sphere from './sphere';
+import Sphere from './Sphere';
 
 export default Sphere;

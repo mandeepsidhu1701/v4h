@@ -4,7 +4,7 @@ import {withStyles} from '@material-ui/core';
 import * as Animation from './animation';
 import {relative} from 'path';
 import PropTypes from 'prop-types';
-import {styles} from './sphereStyles';
+import {styles} from './SphereStyles';
 // import { connect } from "react-redux";
 // import { bindActionCreators } from "redux";
 // import * as sphereActions from "../../store/sphere/actions";

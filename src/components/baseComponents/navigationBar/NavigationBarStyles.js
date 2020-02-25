@@ -30,7 +30,7 @@ const theme = createMuiTheme({
 const styles = (theme) => ({
   toolbar: {
     flexGrow: 1,
-    padding: '8px'
+    padding: 8
   },
   appBarContainer: {
     display: 'flex',
@@ -44,7 +44,7 @@ const styles = (theme) => ({
     }
   },
   menuButton: {
-    padding: '8px'
+    padding: 8
   },
   navContainer: {
     flexGrow: 1,
@@ -61,52 +61,6 @@ const styles = (theme) => ({
       display: 'none'
     }
   },
-  navLogo: {
-    position: 'relative',
-    padding: '0.7rem 0.5rem 0 0.5rem'
-  },
-  navTextNearCentre: {
-    margin: 0,
-    color: '#AAAAAA',
-    letterSpacing: '2px',
-    [theme.breakpoints.only('xl')]: {
-      fontSize: '0.875rem'
-    },
-    [theme.breakpoints.only('lg')]: {
-      fontSize: '0.75rem'
-    },
-    [theme.breakpoints.only('md')]: {
-      fontSize: '0.625rem'
-    },
-    [theme.breakpoints.only('sm')]: {
-      fontSize: '0.5rem'
-    },
-    [theme.breakpoints.only('xs')]: {
-      fontSize: '0.325rem'
-    }
-  },
-  navTextCentre: {
-    position: 'relative',
-    top: '0.25rem',
-    margin: '0 0.25rem',
-    fontWeight: '900',
-    letterSpacing: '2px',
-    [theme.breakpoints.only('xl')]: {
-      fontSize: '1.625rem'
-    },
-    [theme.breakpoints.only('lg')]: {
-      fontSize: '1.5rem'
-    },
-    [theme.breakpoints.only('md')]: {
-      fontSize: '1.325rem'
-    },
-    [theme.breakpoints.only('sm')]: {
-      fontSize: '1.25rem'
-    },
-    [theme.breakpoints.only('xs')]: {
-      fontSize: '1.125rem'
-    }
-  },
   navLink: {
     ...theme.typography.button
   },
@@ -114,19 +68,79 @@ const styles = (theme) => ({
     marginRight: '2%',
     padding: '0 2px',
     border: '1px solid #BBBBBB',
-    borderRadius: '36px'
+    borderRadius: 36,
+    display: 'flex'
   },
   metaButton: {
-    marginRight: '4px'
+    marginRight: 4,
+    padding: 12,
+    '@media (max-width:801px)': {
+      padding: 10
+    },
+    '@media screen and (max-width:761px)': {
+      padding: 8
+    },
+    '@media screen and (max-width:480px)': {
+      padding: 6
+    },
+    '@media screen and (max-width:360px)': {
+      padding: 6
+    }
   },
-  butterflyButton: {},
+  butterflyButton: {
+    padding: 12,
+    '@media (max-width:801px)': {
+      padding: 10
+    },
+    '@media screen and (max-width:761px)': {
+      padding: 8
+    },
+    '@media screen and (max-width:480px)': {
+      padding: 6
+    },
+    '@media screen and (max-width:360px)': {
+      padding: 6
+    }
+  },
   metaIcon: {
-    width: '24px',
-    height: '24px'
+    width: 24,
+    height: 24,
+    '@media (max-width:801px)': {
+      width: theme.spacing(2.5),
+      height: theme.spacing(2.5)
+    },
+    '@media screen and (max-width:761px)': {
+      width: theme.spacing(2.25),
+      height: theme.spacing(2.25)
+    },
+    '@media screen and (max-width:480px)': {
+      width: theme.spacing(2),
+      height: theme.spacing(2)
+    },
+    '@media screen and (max-width:360px)': {
+      width: theme.spacing(2),
+      height: theme.spacing(2)
+    }
   },
   butterflyIcon: {
-    width: '24px',
-    height: '24px'
+    width: 24,
+    height: 24,
+    '@media (max-width:801px)': {
+      width: theme.spacing(2.5),
+      height: theme.spacing(2.5)
+    },
+    '@media screen and (max-width:761px)': {
+      width: theme.spacing(2.25),
+      height: theme.spacing(2.25)
+    },
+    '@media screen and (max-width:480px)': {
+      width: theme.spacing(2),
+      height: theme.spacing(2)
+    },
+    '@media screen and (max-width:360px)': {
+      width: theme.spacing(2),
+      height: theme.spacing(2)
+    }
   }
 });
 
