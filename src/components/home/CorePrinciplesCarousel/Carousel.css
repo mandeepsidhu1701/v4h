@@ -1,0 +1,145 @@
+.carouselRoot {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.clearfix {
+  clear: both;
+}
+.carouselArrowButton {
+  background-color: rgba(0,0,0,0);
+  position: absolute;
+  border: 0;
+  cursor: pointer;
+}
+.carouselLeftButton {
+  top: 49.125%;
+  left: 0;
+  height: 20px;
+  width: 10px;
+}
+.carouselLeftButton:after {
+  right: 0;
+	border: solid transparent;
+	content: " ";
+	position: absolute;
+	pointer-events: none;
+	border-right-color: rgba(0,0,0,0.25);
+	border-width: 10px;
+	margin-top: -10px;
+}
+
+.carouselRightButton {
+  top: 49.125%;
+  right: 0;
+  height: 20px;
+  width: 10px;
+}
+.carouselRightButton:after {
+  left: 0;
+	border: solid transparent;
+	content: " ";
+	position: absolute;
+	pointer-events: none;
+	border-left-color: rgba(0,0,0,0.25);
+	border-width: 10px;
+	margin-top: -10px;
+}
+
+.carouselUpButton {
+  top: 2%;
+  left: 49.125%;
+  width: 20px;
+  height: 10px;
+}
+.carouselUpButton:after {
+  bottom: 0;
+	border: solid transparent;
+	content: " ";
+	position: absolute;
+	pointer-events: none;
+	border-bottom-color: rgba(0,0,0,0.25);
+	border-width: 10px;
+	margin-left: -10px;
+}
+
+.carouselDownButton {
+  bottom: 2%;
+  left: 49.125%;
+  width: 20px;
+  height: 10px;
+}
+.carouselDownButton:after {
+  top: 0;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+	border-top-color: rgba(0,0,0,0.25);
+	border-width: 10px;
+	margin-left: -10px;
+}
+
+.carouselDot {
+  padding: 4px;
+  border-radius: 50%;
+  border: 0;
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.25)
+}
+.carouselDotBlock {
+  position: absolute;
+  text-align:center;
+  display: inline-block;
+}
+.carouselDotBlockTitleTop {
+  top: 90%;
+}
+.carouselDotBlockTitleBottom {
+  top: 84%;
+}
+
+@media only screen and (max-width: 1280px) {
+  .carouselDotBlockTitleBottom {
+    top: 82%;
+  }
+}
+@media only screen and (max-width: 960px) {
+  .carouselDotBlockTitleBottom {
+    top: 79%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .carouselDotBlockTitleBottom {
+    top: 75%;
+  }
+}
+
+
+.carouselDotBlockVertical {
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+.carouselDotBlockHorizontal {
+  left: 0;
+  width: 100%;
+}
+.carouselDotActive {
+  background-color: rgba(0,0,0,0.5);
+  border-color: rgba(0,0,0,0.25);
+}
+.carouselDotBlock.carouselDotBlockHorizontal > .carouselDot {
+    margin-right: 1rem
+}
+.carouselDotBlock.carouselDotBlockHorizontal > .carouselDot:last-child {
+    margin-right: 0
+}
+.carouselDotBlock.carouselDotBlockVertical > .carouselDot {
+  margin-bottom: 1rem
+}
+.carouselDotBlock.carouselDotBlockVertical > .carouselDot:last-child {
+  margin-bottom: 0
+}
