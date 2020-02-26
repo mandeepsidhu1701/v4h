@@ -54,7 +54,7 @@ const styles = theme => ({
   , borderB: { border: 'solid 1px blue' }
 })
 
-class SubMenu extends Component {
+class MenuContent extends Component {
   constructor(props) {
     super(props)
     this.state = { 
@@ -142,8 +142,8 @@ class SubMenu extends Component {
   }
 }
 
-SubMenu.defaultProps = {
+MenuContent.defaultProps = {
   iconShow: true
 }
 
-export default withStyles(styles)(withRouter(SubMenu))
+export default withStyles(styles)(withRouter(MenuContent))
