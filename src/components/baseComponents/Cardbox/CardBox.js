@@ -1,14 +1,7 @@
-import React, { Component } from 'react'
-import { styled, withStyles } from '@material-ui/core/styles'
-import Button from '@material-ui/core/Button'
-import {
-  Card,
-  CardMedia,
-  CardContent,
-  Typography
-} from '@material-ui/core/'
+import React, {Component} from 'react';
+import {styled, withStyles, Card, CardMedia, CardContent, Typography, Button} from '@material-ui/core';
 
-const styles = theme => ({
+const styles = (theme) => ({
   media: {
     position: 'relative',
     // paddingTop: '56.25%' // 16:9
@@ -31,7 +24,7 @@ const styles = theme => ({
   buttonBox: {
     paddingTop: 20
   }
-})
+});
 
 const TopButton = withStyles({
   root: {
@@ -45,10 +38,10 @@ const TopButton = withStyles({
     padding: '8px 10px 6px 10px',
     backgroundColor: '#5fd26e',
     '&:hover': {
-      backgroundColor: '#5fd26e',
+      backgroundColor: '#5fd26e'
     }
   }
-})(Button)
+})(Button);
 
 const BottomButton = withStyles({
   root: {
@@ -60,40 +53,36 @@ const BottomButton = withStyles({
     fontSize: 9,
     padding: '4px 8px 2px 8px',
     '&:hover': {
-      backgroundColor: 'white',
+      backgroundColor: 'white'
     }
   }
-})(Button)
+})(Button);
 
 class CardBox extends Component {
   render() {
-    const { classes, id, image, title, content, topbtntext, bottombtntext, handleClick } = this.props;
+    const {classes, id, image, title, content, topbtntext, bottombtntext, handleClick} = this.props;
     return (
       <Card elevation={0} square={true}>
         <CardMedia className={classes.media} image={image}>
           <Typography>
             <TopButton onClick={() => handleClick(id)}>{topbtntext}</TopButton>
           </Typography>
-          <Typography className={classes.title}>
-            {title}
-          </Typography>
+          <Typography className={classes.title}>{title}</Typography>
         </CardMedia>
-        {content === undefined ? 
-          null :
+        {content === undefined ? null : (
           <CardContent>
             <Typography variant="body2" color="textSecondary" component="p" className={classes.content}>
               {content}
             </Typography>
-            {bottombtntext === undefined ? 
-              null : 
+            {bottombtntext === undefined ? null : (
               <Typography align="center" className={classes.buttonBox}>
                 <BottomButton onClick={() => handleClick(id)}>{bottombtntext}</BottomButton>
               </Typography>
-            }
+            )}
           </CardContent>
-        }
+        )}
       </Card>
-    )
+    );
   }
 }
 

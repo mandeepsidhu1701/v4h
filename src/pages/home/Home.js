@@ -1,12 +1,10 @@
 import React from 'react';
 import { withRouter, Link as RouterLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
 import { withStyles, IconButton, Modal, Grid, Button } from '@material-ui/core';
-import {
-  Sphere,
-  AnimatedText,
-  BackVideoWithNavBarWrapper as PageWrapper
-} from '../../components/baseComponents';
+import PlayCircleOutline from '@material-ui/icons/PlayCircleOutline';
+import { Sphere, AnimatedText, BackVideoWithNavBarWrapper as PageWrapper } from '../../components/baseComponents';
 import SignUpModal, { SIGN_UP } from '../../components/auth/signup';
 import SignInModal, { SIGN_IN } from '../../components/auth/signin';
 
@@ -15,6 +13,7 @@ import routes from '../../data/routes';
 import {
   CarouselSlide
 } from '../../components/baseComponents/CorePrinciplesCarousel';
+
 
 import styles from './HomeStyles';
 
@@ -124,6 +123,7 @@ class Home extends React.Component {
     } = this.state;
     const { classes } = this.props;
 
+
     let landingRoot;
     if (landing === landingState.SCROLL) {
       landingRoot = `${classes.landingRoot} ${classes.landingScrollUp}`;
@@ -140,12 +140,7 @@ class Home extends React.Component {
 
     const slides = data.corePrincipals.map((principle, i) => {
       return (
-        <CarouselSlide
-          key={principle.name}
-          imageURL={principle.image}
-          title={principle.name}
-          text={principle.text}
-        />
+        <CarouselSlide key={principle.name} imageURL={principle.image} title={principle.name} text={principle.text} />
       );
     });
 
@@ -157,27 +152,13 @@ class Home extends React.Component {
             alt="Background aesthetics"
             className={`${classes.landingImage} ${classes.landingImageAnimation}`}
           />
-          <span
-            className={classes.genome}
-            onMouseEnter={this.handleShowAuthLinks}
-            onClick={this.handleShowAuthLinks}
-          >
+          <span className={classes.genome} onMouseEnter={this.handleShowAuthLinks} onClick={this.handleShowAuthLinks}>
             Second Genome
           </span>
-          <span
-            className={
-              showAuthLinks
-                ? `${classes.fontBase} ${classes.authSpan}`
-                : classes.hidden
-            }
-          >
+          <span className={showAuthLinks ? `${classes.fontBase} ${classes.authSpan}` : classes.hidden}>
             <RouterLink
               to="#"
-              className={
-                authForm === SIGN_UP
-                  ? `${classes.authLink} ${highlightedAuthLinkClass}`
-                  : classes.authLink
-              }
+              className={authForm === SIGN_UP ? `${classes.authLink} ${highlightedAuthLinkClass}` : classes.authLink}
               onMouseEnter={this.handleShowSignUpForm}
               onClick={this.handleShowSignUpForm}
             >
@@ -186,11 +167,7 @@ class Home extends React.Component {
             <span className={classes.authSpacer} />
             <RouterLink
               to="#"
-              className={
-                authForm === SIGN_IN
-                  ? `${classes.authLink} ${highlightedAuthLinkClass}`
-                  : classes.authLink
-              }
+              className={authForm === SIGN_IN ? `${classes.authLink} ${highlightedAuthLinkClass}` : classes.authLink}
               onMouseEnter={this.handleShowLoginForm}
               onClick={this.handleShowLoginForm}
             >
@@ -199,10 +176,7 @@ class Home extends React.Component {
           </span>
 
           <div className={classes.siteName}>
-            <AnimatedText
-              text={'Higher Consciousness Network'}
-              delays={appTitleDelays}
-            />
+            <AnimatedText text={'Higher Consciousness Network'} delays={appTitleDelays} />
           </div>
 
           <div className={classes.sphereSideBar}>
@@ -228,20 +202,11 @@ class Home extends React.Component {
                 this.handleScrollLanding();
               }}
             >
-              <img
-                src="/images/scroll-icon-png_02-.png"
-                width={24}
-                height={32}
-                alt="Close Landing Drawer"
-              />
+              <img src="/images/scroll-icon-png_02-.png" width={24} height={32} alt="Close Landing Drawer" />
             </IconButton>
           </div>
 
-          <Modal
-            open={showModal}
-            onClose={this.handleHideForms}
-            className={classes.modalOverflow}
-          >
+          <Modal open={showModal} onClose={this.handleHideForms} className={classes.modalOverflow}>
             {authForm === SIGN_UP ? (
               <SignUpModal handleCloseForm={this.handleHideForms} />
             ) : (
@@ -249,7 +214,9 @@ class Home extends React.Component {
               )}
           </Modal>
         </div>
-      </React.Fragment >
+
+      </React.Fragment>
+
     );
   }
 
