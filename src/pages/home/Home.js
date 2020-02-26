@@ -503,10 +503,11 @@ class Home extends React.Component {
       </React.Fragment>
     );
   }
+
 }
 
 Home.propTypes = {
-  classes: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired
 };
 
 export default withRouter(withStyles(styles)(Home));
