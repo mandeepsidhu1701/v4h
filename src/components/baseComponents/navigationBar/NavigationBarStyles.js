@@ -141,7 +141,24 @@ const styles = (theme) => ({
       width: theme.spacing(2),
       height: theme.spacing(2)
     }
-  }
+  },
+
+  triangle: {
+    position: 'absolute',
+    margin: 'auto',
+    bottom: -2.5,
+    transform: 'rotate(225deg)',
+    '-webkit-transform': 'rotate(225deg)',
+    '-moz-transform': 'rotate(225deg)',
+    '-o-transform': 'rotate(225deg)',
+    '-ms-transform': 'rotate(225deg)',
+    borderRight: 'solid #c0c0c0 1px',
+    borderBottom: 'solid #c0c0c0 1px',
+    width: '6px',
+    height: '6px',
+    backgroundColor: '#ffffff',
+    zIndex: 10
+}
 });
 
 export {styles, theme};
