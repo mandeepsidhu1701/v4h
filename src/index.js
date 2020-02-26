@@ -18,7 +18,6 @@ import ArticlesContainer from './pages/articles/ArticlesContainer';
 import routes from './data/routes';
 
 
-
 Amplify.configure(config);
 
 const history = createBrowserHistory();
@@ -39,7 +38,6 @@ const Routes = () => (
         <main>
           <Route path={routes.Home} exact component={HomeContainer} />
           <Route path={routes.Articles} exact component={ArticlesContainer} />   
-
         </main>
       </div>
     </ConnectedRouter>

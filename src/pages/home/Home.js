@@ -1,20 +1,6 @@
 import React from 'react';
 import {withRouter, Link as RouterLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import intl from 'react-intl-universal'
-import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardMedia from '@material-ui/core/CardMedia';
-import CardActions from '@material-ui/core/CardActions';
-import IconButton from '@material-ui/core/IconButton';
-import AnimatedText from '../../components/AnimatedText';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import MenuIcon from '@material-ui/icons/Menu';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
-
 import {withStyles, IconButton, Modal, Grid, Button} from '@material-ui/core';
 import PlayCircleOutline from '@material-ui/icons/PlayCircleOutline';
 import {
@@ -24,13 +10,14 @@ import {
 } from '../../components/baseComponents';
 import SignUpModal, {SIGN_UP} from '../../components/auth/signup';
 import SignInModal, {SIGN_IN} from '../../components/auth/signin';
+
 import routes from '../../data/routes';
 import {userRequestForgotPasswordSubmit} from '../../actions/auth';
+
 import {
   Carousel,
   CarouselSlide
 } from '../../components/home/CorePrinciplesCarousel';
-import {APP_TITLE, SECOND_GENOME} from '../../common/i18n';
 
 import styles from './HomeStyles';
 
@@ -43,15 +30,9 @@ import styles from './HomeStyles';
 //TODO: test interactions on different screen sizes and in mobile and desktop.
 
 import data from '../../data/homeData';
+
 const {volunteerVideoURL} = data;
 
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#ffffff'
-    }
-  },
-});
 const appTitleDelays = [
   400,
   400,
@@ -93,7 +74,6 @@ const landingState = {
   HIDE: 'HIDE'
 };
 
-
 class Home extends React.Component {
   state = {
     landing: landingState.SHOW,
@@ -109,12 +89,11 @@ class Home extends React.Component {
     });
   }
 
-
   componentDidUnMount() {
     this.refs.vidRef.removeEventListener('ended', () => {
       this.setState({playingVolunteerVideo: false});
     });
-
+  }
 
   handleShowAuthLinks = () => {
     this.setState({showAuthLinks: true});
@@ -175,12 +154,11 @@ class Home extends React.Component {
       landingRoot = classes.landingRoot;
     }
 
-  render() {
-    const { classes } = this.props;
     let highlightedAuthLinkClass = null;
     if (showModal) {
       highlightedAuthLinkClass = classes.authLinkHighlight;
-   
+    }
+
     const slides = data.corePrincipals.map((principle, i) => {
       return (
         <CarouselSlide
