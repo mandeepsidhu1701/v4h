@@ -1,23 +1,18 @@
 import React from 'react';
+import {withRouter, Link as RouterLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import IconButton from '@material-ui/core/IconButton';
-import Grid from '@material-ui/core/Grid';
-import Button from '@material-ui/core/Button';
-import { withRouter, Link as RouterLink } from 'react-router-dom';
-
-import PageWrapper from '../../components/common/BackVideoWrapper';
-
+import {withStyles, IconButton, Modal, Grid, Button} from '@material-ui/core';
 import PlayCircleOutline from '@material-ui/icons/PlayCircleOutline';
-
-import {
-  Carousel,
-  CarouselSlide
-} from '../../components/home/CorePrinciplesCarousel';
+import {Sphere, AnimatedText, BackVideoWithNavBarWrapper as PageWrapper} from '../../components/baseComponents';
+import SignUpModal, {SIGN_UP} from '../../components/auth/signup';
+import SignInModal, {SIGN_IN} from '../../components/auth/signin';
 
 import Landing from '../../components/home/landing/Landing';
+import {userRequestForgotPasswordSubmit} from '../../actions/auth';
 
-import styles from '../home/HomeStyles';
+import {Carousel, CarouselSlide} from '../../components/home/corePrinciplesCarousel';
+
+import styles from './HomeStyles';
 
 //TODO: what to do about spheres, correct size and position for small real-estate screens / mobile?
 
@@ -38,7 +33,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.refs.vidRef.addEventListener('ended', () => {
-      this.setState({ playingVolunteerVideo: false });
+      this.setState({playingVolunteerVideo: false});
     });
   }
 
@@ -302,6 +297,7 @@ class Home extends React.Component {
       </React.Fragment>
     );
   }
+
 }
 
 Home.propTypes = {

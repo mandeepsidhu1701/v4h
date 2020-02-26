@@ -1,25 +1,22 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import PageWrapper from '../../components/common/BackVideoWrapper';
-import CardBox from '../../components/common/ui/CardBox';
-import articlesData from '../../data/articlesData';
+import React, {Component} from 'react';
+import {withStyles, Grid} from '@material-ui/core';
+import {CardBox, BackVideoWithNavBarWrapper as PageWrapper} from '../../components/baseComponents';
+import {articlesData} from '../../data';
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
     flexGrow: 1
   }
-})
+});
 
 class Articles extends Component {
-
   handleClick = (param) => {
-    console.log('this is:', param)
-  }
+    console.log('this is:', param);
+  };
 
   render() {
-    const { classes } = this.props
-    
+    const {classes} = this.props;
+
     return (
       <PageWrapper>
         <Grid container direction="row" justify="flex-start" alignItems="flex-start">
@@ -38,7 +35,7 @@ class Articles extends Component {
           ))}
         </Grid>
       </PageWrapper>
-    )
+    );
   }
 }
 

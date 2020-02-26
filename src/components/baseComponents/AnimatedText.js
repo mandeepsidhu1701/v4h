@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import withStyles from '@material-ui/core/styles/withStyles';
 
-const styles = theme => ({
+const styles = (theme) => ({
   text: {
     display: 'inline-block',
     opacity: '0',
@@ -12,7 +12,7 @@ const styles = theme => ({
     animationFillMode: 'forwards',
     animationTimingFunction: 'ease-out'
   },
-  "@keyframes textAnimation": {
+  '@keyframes textAnimation': {
     from: {
       transform: 'scale(3, 2.9)',
       opacity: '0'
@@ -22,21 +22,26 @@ const styles = theme => ({
       opacity: '0.98'
     }
   }
-})
+});
 
 class AnimatedText extends Component {
-
   render() {
-    const { classes, delays, text } = this.props;
-    return (
-      text.split('').map((letter, index) => {
-        if(letter === ' ') {
-          return (<span key={index} style={{marginRight: '1rem'}} />)
-        } else {
-          return (<span key={index} className={classes.text} style={{animationDelay: delays[index] + 'ms'}}>{letter.toUpperCase()}</span>)
-        }
-      })
-    )
+    const {classes, delays, text} = this.props;
+    return text.split('').map((letter, index) => {
+      if (letter === ' ') {
+        return <span key={index} style={{marginRight: '1rem'}} />;
+      } else {
+        return (
+          <span
+            key={index}
+            className={classes.text}
+            style={{animationDelay: delays[index] + 'ms'}}
+          >
+            {letter.toUpperCase()}
+          </span>
+        );
+      }
+    });
   }
 }
 
