@@ -1,11 +1,7 @@
 import React, {Component} from 'react';
-import {withStyles} from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import {
-  CardBox,
-  BackVideoWithNavBarWrapper as PageWrapper
-} from '../../components/baseComponents';
-import articlesData from '../../data/articlesData';
+import {withStyles, Grid} from '@material-ui/core';
+import {CardBox, BackVideoWithNavBarWrapper as PageWrapper} from '../../components/baseComponents';
+import {articlesData} from '../../data';
 
 const styles = (theme) => ({
   root: {
@@ -23,12 +19,7 @@ class Articles extends Component {
 
     return (
       <PageWrapper>
-        <Grid
-          container
-          direction="row"
-          justify="flex-start"
-          alignItems="flex-start"
-        >
+        <Grid container direction="row" justify="flex-start" alignItems="flex-start">
           {articlesData.map((card, i) => (
             <Grid item xs={12} sm={6} md={3} key={i}>
               <CardBox

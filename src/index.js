@@ -10,12 +10,10 @@ import intl from 'react-intl-universal';
 import rootReducer from './reducers';
 import Amplify from 'aws-amplify';
 import config from './aws-exports';
-
-import './index.css';
 import HomeContainer from './pages/home/HomeContainer';
-import ArticlesContainer from './pages/articles/ArticlesContainer';
-
+import {ArticlesContainer} from './pages/articles';
 import routes from './data/routes';
+import './index.css';
 
 
 Amplify.configure(config);

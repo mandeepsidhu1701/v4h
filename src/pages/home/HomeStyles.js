@@ -1,11 +1,11 @@
-const styles = theme => ({
+const styles = (theme) => ({
   /** general */
   fontBase: {
     fontFamily: 'Roboto',
     color: 'white',
     letterSpacing: '2px',
     lineHeight: 1.5,
-    fontWeight: 500,
+    fontWeight: 500
   },
   buttonBase: {
     border: 'solid 2px rgba(205,164,96, 1)',
@@ -21,7 +21,7 @@ const styles = theme => ({
 
   /** Landing cover styles */
   landingRoot: {
-    backgroundColor: "#C0D2DE",
+    backgroundColor: '#C0D2DE',
     overflowX: 'hidden',
     overflowY: 'hidden',
     position: 'fixed',
@@ -37,13 +37,13 @@ const styles = theme => ({
     height: '100%',
     top: '0',
     left: '0',
-    zIndex: 90,
+    zIndex: 90
   },
   landingImageAnimation: {
-    animation: '$scaleAnimation 5s 1 ease-out',
+    animation: '$scaleAnimation 5s 1 ease-out'
   },
   landingScrollUp: {
-    animation: '$moveLandingUp 3s 1 linear',
+    animation: '$moveLandingUp 3s 1 linear'
   },
   genome: {
     backgroundColor: 'rgba(255,255,255,0.5)',
@@ -63,10 +63,10 @@ const styles = theme => ({
     letterSpacing: '2.5px',
     transform: 'scale(1, 0.9)',
     [theme.breakpoints.only('sm')]: {
-      fontSize: '1.75rem',
+      fontSize: '1.75rem'
     },
     [theme.breakpoints.only('xs')]: {
-      fontSize: '1.5rem',
+      fontSize: '1.5rem'
     }
   },
   siteName: {
@@ -80,14 +80,14 @@ const styles = theme => ({
     fontFamily: 'Roboto',
     fontSize: '2.625rem',
     fontWeight: '900',
-    color: "white",
+    color: 'white',
     [theme.breakpoints.only('sm')]: {
       fontSize: '2.125rem',
-      top: '46%',
+      top: '46%'
     },
     [theme.breakpoints.only('xs')]: {
       fontSize: '1.75rem',
-      top: '37%',
+      top: '37%'
     }
   },
   authSpan: {
@@ -95,63 +95,63 @@ const styles = theme => ({
     position: 'absolute',
     width: '90%',
     marginLeft: '-45%',
-    top: '95px',    
+    top: '95px',
     left: '50%',
     textAlign: 'center',
     fontSize: '1.125rem',
     fontWeight: 900,
     [theme.breakpoints.only('xs')]: {
-      fontSize: '1rem',
+      fontSize: '1rem'
     },
     '@media (max-width:521px)': {
-      top: '120px',
+      top: '120px'
     }
   },
   modalOverflow: {
-    overflow: 'auto',
+    overflow: 'auto'
   },
   authLink: {
-    "text-decoration": 'none',
+    'text-decoration': 'none',
     letterSpacing: '3px',
     transform: 'scale(1, 0.85)',
     color: 'white',
-    "& visited": {
+    '& visited': {
       color: 'white',
-      "text-decoration": 'none',
+      'text-decoration': 'none'
     },
-    "& hover": {
+    '& hover': {
       color: 'white',
-      "text-decoration": 'none',
-    },
-  },  
+      'text-decoration': 'none'
+    }
+  },
   authLinkHighlight: {
-    "text-decoration": 'underline',
+    'text-decoration': 'underline'
   },
   authSpacer: {
     margin: '0 24px',
     [theme.breakpoints.only('xs')]: {
-      margin: '0 3.75%',
+      margin: '0 3.75%'
     }
   },
   closeIconButton: {
     zIndex: 91,
     display: 'block',
-    textAlign: "center",
+    textAlign: 'center',
     position: 'absolute',
     bottom: '32px',
     left: '0',
     right: '0'
   },
   hidden: {
-    display: 'none',
+    display: 'none'
   },
-  "@keyframes scaleAnimation": {
-    from: { width: '134%', height: '134%', top: '-17%', left: '-17%'},
-    to: { width: '100%', height: '100%', top: '0',left: '0'}
+  '@keyframes scaleAnimation': {
+    from: {width: '134%', height: '134%', top: '-17%', left: '-17%'},
+    to: {width: '100%', height: '100%', top: '0', left: '0'}
   },
-  "@keyframes moveLandingUp": {
-    from: { top: '0%' },
-    to: { top: '-100%' }
+  '@keyframes moveLandingUp': {
+    from: {top: '0%'},
+    to: {top: '-100%'}
   },
   sphereSideBar: {
     zIndex: 91,
@@ -159,7 +159,7 @@ const styles = theme => ({
     flexDirection: 'column',
     position: 'absolute',
     top: '22.5%',
-    left: '85%',
+    left: '85%'
     /* [theme.breakpoints.down('sm')]: {
       flexDirection: 'row',
       top: '66%',
@@ -167,7 +167,7 @@ const styles = theme => ({
     } */
   },
   sphereLink: {
-    marginBottom: '4rem',
+    marginBottom: '4rem'
     /* [theme.breakpoints.only('sm')]: {
       marginRight: '5%',
       '& last-child': {
@@ -188,15 +188,15 @@ const styles = theme => ({
     overflowX: 'hidden'
   },
   overflowHidden: {
-    overflow: 'hidden',
+    overflow: 'hidden'
   },
   gridContainerPadding: {
     padding: '0.5rem 4rem',
     [theme.breakpoints.only('sm')]: {
-      padding: '0.5rem 2rem',
+      padding: '0.5rem 2rem'
     },
     [theme.breakpoints.only('xs')]: {
-      padding: '0.5rem 1rem',
+      padding: '0.5rem 1rem'
     }
   },
   inspireQuote: {
@@ -211,11 +211,11 @@ const styles = theme => ({
     transform: 'scale(1, 1.05)',
     [theme.breakpoints.only('sm')]: {
       fontSize: '2.16rem',
-      marginTop: '13rem',
+      marginTop: '13rem'
     },
     [theme.breakpoints.only('xs')]: {
       fontSize: '1.66rem',
-      marginTop: '9rem',
+      marginTop: '9rem'
     }
   },
   inspireQuoteCitation: {
@@ -225,7 +225,7 @@ const styles = theme => ({
     opacity: 0.75,
     textAlign: 'right',
     marginRight: '3rem',
-    textVariant: 'small-caps',
+    textVariant: 'small-caps'
   },
   paragraphTextSmall: {
     color: 'white',
@@ -235,15 +235,15 @@ const styles = theme => ({
     lineHeight: 1.5,
     fontFamily: 'Roboto',
     fontSize: '0.88rem',
-    fontWeight: 500,
+    fontWeight: 500
   },
   siteDescriptionContainer: {
     marginTop: '18rem',
     [theme.breakpoints.only('sm')]: {
-      marginTop: '12rem',
+      marginTop: '12rem'
     },
     [theme.breakpoints.only('xs')]: {
-      marginTop: '6rem',
+      marginTop: '6rem'
     }
   },
   butterflyGreyIcon: {
@@ -264,10 +264,10 @@ const styles = theme => ({
     backgroundColor: 'rgba(255,255,255,0.1)',
     border: '1px solid white',
     [theme.breakpoints.only('sm')]: {
-      padding: '8%',
+      padding: '8%'
     },
     [theme.breakpoints.only('xs')]: {
-      padding: '5%',
+      padding: '5%'
     }
   },
   aboutUsTitle: {
@@ -276,19 +276,16 @@ const styles = theme => ({
     fontSize: '1.125rem',
     paddingBottom: '4rem',
     letterSpacing: '3px'
-    
   },
   aboutUsText: {
     color: 'black',
     fontSize: '0.75rem',
-    lineHeight: 2,
-
+    lineHeight: 2
   },
   metamorphicMediaContainer: {
     padding: '0 20%',
     alignItems: 'center',
-    justifyContent: 'center',
-    
+    justifyContent: 'center'
   },
   metamorphicMediaTitle: {
     textAlign: 'center',
@@ -308,9 +305,7 @@ const styles = theme => ({
     fontWeight: 700,
     marginBottom: '1rem'
   },
-  metamorphicMediaButton: {
-    
-  },
+  metamorphicMediaButton: {},
   videoParentContainer: {
     backgroundColor: 'rgba(255,255,255,0.33)',
     [theme.breakpoints.only('sm')]: {
@@ -321,7 +316,7 @@ const styles = theme => ({
     }
   },
   videoContainer: {
-    position: 'relative',
+    position: 'relative'
   },
   videoContainerTitle: {
     fontWeight: 900,
@@ -330,21 +325,21 @@ const styles = theme => ({
     top: '3%',
     left: 0,
     right: 0,
-    textAlign: 'center',
+    textAlign: 'center'
   },
   videoVolunteers: {
-    width: '100%',
+    width: '100%'
   },
   videoVolunteerPlayButton: {
     position: 'absolute',
     color: 'white',
     opacity: 0.8,
     left: '1%',
-    bottom: '1%',
+    bottom: '1%'
   },
   videoVolunteerPlayIcon: {
     width: '3rem',
-    height: '3rem',
+    height: '3rem'
   },
   videoCaption: {
     padding: '1.5rem 3rem',
@@ -353,11 +348,11 @@ const styles = theme => ({
     textAlign: 'center',
     [theme.breakpoints.only('sm')]: {
       padding: '1rem 2rem',
-      fontSize: '0.5rem',
+      fontSize: '0.5rem'
     },
     [theme.breakpoints.only('xs')]: {
       padding: '0.5rem 1rem',
-      fontSize: '0.5rem',
+      fontSize: '0.5rem'
     }
   },
   corePrincipalsContainer: {
@@ -376,7 +371,7 @@ const styles = theme => ({
     width: '100%',
     position: 'absolute',
     top: 0,
-    left: 0,
+    left: 0
   },
   corePrincipalsTitle: {
     position: 'absolute',
@@ -386,7 +381,7 @@ const styles = theme => ({
     top: '1.125rem',
     // TODO DEBUG remove the color when done
     color: 'red',
-    fontSize: '0.9rem',
+    fontSize: '0.9rem'
   },
   corePrincipalsPanel: {
     position: 'absolute',
@@ -394,7 +389,7 @@ const styles = theme => ({
     top: '92%',
     width: '100%',
     height: '30%',
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: 'rgba(0,0,0,0.5)'
   },
   corePrincipalsText: {
     position: 'relative',
@@ -402,12 +397,12 @@ const styles = theme => ({
     left: '7.5%',
     width: '85%',
     textAlign: 'justify',
-    fontSize: "0.8rem",
+    fontSize: '0.8rem'
   },
   corePrincipalsDivider: {
     borderTop: 'solid 1px rgb(210,167,95)',
     position: 'absolute',
-    left: "7.5%",
+    left: '7.5%',
     width: '85%',
     top: '60%',
     [theme.breakpoints.only('sm')]: {
@@ -434,62 +429,60 @@ const styles = theme => ({
     marginTop: 0
   },
   corePrincipalsButtonVision: {
-    left: '4%',
+    left: '4%'
   },
   corePrincipalsButtonMission: {
-    left: '8%',
+    left: '8%'
   },
   corePrincipalsButtonCharter: {
-    left: '12%',
+    left: '12%'
   },
   corePrincipalsButtonCompass: {
-    left: '18%',
+    left: '18%'
   },
   corePrincipalsButtonMetawheel: {
-    left: '21%',
+    left: '21%'
   },
   corePrincipalsButtonInitiatives: {
-    left: '24%',
+    left: '24%'
   },
   urbanSanctuaryContainer: {
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   urbanSanctuaryImage: {
     width: '80%',
     margin: '10%',
     [theme.breakpoints.only('sm')]: {
       width: '40%',
-      margin: '5% 30%',
+      margin: '5% 30%'
     },
     [theme.breakpoints.only('xs')]: {
       width: '40%',
-      margin: '5% 30%',
+      margin: '5% 30%'
     }
   },
-  urbanSanctuaryButton: {
-
-  },
+  urbanSanctuaryButton: {},
   metawheelContainer: {
     marginTop: '25%'
   },
   metawheelImage: {
-    width: "100%",
+    width: '100%'
   },
   metawheelTitle: {
     marginTop: '2rem',
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: '1.45rem',
     fontWeight: 700,
-    letterSpacing: '6px',
+    letterSpacing: '6px'
   },
   metawheelText: {
     marginTop: '1rem',
     marginBottom: '6rem',
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: '1rem',
     fontWeight: 500,
-    letterSpacing: '4px',
+    letterSpacing: '4px'
   }
 });
 
