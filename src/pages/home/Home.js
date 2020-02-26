@@ -128,7 +128,7 @@ class Home extends React.Component {
     this.setState({landing: landingState.SCROLL});
     setTimeout(() => {
       this.handleHideLanding();
-    }, 1000);
+    }, 3000);
   };
 
   handleHideLanding = () => {

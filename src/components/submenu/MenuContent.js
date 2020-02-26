@@ -17,7 +17,7 @@ const styles = theme => ({
       height: 'calc(100% - 100px)'
     },
     width: 'calc(100% + 5px)',
-    borderTop: 'solid #c0c0c0 1px'
+    borderTop: '1px solid transparent'
   },
   grid: {
     padding: '0 20px 0 26px',
@@ -98,12 +98,12 @@ class MenuContent extends Component {
     const size = iconShow ? 9 : 12
 
     return (
-      <Popper id="popper" className={classes.popper} open={this.state.open} anchorEl={this.state.anchorEl} transition>
+      <Popper id="popper" style={{top: '80px'}} className={classes.popper} open={this.state.open} anchorEl={this.state.anchorEl} transition>
         {({ TransitionProps }) => (
-          <Fade {...TransitionProps} timeout={350}>
+          <Fade {...TransitionProps} timeout={500}>
             <Grid container direction="row" justify="flex-start" alignItems="flex-start" className={classes.grid}>
               {submenuData !== null && submenuData.map(menu => (
-                <Grid item xs={12} sm={6} md={3} key={submenuData.indexOf(menu)} style={{ padding: '32px 20px 0px' }}>
+                <Grid item xs={6} sm={3} md={3} key={submenuData.indexOf(menu)} style={{ padding: '32px 20px 0px' }}>
                   <Link to={menu.link} style={{textDecoration: 'none'}}>
                     <Card elevation={0} square={true} className={classes.card}>
                       <CardMedia className={classes.media} image={menu.image} />

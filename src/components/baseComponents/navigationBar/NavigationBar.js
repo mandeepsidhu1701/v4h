@@ -36,7 +36,13 @@ class NavigationBar extends Component {
             menuAnchorEl: null
         }
     }
-    handleClick = (submenuData) => (e) => {
+    handleClick = (submenuData, headerLinkName) => (e) => {
+        if (this.lastCloseMenuTime
+            && Date.now() - this.lastCloseMenuTime < 200 
+            && headerLinkName === this.headerLinkName) {
+            return
+        }
+        this.headerLinkName = headerLinkName
         const leftPosition = e
             .target
             .getBoundingClientRect()
@@ -52,8 +58,26 @@ class NavigationBar extends Component {
             trianglePosition: leftPosition + (menuWidth / 2.3)
         })
     }
+
+    componentDidMount() {
+        window.addEventListener('scroll', this.handleScroll)
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.handleScroll)
+    }
+
+    handleScroll = () => {
+        if (this.state.open) {
+            this.setState({
+                open: false,
+                data: null
+            }) 
+        }
+    }
     handleClose = () => {
-        this.setState({data: null, open: false, anchorEl: null})
+        this.lastCloseMenuTime = Date.now()
+        this.setState({open: false, anchorEl: null})
     }
 
     handleMenuClose = () => {
@@ -121,7 +145,7 @@ class NavigationBar extends Component {
     renderHeaderLink(headerLinkName, submenu) {
         const {classes} = this.props;
         return (
-            <Button className={classes.navLink} onClick={this.handleClick(submenu)}>
+            <Button className={classes.navLink} onClick={this.handleClick(submenu, headerLinkName)}>
                 {headerLinkName}
             </Button>
         );
