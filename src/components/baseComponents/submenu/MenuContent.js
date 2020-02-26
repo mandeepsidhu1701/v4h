@@ -57,13 +57,13 @@ const styles = theme => ({
 class MenuContent extends Component {
   constructor(props) {
     super(props)
-    this.state = { 
+    this.state = {
       open: false,
       anchorEl: null
     }
     this.handleClick = this.handleClick.bind(this)
   }
-  
+
   handleClose = (e) => {
     if (document.getElementById('popper') !== null && !document.getElementById('popper').contains(e.target)) {
       this.setState({
@@ -81,10 +81,10 @@ class MenuContent extends Component {
   }
   componentDidUpdate(prevProps, prevState) {
     if (prevState.open !== this.props.submenuOpen) {
-      this.setState({ 
+      this.setState({
         open: this.props.submenuOpen,
         anchorEl: this.props.submenuAnchorEl
-      })  
+      })
     }
   }
 
@@ -98,13 +98,13 @@ class MenuContent extends Component {
     const size = iconShow ? 9 : 12
 
     return (
-      <Popper id="popper" style={{top: '80px'}} className={classes.popper} open={this.state.open} anchorEl={this.state.anchorEl} transition>
+      <Popper id="popper" style={{ top: '80px' }} className={classes.popper} open={this.state.open} anchorEl={this.state.anchorEl} transition>
         {({ TransitionProps }) => (
           <Fade {...TransitionProps} timeout={500}>
             <Grid container direction="row" justify="flex-start" alignItems="flex-start" className={classes.grid}>
               {submenuData !== null && submenuData.map(menu => (
                 <Grid item xs={6} sm={3} md={3} key={submenuData.indexOf(menu)} style={{ padding: '32px 20px 0px' }}>
-                  <Link to={menu.link} style={{textDecoration: 'none'}}>
+                  <Link to={menu.link} style={{ textDecoration: 'none' }}>
                     <Card elevation={0} square={true} className={classes.card}>
                       <CardMedia className={classes.media} image={menu.image} />
                       <CardContent className={classes.content}>
@@ -116,7 +116,7 @@ class MenuContent extends Component {
                           </Grid>
                           {iconShow ?
                             <Grid item xs={3}>
-                              <CardMedia 
+                              <CardMedia
                                 className={classes.icons}
                                 image="/images/icons/globe-02.png"
                                 onClick={this.handleClick(menu.globeLink)}
@@ -127,7 +127,7 @@ class MenuContent extends Component {
                                 onClick={this.handleClick(menu.sanctuaryLink)}
                               />
                             </Grid>
-                          : null}
+                            : null}
                         </Grid>
                       </CardContent>
                     </Card>

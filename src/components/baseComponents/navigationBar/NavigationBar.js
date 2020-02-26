@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import intl from 'react-intl-universal';
 import ReactDOM from 'react-dom'
-import {Link as RouterLink, withRouter} from 'react-router-dom';
+import { Link as RouterLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import routes from '../../../data/routes';
 import WebTitle from '../webTitle/WebTitle';
@@ -17,9 +17,9 @@ import {
     Avatar
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import {styles, theme} from './NavigationBarStyles';
-import MenuContent from '../../submenu/MenuContent';
-import {contentSubmenu, networkSubmenu} from '../../submenu/submenuData';
+import { styles, theme } from './NavigationBarStyles';
+import MenuContent from '../submenu/MenuContent';
+import { contentSubmenu, networkSubmenu } from '../submenu/submenuData';
 
 // TODO: need to use props rather than constant array
 const menuItems = ['Intro', 'Content', 'Organize', 'Connect'];
@@ -38,7 +38,7 @@ class NavigationBar extends Component {
     }
     handleClick = (submenuData, headerLinkName) => (e) => {
         if (this.lastCloseMenuTime
-            && Date.now() - this.lastCloseMenuTime < 200 
+            && Date.now() - this.lastCloseMenuTime < 200
             && headerLinkName === this.headerLinkName) {
             return
         }
@@ -72,20 +72,20 @@ class NavigationBar extends Component {
             this.setState({
                 open: false,
                 data: null
-            }) 
+            })
         }
     }
     handleClose = () => {
         this.lastCloseMenuTime = Date.now()
-        this.setState({open: false, anchorEl: null})
+        this.setState({ open: false, anchorEl: null })
     }
 
     handleMenuClose = () => {
-        this.setState({anchorEl: null});
+        this.setState({ anchorEl: null });
     };
 
     handleMenuOpen = (event) => {
-        this.setState({anchorEl: event.currentTarget});
+        this.setState({ anchorEl: event.currentTarget });
     };
 
     handleOpenPage = (url) => {
@@ -96,7 +96,7 @@ class NavigationBar extends Component {
     };
 
     renderMenuItem(menuItems, routeNames) {
-        const {anchorEl} = this.state;
+        const { anchorEl } = this.state;
         const open = Boolean(anchorEl);
         return (
             <Menu
@@ -105,11 +105,11 @@ class NavigationBar extends Component {
                 open={open}
                 onClose={this.handleMenuClose}
                 PaperProps={{
-                style: {
-                    maxHeight: 400,
-                    width: 120
-                }
-            }}>
+                    style: {
+                        maxHeight: 400,
+                        width: 120
+                    }
+                }}>
                 {menuItems.map((itemName, index) => {
                     return (
                         <MenuItem onClick={() => this.handleOpenPage(routeNames[index])}>
@@ -122,8 +122,8 @@ class NavigationBar extends Component {
     }
 
     renderMenuIcon() {
-        const {classes} = this.props;
-        const {anchorEl} = this.state;
+        const { classes } = this.props;
+        const { anchorEl } = this.state;
         const open = Boolean(anchorEl);
         return (
             <div className={classes.menuButtonContainer}>
@@ -131,11 +131,11 @@ class NavigationBar extends Component {
                     className={classes.menuButton}
                     aria-label="Main Menu"
                     aria-owns={open
-                    ? 'main-menu'
-                    : undefined}
+                        ? 'main-menu'
+                        : undefined}
                     aria-haspopup="true"
                     onClick={this.handleMenuOpen}>
-                    <MenuIcon/>
+                    <MenuIcon />
                 </IconButton>
                 {this.renderMenuItem(menuItems, routeNames)}
             </div>
@@ -143,7 +143,7 @@ class NavigationBar extends Component {
     }
 
     renderHeaderLink(headerLinkName, submenu) {
-        const {classes} = this.props;
+        const { classes } = this.props;
         return (
             <Button className={classes.navLink} onClick={this.handleClick(submenu, headerLinkName)}>
                 {headerLinkName}
@@ -152,7 +152,7 @@ class NavigationBar extends Component {
     }
 
     render() {
-        const {classes} = this.props;
+        const { classes } = this.props;
 
         return (
             <MuiThemeProvider theme={theme}>
@@ -165,7 +165,7 @@ class NavigationBar extends Component {
                                     {this.renderHeaderLink('INTRO', contentSubmenu)}
                                     {this.renderHeaderLink('CONTENT', contentSubmenu)}
                                 </div>
-                                <WebTitle/>
+                                <WebTitle />
                                 <div className={classes.navLinkContainer}>
                                     {this.renderHeaderLink('ORGANIZE', contentSubmenu)}
                                     {this.renderHeaderLink('CONNECT', networkSubmenu)}
@@ -176,15 +176,15 @@ class NavigationBar extends Component {
                                 submenuData={this.state.data}
                                 submenuOpen={this.state.open}
                                 submenuAnchorEl={this.state.anchorEl}
-                                submenuClose={this.handleClose}/>
+                                submenuClose={this.handleClose} />
                             <div
                                 className={classes.triangle}
                                 style={{
-                                left: this.state.trianglePosition,
-                                display: this.state.open
-                                    ? 'block'
-                                    : 'none'
-                            }}/>
+                                    left: this.state.trianglePosition,
+                                    display: this.state.open
+                                        ? 'block'
+                                        : 'none'
+                                }} />
                             <div className={classes.iconButtonContainer}>
                                 <IconButton
                                     className={classes.metaButton}
@@ -194,7 +194,7 @@ class NavigationBar extends Component {
                                     <Avatar
                                         alt="MetaWheel"
                                         src="/images/metawheelAppBar.png"
-                                        className={classes.metaIcon}/>
+                                        className={classes.metaIcon} />
                                 </IconButton>
                                 <IconButton
                                     className={classes.butterflyButton}
@@ -204,7 +204,7 @@ class NavigationBar extends Component {
                                     <Avatar
                                         alt="Butterfly"
                                         src="/images/butterflyAppBar.png"
-                                        className={classes.butterflyIcon}/>
+                                        className={classes.butterflyIcon} />
                                 </IconButton>
                             </div>
                         </div>
