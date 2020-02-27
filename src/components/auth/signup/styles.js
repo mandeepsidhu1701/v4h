@@ -1,4 +1,4 @@
-export const containerStyles = theme => ({
+export const containerStyles = (theme) => ({
   signUpCard: {
     backgroundColor: 'rgba(0,0,0,0.5)',
     border: '1px solid rgba(255,255,255,0.5)',
@@ -9,17 +9,17 @@ export const containerStyles = theme => ({
     position: 'absolute',
     top: '148px',
     display: 'flex',
-    'flexDirection': 'column',
+    flexDirection: 'column',
     wordWrap: 'break-word',
     backgroundClip: 'border-box',
     [theme.breakpoints.up('sm')]: {
       left: '5%',
-      right: '5%',
+      right: '5%'
     },
     [theme.breakpoints.down('sm')]: {
       left: '12px',
       right: '12px',
-      padding: '1.5rem 2rem',
+      padding: '1.5rem 2rem'
     },
     [theme.breakpoints.down('xs')]: {
       left: '12px',
@@ -27,9 +27,9 @@ export const containerStyles = theme => ({
       padding: '1.5rem 1rem'
     },
     '@media (max-width:200px)': {
-      top: '164px',
+      top: '164px'
     }
-  },  
+  },
   triangle: {
     position: 'absolute',
     margin: 'auto',
@@ -52,7 +52,7 @@ export const containerStyles = theme => ({
     bottom: '-2px',
     left: '30%',
     width: '40%',
-    borderBottom: '3px solid white',
+    borderBottom: '3px solid white'
   },
   cardBorderTopA: {
     position: 'absolute',
@@ -60,34 +60,34 @@ export const containerStyles = theme => ({
     top: '-2px',
     left: '30%',
     width: '19.3%',
-    borderTop: '3px solid white',
+    borderTop: '3px solid white'
   },
-  
+
   cardBorderTopB: {
     position: 'absolute',
     margin: 'auto',
     top: '-2px',
     left: '50.7%',
     width: '19.3%',
-    borderTop: '3px solid white',
+    borderTop: '3px solid white'
   },
-  
+
   cardBorderLeft: {
     position: 'absolute',
     margin: 'auto',
     left: '-2px',
     top: '15%',
     height: '70%',
-    borderLeft: '3px solid white',
+    borderLeft: '3px solid white'
   },
-  
+
   cardBorderRight: {
     position: 'absolute',
     margin: 'auto',
     right: '-2px',
     top: '15%',
     height: '70%',
-    borderRight: '3px solid white',
+    borderRight: '3px solid white'
   },
 
   cardDivider: {
@@ -97,19 +97,19 @@ export const containerStyles = theme => ({
       width: '35.5%',
       top: '15%',
       height: '70%',
-      borderLeft: '2px solid white',
+      borderLeft: '2px solid white'
     },
     [theme.breakpoints.down('sm')]: {
       margin: 'auto 0',
       width: '70%',
       left: '15%',
       height: '35.5%',
-      borderTop: '2px solid white',
+      borderTop: '2px solid white'
     }
   }
 });
 
-export const sideBarStyles = theme => ({
+export const sideBarStyles = (theme) => ({
   signUpSidebarHeading: {
     display: 'inline-block',
     borderRadius: '0.5rem',
@@ -121,11 +121,10 @@ export const sideBarStyles = theme => ({
     letterSpacing: '3px',
     marginBottom: 0,
     marginLeft: 0
-
   },
   signUpSidebarBase: {
     [theme.breakpoints.up('sm')]: {
-      margin: '0.5rem 0 0 -2rem',
+      margin: '0.5rem 0 0 -2rem'
     },
     [theme.breakpoints.down('sm')]: {
       margin: '1.5rem 0 0 -1.5rem'
@@ -139,8 +138,8 @@ export const sideBarStyles = theme => ({
   },
   signUpSidebarText: {
     marginLeft: 0,
-    color: "white",
-    fontFamily: "Calibri sans-serif monospace",
+    color: 'white',
+    fontFamily: 'Calibri sans-serif monospace',
     fontSize: '0.70rem',
     lineHeight: '1.5rem',
     transform: 'scale(.9, 1)',
@@ -159,18 +158,18 @@ export const sideBarStyles = theme => ({
       letterSpacing: 0,
       transform: 'scale(1, 1)',
       marginLeft: '3.33%'
-    },
+    }
   },
   signUpSidebarSphereContainer: {
     margin: '0.5rem 0 0 2rem',
     [theme.breakpoints.down('md')]: {
-      margin: '0.5rem 0 1rem 3rem',
+      margin: '0.5rem 0 1rem 3rem'
     },
     [theme.breakpoints.down('sm')]: {
-      margin: '0.5rem 0 2rem 2rem',
+      margin: '0.5rem 0 2rem 2rem'
     },
     [theme.breakpoints.down('xs')]: {
-      margin: '0.5rem 0 1rem 1rem',
+      margin: '0.5rem 0 1rem 1rem'
     }
   },
   textGreen: {
@@ -185,14 +184,14 @@ export const sideBarStyles = theme => ({
   textYellow: {
     color: 'rgba(245,193,12,1)'
   }
-})
+});
 
-export const signUpFormStyles = theme => ({
+export const signUpFormStyles = (theme) => ({
   signUpForm: {
     margin: '1.25rem 0 0 0',
     [theme.breakpoints.down('md')]: {
-      margin: '1rem 0 1.5rem 0',
-    },
+      margin: '1rem 0 1.5rem 0'
+    }
   },
   label: {
     display: 'inline-block',
@@ -204,13 +203,13 @@ export const signUpFormStyles = theme => ({
     transform: 'scale(.9, 1)',
     [theme.breakpoints.down('sm')]: {
       marginTop: '1rem'
-    },
+    }
   },
   inputGroup: {
-    margin: '0.5rem 1rem 1rem 0',
+    margin: '0.5rem 1rem 1rem 0'
   },
   checkboxInputGroup: {
-    margin: '0.5rem 0',
+    margin: '0.5rem 0'
   },
   input: {
     marginTop: '0.25rem',
@@ -218,7 +217,7 @@ export const signUpFormStyles = theme => ({
       border: 0,
       paddingLeft: 0
     },
-    '& > div' : {
+    '& > div': {
       lineHeight: '1rem'
     }
   },
@@ -242,7 +241,7 @@ export const signUpFormStyles = theme => ({
     margin: '1.5rem 0 0.5rem 0',
     transition: 'background-color 1s linear 0',
     '&:hover': {
-      backgroundColor: 'rgb(210,166,95,0.8)',
+      backgroundColor: 'rgb(210,166,95,0.8)'
     }
   },
   signUpText: {
@@ -257,20 +256,20 @@ export const signUpFormStyles = theme => ({
     [theme.breakpoints.down('md')]: {
       marginLeft: '-5%',
       marginRight: '-2.5%',
-      lineHeight: '1.5rem',
+      lineHeight: '1.5rem'
     },
     [theme.breakpoints.down('sm')]: {
       marginLeft: '-5%',
       marginRight: '-5%',
-      lineHeight: '1.375rem',
+      lineHeight: '1.375rem'
     },
     [theme.breakpoints.down('xs')]: {
       marginLeft: 0,
       marginRight: 0,
       lineHeight: '1.25rem',
       letterSpacing: 0,
-      transform: 'scale(1, 1)',
-    },
+      transform: 'scale(1, 1)'
+    }
   },
   textJustify: {
     textAlign: 'justify'
@@ -284,17 +283,15 @@ export const signUpFormStyles = theme => ({
     fontWeight: 550,
     letterSpacing: '2px',
     transform: 'scale(.9, 1)',
-    margin: '2rem 0 0 -1rem',
+    margin: '2rem 0 0 -1rem'
   },
   checkbox: {
     margin: '-0.25rem 1.5rem 0 -0.25rem',
     padding: 0,
-    color: "white",
-    opacity: 0.7,
+    color: 'white',
+    opacity: 0.7
   },
-  checkboxChecked: {
-    
-  },
+  checkboxChecked: {},
   signupLink: {
     display: 'inline-block',
     color: 'rgba(255,255,255,1.0)',
@@ -312,16 +309,16 @@ export const signUpFormStyles = theme => ({
     },
     [theme.breakpoints.down('sm')]: {
       marginTop: '1rem'
-    },
-  },
-})
+    }
+  }
+});
 
-export const verifyFormStyles = theme => ({
+export const verifyFormStyles = (theme) => ({
   verifyForm: {
     margin: '1rem 0 0 0',
     [theme.breakpoints.down('md')]: {
-      margin: '1rem 0 1.5rem 0',
-    },
+      margin: '1rem 0 1.5rem 0'
+    }
   },
   label: {
     display: 'inline-block',
@@ -333,10 +330,10 @@ export const verifyFormStyles = theme => ({
     transform: 'scale(.9, 1)',
     [theme.breakpoints.down('sm')]: {
       marginTop: '1rem'
-    },
+    }
   },
   inputGroup: {
-    margin: '1rem 1rem 1rem 0',
+    margin: '1rem 1rem 1rem 0'
   },
   input: {
     marginTop: '0.25rem',
@@ -344,7 +341,7 @@ export const verifyFormStyles = theme => ({
       border: 0,
       paddingLeft: 0
     },
-    '& > div' : {
+    '& > div': {
       lineHeight: '1rem'
     }
   },
@@ -368,7 +365,7 @@ export const verifyFormStyles = theme => ({
     margin: '1.5rem 0 0.5rem 0',
     transition: 'background-color 1s linear 0',
     '&:hover': {
-      backgroundColor: 'rgb(210,166,95,0.8)',
+      backgroundColor: 'rgb(210,166,95,0.8)'
     }
   },
   signUpText: {
@@ -383,20 +380,20 @@ export const verifyFormStyles = theme => ({
     [theme.breakpoints.down('md')]: {
       marginLeft: '-5%',
       marginRight: '-2.5%',
-      lineHeight: '1.5rem',
+      lineHeight: '1.5rem'
     },
     [theme.breakpoints.down('sm')]: {
       marginLeft: '-5%',
       marginRight: '-5%',
-      lineHeight: '1.375rem',
+      lineHeight: '1.375rem'
     },
     [theme.breakpoints.down('xs')]: {
       marginLeft: 0,
       marginRight: 0,
       lineHeight: '1.25rem',
       letterSpacing: 0,
-      transform: 'scale(1, 1)',
-    },
+      transform: 'scale(1, 1)'
+    }
   },
   textJustify: {
     textAlign: 'justify'
@@ -413,15 +410,13 @@ export const verifyFormStyles = theme => ({
     fontWeight: 550,
     letterSpacing: '2px',
     transform: 'scale(.9, 1)',
-    margin: '2rem 0 0 -1rem',
+    margin: '2rem 0 0 -1rem'
   },
   checkbox: {
     margin: '-0.25rem 1.5rem 0 -0.25rem',
     padding: 0,
-    color: "white",
-    opacity: 0.7,
+    color: 'white',
+    opacity: 0.7
   },
-  checkboxChecked: {
-    
-  }
-})
+  checkboxChecked: {}
+});

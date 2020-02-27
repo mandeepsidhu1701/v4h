@@ -164,25 +164,25 @@ const styles = (theme) => ({
     top: '22.5%',
     left: '85%'
     /* [theme.breakpoints.down('sm')]: {
-      flexDirection: 'row',
-      top: '66%',
-      left: '22%',
-    } */
+        flexDirection: 'row',
+        top: '66%',
+        left: '22%',
+      } */
   },
   sphereLink: {
     marginBottom: '4rem'
     /* [theme.breakpoints.only('sm')]: {
-      marginRight: '5%',
-      '& last-child': {
-        marginRight: 0,
-      }
-    },
-    [theme.breakpoints.only('xs')]: {
-      marginRight: '2%',
-      '& last-child': {
-        marginRight: 0,
-      }
-    }, */
+        marginRight: '5%',
+        '& last-child': {
+          marginRight: 0,
+        }
+      },
+      [theme.breakpoints.only('xs')]: {
+        marginRight: '2%',
+        '& last-child': {
+          marginRight: 0,
+        }
+      }, */
   },
 
   /** Home Page styles */
@@ -491,5 +491,5 @@ const styles = (theme) => ({
     letterSpacing: '4px'
   }
 });
-
-export default styles;
+  
+  export default styles;

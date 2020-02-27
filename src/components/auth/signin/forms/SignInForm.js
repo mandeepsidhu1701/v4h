@@ -1,20 +1,28 @@
-import React, { Component } from "react";
-import { Link as RouterLink } from "react-router-dom";
-import { withStyles, FormGroup, InputLabel, TextField, Button, Checkbox } from "@material-ui/core";
-import { Grid } from "@material-ui/core";
-import { IS_LOGGED_IN } from '../SignIn';
-import { formStyles } from '../styles';
-
+import React, {Component} from 'react';
+import {Link as RouterLink} from 'react-router-dom';
+import {withStyles, FormGroup, InputLabel, TextField, Button, Checkbox, Grid} from '@material-ui/core';
 import CheckboxOutlineCheckedIcon from '../../ui/CheckboxOutlineCheckedIcon';
-
 import ErrorBar from '../../ui/ErrorBar';
+import {
+  CHECK_BOX_LABEL,
+  FORGOT_PASSWORD,
+  IS_LOGGED_IN,
+  LOGIN_BUTTON,
+  SIGN_IN_EMAIL_LABEL,
+  SIGN_IN_EMAIL_PLACEHOLDER,
+  SIGN_IN_EMAIL_TITLE,
+  SIGN_IN_PASSWORD_LABEL,
+  SIGN_IN_PASSWORD_PLACEHOLDER,
+  SIGN_IN_PASSWORD_TITLE
+} from '../sign-in-constant';
+import {formStyles} from './SignInFormStyles';
 
 class SignInForm extends Component {
-  handleSignIn = event => {
+  handleSignIn = (event) => {
     event.preventDefault();
-    const { username, password } = this.props.inputs;
-    const callback =() => {
-      this.props.switchComponent(IS_LOGGED_IN)
+    const {username, password} = this.props.inputs;
+    const callback = () => {
+      this.props.switchComponent(IS_LOGGED_IN);
     };
 
     //TODO find better way of handling sign in when user is already signed in.
@@ -22,9 +30,7 @@ class SignInForm extends Component {
     this.props.handleSignIn(username, password, callback);
   };
 
-  
   render() {
-
     const {classes} = this.props;
 
     let errorMessage;
@@ -32,44 +38,34 @@ class SignInForm extends Component {
       const error = this.props.serverError;
       if (typeof error === 'string') {
         errorMessage = error;
-      }
-      else if (error.code === "UserNotFoundException") {
-        errorMessage = "Incorrect username or password.";
-      }
-      else if (error.message.includes("User is disabled")) {
-        errorMessage = "The user has been disabled. Please contact the administrator if you believe this is in error.";
-      }
-      else if (error.message === "The username should either be a string or one of the sign in types") {
-        errorMessage = "Incorrect username or password.";
-      }
-      else {
+      } else if (error.code === 'UserNotFoundException') {
+        errorMessage = 'Incorrect username or password.';
+      } else if (error.message.includes('User is disabled')) {
+        errorMessage = 'The user has been disabled. Please contact the administrator if you believe this is in error.';
+      } else if (error.message === 'The username should either be a string or one of the sign in types') {
+        errorMessage = 'Incorrect username or password.';
+      } else {
         errorMessage = error.message;
       }
-    }
-    else if (this.props.inputs.error) {
+    } else if (this.props.inputs.error) {
       errorMessage = this.props.inputs.error;
     } else {
       errorMessage = null;
     }
 
     return (
-      <form 
-        className={classes.loginForm}
-        onSubmit={this.handleSignIn}
-      >
+      <form className={classes.loginForm} onSubmit={this.handleSignIn}>
         <Grid container>
-          { 
-            errorMessage ?
+          {errorMessage ? (
             <Grid item xs={12} sm={12}>
               <ErrorBar error={errorMessage} />
-            </Grid> :
-            null
-          }
+            </Grid>
+          ) : null}
           <Grid item xs={12} sm={12} md={6}>
             <FormGroup className={classes.loginInputGroup}>
-              <InputLabel className={classes.loginLabel}>E-mail</InputLabel>
-              <TextField 
-                id="username"  
+              <InputLabel className={classes.loginLabel}>{SIGN_IN_EMAIL_LABEL}</InputLabel>
+              <TextField
+                id="username"
                 name="username"
                 fullWidth
                 margin="normal"
@@ -77,8 +73,8 @@ class SignInForm extends Component {
                 className={classes.loginInput}
                 value={this.props.username}
                 onChange={this.props.handleFormInput}
-                title="Please enter your username here."
-                placeholder="Enter Email"
+                title={SIGN_IN_EMAIL_TITLE}
+                placeholder={SIGN_IN_EMAIL_PLACEHOLDER}
                 inputProps={{
                   className: classes.loginInputBase
                 }}
@@ -88,9 +84,9 @@ class SignInForm extends Component {
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
             <FormGroup className={classes.loginInputGroup}>
-              <InputLabel className={classes.loginLabel}>Password</InputLabel>
-              <TextField 
-                id="password"  
+              <InputLabel className={classes.loginLabel}>{SIGN_IN_PASSWORD_LABEL}</InputLabel>
+              <TextField
+                id="password"
                 name="password"
                 type="password"
                 fullWidth
@@ -98,42 +94,38 @@ class SignInForm extends Component {
                 variant="outlined"
                 className={classes.loginInput}
                 value={this.props.password}
-                placeholder="Password"
-                title="must have lower case, upper case, numbers and special chars, and a minimum length of 12."
+                title={SIGN_IN_PASSWORD_TITLE}
+                placeholder={SIGN_IN_PASSWORD_PLACEHOLDER}
                 onChange={this.props.handleFormInput}
                 required
                 inputProps={{
-                  className: classes.loginInputBase,
+                  className: classes.loginInputBase
                 }}
               />
             </FormGroup>
           </Grid>
-
           <Grid item xs={12} sm={12} md={6}>
             <FormGroup row className={classes.loginInputGroup}>
               <Checkbox
                 color="default"
                 classes={{root: classes.loginCheckbox, checked: classes.loginCheckboxChecked}}
                 checkedIcon={<CheckboxOutlineCheckedIcon />}
-                checked={this.props.rememberme}
+                checked={this.props.rememberMe}
                 onChange={this.props.handleFormInput}
                 name="rememberme"
               />
-              <InputLabel className={classes.loginLabel}>Remember Me</InputLabel>
+              <InputLabel className={classes.checkBoxLabel}>{CHECK_BOX_LABEL}</InputLabel>
             </FormGroup>
-            
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
-            <RouterLink to="#" className={classes.loginLink}>Forgot Password</RouterLink>
+            <RouterLink to="#" className={classes.loginLink}>
+              {FORGOT_PASSWORD}
+            </RouterLink>
           </Grid>
 
-      
           <Grid item xs={12} sm={12}>
-            <Button
-              type="submit"
-              className={classes.loginButton}
-            >
-              LOGIN
+            <Button type="submit" className={classes.loginButton}>
+              {LOGIN_BUTTON}
             </Button>
           </Grid>
         </Grid>

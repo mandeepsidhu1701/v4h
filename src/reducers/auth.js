@@ -12,16 +12,17 @@ import {
   AUTH_RESEND_SIGNUP,
   AUTH_UPDATE_ATTRIBUTE,
   AUTH_VERIFY_ATTRIBUTE,
-  AUTH_VERIFY_ATTRIBUTE_CONFIRM,
+  AUTH_VERIFY_ATTRIBUTE_CONFIRM
 } from '../actions/auth';
 
 const auth = (
   state = {
-    user: null, 
+    user: null,
     processing: false,
     serverError: null
-  }, 
-  action) => {
+  },
+  action
+) => {
   switch (action.type) {
     case AUTH_PROCESSING:
       return {
@@ -81,7 +82,7 @@ const auth = (
         serverError: null,
         processing: false
       };
-    
+
     case AUTH_FORGOT_PASSWORD_REQUEST:
       return {
         ...state,
@@ -125,8 +126,8 @@ const auth = (
       };
 
     default:
-      return state
-    }
-}
+      return state;
+  }
+};
 
 export default auth
