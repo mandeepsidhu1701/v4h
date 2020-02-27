@@ -5,13 +5,13 @@ import thunkMiddleware from 'redux-thunk';
 import {Route, Switch} from 'react-router-dom';
 import {createStore, compose, applyMiddleware} from 'redux';
 import {ConnectedRouter, routerMiddleware} from 'connected-react-router';
+import config from './aws-exports';
 import intl from 'react-intl-universal';
 import {createBrowserHistory} from 'history';
 import rootReducer from './reducers';
 import Amplify from 'aws-amplify';
-import config from './aws-exports';
 import {HomeContainer, ArticlesContainer} from './pages';
-import Layout from './components/baseComponents/Layout';
+import {Layout} from './components/baseComponents';
 import routes from './data/routes';
 import './index.css';
 

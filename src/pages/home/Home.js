@@ -6,7 +6,7 @@ import {withStyles, IconButton, Modal, Grid, Button} from '@material-ui/core';
 import Landing from '../../components/home/landing/Landing';
 import {userRequestForgotPasswordSubmit} from '../../actions/auth';
 
-import {CarouselSlide} from '../../components/baseComponents/CorePrinciplesCarousel';
+import {CarouselSlide} from '../../components/baseComponents/corePrinciplesCarousel';
 
 import styles from './HomeStyles';
 
