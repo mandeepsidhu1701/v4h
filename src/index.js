@@ -3,20 +3,17 @@ import {render} from 'react-dom';
 import {Provider} from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import {Route, Switch} from 'react-router-dom';
-import {createBrowserHistory} from 'history';
 import {createStore, compose, applyMiddleware} from 'redux';
 import {ConnectedRouter, routerMiddleware} from 'connected-react-router';
 import intl from 'react-intl-universal';
+import {createBrowserHistory} from 'history';
 import rootReducer from './reducers';
 import Amplify from 'aws-amplify';
 import config from './aws-exports';
-import HomeContainer from './pages/home/HomeContainer';
-import {ArticlesContainer} from './pages/articles';
+import {HomeContainer, ArticlesContainer} from './pages';
+import Layout from './components/baseComponents/Layout';
 import routes from './data/routes';
 import './index.css';
-
-import routes from './data/routes';
-import Layout from './components/common/ui/Layout';
 
 Amplify.configure(config);
 

@@ -32,11 +32,7 @@ class AnimatedText extends Component {
         return <span key={index} style={{marginRight: '1rem'}} />;
       } else {
         return (
-          <span
-            key={index}
-            className={classes.text}
-            style={{animationDelay: delays[index] + 'ms'}}
-          >
+          <span key={index} className={classes.text} style={{animationDelay: delays[index] + 'ms'}}>
             {letter.toUpperCase()}
           </span>
         );

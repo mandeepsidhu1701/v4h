@@ -5,12 +5,12 @@ import {withStyles, IconButton, Modal, Grid, Button} from '@material-ui/core';
 import PlayCircleOutline from '@material-ui/icons/PlayCircleOutline';
 import {Sphere, AnimatedText, BackVideoWithNavBarWrapper as PageWrapper} from '../../components/baseComponents';
 import SignUpModal, {SIGN_UP} from '../../components/auth/signup';
-import SignInModal, {SIGN_IN} from '../../components/auth/signin';
+import SignInModal, {SIGN_IN} from '../../components/auth/signin/container/SignInContainer';
 
 import Landing from '../../components/home/landing/Landing';
 import {userRequestForgotPasswordSubmit} from '../../actions/auth';
 
-import {Carousel, CarouselSlide} from '../../components/home/corePrinciplesCarousel';
+import {Carousel, CarouselSlide} from "../../components/home/corePrinciplesCarousel";
 
 import styles from './HomeStyles';
 
