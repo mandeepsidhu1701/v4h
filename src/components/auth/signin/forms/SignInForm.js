@@ -4,7 +4,10 @@ import {withStyles, FormGroup, InputLabel, TextField, Button, Checkbox, Grid} fr
 import CheckboxOutlineCheckedIcon from '../../ui/CheckboxOutlineCheckedIcon';
 import ErrorBar from '../../ui/ErrorBar';
 import {
+  CHECK_BOX_LABEL,
+  FORGOT_PASSWORD,
   IS_LOGGED_IN,
+  LOGIN_BUTTON,
   SIGN_IN_EMAIL_LABEL,
   SIGN_IN_EMAIL_PLACEHOLDER,
   SIGN_IN_EMAIL_TITLE,
@@ -101,7 +104,6 @@ class SignInForm extends Component {
               />
             </FormGroup>
           </Grid>
-
           <Grid item xs={12} sm={12} md={6}>
             <FormGroup row className={classes.loginInputGroup}>
               <Checkbox
@@ -112,18 +114,18 @@ class SignInForm extends Component {
                 onChange={this.props.handleFormInput}
                 name="rememberme"
               />
-              <InputLabel className={classes.loginLabel}>Remember Me</InputLabel>
+              <InputLabel className={classes.checkBoxLabel}>{CHECK_BOX_LABEL}</InputLabel>
             </FormGroup>
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
             <RouterLink to="#" className={classes.loginLink}>
-              Forgot Password
+              {FORGOT_PASSWORD}
             </RouterLink>
           </Grid>
 
           <Grid item xs={12} sm={12}>
             <Button type="submit" className={classes.loginButton}>
-              LOGIN
+              {LOGIN_BUTTON}
             </Button>
           </Grid>
         </Grid>

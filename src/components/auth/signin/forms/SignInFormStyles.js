@@ -1,4 +1,49 @@
 export const formStyles = (theme) => ({
+  loginForm: {
+    marginTop: '1rem',
+    flexGrow: 1
+  },
+  loginInputGroup: {
+    margin: '1rem 1rem 1rem 0'
+  },
+  loginLabel: {
+    display: 'inline-block',
+    color: 'white',
+    fontSize: '1rem',
+    fontFamily: 'Calibri sans-serif monospace',
+    fontWeight: 600,
+    margin: '0 0 0.125rem',
+    transform: 'scale(.9, 1)',
+    [theme.breakpoints.down('sm')]: {
+      marginTop: '1rem'
+    }
+  },
+  loginInput: {
+    marginTop: '0.25rem',
+    '& fieldset': {
+      border: 0,
+      paddingLeft: 0
+    },
+    '& > div': {
+      lineHeight: '1rem'
+    }
+  },
+  checkBoxLabel: {
+    display: 'inline-block',
+    color: 'white',
+    fontSize: '1rem',
+    fontFamily: 'Calibri sans-serif monospace',
+    fontWeight: 600,
+    margin: '0 0 0.125rem',
+    transform: 'scale(.9, 1)'
+  },
+  loginCheckbox: {
+    margin: '-0.25rem 1.5rem 0 -0.25rem',
+    padding: 0,
+    color: 'white',
+    opacity: 0.7
+  },
+  loginCheckboxChecked: {},
   loginLink: {
     display: 'inline-block',
     color: 'rgba(255,255,255,1.0)',
@@ -18,43 +63,6 @@ export const formStyles = (theme) => ({
       marginTop: '1rem'
     }
   },
-  loginForm: {
-    marginTop: '1rem',
-    flexGrow: 1
-  },
-  loginLabel: {
-    display: 'inline-block',
-    color: 'white',
-    fontSize: '1rem',
-    fontFamily: 'Calibri sans-serif monospace',
-    fontWeight: 600,
-    margin: '0 0 0.125rem',
-    transform: 'scale(.9, 1)',
-    [theme.breakpoints.down('sm')]: {
-      marginTop: '1rem'
-    }
-  },
-  loginInputGroup: {
-    margin: '1rem 1rem 1rem 0'
-  },
-  loginInput: {
-    marginTop: '0.25rem',
-    '& fieldset': {
-      border: 0,
-      paddingLeft: 0
-    },
-    '& > div': {
-      lineHeight: '1rem'
-    }
-  },
-  loginInputBase: {
-    borderRadius: '0.75rem',
-    backgroundColor: 'white',
-    padding: '1rem',
-    fontFamily: 'Calibri sans-serif monospace',
-    fontSize: '0.75rem',
-    height: '1rem'
-  },
   loginButton: {
     color: 'white',
     backgroundColor: 'rgb(210,166,95,1)',
@@ -71,11 +79,12 @@ export const formStyles = (theme) => ({
       backgroundColor: 'rgb(210,166,95,0.8)'
     }
   },
-  loginCheckbox: {
-    margin: '-0.25rem 1.5rem 0 -0.25rem',
-    padding: 0,
-    color: 'white',
-    opacity: 0.7
-  },
-  loginCheckboxChecked: {}
+  loginInputBase: {
+    borderRadius: '0.75rem',
+    backgroundColor: 'white',
+    padding: '1rem',
+    fontFamily: 'Calibri sans-serif monospace',
+    fontSize: '0.75rem',
+    height: '1rem'
+  }
 });
