@@ -1,4 +1,4 @@
-import {HomeContainer, ArticlesContainer} from '../pages';
+import { HomeContainer, ArticlesContainer } from '../pages';
 
 const routes = [
   {
@@ -7,7 +7,7 @@ const routes = [
     component: HomeContainer,
     menu: null
   },
-  //Intro Route
+  //Intro Route 
   {
     path: '/intro',
     name: 'Intro',
@@ -112,8 +112,7 @@ const routes = [
     name: 'Messenger',
     component: null,
     menu: 'connect'
-  }
-];
-
+  },
+]
 
 export default routes

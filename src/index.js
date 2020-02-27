@@ -1,17 +1,16 @@
 import React from 'react';
-import {render} from 'react-dom';
-import {Provider} from 'react-redux';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
-import {Route, Switch} from 'react-router-dom';
-import {createStore, compose, applyMiddleware} from 'redux';
-import {ConnectedRouter, routerMiddleware} from 'connected-react-router';
-import config from './aws-exports';
+import { Route, Switch } from 'react-router-dom';
+import { createStore, compose, applyMiddleware } from 'redux';
+import { ConnectedRouter, routerMiddleware } from 'connected-react-router';
 import intl from 'react-intl-universal';
-import {createBrowserHistory} from 'history';
+import { createBrowserHistory } from 'history';
 import rootReducer from './reducers';
 import Amplify from 'aws-amplify';
-import {HomeContainer, ArticlesContainer} from './pages';
-import {Layout} from './components/baseComponents';
+import config from './aws-exports';
+import Layout from './components/baseComponents/Layout';
 import routes from './data/routes';
 import './index.css';
 
@@ -32,8 +31,11 @@ const Routes = () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
       <Layout>
-        <Route path={routes.Home} exact component={HomeContainer} />
-        <Route path={routes.Articles} exact component={ArticlesContainer} />
+        <Switch>
+          {routes.map((route, index) => (
+            <Route exact key={index} path={route.path} component={route.component} />
+          ))}
+        </Switch>
       </Layout>
     </ConnectedRouter>
   </Provider>

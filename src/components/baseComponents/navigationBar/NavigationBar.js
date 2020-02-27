@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import intl from 'react-intl-universal';
+// import intl from 'react-intl-universal';
 import ReactDOM from 'react-dom'
-import { Link as RouterLink, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import routes from '../../../data/routes';
 import WebTitle from '../webTitle/WebTitle';
@@ -19,7 +19,7 @@ import {
 import MenuIcon from '@material-ui/icons/Menu';
 import { styles, theme } from './NavigationBarStyles';
 import MenuContent from '../submenu/MenuContent';
-import { contentSubmenu, networkSubmenu } from '../submenu/submenuData';
+import { contentSubmenu, connectSubmenu, organizeSubmenu, introSubmenu } from '../submenu/submenuData';
 
 // TODO: need to use props rather than constant array
 const menuItems = ['Intro', 'Content', 'Organize', 'Connect'];
@@ -162,13 +162,13 @@ class NavigationBar extends Component {
                             {this.renderMenuIcon()}
                             <div className={classes.navContainer}>
                                 <div className={classes.navLinkContainer}>
-                                    {this.renderHeaderLink('INTRO', contentSubmenu)}
+                                    {this.renderHeaderLink('INTRO', introSubmenu)}
                                     {this.renderHeaderLink('CONTENT', contentSubmenu)}
                                 </div>
                                 <WebTitle />
                                 <div className={classes.navLinkContainer}>
-                                    {this.renderHeaderLink('ORGANIZE', contentSubmenu)}
-                                    {this.renderHeaderLink('CONNECT', networkSubmenu)}
+                                    {this.renderHeaderLink('ORGANIZE', organizeSubmenu)}
+                                    {this.renderHeaderLink('CONNECT', connectSubmenu)}
                                 </div>
 
                             </div>
