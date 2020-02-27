@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {styled, withStyles, Card, CardMedia, CardContent, Typography, Button} from '@material-ui/core';
+import {withStyles, Card, CardMedia, CardContent, Typography, Button} from '@material-ui/core';
 
 const styles = (theme) => ({
   media: {

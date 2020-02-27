@@ -13,8 +13,6 @@ class Articles extends Component {
   };
 
   render() {
-    const {classes} = this.props;
-
     return <React.Fragment></React.Fragment>;
   }
 }

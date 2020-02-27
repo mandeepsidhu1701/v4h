@@ -3,9 +3,7 @@ import {withRouter, Link as RouterLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {withStyles, IconButton, Modal} from '@material-ui/core';
 import {AnimatedText, Sphere} from '../baseComponents';
-import routes from '../../data/routes';
-import {SignUpContainer as SignUpModal, SIGN_UP} from '../auth/signup';
-import {SignInContainer as SignInModal, SIGN_IN} from '../auth/signin';
+import {SignUpContainer as SignUpModal, SIGN_UP, SignInContainer as SignInModal, SIGN_IN} from '../auth';
 import styles from './LandingStyles';
 
 //TODO: what to do about spheres, correct size and position for small real-estate screens / mobile?
@@ -131,7 +129,6 @@ class Landing extends React.Component {
           <RouterLink
             to="#"
             className={authForm === SIGN_UP ? `${classes.authLink} ${highlightedAuthLinkClass}` : classes.authLink}
-            onMouseEnter={this.handleShowSignUpForm}
             onClick={this.handleShowSignUpForm}
           >
             SIGN UP
@@ -140,7 +137,6 @@ class Landing extends React.Component {
           <RouterLink
             to="#"
             className={authForm === SIGN_IN ? `${classes.authLink} ${highlightedAuthLinkClass}` : classes.authLink}
-            onMouseEnter={this.handleShowLoginForm}
             onClick={this.handleShowLoginForm}
           >
             SIGN IN
@@ -152,16 +148,16 @@ class Landing extends React.Component {
         </div>
 
         <div className={classes.sphereSideBar}>
-          <RouterLink className={classes.sphereLink} to={routes.Health}>
+          <RouterLink className={classes.sphereLink} to="/organize/health">
             <Sphere type={0} sphereRad={60} width={100} height={100} />
           </RouterLink>
-          <RouterLink className={classes.sphereLink} to={routes.Prosperity}>
+          <RouterLink className={classes.sphereLink} to="/organize/health">
             <Sphere type={1} sphereRad={60} width={100} height={100} />
           </RouterLink>
-          <RouterLink className={classes.sphereLink} to={routes.Inspiration}>
+          <RouterLink className={classes.sphereLink} to="/organize/health">
             <Sphere type={2} sphereRad={60} width={100} height={100} />
           </RouterLink>
-          <RouterLink className={classes.sphereLink} to={routes.Joy}>
+          <RouterLink className={classes.sphereLink} to="/organize/health">
             <Sphere type={3} sphereRad={60} width={100} height={100} />
           </RouterLink>
         </div>

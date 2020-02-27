@@ -1,10 +1,9 @@
 import React from 'react';
-import {withRouter, Link as RouterLink} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core';
 
 import {Landing} from '../../components/landing';
-import {userRequestForgotPasswordSubmit} from '../../actions/auth';
 import styles from './HomeStyles';
 
 //TODO: what to do about spheres, correct size and position for small real-estate screens / mobile?
