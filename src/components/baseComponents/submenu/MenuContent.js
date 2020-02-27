@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import {Link, withRouter} from 'react-router-dom';
-import Popper from '@material-ui/core/Popper';
-import Fade from '@material-ui/core/Fade';
-import Grid from '@material-ui/core/Grid';
-import {withStyles} from '@material-ui/core/styles';
-import {Card, CardMedia, CardContent, Typography} from '@material-ui/core';
+import {withStyles, Popper, Fade, Grid, Card, CardMedia, CardContent, Typography} from '@material-ui/core';
 
 const styles = (theme) => ({
   popper: {
@@ -145,6 +141,6 @@ class MenuContent extends Component {
 
 MenuContent.defaultProps = {
   iconShow: true
-}
+};
 
-export default withStyles(styles)(withRouter(MenuContent))
+export default withStyles(styles)(withRouter(MenuContent));

@@ -1,16 +1,16 @@
 import React from 'react';
-import { render } from 'react-dom';
-import { Provider } from 'react-redux';
+import {render} from 'react-dom';
+import {Provider} from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
-import { Route, Switch } from 'react-router-dom';
-import { createStore, compose, applyMiddleware } from 'redux';
-import { ConnectedRouter, routerMiddleware } from 'connected-react-router';
+import {Route, Switch} from 'react-router-dom';
+import {createStore, compose, applyMiddleware} from 'redux';
+import {ConnectedRouter, routerMiddleware} from 'connected-react-router';
 import intl from 'react-intl-universal';
-import { createBrowserHistory } from 'history';
-import rootReducer from './reducers';
+import {createBrowserHistory} from 'history';
 import Amplify from 'aws-amplify';
 import config from './aws-exports';
-import Layout from './components/baseComponents/Layout';
+import rootReducer from './reducers';
+import Layout from './components/Layout';
 import routes from './data/routes';
 import './index.css';
 

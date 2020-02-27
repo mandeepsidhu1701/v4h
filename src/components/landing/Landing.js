@@ -2,10 +2,10 @@ import React from 'react';
 import {withRouter, Link as RouterLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {withStyles, IconButton, Modal} from '@material-ui/core';
-import {AnimatedText, Sphere} from '../../baseComponents';
-import routes from '../../../data/routes';
-import {SignUpContainer as SignUpModal, SIGN_UP} from '../../auth/signup';
-import {SignInContainer as SignInModal, SIGN_IN} from '../../auth/signin';
+import {AnimatedText, Sphere} from '../baseComponents';
+import routes from '../../data/routes';
+import {SignUpContainer as SignUpModal, SIGN_UP} from '../auth/signup';
+import {SignInContainer as SignInModal, SIGN_IN} from '../auth/signin';
 import styles from './LandingStyles';
 
 //TODO: what to do about spheres, correct size and position for small real-estate screens / mobile?

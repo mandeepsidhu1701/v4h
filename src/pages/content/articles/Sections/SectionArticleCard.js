@@ -1,6 +1,6 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import CardBox from '../../../components/baseComponents/Cardbox/CardBox';
+import {CardBox} from '../../../components/baseComponents';
 import articlesData from '../../../data/articlesData';
 
 

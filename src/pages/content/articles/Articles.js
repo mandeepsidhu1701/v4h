@@ -1,7 +1,5 @@
-
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-
+import React, {Component} from 'react';
+import {withStyles} from '@material-ui/core/styles';
 
 const styles = (theme) => ({
   root: {
@@ -15,14 +13,9 @@ class Articles extends Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const {classes} = this.props;
 
-    return (
-
-      <React.Fragment>
-
-      </React.Fragment>)
-
+    return <React.Fragment></React.Fragment>;
   }
 }
 
