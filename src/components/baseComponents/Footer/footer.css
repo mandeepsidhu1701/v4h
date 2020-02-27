@@ -1,0 +1,27 @@
+.footer{
+    width: 100%;
+    height: 70px;
+    background-color: #434343;
+    text-align: right;
+}
+
+.footer-link{
+    margin-left: 10px !important;
+}
+
+.footer .HCN{
+    width: 77px;
+    height: 30px;
+    left : 45px;
+    vertical-align: middle;
+    opacity: 0.75;
+    font-family: Calibri;
+    font-size: 30px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.87;
+    letter-spacing: 6px;
+    text-align: left;
+    color: #ffffff;
+}

@@ -6,7 +6,8 @@ import { withStyles } from "@material-ui/core/styles";
 
 const styles = theme => ({
   root: {
-    backgroundColor: "#434343"
+    backgroundColor: "#434343",
+    lineHeight: "70px",
   },
   homeLink: {
     color: "#CFCFCF",
@@ -43,8 +44,8 @@ const styles = theme => ({
     },
     [theme.breakpoints.only("xs")]: {
       fontSize: "0.75rem",
-      display: "block",
-      textAlign: "center",
+      //display: "block",
+      //textAlign: "center",
       padding: "0.5rem 3rem 0.5rem 0"
     }
   }
@@ -77,45 +78,37 @@ class Footer extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Grid container className={classes.root}>
-        <div maxWidth="lg">
-          <footer>
-            <Grid container>
-              <Grid item sm={3} xs={12}>
-                <Link
-                  component={RouterLink}
-                  to="/"
-                  className={classes.homeLink}
-                >
-                  HCN
-                </Link>
-              </Grid>
-              <Grid
-                container
-                item
-                sm
-                xs={12}
-                justify="flex-end"
-                direction="row"
-                alignItems="baseline"
-              >
-                <Typography>
-                  {footerLinks.map((link, index) => (
-                    <Link
-                      component={RouterLink}
-                      key={index}
-                      to={link.link}
-                      className={classes.footerLink}
-                    >
-                      {link.text}
-                    </Link>
-                  ))}
-                </Typography>
-              </Grid>
+    <footer>
+        <Grid container className={classes.root}>
+            <Grid item xs={6}>
+                <Grid container justifyContent="flex-start" alignItems="center">
+                    <Grid item style={{paddingLeft : "45px"}}>
+                        <Link component={RouterLink} to="/" className={classes.homeLink}>
+                            HCN
+                        </Link>
+                    </Grid>
+                </Grid>
             </Grid>
-          </footer>
-        </div>
-      </Grid>
+            <Grid item xs={6}>
+                <Grid container justifyContent="flex-end" alignItems="center">
+                    <Grid item>
+                        <Typography>
+                        {footerLinks.map((link, index) => (
+                            <Link
+                            component={RouterLink}
+                            key={index}
+                            to={link.link}
+                            className={classes.footerLink}
+                            >
+                            {link.text}
+                            </Link>
+                        ))}
+                        </Typography>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </footer>
     );
   }
 }
