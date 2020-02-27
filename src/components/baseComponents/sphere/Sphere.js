@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {withRouter} from 'react-router-dom';
-import {withStyles} from '@material-ui/core';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { withStyles } from '@material-ui/core';
 import * as Animation from './animation';
-import {relative} from 'path';
+//import {relative} from 'path';
 import PropTypes from 'prop-types';
-import {styles} from './SphereStyles';
+import { styles } from './SphereStyles';
 // import { connect } from "react-redux";
 // import { bindActionCreators } from "redux";
 // import * as sphereActions from "../../store/sphere/actions";
@@ -36,10 +36,10 @@ class Sphere extends Component {
     '/images/personJoy.png'
   ];
   sphereColors = [
-    {r: 101, g: 187, b: 25},
-    {r: 79, g: 145, b: 233},
-    {r: 251, g: 2, b: 254},
-    {r: 254, g: 197, b: 3}
+    { r: 101, g: 187, b: 25 },
+    { r: 79, g: 145, b: 233 },
+    { r: 251, g: 2, b: 254 },
+    { r: 254, g: 197, b: 3 }
   ];
 
   constructor(props) {
@@ -66,7 +66,7 @@ class Sphere extends Component {
   }
 
   render() {
-    const {classes} = this.props;
+    const { classes } = this.props;
     let width = this.props.width !== undefined ? this.props.width : 70;
     let height = this.props.width !== undefined ? this.props.height : 70;
     let type = this.props.type !== undefined ? this.props.type : 0;
