@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core';
 import SignInForm from '../forms/SignInForm';
 import {SIGN_IN, IS_LOGGED_IN} from '../sign-in-constant';
-import {containerStyles} from './SignInStyles';
+import {containerStyles} from './Styles';
 
 class SignIn extends Component {
   state = {
