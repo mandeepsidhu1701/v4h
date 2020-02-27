@@ -43,7 +43,7 @@ const styles = (theme) => ({
     animation: '$scaleAnimation 5s 1 ease-out'
   },
   landingScrollUp: {
-    animation: '$moveLandingUp 3s 1 linear'
+    animation: '$moveLandingUp 0.5s 1 linear',
   },
   genome: {
     backgroundColor: 'rgba(255,255,255,0.5)',
@@ -123,6 +123,7 @@ const styles = (theme) => ({
       color: 'white',
       'text-decoration': 'none'
     }
+
   },
   authLinkHighlight: {
     'text-decoration': 'underline'
@@ -145,13 +146,15 @@ const styles = (theme) => ({
   hidden: {
     display: 'none'
   },
+
   '@keyframes scaleAnimation': {
-    from: {width: '134%', height: '134%', top: '-17%', left: '-17%'},
-    to: {width: '100%', height: '100%', top: '0', left: '0'}
+    from: { width: '134%', height: '134%', top: '-17%', left: '-17%' },
+    to: { width: '100%', height: '100%', top: '0', left: '0' }
+
   },
   '@keyframes moveLandingUp': {
-    from: {top: '0%'},
-    to: {top: '-100%'}
+    from: { top: '0%' },
+    to: { top: '-100%' }
   },
   sphereSideBar: {
     zIndex: 91,
@@ -285,7 +288,8 @@ const styles = (theme) => ({
   metamorphicMediaContainer: {
     padding: '0 20%',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+
   },
   metamorphicMediaTitle: {
     textAlign: 'center',
@@ -305,7 +309,9 @@ const styles = (theme) => ({
     fontWeight: 700,
     marginBottom: '1rem'
   },
+
   metamorphicMediaButton: {},
+
   videoParentContainer: {
     backgroundColor: 'rgba(255,255,255,0.33)',
     [theme.breakpoints.only('sm')]: {
