@@ -15,6 +15,24 @@ const routes = [
     menu: null
   },
   {
+    path: '/',
+    name: 'Home',
+    component: HomeContainer,
+    menu: 'intro'
+  },
+  {
+    path: '/intro/compass',
+    name: 'Creation Compass',
+    component: null,
+    menu: 'intro'
+  },
+  {
+    path: '/intro/charter',
+    name: 'Charter',
+    component: null,
+    menu: 'intro'
+  },
+  {
     path: '/intro/metamorphosis',
     name: 'Metamorphosis',
     component: null,
@@ -96,14 +114,14 @@ const routes = [
     menu: 'connect'
   },
   {
-    path: '/connect/disperse',
-    name: 'Disperse Content',
+    path: '/connect/sponsor',
+    name: 'Sponsor Content',
     component: null,
     menu: 'connect'
   },
   {
-    path: '/connect/sponsor',
-    name: 'Sponsor Content',
+    path: '/connect/disperse',
+    name: 'Disperse Content',
     component: null,
     menu: 'connect'
   },
