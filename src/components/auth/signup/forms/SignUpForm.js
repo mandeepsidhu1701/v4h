@@ -22,7 +22,7 @@ import {
   VERIFY,
   VERIFY_EXISTING_ACCOUNT
 } from '../sign-up-constant';
-import {MIN_PASSWORDLENGTH, PASSWORD_REGEX, PHONE_REGEX} from '../../formConstants';
+import {MIN_PASSWORD_LENGTH, PASSWORD_REGEX, PHONE_REGEX} from '../../formConstants';
 import {signUpFormStyles} from './Styles';
 
 class SignUpForm extends Component {
@@ -46,7 +46,7 @@ class SignUpForm extends Component {
         error.code === 'InvalidPasswordException' ||
         error.message.includes("Value at 'password' failed to satisfy constraint")
       ) {
-        errorMessage = `Password must have a minimum length of ${MIN_PASSWORDLENGTH} characters, no spaces, and at least one uppercase char, one lowercase char, one numeral and one symbol`;
+        errorMessage = `Password must have a minimum length of ${MIN_PASSWORD_LENGTH} characters, no spaces, and at least one uppercase char, one lowercase char, one numeral and one symbol`;
       } else if (error.message.includes('Invalid phone number format')) {
         errorMessage = 'Contact Number has an invalid format. Valid examples include +64444555 and +6155556666';
       } else if (error.message.includes('Invalid email address format')) {
@@ -157,7 +157,7 @@ class SignUpForm extends Component {
                   placeholder={SIGN_UP_FORM_PASSWORD_PLACEHOLDER}
                   inputProps={{
                     className: classes.inputBase,
-                    minLength: MIN_PASSWORDLENGTH,
+                    minLength: MIN_PASSWORD_LENGTH,
                     pattern: PASSWORD_REGEX
                   }}
                   required

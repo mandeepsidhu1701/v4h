@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { withStyles, Card, CardMedia, CardContent, Typography, Button } from '@material-ui/core';
+import React, {Component} from 'react';
+import {withStyles, Card, CardMedia, CardContent, Typography, Button} from '@material-ui/core';
 
 const styles = (theme) => ({
   media: {
@@ -60,7 +60,7 @@ const BottomButton = withStyles({
 
 class CardBox extends Component {
   render() {
-    const { classes, id, image, title, content, topbtntext, bottombtntext, handleClick } = this.props;
+    const {classes, id, image, title, content, topbtntext, bottombtntext, handleClick} = this.props;
     return (
       <Card elevation={0} square={true}>
         <CardMedia className={classes.media} image={image}>
