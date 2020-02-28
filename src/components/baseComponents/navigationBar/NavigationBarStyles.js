@@ -62,7 +62,19 @@ const styles = (theme) => ({
     }
   },
   navLink: {
-    ...theme.typography.button
+    ...theme.typography.button,
+    fontWeight: 'bold'
+  },
+  navHover: {
+    opacity: '0.11',
+    fontSize: '38px',
+    fontWeight: 'bold',
+    fontFamily: 'Calibri',
+    position: 'absolute',
+    display: 'inline-block',
+    top: 0,
+    left: 0,
+    right: 0
   },
   iconButtonContainer: {
     marginRight: '2%',
@@ -158,7 +170,7 @@ const styles = (theme) => ({
     height: '6px',
     backgroundColor: '#ffffff',
     zIndex: 10
-}
+  }
 });
 
 export {styles, theme};

@@ -1,7 +1,7 @@
 export const styles = (theme) => ({
   navLogo: {
     position: 'relative',
-    padding: '0.7rem 0.5rem 0 0.5rem'
+    padding: '0.25rem 0.5rem'
   },
   navTextNearCentre: {
     margin: 0,
