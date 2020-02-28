@@ -1,4 +1,4 @@
-const MIN_PASSWORD_LENGTH = 12;
+const MIN_PASSWORD_LENGTH = 6;
 const PASSWORD_REGEX = '(?=.*\\d)(?=.*[a-zA-Z]).{6,}';
 const PHONE_REGEX = '^[0-9-+s()]*$';
 
