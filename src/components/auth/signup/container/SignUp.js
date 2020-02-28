@@ -43,6 +43,18 @@ class SignUp extends Component {
     }
   };
 
+  switchComponent = (status) => {
+    this.setState({status});
+  };
+
+  handleVerifyNotice = (verify) => {
+    if (verify) {
+      this.setState({oneTimeVerifyNotice: true});
+    } else {
+      this.setState({oneTimeVerifyNotice: false});
+    }
+  };
+
   AuthComponent = () => {
     const signUpForm = (
       <SignUpForm
@@ -74,17 +86,6 @@ class SignUp extends Component {
         return <Redirect to="/" />;
       default:
         return signUpForm;
-    }
-  };
-  switchComponent = (status) => {
-    this.setState({status});
-  };
-
-  handleVerifyNotice = (verify) => {
-    if (verify) {
-      this.setState({oneTimeVerifyNotice: true});
-    } else {
-      this.setState({oneTimeVerifyNotice: false});
     }
   };
 
