@@ -8,7 +8,7 @@ const contentSubmenu = routes
   .map((route, index) => ({
     key: index,
     title: route.name,
-    image: '/images/submenu/submenu 1.png',
+    image: route.image,
     link: route.path,
     globeLink: globeLink,
     sanctuaryLink: sanctuaryLink
@@ -19,7 +19,7 @@ const organizeSubmenu = routes
   .map((route, index) => ({
     key: index,
     title: route.name,
-    image: '/images/submenu/submenu 1.png',
+    image: route.image,
     link: route.path,
     globeLink: globeLink,
     sanctuaryLink: sanctuaryLink
@@ -30,7 +30,7 @@ const connectSubmenu = routes
   .map((route, index) => ({
     key: index,
     title: route.name,
-    image: '/images/submenu/submenu 1.png',
+    image: route.image,
     link: route.path,
     globeLink: globeLink,
     sanctuaryLink: sanctuaryLink
@@ -41,10 +41,10 @@ const introSubmenu = routes
   .map((route, index) => ({
     key: index,
     title: route.name,
-    image: '/images/submenu/submenu 1.png',
+    image: route.image,
     link: route.path,
     globeLink: globeLink,
     sanctuaryLink: sanctuaryLink
   }));
 
-export {contentSubmenu, connectSubmenu, organizeSubmenu, introSubmenu};
+export { contentSubmenu, connectSubmenu, organizeSubmenu, introSubmenu };

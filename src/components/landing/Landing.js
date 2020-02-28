@@ -151,13 +151,13 @@ class Landing extends React.Component {
           <RouterLink className={classes.sphereLink} to="/organize/health">
             <Sphere type={0} sphereRad={60} width={100} height={100} />
           </RouterLink>
-          <RouterLink className={classes.sphereLink} to="/organize/health">
+          <RouterLink className={classes.sphereLink} to="/organize/prosperity">
             <Sphere type={1} sphereRad={60} width={100} height={100} />
           </RouterLink>
-          <RouterLink className={classes.sphereLink} to="/organize/health">
+          <RouterLink className={classes.sphereLink} to="/organize/inspiration">
             <Sphere type={2} sphereRad={60} width={100} height={100} />
           </RouterLink>
-          <RouterLink className={classes.sphereLink} to="/organize/health">
+          <RouterLink className={classes.sphereLink} to="/organize/joy">
             <Sphere type={3} sphereRad={60} width={100} height={100} />
           </RouterLink>
         </div>
