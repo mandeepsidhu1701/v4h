@@ -17,7 +17,7 @@ const styles = (theme) => ({
   card: {
     '&:hover': {
       '& > div:last-child': {
-        borderTop: 'solid #000000 1px'
+        borderTop: 'solid #000000 2px'
       },
       '& p': {
         color: 'black',
