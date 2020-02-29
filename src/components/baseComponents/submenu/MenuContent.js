@@ -84,6 +84,15 @@ class MenuContent extends Component {
     this.props.history.push(url);
   };
 
+  handleLinkClick = (url) => () => {
+    this.props.history.push(url);
+    this.setState({
+      open: false,
+      anchorEl: null
+    });
+    this.props.submenuClose();
+  };
+
   render() {
     const {classes, submenuData, iconShow} = this.props;
     const size = iconShow ? 9 : 12;
@@ -103,13 +112,13 @@ class MenuContent extends Component {
               {submenuData !== null &&
                 submenuData.map((menu) => (
                   <Grid item xs={6} sm={3} md={3} key={submenuData.indexOf(menu)} style={{padding: '32px 20px 0px'}}>
-                    <Link to={menu.link} style={{textDecoration: 'none'}}>
+                    <div onClick={this.handleLinkClick(menu.link)} style={{textDecoration: 'none'}}>
                       <Card elevation={0} square={true} className={classes.card}>
                         <CardMedia className={classes.media} image={menu.image} />
                         <CardContent className={classes.content}>
                           <Grid container>
                             <Grid item xs={size}>
-                              <Typography>{menu.title}</Typography>
+                              <Typography style={{cursor: 'pointer'}}>{menu.title}</Typography>
                             </Grid>
                             {iconShow ? (
                               <Grid item xs={3}>
@@ -128,7 +137,7 @@ class MenuContent extends Component {
                           </Grid>
                         </CardContent>
                       </Card>
-                    </Link>
+                    </div>
                   </Grid>
                 ))}
             </Grid>
