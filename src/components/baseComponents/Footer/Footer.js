@@ -1,67 +1,109 @@
-import React, { Component } from 'react'
-import { Typography, Grid } from '@material-ui/core';
-
-
-import Link from '@material-ui/core/Link';
-import { withStyles } from '@material-ui/core/styles';
+import React, {Component} from 'react';
+import {Typography, Grid, Container} from '@material-ui/core';
+import VerticalAlignTopIcon from '@material-ui/icons/VerticalAlignTop';
+import {withStyles} from '@material-ui/core/styles';
+import {Link} from 'react-router-dom';
 import './footer.css';
 
-const styles = theme => ({
-    root: {
-       'color':'red'
-      },
-})
+const styles = (theme) => ({
+  root: {
+    color: 'red'
+  }
+});
 
-function scrollToTop(){
-    window.scrollTo({top: 0, behavior: 'smooth'});
+function scrollToTop() {
+  window.scrollTo({top: 0, behavior: 'smooth'});
 }
 
 class Footer extends Component {
-    render() {
-        const { classes } = this.props;
-        const preventDefault = event => event.preventDefault();
-        return (
-            <Grid container direction="row" justify="space-between" alignItems="center" className="footer" id="footer">
-                <Grid item xs={1} md={2} sm={3}>
-                    <Typography className="HCN">HCN</Typography>
-                </Grid>
-                <Grid item xs={10} md={8} sm={9}>
-                    <Grid container direction="row" justify="flex-end">
-                        <Grid item>
-                            <Link href="#" onClick={preventDefault} className="footer-link">
-                                Home
-                            </Link>
-                        </Grid>
-                        <Grid item>
-                            <Link href="#" onClick={preventDefault} color="inherit" className="footer-link">
-                                Intro
-                            </Link>
-                        </Grid>
-                        <Grid item>
-                            <Link href="#" onClick={preventDefault} variant="body2" className="footer-link">
-                                content
-                            </Link>
-                        </Grid>
-                        <Grid item>
-                            <Link href="#" onClick={preventDefault} variant="body2" className="footer-link">
-                                organize
-                            </Link>
-                        </Grid>
-                        <Grid item>
-                            <Link href="#" onClick={preventDefault} variant="body2" className="footer-link">
-                                contact
-                            </Link>
-                        </Grid>
-                    </Grid>
-                </Grid>
-                <Grid item xs={1} md={2} sm={0}>
-                    <Link href="#" onClick="window.scrollTo({top: 0, behavior: 'smooth'})" className="footer-link">
-                        go to top
-                    </Link>
-                </Grid>
+  render() {
+    const {classes} = this.props;
+    const preventDefault = (event) => event.preventDefault();
+    return (
+      <footer>
+        <Container maxWidth="lg">
+          <Grid
+            container
+            direction="row"
+            justify="space-between"
+            alignItems="center"
+          >
+            <Grid item>
+              <Typography className="HCN" variant="h5">
+                HCN
+              </Typography>
             </Grid>
-        )
-    }
+            <Grid item>
+              <ul>
+                <li>
+                  <Link
+                    href="#"
+                    onClick={preventDefault}
+                    className="footer-link"
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  {' '}
+                  <Link
+                    href="#"
+                    onClick={preventDefault}
+                    variant="body2"
+                    className="footer-link"
+                  >
+                    Intro
+                  </Link>
+                </li>
+                <li>
+                  {' '}
+                  <Link
+                    href="#"
+                    onClick={preventDefault}
+                    variant="body2"
+                    className="footer-link"
+                  >
+                    content
+                  </Link>
+                </li>
+                <li>
+                  {' '}
+                  <Link
+                    href="#"
+                    onClick={preventDefault}
+                    variant="body2"
+                    className="footer-link"
+                  >
+                    organize
+                  </Link>
+                </li>
+                <li>
+                  {' '}
+                  <Link
+                    href="#"
+                    onClick={preventDefault}
+                    variant="body2"
+                    className="footer-link"
+                  >
+                    connect
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="#"
+                    onClick="window.scrollTo({top: 0, behavior: 'smooth'})"
+                    className="footer-link"
+                  >
+                    Go to top
+                  </Link>
+                </li>
+              </ul>
+            </Grid>
+          </Grid>
+        </Container>
+      </footer>
+    );
+  }
 }
 
-export default withStyles(styles)(Footer)
+export default withStyles(styles)(Footer);
