@@ -1,0 +1,36 @@
+footer {
+  width: 100%;
+  height: 70px;
+  background-color: #434343;
+  color: #ffffff;
+}
+
+.HCN {
+  opacity: 0.75;
+  font-family: Calibri;
+  font-size: 30px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.87;
+  letter-spacing: 6px;
+  text-align: left;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  line-height: 35px;
+}
+
+ul li {
+  display: inline;
+  margin: auto 0.5rem;
+  cursor: pointer;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #ffffff !important;
+  opacity: 0.75;
+}
