@@ -6,7 +6,7 @@ const styles = (theme) => ({
     display: 'inline-block',
     opacity: '0',
     paddingRight: '0.66rem',
-    animationName: 'textAnimation',
+    animationName: '$textAnimation',
     animationDuration: '0.5s',
     animationIterationCount: '1',
     animationFillMode: 'forwards',
