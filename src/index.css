@@ -25,6 +25,12 @@ body {
   grid-template-rows: 1fr auto;
 }
 
+#root {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
