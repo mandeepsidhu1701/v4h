@@ -3,7 +3,7 @@ import {Typography, Grid, Container} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
 import {Link} from 'react-router-dom';
 import './footer.css';
-import {contentSubmenu, connectSubmenu, organizeSubmenu, introSubmenu} from '../submenu/submenuData';
+import menuData from '../submenu/submenuData';
 
 const styles = (theme) => ({
   root: {
@@ -12,8 +12,33 @@ const styles = (theme) => ({
 });
 
 class Footer extends Component {
+  getMenu() {
+    const menu = [];
+    for (let i = 0; i < 4; i++) {
+      menu.push(
+        <Grid item xs={12} sm={6} md={3} key={i}>
+          <ul>
+            <li>
+              {' '}
+              <Link to="#" variant="body2" className="footer-title">
+                {menuData[i].name}
+              </Link>
+            </li>
+            {menuData[i].submenu.map((m, index) => (
+              <li key={index}>
+                <Link to={m.link} variant="body2" className="footer-link">
+                  {m.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Grid>
+      );
+    }
+
+    return menu;
+  }
   render() {
-    const preventDefault = (event) => event.preventDefault();
     return (
       <footer>
         <Container maxWidth="lg">
@@ -24,76 +49,7 @@ class Footer extends Component {
               </Typography>
             </Grid>
             <Grid item md={8} lg={8} sm={10} xs={12}>
-              <Grid container>
-                <Grid item xs={12} sm={6} md={3}>
-                  <ul>
-                    <li>
-                      {' '}
-                      <Link href="#" onClick={preventDefault} variant="body2" className="footer-title">
-                        INTRO
-                      </Link>
-                    </li>
-                    {introSubmenu.map((m, index) => (
-                      <li key={index}>
-                        <Link to={m.link} variant="body2" className="footer-link">
-                          {m.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </Grid>
-                <Grid item xs={12} sm={6} md={3}>
-                  <ul>
-                    <li>
-                      {' '}
-                      <Link href="#" onClick={preventDefault} variant="body2" className="footer-title">
-                        CONTENT
-                      </Link>
-                    </li>
-                    {contentSubmenu.map((m, index) => (
-                      <li key={index}>
-                        <Link to={m.link} variant="body2" className="footer-link">
-                          {m.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </Grid>
-                <Grid item xs={12} sm={6} md={3}>
-                  <ul>
-                    <li>
-                      {' '}
-                      <Link href="#" onClick={preventDefault} variant="body2" className="footer-title">
-                        ORGANIZE
-                      </Link>
-                    </li>
-                    {organizeSubmenu.map((m, index) => (
-                      <li key={index}>
-                        <Link to={m.link} variant="body2" className="footer-link">
-                          {m.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </Grid>
-                <Grid item xs={12} sm={6} md={3}>
-                  <ul>
-                    <li>
-                      {' '}
-                      <Link href="#" onClick={preventDefault} variant="body2" className="footer-title">
-                        CONNECT
-                      </Link>
-                    </li>
-                    {connectSubmenu.map((m, index) => (
-                      <li key={index}>
-                        <Link to={m.link} variant="body2" className="footer-link">
-                          {m.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </Grid>
-              </Grid>
+              <Grid container>{this.getMenu()}</Grid>
             </Grid>
           </Grid>
         </Container>

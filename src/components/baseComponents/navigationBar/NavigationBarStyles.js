@@ -170,6 +170,21 @@ const styles = (theme) => ({
     height: '6px',
     backgroundColor: '#ffffff',
     zIndex: 10
+  },
+
+  list: {
+    width: '250px'
+  },
+
+  sideMainMenu: {
+    marginLeft: '0.5rem'
+  },
+
+  sidemenuLink: {
+    cursor: 'pointer',
+    marginLeft: '2rem',
+    textDecoration: 'none',
+    color: '#1d1d1d'
   }
 });
 

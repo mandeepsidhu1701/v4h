@@ -175,11 +175,13 @@ class Landing extends React.Component {
         </div>
 
         <Modal open={showModal} onClose={this.handleHideForms} className={classes.modalOverflow}>
-          {authForm === SIGN_UP ? (
-            <SignUpModal handleCloseForm={this.handleHideForms} />
-          ) : (
-            <SignInModal handleCloseForm={this.handleHideForms} />
-          )}
+          <div>
+            {authForm === SIGN_UP ? (
+              <SignUpModal handleCloseForm={this.handleHideForms} />
+            ) : (
+              <SignInModal handleCloseForm={this.handleHideForms} />
+            )}
+          </div>
         </Modal>
       </div>
     );

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import {withStyles, Popper, Fade, Grid, Card, CardMedia, CardContent, Typography} from '@material-ui/core';
 
 const styles = (theme) => ({

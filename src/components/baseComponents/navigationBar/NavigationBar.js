@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import routes from '../../../data/routes';
 import WebTitle from '../webTitle/WebTitle';
 import {
   withStyles,
@@ -15,23 +14,28 @@ import {
   MenuItem,
   MuiThemeProvider,
   Avatar,
-  Typography
+  Typography,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  Collapse
 } from '@material-ui/core';
+import {Link} from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
 import {styles, theme} from './NavigationBarStyles';
 import MenuContent from '../submenu/MenuContent';
-import {contentSubmenu, connectSubmenu, organizeSubmenu, introSubmenu} from '../submenu/submenuData';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import ExpandMore from '@material-ui/icons/ExpandMore';
+import menuData from '../submenu/submenuData';
 
 // TODO: need to use props rather than constant array
-const menuItems = ['Intro', 'Content', 'Organize', 'Connect'];
 const menuEffect = {
   INTRO: 'DISCOVER',
   CONTENT: 'SHIFT',
   ORGANIZE: 'EVOLVE',
-  CONNECT: 'CREATE'
+  NETWORK: 'CREATE'
 };
-
-const routeNames = [routes.Home, routes.Content, routes.Organize, routes.Connect];
 
 class NavigationBar extends Component {
   constructor(props) {
@@ -42,9 +46,12 @@ class NavigationBar extends Component {
       anchorEl: null,
       trianglePosition: 0,
       menuAnchorEl: null,
-      activatedMenuName: ''
+      activatedMenuName: '',
+      left: false,
+      sideSubmenuOpen: [false, false, false, false]
     };
   }
+
   handleClick = (submenuData, headerLinkName) => (e) => {
     if (this.lastCloseMenuTime && Date.now() - this.lastCloseMenuTime < 200 && headerLinkName === this.headerLinkName) {
       return;
@@ -117,22 +124,69 @@ class NavigationBar extends Component {
     );
   }
 
+  toggleSidemenu = (side, open) => (event) => {
+    this.setState({
+      [side]: open
+    });
+  };
+
+  handleSideSubmenuOpen = (i) => (e) => {
+    e.stopPropagation();
+    let data = this.state.sideSubmenuOpen.slice();
+    data[i] = !data[i];
+    this.setState({
+      sideSubmenuOpen: data
+    });
+  };
+
+  getMenuList = () => {
+    const sideMenu = [];
+    const {classes} = this.props;
+    for (let i = 0; i < 4; i++) {
+      sideMenu.push(
+        <div key={Math.random()}>
+          <ListItem button onClick={this.handleSideSubmenuOpen(i)}>
+            {this.state.sideSubmenuOpen[i] ? <ExpandMore /> : <ArrowForwardIosIcon style={{fontSize: '14px'}} />}
+            <ListItemText primary={menuData[i].name} className={classes.sideMainMenu} />
+          </ListItem>
+          <Collapse in={this.state.sideSubmenuOpen[i]} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              {menuData[i].submenu.map((m) => (
+                <ListItem key={m.title}>
+                  <ListItemText>
+                    <Link to={m.link} className={classes.sidemenuLink}>
+                      {m.title}
+                    </Link>
+                  </ListItemText>
+                </ListItem>
+              ))}
+            </List>
+          </Collapse>
+        </div>
+      );
+    }
+    return sideMenu;
+  };
+
+  sideList(side) {
+    const {classes} = this.props;
+    return (
+      <div role="presentation" onClick={this.toggleSidemenu(side, false)}>
+        <List className={classes.list}>{this.getMenuList()}</List>
+      </div>
+    );
+  }
+
   renderMenuIcon() {
     const {classes} = this.props;
-    const {anchorEl} = this.state;
-    const open = Boolean(anchorEl);
     return (
       <div className={classes.menuButtonContainer}>
-        <IconButton
-          className={classes.menuButton}
-          aria-label="Main Menu"
-          aria-owns={open ? 'main-menu' : undefined}
-          aria-haspopup="true"
-          onClick={this.handleMenuOpen}
-        >
+        <IconButton className={classes.menuButton} onClick={this.toggleSidemenu('left', true)}>
           <MenuIcon />
         </IconButton>
-        {this.renderMenuItem(menuItems, routeNames)}
+        <Drawer open={this.state.left} onClose={this.toggleSidemenu('left', false)}>
+          {this.sideList('left')}
+        </Drawer>
       </div>
     );
   }
@@ -168,13 +222,13 @@ class NavigationBar extends Component {
               {this.renderMenuIcon()}
               <div className={classes.navContainer}>
                 <div className={classes.navLinkContainer}>
-                  {this.renderHeaderLink('INTRO', introSubmenu)}
-                  {this.renderHeaderLink('CONTENT', contentSubmenu)}
+                  {this.renderHeaderLink('INTRO', menuData[0].submenu)}
+                  {this.renderHeaderLink('CONTENT', menuData[1].submenu)}
                 </div>
                 <WebTitle />
                 <div className={classes.navLinkContainer}>
-                  {this.renderHeaderLink('ORGANIZE', organizeSubmenu)}
-                  {this.renderHeaderLink('CONNECT', connectSubmenu)}
+                  {this.renderHeaderLink('ORGANIZE', menuData[2].submenu)}
+                  {this.renderHeaderLink('NETWORK', menuData[3].submenu)}
                 </div>
               </div>
               <MenuContent

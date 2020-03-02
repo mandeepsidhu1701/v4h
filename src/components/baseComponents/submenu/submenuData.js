@@ -25,8 +25,8 @@ const organizeSubmenu = routes
     sanctuaryLink: sanctuaryLink
   }));
 
-const connectSubmenu = routes
-  .filter((route) => route.menu === 'connect')
+const networkSubmenu = routes
+  .filter((route) => route.menu === 'network')
   .map((route, index) => ({
     key: index,
     title: route.name,
@@ -47,4 +47,23 @@ const introSubmenu = routes
     sanctuaryLink: sanctuaryLink
   }));
 
-export { contentSubmenu, connectSubmenu, organizeSubmenu, introSubmenu };
+const menuData = [
+  {
+    name: 'Intro',
+    submenu: introSubmenu
+  },
+  {
+    name: 'Content',
+    submenu: contentSubmenu
+  },
+  {
+    name: 'Organize',
+    submenu: organizeSubmenu
+  },
+  {
+    name: 'Network',
+    submenu: networkSubmenu
+  }
+];
+
+export default menuData;

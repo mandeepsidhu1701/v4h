@@ -112,39 +112,39 @@ const routes = [
     menu: 'organize',
     image: '/images/submenu/organize-joy.png'
   },
-  //Connect Route
+  //Network Route
   {
-    path: '/connect',
+    path: '/network',
     name: 'Network',
     component: null,
     menu: null
   },
   {
-    path: '/connect/contribute',
-    name: 'Contribute Content',
+    path: '/network/contribute',
+    name: 'Contribute',
     component: null,
-    menu: 'connect',
+    menu: 'network',
     image: '/images/submenu/network-contribute.png'
   },
   {
-    path: '/connect/sponsor',
-    name: 'Sponsor Content',
+    path: '/network/sponsor',
+    name: 'Sponsor',
     component: null,
-    menu: 'connect',
+    menu: 'network',
     image: '/images/submenu/network-sponsor.png'
   },
   {
-    path: '/connect/disperse',
-    name: 'Disperse Content',
+    path: '/network/disperse',
+    name: 'Disperse',
     component: null,
-    menu: 'connect',
+    menu: 'network',
     image: '/images/submenu/network-disperse.png'
   },
   {
-    path: '/connect/profile',
+    path: '/network/profile',
     name: 'Profile',
     component: null,
-    menu: 'connect',
+    menu: 'network',
     image: '/images/submenu/network-profile.png'
   }
 ];
