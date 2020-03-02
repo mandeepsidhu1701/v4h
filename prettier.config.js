@@ -5,5 +5,6 @@ module.exports = {
   singleQuote: true,
   tabWidth: 2,
   bracketSpacing: false,
-  useTabs: false
+  useTabs: false,
+  semi: true
 };
