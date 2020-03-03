@@ -19,6 +19,7 @@ class Home extends React.Component {
     return (
       <React.Fragment>
         <Landing />
+        <div style={{background:'rgba(0,0,0,0.1)',height:'200vh'}}></div>
       </React.Fragment>
     );
   }
