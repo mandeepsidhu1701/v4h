@@ -3,15 +3,19 @@ This project was built for HIGHER CONSCIOUS NESSNETWORK(HCN) which uses AWS-Ampl
 ## Project Setup
 
 ### Check out HCN code
+
 'git clone git@github.com:visionforhumanity/hcn.git'
 
 ### Run 'npm install -g @aws-amplify/cli'
+
 Install amplify command line tool globally.
 
 ### Run 'npm install'
+
 Install all dependencies in the project.
 
 ### Setup AWS profile and credentials
+
 ```
 On MAC / Linux:
 $cd ~/
@@ -27,7 +31,9 @@ $cd .aws
 $type NUL > config
 $type NUL > credentials
 ```
+
 Update config and credentials file as follows:
+
 ```
 config:
 [default]
@@ -42,7 +48,9 @@ aws_secret_access_key=<YOUR_SECRET_ACCESS_KEY>
 ```
 
 ### Run 'amplify init'
+
 To setup aws-amplify configuration, run command 'amplify init' under app folder and choose 'dev' as an environment and follow the sample output below to setup your local environment.
+
 ```
 $ amplify init
 Note: It is recommended to run this command from the root of your app directory
@@ -72,9 +80,11 @@ Try "amplify add api" to create a backend API and then "amplify publish" to depl
 ```
 
 ### Run 'amplify env pull'
+
 It will generate 'aws-exports.js' under /src folder.
 
 ### Run 'npm start'
+
 The js file 'aws-exports.js' should be generated in /src folder after you run 'amplify env pull'. And now you are ready to start your app by using 'npm start' command.
 
 ### ENDS for now
@@ -145,3 +155,52 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Basic structure
+
+├── public/ # html file
+├── src/ #
+│ ├── _tests_ # test cases file
+│ ├── assets # static files
+│ │ ├── images # images
+│ │ ├── css # css files
+│ │ └── js # js files
+│ ├── components/ # components folder
+│ │ ├── ui/ # ui components
+│ │ │ ├── Footer # footer
+│ │ │ ├── Header # header
+│ │ ├── func/ # functional components
+│ │ │ ├── Skeleton # skeleton
+│ │ ├── layouts/ # layout
+│ ├── utils/ # useful utils
+│ │ ├── common/ # other utils
+│ │ │ ├── locales/ # locales
+│ │ ├── hooks/ # custom hooks
+│ ├── pages/ # pages component folder
+│ │ ├── home # home pages
+│ │ │ ├── Sections # page parts
+│ │ │ ├── Home.js # main home page
+│ │ │ ├── HomeContainer.js
+│ │ │ ├── HomeStyles.js  
+│ │ ├── intro # intro pages
+│ │ ├── content # content pages
+│ │ ├── organize # organize pages
+│ │ ├── network # network pages
+│ │ ├── index.js # export all pages
+│ ├── store/ # redux main folder
+│ │ ├── action # main action folder
+│ │ │ ├── index.js # combine actions
+│ │ │ ├── actionA.js
+│ │ │ ├── actionB.js
+│ │ ├── reducer # main reducer folder
+│ │ │ ├── index.js # combine reducers
+│ │ │ ├── reducerA.js
+│ │ │ ├── reducerB.js
+│ │ ├── action-types.js # collect all actions
+│ │ ├── index.js # export store
+│ ├── index.css # index css file
+│ ├── index.js # entry `<Provider>`
+│ ├── routes.js # collect all the routes
+│ ├── serviceWorker.js  
+├── README.md # readme file
+└── package.json # packages
