@@ -23,7 +23,7 @@ function SectionDescription(props) {
   });
 
   return (
-    <div>
+    <div style={{background: 'url(/images/matt-hardy-562566-unsplash@2x.png)'}}>
       <Grid container className={classes.gridContainerPadding}>
         <Grid item xs={1} sm={2} md={3} />
         <Grid item xs={10} sm={8} md={6}>
@@ -113,7 +113,7 @@ function SectionDescription(props) {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item xs={12} sm={12} md={6}>
+        {/* <Grid item xs={12} sm={12} md={6}>
           <div className={classes.videoParentContainer}>
             <div className={classes.videoContainer}>
               <span className={`${classes.fontBase} ${classes.videoContainerTitle}`}>OUR VOLUNTEER BASED HCN TEAM</span>
@@ -133,7 +133,7 @@ function SectionDescription(props) {
               Larking. Watch this brief video to see out team (video of volunteers and me talking about HCN).
             </div>
           </div>
-        </Grid>
+        </Grid> */}
       </Grid>
       <Grid container className={classes.gridContainerPadding}>
         <Grid item xs={12} sm={12} md={9}>
@@ -178,4 +178,4 @@ function SectionDescription(props) {
   );
 }
 
-export default withRouter(withStyles(styles)(SectionDescription))
+export default withRouter(withStyles(styles)(SectionDescription));

@@ -3,7 +3,7 @@ import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core';
 
-import {Landing} from '../../components/landing';
+import {Landing} from '../../components/layout/Landing';
 import styles from './HomeStyles';
 
 //TODO: what to do about spheres, correct size and position for small real-estate screens / mobile?

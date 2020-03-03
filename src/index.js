@@ -1,31 +1,24 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'react-redux';
-import thunkMiddleware from 'redux-thunk';
 import {Route, Switch} from 'react-router-dom';
-import {createStore, compose, applyMiddleware} from 'redux';
-import {ConnectedRouter, routerMiddleware} from 'connected-react-router';
-import intl from 'react-intl-universal';
+import {ConnectedRouter} from 'connected-react-router';
 import {createBrowserHistory} from 'history';
+
+import intl from 'react-intl-universal';
 import Amplify from 'aws-amplify';
 import config from './aws-exports';
-import rootReducer from './reducers';
-import Layout from './components/Layout';
-import routes from './data/routes';
+import Layout from './components/layout/Layout';
+import routes from './routes';
+import store from './store';
 import './index.css';
 
 Amplify.configure(config);
 
-const history = createBrowserHistory();
-
-const store = createStore(
-  rootReducer(history),
-  {},
-  compose(applyMiddleware(thunkMiddleware, routerMiddleware(history)))
-);
-
 window.intl = intl;
 window.reduxStore = store;
+
+const history = createBrowserHistory();
 
 const Routes = () => (
   <Provider store={store}>
