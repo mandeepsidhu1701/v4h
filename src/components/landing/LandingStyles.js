@@ -86,8 +86,10 @@ const styles = (theme) => ({
       top: '46%'
     },
     [theme.breakpoints.only('xs')]: {
-      fontSize: '1.75rem',
-      top: '37%'
+      fontSize: '0.8rem',
+      top: '1%',
+      left: '60%',
+      width: '80%'
     }
   },
   authSpan: {
@@ -157,29 +159,33 @@ const styles = (theme) => ({
     zIndex: 91,
     display: 'flex',
     flexDirection: 'column',
+    alignItems: 'center',
     position: 'absolute',
     top: '22.5%',
-    left: '85%'
+    left: '85%',
     /* [theme.breakpoints.down('sm')]: {
       flexDirection: 'row',
       top: '66%',
       left: '22%',
     } */
+    [theme.breakpoints.only('xs')]: {
+      top: '18%',
+      left: 'inherit',
+      textAlign: 'center',
+      width: '100%'
+    }
   },
   sphereLink: {
-    marginBottom: '4rem'
+    marginBottom: '4rem',
     /* [theme.breakpoints.only('sm')]: {
       marginRight: '5%',
       '& last-child': {
         marginRight: 0,
       }
-    },
-    [theme.breakpoints.only('xs')]: {
-      marginRight: '2%',
-      '& last-child': {
-        marginRight: 0,
-      }
     }, */
+    [theme.breakpoints.only('xs')]: {
+      marginBottom: '2.5rem',
+    },
   },
 
   /** Home Page styles */
