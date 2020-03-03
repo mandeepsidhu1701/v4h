@@ -25,7 +25,7 @@ import {Link} from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
 import {styles, theme} from './NavigationBarStyles';
 import MenuContent from './Submenu/MenuContent';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import menuData from './Submenu/submenuData';
 
@@ -132,8 +132,11 @@ class NavigationBar extends Component {
 
   handleSideSubmenuOpen = (i) => (e) => {
     e.stopPropagation();
-    let data = this.state.sideSubmenuOpen.slice();
-    data[i] = !data[i];
+    let data = new Array(this.state.sideSubmenuOpen.length).fill(false);
+    if (!this.state.sideSubmenuOpen[i]) {
+      data[i] = true;
+    }
+
     this.setState({
       sideSubmenuOpen: data
     });
@@ -146,7 +149,7 @@ class NavigationBar extends Component {
       sideMenu.push(
         <div key={Math.random()}>
           <ListItem button onClick={this.handleSideSubmenuOpen(i)}>
-            {this.state.sideSubmenuOpen[i] ? <ExpandMore /> : <ArrowForwardIosIcon style={{fontSize: '14px'}} />}
+            {this.state.sideSubmenuOpen[i] ? <ExpandMore /> : <ChevronRightIcon />}
             <ListItemText primary={menuData[i].name} className={classes.sideMainMenu} />
           </ListItem>
           <Collapse in={this.state.sideSubmenuOpen[i]} timeout="auto" unmountOnExit>
