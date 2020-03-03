@@ -50,6 +50,7 @@ class NavigationBar extends Component {
       left: false,
       sideSubmenuOpen: [false, false, false, false]
     };
+    this.headerRef = React.createRef();
   }
 
   handleClick = (submenuData, headerLinkName) => (e) => {
@@ -62,7 +63,7 @@ class NavigationBar extends Component {
     this.setState({
       data: submenuData,
       open: true,
-      menuAnchorEl: ReactDOM.findDOMNode(this.refs.header),
+      anchorEl: this.headerRef.current,
       trianglePosition: leftPosition + menuWidth / 2.3,
       activatedMenuName: headerLinkName
     });
@@ -216,7 +217,7 @@ class NavigationBar extends Component {
 
     return (
       <MuiThemeProvider theme={theme}>
-        <AppBar position="static">
+        <AppBar position="static" ref={this.headerRef}>
           <Toolbar className={classes.toolbar} component="nav">
             <div className={classes.appBarContainer}>
               {this.renderMenuIcon()}
