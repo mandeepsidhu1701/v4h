@@ -1,7 +1,7 @@
 import React from 'react';
 import NavigationBar from '../layout/Header';
 import Footer from '../layout/Footer/Footer';
-import './Layout.css';
+import {styles} from './LayoutStyle';
 
 export default function Layout(props) {
   return (
@@ -11,7 +11,7 @@ export default function Layout(props) {
         <NavigationBar />
         {props.children}
       </main>
-      <Footer className="footer" />
+      <Footer className={styles.footer} />
     </React.Fragment>
   );
 }
