@@ -15,10 +15,20 @@ import styles from './HomeStyles';
 //TODO: test interactions on different screen sizes and in mobile and desktop.
 
 class Home extends React.Component {
+  state = {
+    landingShow: true
+  };
+
+  handleHideContent = () => {
+    this.setState({
+      landingShow: false
+    });
+  };
   render() {
     return (
       <React.Fragment>
-        <Landing />
+        <Landing landingShow={this.state.landingShow} hideContent={this.handleHideContent} />
+        {this.state.landingShow === true ? null : <div style={{background: 'rgba(0,0,0,0.2)', height: '200vh'}}></div>}
       </React.Fragment>
     );
   }

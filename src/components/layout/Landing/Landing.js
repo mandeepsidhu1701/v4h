@@ -94,6 +94,7 @@ class Landing extends React.Component {
     setTimeout(() => {
       this.handleHideLanding();
     }, 1000);
+    this.props.hideContent();
   };
 
   handleHideLanding = () => {

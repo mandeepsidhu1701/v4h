@@ -22,8 +22,7 @@ const styles = (theme) => ({
   /** Landing cover styles */
   landingRoot: {
     backgroundColor: '#C0D2DE',
-    overflowX: 'hidden',
-    overflowY: 'hidden',
+    overflow: 'hidden',
     position: 'fixed',
     top: 0,
     left: 0,
