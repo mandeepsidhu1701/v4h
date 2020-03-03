@@ -1,4 +1,5 @@
-import {HomeContainer, ArticlesContainer} from './pages';
+import {Home, Articles, Quotes} from './pages';
+
 import introHome from './assets/images/layout/submenu/intro-home.png';
 import introCopmpass from './assets/images/layout/submenu/intro-compass.png';
 import introCharter from './assets/images/layout/submenu/intro-charter.png';
@@ -20,7 +21,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: HomeContainer,
+    component: Home,
     menu: null
   },
   //Intro Route
@@ -33,7 +34,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: HomeContainer,
+    component: Home,
     menu: 'intro',
     image: introHome
   },
@@ -68,14 +69,14 @@ const routes = [
   {
     path: '/content/quotes',
     name: 'Quotes & Affirmations ',
-    component: null,
+    component: Quotes,
     menu: 'content',
     image: contentQuotes
   },
   {
     path: '/content/articles',
     name: 'Articles',
-    component: ArticlesContainer,
+    component: Articles,
     menu: 'content',
     image: contentArticles
   },

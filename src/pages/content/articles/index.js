@@ -1,3 +1,13 @@
-import ArticlesContainer from './ArticlesContainer';
+import {connect} from 'react-redux';
 
-export {ArticlesContainer};
+import Articles from './Articles';
+
+const mapStateToProps = (state) => {
+  return {};
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Articles);

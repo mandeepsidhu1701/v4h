@@ -1,3 +1,13 @@
-import HomeContainer from './HomeContainer';
+import {connect} from 'react-redux';
 
-export {HomeContainer};
+import Home from './Home';
+
+const mapStateToProps = (state) => {
+  return {};
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 
-import Home from './Home';
+import Quotes from './Quotes';
 
 const mapStateToProps = (state) => {
   return {};
@@ -10,4 +10,4 @@ const mapDispatchToProps = (dispatch) => {
   return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Quotes);

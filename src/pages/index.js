@@ -1,4 +1,5 @@
-import {HomeContainer} from './home';
-import {ArticlesContainer} from './content/articles';
+import Home from './home';
+import Articles from './content/articles';
+import Quotes from './content/quotes';
 
-export {HomeContainer, ArticlesContainer};
+export {Home, Articles, Quotes};
