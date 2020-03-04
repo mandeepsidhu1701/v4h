@@ -219,7 +219,7 @@ class NavigationBar extends Component {
 
     return (
       <MuiThemeProvider theme={theme}>
-        <AppBar position="static">
+        <AppBar position="fixed" className={classes.fixBar}>
           <Toolbar className={classes.toolbar} component="nav">
             <div className={classes.appBarContainer}>
               {this.renderMenuIcon()}

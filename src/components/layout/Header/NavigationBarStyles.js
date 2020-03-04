@@ -28,6 +28,9 @@ const theme = createMuiTheme({
 });
 
 const styles = (theme) => ({
+  fixBar: {
+    zIndex: 0
+  },
   toolbar: {
     flexGrow: 1,
     padding: 8
