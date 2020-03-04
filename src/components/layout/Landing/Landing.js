@@ -1,14 +1,13 @@
 import React from 'react';
 import {withRouter, Link as RouterLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {withStyles, IconButton, Modal, Box, Grid, Button} from '@material-ui/core';
+import {withStyles, Modal, Box, Grid} from '@material-ui/core';
 import {AnimatedText, Sphere} from '../../ui';
 import {SignUpContainer as SignUpModal, SIGN_UP, SignInContainer as SignInModal, SIGN_IN} from '../../base/auth';
 import styles from './LandingStyles';
 
 import mainBackground from '../../../assets/images/layout/mainBackground.png';
-import landingScroll from '../../../assets/images/icons/landingScroll.png';
-import { ScrollLink } from '../../ui';
+import {ScrollLink} from '../../ui';
 
 //TODO: what to do about spheres, correct size and position for small real-estate screens / mobile?
 
@@ -123,7 +122,11 @@ class Landing extends React.Component {
         <span className={classes.genome} onMouseEnter={this.handleShowAuthLinks} onClick={this.handleShowAuthLinks}>
           Second Genome
         </span>
-        <Box component="span" display={{xs: "block", sm: "none"}} className={`${classes.fontBase} ${classes.authSpan} ${showAuthLinks ? classes.display: ''}`}>
+        <Box
+          component="span"
+          display={{xs: 'block', sm: 'none'}}
+          className={`${classes.fontBase} ${classes.authSpan} ${showAuthLinks ? classes.display : ''}`}
+        >
           <RouterLink
             to="#"
             className={authForm === SIGN_UP ? `${classes.authLink} ${highlightedAuthLinkClass}` : classes.authLink}
@@ -141,10 +144,10 @@ class Landing extends React.Component {
           </RouterLink>
         </Box>
 
-        <Box component="div" className={classes.siteName} display={{xs: "none", sm: "block"}}>
+        <Box component="div" className={classes.siteName} display={{xs: 'none', sm: 'block'}}>
           <AnimatedText text={'Higher Consciousness Network'} delays={appTitleDelays} />
         </Box>
-        <Box component="div" className={classes.siteName} display={{xs: "block", sm: "none"}}>
+        <Box component="div" className={classes.siteName} display={{xs: 'block', sm: 'none'}}>
           <AnimatedText text={'H C N'} delays={appTitleDelays} />
         </Box>
 
@@ -165,7 +168,9 @@ class Landing extends React.Component {
 
         <div className={classes.closeIconButton}>
           <Grid container direction="row" justify="center" alignItems="center">
-            <Grid item><ScrollLink clicked={() => this.handleScrollLanding()}>scroll</ScrollLink></Grid>
+            <Grid item>
+              <ScrollLink clicked={() => this.handleScrollLanding()}>scroll</ScrollLink>
+            </Grid>
           </Grid>
         </div>
 

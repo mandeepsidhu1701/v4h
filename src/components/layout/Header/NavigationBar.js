@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 // import intl from 'react-intl-universal';
-import ReactDOM from 'react-dom';
 import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {WebTitle} from '../../ui';
@@ -26,7 +25,6 @@ import MenuIcon from '@material-ui/icons/Menu';
 import {styles, theme} from './NavigationBarStyles';
 import MenuContent from './Submenu/MenuContent';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import menuData from './Submenu/submenuData';
 
@@ -149,7 +147,7 @@ class NavigationBar extends Component {
     const {classes} = this.props;
     for (let i = 0; i < 4; i++) {
       sideMenu.push(
-        <div key={Math.random()}>
+        <div key={i}>
           <ListItem button onClick={this.handleSideSubmenuOpen(i)}>
             {this.state.sideSubmenuOpen[i] ? <ExpandMore /> : <ChevronRightIcon />}
             <ListItemText primary={menuData[i].name} className={classes.sideMainMenu} />
@@ -157,7 +155,7 @@ class NavigationBar extends Component {
           <Collapse in={this.state.sideSubmenuOpen[i]} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
               {menuData[i].submenu.map((m) => (
-                <ListItem key={m.title}>
+                <ListItem button key={m.title}>
                   <ListItemText>
                     <Link to={m.link} className={classes.sidemenuLink}>
                       {m.title}
