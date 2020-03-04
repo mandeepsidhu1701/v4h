@@ -39,7 +39,7 @@ const styles = (theme) => ({
     zIndex: 90
   },
   landingImageAnimation: {
-    animation: '$scaleAnimation 3s 1 ease-out'
+    animation: '$scaleAnimation 2s 1 ease-out'
   },
   landingScrollUp: {
     animation: '$moveLandingUp 1s 1 linear'
@@ -167,7 +167,7 @@ const styles = (theme) => ({
     left: '85%',
     [theme.breakpoints.only('sm')]: {
       top: '20%',
-      left: '80%',
+      left: '80%'
     },
     [theme.breakpoints.only('xs')]: {
       top: '20%',
@@ -185,8 +185,8 @@ const styles = (theme) => ({
       }
     }, */
     [theme.breakpoints.only('xs')]: {
-      marginBottom: '2.5rem',
-    },
+      marginBottom: '2.5rem'
+    }
   },
 
   /** Home Page styles */

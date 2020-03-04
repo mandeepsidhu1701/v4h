@@ -10,8 +10,8 @@ let radius_sp = 1;
 // function windowLoadHandler() {
 // 	canvasApp();
 // }
-export function canvasApp(id = 'sphere-health', sphereRad = 30, rgb = {r: 101, g: 187, b: 25}) {
-  this.sphereRad = sphereRad;
+export function canvasApp(id = 'sphere-health', sphereRadPara = 30, rgb = {r: 101, g: 187, b: 25}) {
+  sphereRad = sphereRadPara;
   let theCanvas = document.getElementById(id);
   let context = theCanvas.getContext('2d');
   let displayWidth, displayHeight;
@@ -29,11 +29,11 @@ export function canvasApp(id = 'sphere-health', sphereRad = 30, rgb = {r: 101, g
   let zMax;
   let turnAngle;
   let turnSpeed;
-  let sphereCenterX, sphereCenterY, sphereCenterZ;
+  let sphereCenterY, sphereCenterZ;
   let particleRad;
   let zeroAlphaDepth;
   let randAccelX, randAccelY, randAccelZ;
-  let gravity;
+  // let gravity;
   let rgbString;
   //we are defining a lot of variables used in the screen update functions globally so that they don't have to be redefined every frame.
   let p;
@@ -73,11 +73,11 @@ export function canvasApp(id = 'sphere-health', sphereRad = 30, rgb = {r: 101, g
     randAccelX = 0;
     randAccelY = 0;
     randAccelZ = 0;
-    gravity = 0.0; //try changing to a positive number (not too large, for example 0.3), or negative for floating upwards.
+    // gravity = 0.0; //try changing to a positive number (not too large, for example 0.3), or negative for floating upwards.
 
     particleRad = 0.8;
 
-    sphereCenterX = 0;
+    // sphereCenterX = 0;
     sphereCenterY = 0;
     sphereCenterZ = -9 - sphereRad;
 
@@ -209,7 +209,6 @@ export function canvasApp(id = 'sphere-health', sphereRad = 30, rgb = {r: 101, g
 
   function addParticle(x0, y0, z0, vx0, vy0, vz0) {
     let newParticle;
-    let color;
 
     //check recycle bin for available drop:
     if (recycleBin.first != null) {

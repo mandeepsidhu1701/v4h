@@ -56,7 +56,8 @@ class Landing extends React.Component {
     landing: landingState.SHOW,
     showModal: false,
     authForm: SIGN_UP,
-    showAuthLinks: false
+    showAuthLinks: false,
+    showSphereSideBar: false
   };
 
   handleShowAuthLinks = () => {
@@ -95,6 +96,14 @@ class Landing extends React.Component {
   handleHideLanding = () => {
     this.setState({landing: landingState.HIDE});
   };
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        showSphereSideBar: true
+      });
+    }, 1000);
+  }
 
   render() {
     const {landing, showModal, authForm, showAuthLinks} = this.state;
@@ -152,25 +161,29 @@ class Landing extends React.Component {
           <AnimatedText text={'H C N'} delays={appTitleDelays} />
         </Box>
 
-        <div className={classes.sphereSideBar}>
-          <RouterLink className={classes.sphereLink} to="/organize/health">
-            <Sphere type={0} sphereRad={60} width={100} height={100} />
-          </RouterLink>
-          <RouterLink className={classes.sphereLink} to="/organize/prosperity">
-            <Sphere type={1} sphereRad={60} width={100} height={100} />
-          </RouterLink>
-          <RouterLink className={classes.sphereLink} to="/organize/inspiration">
-            <Sphere type={2} sphereRad={60} width={100} height={100} />
-          </RouterLink>
-          <RouterLink className={classes.sphereLink} to="/organize/joy">
-            <Sphere type={3} sphereRad={60} width={100} height={100} />
-          </RouterLink>
-        </div>
+        {this.state.showSphereSideBar ? (
+          <div className={classes.sphereSideBar}>
+            <RouterLink className={classes.sphereLink} to="/organize/health">
+              <Sphere type={0} sphereRad={60} width={100} height={100} />
+            </RouterLink>
+            <RouterLink className={classes.sphereLink} to="/organize/prosperity">
+              <Sphere type={1} sphereRad={60} width={100} height={100} />
+            </RouterLink>
+            <RouterLink className={classes.sphereLink} to="/organize/inspiration">
+              <Sphere type={2} sphereRad={60} width={100} height={100} />
+            </RouterLink>
+            <RouterLink className={classes.sphereLink} to="/organize/joy">
+              <Sphere type={3} sphereRad={60} width={100} height={100} />
+            </RouterLink>
+          </div>
+        ) : null}
 
         <div className={classes.closeIconButton}>
           <Grid container direction="row" justify="center" alignItems="center">
             <Grid item>
-              <ScrollLink clicked={() => this.handleScrollLanding()}>scroll</ScrollLink>
+              <ScrollLink to={'#'} clicked={() => this.handleScrollLanding()}>
+                scroll
+              </ScrollLink>
             </Grid>
           </Grid>
         </div>
