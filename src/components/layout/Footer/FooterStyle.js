@@ -1,4 +1,4 @@
-const styles = {
+const styles = (theme) => ({
   footerStyle: {
     width: '100%',
     backgroundColor: '#434343',
@@ -30,10 +30,13 @@ const styles = {
   footerLink: {
     textDecoration: 'none',
     color: '#ffffff',
-    opacity: '0.7',
+    opacity: '0.65',
     fontSize: '12px',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    '&:hover': {
+      opacity: '1'
+    }
   }
-};
+});
 
 export default styles;
