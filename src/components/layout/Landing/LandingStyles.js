@@ -81,11 +81,11 @@ const styles = (theme) => ({
     fontWeight: '900',
     color: 'white',
     [theme.breakpoints.only('sm')]: {
-      fontSize: '2.125rem',
+      fontSize: '1.525rem',
       top: '46%'
     },
     [theme.breakpoints.only('xs')]: {
-      fontSize: '0.8rem',
+      fontSize: '1.525rem',
       top: '1%',
       left: '60%',
       width: '80%'
@@ -143,6 +143,9 @@ const styles = (theme) => ({
     left: '0',
     right: '0'
   },
+  display: {
+    display: 'block'
+  },
   hidden: {
     display: 'none'
   },
@@ -162,13 +165,12 @@ const styles = (theme) => ({
     position: 'absolute',
     top: '22.5%',
     left: '85%',
-    /* [theme.breakpoints.down('sm')]: {
-      flexDirection: 'row',
-      top: '66%',
-      left: '22%',
-    } */
+    [theme.breakpoints.only('sm')]: {
+      top: '20%',
+      left: '80%',
+    },
     [theme.breakpoints.only('xs')]: {
-      top: '18%',
+      top: '20%',
       left: 'inherit',
       textAlign: 'center',
       width: '100%'
