@@ -29,7 +29,7 @@ const theme = createMuiTheme({
 
 const styles = (theme) => ({
   fixBar: {
-    zIndex: 89
+    zIndex: 80
   },
   toolbar: {
     flexGrow: 1,
@@ -171,8 +171,7 @@ const styles = (theme) => ({
     borderBottom: 'solid #c0c0c0 1px',
     width: '6px',
     height: '6px',
-    backgroundColor: '#ffffff',
-    zIndex: 10
+    backgroundColor: '#ffffff'
   },
 
   list: {

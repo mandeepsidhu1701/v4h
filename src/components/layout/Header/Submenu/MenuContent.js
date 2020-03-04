@@ -11,7 +11,8 @@ const styles = (theme) => ({
       height: 'calc(100% - 100px)'
     },
     width: 'calc(100% + 5px)',
-    borderTop: '1px solid transparent'
+    borderTop: '1px solid #c0c0c0',
+    zIndex: 85
   },
   grid: {
     padding: '0 20px 0 26px',
