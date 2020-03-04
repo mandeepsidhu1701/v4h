@@ -161,7 +161,7 @@ const styles = (theme) => ({
   triangle: {
     position: 'absolute',
     margin: 'auto',
-    bottom: -2.5,
+    bottom: -4,
     transform: 'rotate(225deg)',
     '-webkit-transform': 'rotate(225deg)',
     '-moz-transform': 'rotate(225deg)',
