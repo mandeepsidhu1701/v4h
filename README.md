@@ -156,51 +156,118 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
-### Basic structure
+## Basic Coding Standards
 
-├── public/ # html file
-├── src/ #
-│ ├── _tests_ # test cases file
-│ ├── assets # static files
-│ │ ├── images # images
-│ │ ├── css # css files
-│ │ └── js # js files
-│ ├── components/ # components folder
-│ │ ├── ui/ # ui components
-│ │ │ ├── Footer # footer
-│ │ │ ├── Header # header
-│ │ ├── func/ # functional components
-│ │ │ ├── Skeleton # skeleton
-│ │ ├── layouts/ # layout
-│ ├── utils/ # useful utils
-│ │ ├── common/ # other utils
-│ │ │ ├── locales/ # locales
-│ │ ├── hooks/ # custom hooks
-│ ├── pages/ # pages component folder
-│ │ ├── home # home pages
-│ │ │ ├── Sections # page parts
-│ │ │ ├── Home.js # main home page
-│ │ │ ├── HomeContainer.js
-│ │ │ ├── HomeStyles.js  
-│ │ ├── intro # intro pages
-│ │ ├── content # content pages
-│ │ ├── organize # organize pages
-│ │ ├── network # network pages
-│ │ ├── index.js # export all pages
-│ ├── store/ # redux main folder
-│ │ ├── action # main action folder
-│ │ │ ├── index.js # combine actions
+#### Prettier config
+
+Create file `prettier.config.js` in root folder.
+Put the content below
+
+```
+module.exports = {
+  eslintIntegration: false,
+  printWidth: 120,
+  arrowParens: 'always',
+  singleQuote: true,
+  tabWidth: 2,
+  bracketSpacing: false,
+  useTabs: false,
+  semi: true
+};
+```
+
+Set editor format tool to prettier
+
+#### CSS Styles
+
+All CSS files are written in js styles.
+
+Eg. FooterStyle.js
+
+```
+const styles = {
+    xxx : {}
+}
+export styles
+```
+
+Use withStyles when imported
+Footer.js
+
+```
+import {withStyles} from '@material-ui/core';
+import {styles} from './FooterStyle.js'
+
+...
+
+export default withStyles(styles)(Footer)
+```
+
+#### Name Convention
+
+> Pascal Case- First letter of every word in the name is capitalized. Eg: NavigationBar
+> Camel Case - Every word in the name is capitalized except the first word. Eg: handleOpenForm
+
+For each components and corresponding style file, use Pascal Case, eg, CardBox.js CardBoxStyle.js
+
+For js function names inside the file ,use Cameliminate case
+
+#### About locales
+
+All displayed word on website should be initially set in `i18n.js` and import from here then use. (Only the word or sentences used for UI). Eg, menu, submenu, title.
+
+> src / utils / common / locales / i18n.js
+
+```
+export const SECOND_GENOME = 'second genome';
+```
+
+### Project Structure
+
+├── public/ -----------------------# html file
+├── src/ --------------------------# main react project
+│ ├── _tests_ ---------------------# auto generate test cases file
+│ ├── assets ----------------------# static files
+│ │ ├── images --------------------# images
+│ │ ├── css -----------------------# other third-party css files,font
+│ │ └── js ------------------------# other third-party js files
+│ ├── components/ -----------------# components folder
+│ │ ├── ui/ -----------------------# ui components
+│ │ │ ├── CardBox -----------------# small reusable UI component
+│ │ ├── base/ ---------------------# functional components
+│ │ │ ├── auth --------------------# auth
+│ │ ├── layouts/ ------------------# main layout
+│ │ │ ├── Header ------------------# nav,submenu
+│ │ │ ├── Footer ------------------# footer
+│ ├── utils/ ----------------------# useful utils
+│ │ ├── common/ -------------------# other utils
+│ │ │ ├── locales/ ----------------# locales
+│ │ ├── hooks/ --------------------# custom hooks
+│ ├── pages/ ----------------------# pages component folder
+│ │ ├── home ----------------------# home pages
+│ │ │ ├── Sections ----------------# page parts
+│ │ │ ├── Home.js -----------------# main home page
+│ │ │ ├── HomeStyles.js -----------# page style file .js
+│ │ │ ├── index.js ----------------# page export
+│ │ ├── intro ---------------------# intro category pages
+│ │ ├── content -------------------# content category pages
+│ │ ├── organize ------------------# organize category pages
+│ │ ├── network -------------------# network category pages
+│ │ ├── index.js ------------------# export all page component
+│ ├── store/ ----------------------# redux main folder
+│ │ ├── action --------------------# main action folder
+│ │ │ ├── index.js ----------------# combine actions
 │ │ │ ├── actionA.js
 │ │ │ ├── actionB.js
-│ │ ├── reducer # main reducer folder
-│ │ │ ├── index.js # combine reducers
+│ │ ├── reducer -------------------# main reducer folder
+│ │ │ ├── index.js ----------------# combine reducers
 │ │ │ ├── reducerA.js
 │ │ │ ├── reducerB.js
-│ │ ├── action-types.js # collect all actions
-│ │ ├── index.js # export store
-│ ├── index.css # index css file
-│ ├── index.js # entry `<Provider>`
-│ ├── routes.js # collect all the routes
+│ │ ├── action-types.js -----------# collect all actions
+│ │ ├── index.js ------------------# export store
+│ ├── index.css -------------------# index/global css file
+│ ├── index.js --------------------# main entry `<Provider>`
+│ ├── routes.js -------------------# collect all the routes
 │ ├── serviceWorker.js  
-├── README.md # readme file
+├── README.md ---------------------# readme file
 └── package.json # packages
