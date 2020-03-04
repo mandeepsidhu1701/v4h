@@ -285,4 +285,6 @@ export function canvasApp(id = 'sphere-health', sphereRad = 30, rgb = {r: 101, g
       p.prev = null;
     }
   }
+
+  return timer;
 }

@@ -51,7 +51,14 @@ class Sphere extends Component {
 
   componentDidMount() {
     let type = this.props.type !== undefined ? this.props.type : 0;
-    Animation.canvasApp(this.canvasId, this.props.sphereRad, this.sphereColors[type]);
+    this.timerId = Animation.canvasApp(this.canvasId, this.props.sphereRad, this.sphereColors[type]);
+  }
+
+  componentWillUnmount() {
+    if (this.timerId) {
+      clearInterval(this.timerId);
+      this.timerId = null;
+    }
   }
 
   getRandomInt(max) {
