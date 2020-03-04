@@ -38,7 +38,11 @@ class AnimatedText extends Component {
           <span key={index} className={classes.word}>
             {word.split('').map((letter, idx) => {
               return (
-                <span key={index + '_' + idx} className={classes.text} style={{animationDelay: delays[idx] + 'ms'}}>
+                <span
+                  key={index + '_' + idx}
+                  className={classes.text}
+                  style={{animationDelay: delays[idx + index] +'ms'}}
+                >
                   {letter.toUpperCase()}
                 </span>
               );
