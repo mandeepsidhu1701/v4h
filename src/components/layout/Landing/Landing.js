@@ -1,7 +1,7 @@
 import React from 'react';
 import {withRouter, Link as RouterLink} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {withStyles, IconButton, Modal} from '@material-ui/core';
+import {withStyles, IconButton, Modal, Box} from '@material-ui/core';
 import {AnimatedText, Sphere} from '../../ui';
 import {SignUpContainer as SignUpModal, SIGN_UP, SignInContainer as SignInModal, SIGN_IN} from '../../base/auth';
 import styles from './LandingStyles';
@@ -17,18 +17,11 @@ import landingScroll from '../../../assets/images/icons/landingScroll.png';
 //TODO: test interactions on different screen sizes and in mobile and desktop.
 
 const appTitleDelays = [
-  400,
-  400,
-  466.667,
-  66.6667,
-  266.667,
-  133.333,
   0,
   400,
-  466.667,
-  66.6667,
   266.667,
   133.333,
+  66.6667,
   166.6675,
   400,
   533.333,
@@ -127,7 +120,7 @@ class Landing extends React.Component {
         <span className={classes.genome} onMouseEnter={this.handleShowAuthLinks} onClick={this.handleShowAuthLinks}>
           Second Genome
         </span>
-        <span className={showAuthLinks ? `${classes.fontBase} ${classes.authSpan}` : classes.hidden}>
+        <Box component="span" display={{xs: "block", sm: "none"}} className={`${classes.fontBase} ${classes.authSpan} ${showAuthLinks ? classes.display: ''}`}>
           <RouterLink
             to="#"
             className={authForm === SIGN_UP ? `${classes.authLink} ${highlightedAuthLinkClass}` : classes.authLink}
@@ -143,11 +136,14 @@ class Landing extends React.Component {
           >
             SIGN IN
           </RouterLink>
-        </span>
+        </Box>
 
-        <div className={classes.siteName}>
+        <Box component="div" className={classes.siteName} display={{xs: "none", sm: "block"}}>
           <AnimatedText text={'Higher Consciousness Network'} delays={appTitleDelays} />
-        </div>
+        </Box>
+        <Box component="div" className={classes.siteName} display={{xs: "block", sm: "none"}}>
+          <AnimatedText text={'H C N'} delays={appTitleDelays} />
+        </Box>
 
         <div className={classes.sphereSideBar}>
           <RouterLink className={classes.sphereLink} to="/organize/health">
