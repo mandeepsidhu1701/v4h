@@ -104,7 +104,6 @@ class MenuContent extends Component {
     return (
       <Popper
         id="popper"
-        style={{top: '80px'}}
         className={classes.popper}
         open={this.state.open}
         anchorEl={this.state.anchorEl}
