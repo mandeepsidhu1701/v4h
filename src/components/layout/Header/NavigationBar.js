@@ -30,6 +30,9 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import menuData from './Submenu/submenuData';
 
+import ButterflyImage from '../../../assets/images/icons/butterflyAppBar.png';
+import MetaWheelImage from '../../../assets/images/icons/metawheelAppBar.png';
+
 // TODO: need to use props rather than constant array
 const menuEffect = {
   INTRO: 'DISCOVER',
@@ -251,10 +254,10 @@ class NavigationBar extends Component {
               />
               <div className={classes.iconButtonContainer}>
                 <IconButton className={classes.metaButton} color="inherit" aria-label="MetaWheel" size={'medium'}>
-                  <Avatar alt="MetaWheel" src="/images/metawheelAppBar.png" className={classes.metaIcon} />
+                  <Avatar alt="MetaWheel" src={MetaWheelImage} className={classes.metaIcon} />
                 </IconButton>
                 <IconButton className={classes.butterflyButton} color="inherit" aria-label="Butterfly" size={'medium'}>
-                  <Avatar alt="Butterfly" src="/images/butterflyAppBar.png" className={classes.butterflyIcon} />
+                  <Avatar alt="Butterfly" src={ButterflyImage} className={classes.butterflyIcon} />
                 </IconButton>
               </div>
             </div>
