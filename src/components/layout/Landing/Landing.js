@@ -87,6 +87,7 @@ class Landing extends React.Component {
     this.setState({landing: landingState.SCROLL});
     setTimeout(() => {
       this.handleHideLanding();
+      this.props.onAnimationEnd();
     }, 1000);
     this.props.hideContent();
   };

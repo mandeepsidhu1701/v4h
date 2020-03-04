@@ -15,7 +15,8 @@ import styles from './HomeStyles';
 
 class Home extends React.Component {
   state = {
-    landingShow: true
+    landingShow: true,
+    onAnimationEnd: false
   };
 
   handleHideContent = () => {
@@ -23,10 +24,22 @@ class Home extends React.Component {
       landingShow: false
     });
   };
+
+  onAnimationEnd = () => {
+    this.setState({
+      onAnimationEnd: true
+    });
+  };
   render() {
     return (
       <React.Fragment>
-        <Landing landingShow={this.state.landingShow} hideContent={this.handleHideContent} />
+        {!this.state.onAnimationEnd ? (
+          <Landing
+            landingShow={this.state.landingShow}
+            hideContent={this.handleHideContent}
+            onAnimationEnd={this.onAnimationEnd}
+          />
+        ) : null}
         {this.state.landingShow === true ? null : <div style={{background: 'rgba(0,0,0,0.2)', height: '200vh'}}></div>}
       </React.Fragment>
     );
