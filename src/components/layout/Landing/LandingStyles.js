@@ -42,7 +42,7 @@ const styles = (theme) => ({
     animation: '$scaleAnimation 2s 1 ease-out'
   },
   landingScrollUp: {
-    animation: '$moveLandingUp 1s 1 linear'
+    animation: '$moveLandingUp 0.75s 1 linear'
   },
   genome: {
     backgroundColor: 'rgba(255,255,255,0.5)',

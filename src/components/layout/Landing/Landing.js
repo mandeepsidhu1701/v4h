@@ -85,11 +85,12 @@ class Landing extends React.Component {
   };
 
   handleScrollLanding = () => {
-    this.setState({landing: landingState.SCROLL});
+    this.setState({landing: landingState.SCROLL, showSphereSideBar: false});
+
     setTimeout(() => {
       this.handleHideLanding();
       this.props.onAnimationEnd();
-    }, 1000);
+    }, 750);
     this.props.hideContent();
   };
 
