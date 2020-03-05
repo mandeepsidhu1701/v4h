@@ -1,4 +1,4 @@
-import {Home, Articles, Quotes} from './pages';
+import {Home, Articles, Quotes, Videos} from './pages';
 
 import introHome from './assets/images/layout/submenu/intro-home.png';
 import introCopmpass from './assets/images/layout/submenu/intro-compass.png';
@@ -83,7 +83,7 @@ const routes = [
   {
     path: '/content/videos',
     name: 'Videos & Visualizations',
-    component: null,
+    component: Videos,
     menu: 'content',
     image: contentVideos
   },
