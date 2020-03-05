@@ -8,12 +8,16 @@ import {styles} from './Styles';
 // import { connect } from "react-redux";
 // import { bindActionCreators } from "redux";
 // import * as sphereActions from "../../store/sphere/actions";
-
+import personHealth from '../../../assets/images/layout/landing/personHealth.png';
+import personProsperity from '../../../assets/images/layout/landing/personProsperity.png';
+import personInspiration from '../../../assets/images/layout/landing/personInspiration.png';
+import personJoy from '../../../assets/images/layout/landing/personJoy.png';
 /***
  * Creates an animated, swirling particle sphere.
  *
  *
  */
+
 class Sphere extends Component {
   static propTypes = {
     /** width of Sphere */
@@ -29,12 +33,7 @@ class Sphere extends Component {
   };
 
   canvasId = '';
-  overlayImages = [
-    '/images/personHealth.png',
-    '/images/personProsperity.png',
-    '/images/personInspiration.png',
-    '/images/personJoy.png'
-  ];
+  overlayImages = [personHealth, personProsperity, personInspiration, personJoy];
   sphereColors = [
     {r: 101, g: 187, b: 25},
     {r: 79, g: 145, b: 233},
