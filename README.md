@@ -223,7 +223,7 @@ export const SECOND_GENOME = 'second genome';
 ```
 
 ### Project Structure
-
+```
 ├── public/ -----------------------# html file
 ├── src/ --------------------------# main react project
 │ ├── _tests_ ---------------------# auto generate test cases file
@@ -271,3 +271,4 @@ export const SECOND_GENOME = 'second genome';
 │ ├── serviceWorker.js  
 ├── README.md ---------------------# readme file
 └── package.json # packages
+```
