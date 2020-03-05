@@ -3,6 +3,7 @@ import {Typography, Grid, Container, withStyles} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import styles from './FooterStyle';
 import menuData from '../Header/Submenu/submenuData';
+import ScrollTop from '../../ui/ScrollTop/ScrollTop';
 
 class Footer extends Component {
   getMenu() {
@@ -48,6 +49,7 @@ class Footer extends Component {
             </Grid>
           </Grid>
         </Container>
+        <ScrollTop scrollStepInPx="50" delayInMs="16.66" />
       </footer>
     );
   }

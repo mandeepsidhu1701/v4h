@@ -25,6 +25,10 @@ body {
   grid-template-rows: 1fr auto;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 #root {
   min-height: 100%;
   display: grid;
