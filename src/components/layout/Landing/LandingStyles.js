@@ -45,7 +45,6 @@ const styles = (theme) => ({
     animation: '$moveLandingUp 0.75s 1 linear'
   },
   genome: {
-    backgroundColor: 'rgba(255,255,255,0.5)',
     borderRadius: '0.5rem',
     position: 'absolute',
     width: '40%',
