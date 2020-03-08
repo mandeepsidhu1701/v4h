@@ -32,7 +32,7 @@ const styles = (theme) => ({
       width: 80,
       height: 2,
       backgroundColor: 'white',
-      animationDuration: '1.5s',
+      animationDuration: '3s',
       animationFillMode: 'both',
       animationIterationCount: 'infinite',
       animationName: '$scroll',
