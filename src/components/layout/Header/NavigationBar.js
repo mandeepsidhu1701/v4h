@@ -11,7 +11,6 @@ import {
   Toolbar,
   Menu,
   MenuItem,
-  MuiThemeProvider,
   Avatar,
   Typography,
   Drawer,
@@ -222,47 +221,45 @@ class NavigationBar extends Component {
     const {classes} = this.props;
 
     return (
-      <MuiThemeProvider theme={theme}>
-        <AppBar position="fixed" className={classes.fixBar} ref={this.headerRef}>
-          <Toolbar className={classes.toolbar} component="nav">
-            <div className={classes.appBarContainer}>
-              {this.renderMenuIcon()}
-              <div className={classes.navContainer}>
-                <div className={classes.navLinkContainer}>
-                  {this.renderHeaderLink('INTRO', menuData[0].submenu)}
-                  {this.renderHeaderLink('CONTENT', menuData[1].submenu)}
-                </div>
-                <WebTitle />
-                <div className={classes.navLinkContainer}>
-                  {this.renderHeaderLink('ORGANIZE', menuData[2].submenu)}
-                  {this.renderHeaderLink('NETWORK', menuData[3].submenu)}
-                </div>
+      <AppBar position="fixed" className={classes.fixBar} ref={this.headerRef}>
+        <Toolbar className={classes.toolbar} component="nav">
+          <div className={classes.appBarContainer}>
+            {this.renderMenuIcon()}
+            <div className={classes.navContainer}>
+              <div className={classes.navLinkContainer}>
+                {this.renderHeaderLink('INTRO', menuData[0].submenu)}
+                {this.renderHeaderLink('CONTENT', menuData[1].submenu)}
               </div>
-              <MenuContent
-                submenuData={this.state.data}
-                submenuOpen={this.state.open}
-                submenuAnchorEl={this.state.anchorEl}
-                submenuClose={this.handleClose}
-              />
-              <div
-                className={classes.triangle}
-                style={{
-                  left: this.state.trianglePosition,
-                  display: this.state.open ? 'block' : 'none'
-                }}
-              />
-              <div className={classes.iconButtonContainer}>
-                <IconButton className={classes.metaButton} color="inherit" aria-label="MetaWheel" size={'medium'}>
-                  <Avatar alt="MetaWheel" src={MetaWheelImage} className={classes.metaIcon} />
-                </IconButton>
-                <IconButton className={classes.butterflyButton} color="inherit" aria-label="Butterfly" size={'medium'}>
-                  <Avatar alt="Butterfly" src={ButterflyImage} className={classes.butterflyIcon} />
-                </IconButton>
+              <WebTitle />
+              <div className={classes.navLinkContainer}>
+                {this.renderHeaderLink('ORGANIZE', menuData[2].submenu)}
+                {this.renderHeaderLink('NETWORK', menuData[3].submenu)}
               </div>
             </div>
-          </Toolbar>
-        </AppBar>
-      </MuiThemeProvider>
+            <MenuContent
+              submenuData={this.state.data}
+              submenuOpen={this.state.open}
+              submenuAnchorEl={this.state.anchorEl}
+              submenuClose={this.handleClose}
+            />
+            <div
+              className={classes.triangle}
+              style={{
+                left: this.state.trianglePosition,
+                display: this.state.open ? 'block' : 'none'
+              }}
+            />
+            <div className={classes.iconButtonContainer}>
+              <IconButton className={classes.metaButton} color="inherit" aria-label="MetaWheel" size={'medium'}>
+                <Avatar alt="MetaWheel" src={MetaWheelImage} className={classes.metaIcon} />
+              </IconButton>
+              <IconButton className={classes.butterflyButton} color="inherit" aria-label="Butterfly" size={'medium'}>
+                <Avatar alt="Butterfly" src={ButterflyImage} className={classes.butterflyIcon} />
+              </IconButton>
+            </div>
+          </div>
+        </Toolbar>
+      </AppBar>
     );
   }
 }

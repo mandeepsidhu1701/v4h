@@ -1,17 +1,19 @@
 import React from 'react';
+import {withStyles, MuiThemeProvider} from '@material-ui/core';
 import NavigationBar from '../layout/Header';
 import Footer from '../layout/Footer/Footer';
-import {styles} from './LayoutStyle';
-import {withStyles} from '@material-ui/core';
+import {styles, theme} from './LayoutStyle';
 
 function Layout(props) {
   return (
     <React.Fragment>
-      <main>
-        <NavigationBar />
-        {props.children}
-      </main>
-      <Footer className={styles.footer} />
+      <MuiThemeProvider theme={theme}>
+        <main>
+          <NavigationBar />
+          {props.children}
+        </main>
+        <Footer className={styles.footer} />
+      </MuiThemeProvider>
     </React.Fragment>
   );
 }

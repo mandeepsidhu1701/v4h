@@ -1,40 +1,3 @@
-import {createMuiTheme} from '@material-ui/core/styles';
-
-const defaultTheme = createMuiTheme();
-
-const defaults = {
-  navigationBar: {
-    width: 800
-  }
-};
-
-const theme = createMuiTheme({
-  ...defaults,
-  palette: {
-    primary: {
-      main: '#ffffff'
-    }
-  },
-  typography: {
-    button: {
-      letterSpacing: '3px',
-      padding: '0.25rem',
-      fontWeight: 'bold',
-      margin: '0 8px',
-      fontSize: '0.5rem',
-      [defaultTheme.breakpoints.only('xl')]: {
-        fontSize: '1rem'
-      },
-      [defaultTheme.breakpoints.only('lg')]: {
-        fontSize: '0.875rem'
-      },
-      [defaultTheme.breakpoints.only('md')]: {
-        fontSize: '0.75rem'
-      }
-    }
-  }
-});
-
 const styles = (theme) => ({
   fixBar: {
     zIndex: 88,
@@ -52,7 +15,7 @@ const styles = (theme) => ({
     width: '100%'
   },
   menuButtonContainer: {
-    [`@media (min-width:${defaults.navigationBar.width + 1}px)`]: {
+    [`@media (min-width:${theme.navigationBar.width + 1}px)`]: {
       display: 'none'
     }
   },
@@ -64,14 +27,14 @@ const styles = (theme) => ({
     display: 'flex',
     justifyContent: 'center',
     marginLeft: '10%',
-    [`@media (min-width:${defaults.navigationBar.width + 1}px)`]: {
+    [`@media (min-width:${theme.navigationBar.width + 1}px)`]: {
       marginLeft: '12.5%'
     }
   },
   navLinkContainer: {
     display: 'flex',
     justifyContent: 'center',
-    [`@media (max-width:${defaults.navigationBar.width}px)`]: {
+    [`@media (max-width:${theme.navigationBar.width}px)`]: {
       display: 'none'
     }
   },
@@ -201,4 +164,4 @@ const styles = (theme) => ({
   }
 });
 
-export {styles, theme};
+export {styles};
