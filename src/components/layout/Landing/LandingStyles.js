@@ -1,3 +1,5 @@
+import mainBackground from '../../../assets/images/layout/mainBackground.png';
+
 const styles = (theme) => ({
   /** general */
   fontBase: {
@@ -30,29 +32,32 @@ const styles = (theme) => ({
     width: '100%',
     height: '100%'
   },
-  landingImage: {
+  background: {
+    overflow: 'hidden',
     position: 'absolute',
     width: '100%',
+    height: '100%'
+  },
+  landingImage: {
+    width: '100%',
     height: '100%',
+    position: 'relative',
     top: '0',
     left: '0',
-    zIndex: 90
+    backgroundImage: `url(${mainBackground})`,
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    transform: 'scale(1.2)'
   },
   landingImageAnimation: {
-    animation: '$scaleAnimation 2s 1 ease-out'
+    animation: '$scaleAnimation 2s 1 ease-out',
+    animationFillMode: 'forwards'
   },
   landingScrollUp: {
     animation: '$moveLandingUp 0.75s 1 linear'
   },
   genome: {
-    borderRadius: '0.5rem',
-    position: 'absolute',
-    width: '40%',
-    marginLeft: '-20%',
-    padding: '0.25rem',
-    top: '46px',
-    left: '50%',
-    zIndex: 93,
     textAlign: 'center',
     fontFamily: 'Roboto',
     fontSize: '1.75rem',
@@ -66,6 +71,15 @@ const styles = (theme) => ({
     [theme.breakpoints.only('xs')]: {
       fontSize: '1.5rem'
     }
+  },
+  main: {
+    position: 'relative',
+    height: '100%',
+    width: '100%'
+  },
+  title: {
+    top: 46,
+    position: 'absolute'
   },
   siteName: {
     position: 'absolute',
@@ -85,9 +99,10 @@ const styles = (theme) => ({
     },
     [theme.breakpoints.only('xs')]: {
       fontSize: '1.525rem',
-      top: '1%',
-      left: '60%',
-      width: '80%'
+      top: 20,
+      left: '57%',
+      width: '80%',
+      fontWeight: '400',
     }
   },
   authSpan: {
@@ -101,10 +116,8 @@ const styles = (theme) => ({
     fontSize: '1.125rem',
     fontWeight: 900,
     [theme.breakpoints.only('xs')]: {
-      fontSize: '1rem'
-    },
-    '@media (max-width:521px)': {
-      top: '120px'
+      fontSize: '0.825rem',
+      top: 75
     }
   },
   modalOverflow: {
@@ -149,8 +162,12 @@ const styles = (theme) => ({
     display: 'none'
   },
   '@keyframes scaleAnimation': {
-    from: {width: '134%', height: '134%', top: '-17%', left: '-17%'},
-    to: {width: '100%', height: '100%', top: '0', left: '0'}
+    from: {
+      transform: 'scale(1.2)'
+    },
+    to: {
+      transform: 'scale(1)'
+    }
   },
   '@keyframes moveLandingUp': {
     from: {top: '0%'},
@@ -162,14 +179,14 @@ const styles = (theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     position: 'absolute',
-    top: '22.5%',
+    top: '16.5%',
     left: '85%',
     [theme.breakpoints.only('sm')]: {
       top: '20%',
       left: '80%'
     },
     [theme.breakpoints.only('xs')]: {
-      top: '20%',
+      top: '18%',
       left: 'inherit',
       textAlign: 'center',
       width: '100%'

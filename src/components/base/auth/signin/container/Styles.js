@@ -28,7 +28,8 @@ export const containerStyles = (theme) => ({
     [theme.breakpoints.down('xs')]: {
       left: '12px',
       right: '12px',
-      padding: '1.5rem'
+      padding: '1.5rem',
+      top: '110px'
     },
     '@media (max-width:200px)': {
       top: '164px'

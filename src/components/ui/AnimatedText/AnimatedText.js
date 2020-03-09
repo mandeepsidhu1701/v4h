@@ -14,7 +14,10 @@ const styles = (theme) => ({
     animationDuration: '0.5s',
     animationIterationCount: '1',
     animationFillMode: 'forwards',
-    animationTimingFunction: 'ease-out'
+    animationTimingFunction: 'ease-out',
+    [theme.breakpoints.only('xs')]: {
+      paddingRight: '0.0325rem',
+    }
   },
   '@keyframes textAnimation': {
     from: {

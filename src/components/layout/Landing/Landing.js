@@ -125,69 +125,78 @@ class Landing extends React.Component {
 
     return (
       <div className={landingRoot}>
-        <img
-          src={mainBackground}
-          alt="Background aesthetics"
-          className={`${classes.landingImage} ${classes.landingImageAnimation}`}
-        />
-        <span className={classes.genome} onMouseEnter={this.handleShowAuthLinks} onClick={this.handleShowAuthLinks}>
-          Second Genome
-        </span>
-        <Box
-          component="span"
-          display={{xs: 'block', sm: 'none'}}
-          className={`${classes.fontBase} ${classes.authSpan} ${showAuthLinks ? classes.display : ''}`}
-        >
-          <RouterLink
-            to="#"
-            className={authForm === SIGN_UP ? `${classes.authLink} ${highlightedAuthLinkClass}` : classes.authLink}
-            onClick={this.handleShowSignUpForm}
-          >
-            SIGN UP
-          </RouterLink>
-          <span className={classes.authSpacer} />
-          <RouterLink
-            to="#"
-            className={authForm === SIGN_IN ? `${classes.authLink} ${highlightedAuthLinkClass}` : classes.authLink}
-            onClick={this.handleShowLoginForm}
-          >
-            SIGN IN
-          </RouterLink>
+        <Box component="div" className={`${classes.background}`}>
+         <div className={`${classes.landingImage} ${classes.landingImageAnimation}`}></div>
         </Box>
 
-        <Box component="div" className={classes.siteName} display={{xs: 'none', sm: 'block'}}>
-          <AnimatedText text={'Higher Consciousness Network'} delays={appTitleDelays} />
-        </Box>
-        <Box component="div" className={classes.siteName} display={{xs: 'block', sm: 'none'}}>
-          <AnimatedText text={'H C N'} delays={appTitleDelays} />
-        </Box>
-
-        {this.state.showSphereSideBar ? (
-          <div className={classes.sphereSideBar}>
-            <RouterLink className={classes.sphereLink} to="/organize/health">
-              <Sphere type={0} sphereRad={60} width={100} height={100} />
-            </RouterLink>
-            <RouterLink className={classes.sphereLink} to="/organize/prosperity">
-              <Sphere type={1} sphereRad={60} width={100} height={100} />
-            </RouterLink>
-            <RouterLink className={classes.sphereLink} to="/organize/inspiration">
-              <Sphere type={2} sphereRad={60} width={100} height={100} />
-            </RouterLink>
-            <RouterLink className={classes.sphereLink} to="/organize/joy">
-              <Sphere type={3} sphereRad={60} width={100} height={100} />
-            </RouterLink>
-          </div>
-        ) : null}
-
-        <div className={classes.closeIconButton}>
-          <Grid container direction="row" justify="center" alignItems="center">
+        <Grid className={classes.main}>
+          <Grid className={classes.title} container direction="row" justify="center" alignItems="center">
             <Grid item>
-              <ScrollLink to={'#'} clicked={() => this.handleScrollLanding()}>
-                scroll
-              </ScrollLink>
+              <span
+                className={classes.genome}
+                onMouseEnter={this.handleShowAuthLinks}
+                onClick={this.handleShowAuthLinks}
+              >
+                Second Genome
+              </span>
             </Grid>
           </Grid>
-        </div>
+          <Box
+            component="span"
+            display={{xs: 'block', sm: 'none'}}
+            className={`${classes.fontBase} ${classes.authSpan} ${showAuthLinks ? classes.display : ''}`}
+          >
+            <RouterLink
+              to="#"
+              className={authForm === SIGN_UP ? `${classes.authLink} ${highlightedAuthLinkClass}` : classes.authLink}
+              onClick={this.handleShowSignUpForm}
+            >
+              SIGN UP
+            </RouterLink>
+            <span className={classes.authSpacer} />
+            <RouterLink
+              to="#"
+              className={authForm === SIGN_IN ? `${classes.authLink} ${highlightedAuthLinkClass}` : classes.authLink}
+              onClick={this.handleShowLoginForm}
+            >
+              SIGN IN
+            </RouterLink>
+          </Box>
+
+          <Box component="div" className={classes.siteName} display={{xs: 'none', sm: 'block'}}>
+            <AnimatedText text={'Higher Consciousness Network'} delays={appTitleDelays} />
+          </Box>
+          <Box component="div" className={classes.siteName} display={{xs: 'block', sm: 'none'}}>
+            <AnimatedText text={'HCN'} delays={appTitleDelays} />
+          </Box>
+
+          {this.state.showSphereSideBar ? (
+            <div className={classes.sphereSideBar}>
+              <RouterLink className={classes.sphereLink} to="/organize/health">
+                <Sphere type={0} sphereRad={60} width={100} height={100} />
+              </RouterLink>
+              <RouterLink className={classes.sphereLink} to="/organize/prosperity">
+                <Sphere type={1} sphereRad={60} width={100} height={100} />
+              </RouterLink>
+              <RouterLink className={classes.sphereLink} to="/organize/inspiration">
+                <Sphere type={2} sphereRad={60} width={100} height={100} />
+              </RouterLink>
+              <RouterLink className={classes.sphereLink} to="/organize/joy">
+                <Sphere type={3} sphereRad={60} width={100} height={100} />
+              </RouterLink>
+            </div>
+          ) : null}
+
+          <div className={classes.closeIconButton}>
+            <Grid container direction="row" justify="center" alignItems="center">
+              <Grid item>
+                <ScrollLink to={'#'} clicked={() => this.handleScrollLanding()}>
+                  scroll
+                </ScrollLink>
+              </Grid>
+            </Grid>
+          </div>
+        </Grid>
 
         <Modal open={showModal} onClose={this.handleHideForms} className={classes.modalOverflow}>
           <div>

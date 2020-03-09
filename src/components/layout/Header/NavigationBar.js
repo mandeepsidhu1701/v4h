@@ -22,6 +22,7 @@ import {
 } from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import MenuIcon from '@material-ui/icons/Menu';
+import DragHandleIcon from '@material-ui/icons/DragHandle';
 import {styles, theme} from './NavigationBarStyles';
 import MenuContent from './Submenu/MenuContent';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
@@ -188,7 +189,7 @@ class NavigationBar extends Component {
     return (
       <div className={classes.menuButtonContainer}>
         <IconButton className={classes.menuButton} onClick={this.toggleSidemenu('left', true)}>
-          <MenuIcon />
+          <DragHandleIcon />
         </IconButton>
         <Drawer open={this.state.left} onClose={this.toggleSidemenu('left', false)}>
           {this.sideList('left')}

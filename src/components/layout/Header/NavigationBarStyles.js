@@ -1,7 +1,15 @@
 import {createMuiTheme} from '@material-ui/core/styles';
 
 const defaultTheme = createMuiTheme();
+
+const defaults = {
+  navigationBar: {
+    width: 800
+  }
+};
+
 const theme = createMuiTheme({
+  ...defaults,
   palette: {
     primary: {
       main: '#ffffff'
@@ -44,7 +52,7 @@ const styles = (theme) => ({
     width: '100%'
   },
   menuButtonContainer: {
-    '@media (min-width:801px)': {
+    [`@media (min-width:${defaults.navigationBar.width + 1}px)`]: {
       display: 'none'
     }
   },
@@ -55,14 +63,15 @@ const styles = (theme) => ({
     flexGrow: 1,
     display: 'flex',
     justifyContent: 'center',
-    '@media (min-width:801px)': {
+    marginLeft: '10%',
+    [`@media (min-width:${defaults.navigationBar.width + 1}px)`]: {
       marginLeft: '12.5%'
     }
   },
   navLinkContainer: {
     display: 'flex',
     justifyContent: 'center',
-    '@media (max-width:800px)': {
+    [`@media (max-width:${defaults.navigationBar.width}px)`]: {
       display: 'none'
     }
   },
