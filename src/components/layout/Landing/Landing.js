@@ -5,6 +5,8 @@ import {withStyles, Modal, Box, Grid} from '@material-ui/core';
 import {AnimatedText, Sphere, ScrollLink, WebTitle} from '../../ui';
 import {SignUpContainer as SignUpModal, SIGN_UP, SignInContainer as SignInModal, SIGN_IN} from '../../base/auth';
 import styles from './LandingStyles';
+import intl from 'react-intl-universal';
+import * as messageKeys from '../../../locales';
 
 //TODO: what to do about spheres, correct size and position for small real-estate screens / mobile?
 
@@ -136,7 +138,7 @@ class Landing extends React.Component {
                 onMouseEnter={this.handleShowAuthLinks}
                 onClick={this.handleShowAuthLinks}
               >
-                Second Genome
+                {intl.get(messageKeys.SECOND_GENOME)}
               </Box>
               <Box component="div" className={classes.webTitle} display={{xs: 'block', sm: 'none'}}>
                 <WebTitle />
@@ -153,7 +155,7 @@ class Landing extends React.Component {
               className={authForm === SIGN_UP ? `${classes.authLink} ${highlightedAuthLinkClass}` : classes.authLink}
               onClick={this.handleShowSignUpForm}
             >
-              SIGN UP
+              {intl.get(messageKeys.SIGN_UP)}
             </RouterLink>
             <span className={classes.authSpacer} />
             <RouterLink
@@ -161,12 +163,12 @@ class Landing extends React.Component {
               className={authForm === SIGN_IN ? `${classes.authLink} ${highlightedAuthLinkClass}` : classes.authLink}
               onClick={this.handleShowLoginForm}
             >
-              SIGN IN
+              {intl.get(messageKeys.SIGN_IN)}
             </RouterLink>
           </Box>
 
           <Box component="div" className={classes.siteName} display={{xs: 'none', sm: 'block'}}>
-            <AnimatedText text={'Higher Consciousness Network'} delays={appTitleDelays} />
+            <AnimatedText text={intl.get(messageKeys.SITE_NAME)} delays={appTitleDelays} />
           </Box>
 
           {this.state.showSphereSideBar ? (
