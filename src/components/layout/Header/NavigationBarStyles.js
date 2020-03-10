@@ -6,7 +6,10 @@ const styles = (theme) => ({
   },
   toolbar: {
     flexGrow: 1,
-    padding: 8
+    paddingLeft: 8,
+    paddingRight: 8,
+    paddingTop: 2,
+    paddingBottom: 2
   },
   appBarContainer: {
     display: 'flex',
@@ -20,13 +23,19 @@ const styles = (theme) => ({
     }
   },
   menuButton: {
-    padding: 8
+    padding: 0,
+    paddingTop: 4
+  },
+  menuButtonIcon: {
+    fontSize: '4rem',
+    height: '2rem',
+    width: '4rem'
   },
   navContainer: {
     flexGrow: 1,
     display: 'flex',
     justifyContent: 'center',
-    marginLeft: '10%',
+    marginLeft: '8%',
     [`@media (min-width:${theme.navigationBar.width + 1}px)`]: {
       marginLeft: '12.5%'
     }
@@ -55,40 +64,34 @@ const styles = (theme) => ({
   },
   iconButtonContainer: {
     marginRight: '2%',
-    padding: '0 2px',
+    padding: '0 5px',
+    marginTop: 5,
+    marginBottom: 5,
     border: '1px solid #BBBBBB',
     borderRadius: 36,
     display: 'flex'
   },
   metaButton: {
     marginRight: 4,
-    padding: 12,
-    '@media (max-width:801px)': {
-      padding: 10
-    },
-    '@media screen and (max-width:761px)': {
-      padding: 8
-    },
-    '@media screen and (max-width:480px)': {
-      padding: 6
-    },
-    '@media screen and (max-width:360px)': {
-      padding: 6
+    padding: 6,
+    paddingLeft: 8,
+    paddingRight: 8,
+    [`@media (min-width:${theme.navigationBar.width + 1}px)`]: {
+      paddingLeft: 10,
+      paddingRight: 8,
+      paddingTop: 6,
+      paddingBottom: 6 
     }
   },
   butterflyButton: {
-    padding: 12,
-    '@media (max-width:801px)': {
-      padding: 10
-    },
-    '@media screen and (max-width:761px)': {
-      padding: 8
-    },
-    '@media screen and (max-width:480px)': {
-      padding: 6
-    },
-    '@media screen and (max-width:360px)': {
-      padding: 6
+    padding: 6,
+    paddingLeft: 8,
+    paddingRight: 8,
+    [`@media (min-width:${theme.navigationBar.width + 1}px)`]: {
+      paddingLeft: 8,
+      paddingRight: 10,
+      paddingTop: 6,
+      paddingBottom: 6 
     }
   },
   metaIcon: {

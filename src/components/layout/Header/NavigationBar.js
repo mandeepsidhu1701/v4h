@@ -20,9 +20,8 @@ import {
   Collapse
 } from '@material-ui/core';
 import {Link} from 'react-router-dom';
-import MenuIcon from '@material-ui/icons/Menu';
 import DragHandleIcon from '@material-ui/icons/DragHandle';
-import {styles, theme} from './NavigationBarStyles';
+import {styles} from './NavigationBarStyles';
 import MenuContent from './Submenu/MenuContent';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ExpandMore from '@material-ui/icons/ExpandMore';
@@ -30,6 +29,8 @@ import menuData from './Submenu/submenuData';
 
 import ButterflyImage from '../../../assets/images/icons/butterflyAppBar.png';
 import MetaWheelImage from '../../../assets/images/icons/metawheelAppBar.png';
+
+import { MenuIcon } from '../../ui/icons'
 
 // TODO: need to use props rather than constant array
 const menuEffect = {
@@ -188,7 +189,7 @@ class NavigationBar extends Component {
     return (
       <div className={classes.menuButtonContainer}>
         <IconButton className={classes.menuButton} onClick={this.toggleSidemenu('left', true)}>
-          <DragHandleIcon />
+          <MenuIcon className={classes.menuButtonIcon} />
         </IconButton>
         <Drawer open={this.state.left} onClose={this.toggleSidemenu('left', false)}>
           {this.sideList('left')}
@@ -222,7 +223,7 @@ class NavigationBar extends Component {
 
     return (
       <AppBar position="fixed" className={classes.fixBar} ref={this.headerRef}>
-        <Toolbar className={classes.toolbar} component="nav">
+        <Toolbar className={classes.toolbar} component="nav" variant="dense">
           <div className={classes.appBarContainer}>
             {this.renderMenuIcon()}
             <div className={classes.navContainer}>
