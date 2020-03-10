@@ -72,6 +72,9 @@ const styles = (theme) => ({
       fontSize: '1.5rem'
     }
   },
+  webTitle: {
+    color: 'white'
+  },
   main: {
     position: 'relative',
     height: '100%',
@@ -186,7 +189,7 @@ const styles = (theme) => ({
       left: '80%'
     },
     [theme.breakpoints.only('xs')]: {
-      top: '18%',
+      top: '16%',
       left: 'inherit',
       textAlign: 'center',
       width: '100%'
