@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles';
+import SectionArticleCard from './Sections/SectionArticleCard';
 
 const styles = (theme) => ({
   root: {
@@ -8,12 +9,12 @@ const styles = (theme) => ({
 });
 
 class Articles extends Component {
-  handleClick = (param) => {
-    console.log('this is:', param);
-  };
-
   render() {
-    return <React.Fragment></React.Fragment>;
+    return (
+      <React.Fragment>
+        <SectionArticleCard />
+      </React.Fragment>
+    );
   }
 }
 
