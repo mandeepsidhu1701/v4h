@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles';
 
 //import Background from '../../components/Background'
-import QuotesDetail from './Sections/QuotesDetailQuotesDetail';
+import QuotesDetail from './Sections/QuotesDetail';
 import QuotesMainPage from './Sections/QuotesMainPage';
 import QuotesMainExpandedPage from './Sections/QuotesMainExpandedPage';
 
@@ -66,7 +66,6 @@ class OneQuote extends Component {
         ) : (
           <QuotesMainPage goDetail={this.goDetail} goExpanded={this.goExpanded}></QuotesMainPage>
         )}
-        <div>footer</div>
       </div>
     );
   }

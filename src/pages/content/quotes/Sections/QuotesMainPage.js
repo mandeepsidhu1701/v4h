@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import Grid from '@material-ui/core/Grid';
 import {Typography} from '@material-ui/core';
-import ShadableCard from './Sections/ShadableCard';
-import {tableTitles, vitalityData, wisdomData, empowermentData, clarityData} from './Sections/quoteData';
+import ShadableCard from './ShadableCard';
+import {tableTitles, vitalityData, wisdomData, empowermentData, clarityData} from './quoteData';
 
 class Quotes extends Component {
   render() {

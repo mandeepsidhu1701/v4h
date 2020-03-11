@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 
-import Quotes from './Quotes';
+import QuotePage from './OneQuote';
 
 const mapStateToProps = (state) => {
   return {};
@@ -10,4 +10,4 @@ const mapDispatchToProps = (dispatch) => {
   return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Quotes);
+export default connect(mapStateToProps, mapDispatchToProps)(QuotePage);

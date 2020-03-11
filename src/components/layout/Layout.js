@@ -5,12 +5,13 @@ import Footer from '../layout/Footer/Footer';
 import {styles, theme} from './LayoutStyle';
 
 function Layout(props) {
+  const {classes} = props;
   return (
     <React.Fragment>
       <MuiThemeProvider theme={theme}>
         <main>
           <NavigationBar />
-          {props.children}
+          <div className={classes.contentContainer}>{props.children}</div>
         </main>
         <Footer className={styles.footer} />
       </MuiThemeProvider>

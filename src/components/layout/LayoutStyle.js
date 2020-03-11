@@ -39,6 +39,9 @@ const styles = {
   footer: {
     gridRowStart: '2',
     gridRowEnd: '3'
+  },
+  contentContainer: {
+    marginTop: '53px'
   }
 };
 
