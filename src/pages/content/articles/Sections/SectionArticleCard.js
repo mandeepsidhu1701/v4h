@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
-import CardBox from '../../../../components/ui/CardBox/CardBox';
-import articlesData from '../../../../data/articlesData';
+import CardBox from '@/components/ui/CardBox/CardBox';
+import articlesData from '@/data/articlesData';
 
 export default function SectionArticleCard() {
   const handleClick = (param) => {

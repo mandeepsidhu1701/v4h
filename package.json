@@ -30,8 +30,8 @@
     "typescript": "^3.5.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
@@ -51,6 +51,7 @@
     "enzyme-adapter-react-16": "^1.10.0",
     "enzyme-to-json": "^3.3.5",
     "jest": "^23.6.0",
+    "react-app-rewired": "^2.1.5",
     "redux-mock-store": "^1.5.3"
   },
   "jest": {
