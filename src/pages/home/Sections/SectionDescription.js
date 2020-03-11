@@ -3,7 +3,7 @@ import {withRouter, Link as RouterLink} from 'react-router-dom';
 import {withStyles, IconButton, Grid, Button} from '@material-ui/core';
 import PlayCircleOutline from '@material-ui/icons/PlayCircleOutline';
 
-import {Carousel, CarouselSlide} from '../../../components/baseComponents';
+import {Carousel, CarouselSlide} from '../../../components/ui/Carousel';
 import data from '../../../data/homeData';
 import styles from '../HomeStyles';
 
