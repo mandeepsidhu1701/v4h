@@ -5,6 +5,8 @@ import styles from './FooterStyle';
 import menuData from '../Header/Submenu/submenuData';
 import ScrollTop from '../../ui/ScrollTop/ScrollTop';
 
+import intl from 'react-intl-universal';
+
 class Footer extends Component {
   getMenu() {
     const {classes} = this.props;
@@ -16,13 +18,13 @@ class Footer extends Component {
             <li>
               {' '}
               <Link to="#" variant="body2" className={classes.footerTitle}>
-                {menuData[i].name}
+                {intl.get(menuData[i].name)}
               </Link>
             </li>
             {menuData[i].submenu.map((m, index) => (
               <li key={index}>
                 <Link to={m.link} variant="body2" className={classes.footerLink}>
-                  {m.title}
+                  {intl.get(m.title)}
                 </Link>
               </li>
             ))}

@@ -1,5 +1,7 @@
 import routes from '../../../../routes';
 
+import * as messageKeys from '@/locales';
+
 const globeLink = '/globe';
 const sanctuaryLink = '/sanctuary';
 
@@ -49,19 +51,19 @@ const introSubmenu = routes
 
 const menuData = [
   {
-    name: 'Intro',
+    name: messageKeys.HEADER_INTROL,
     submenu: introSubmenu
   },
   {
-    name: 'Content',
+    name: messageKeys.HEADER_CONTENT,
     submenu: contentSubmenu
   },
   {
-    name: 'Organize',
+    name: messageKeys.HEADER_ORGANIZE,
     submenu: organizeSubmenu
   },
   {
-    name: 'Network',
+    name: messageKeys.HEADER_NETWORK,
     submenu: networkSubmenu
   }
 ];

@@ -32,13 +32,8 @@ import MetaWheelImage from '../../../assets/images/icons/metawheelAppBar.png';
 
 import { MenuIcon } from '../../ui/icons'
 
-// TODO: need to use props rather than constant array
-const menuEffect = {
-  INTRO: 'DISCOVER',
-  CONTENT: 'SHIFT',
-  ORGANIZE: 'EVOLVE',
-  NETWORK: 'CREATE'
-};
+import intl from 'react-intl-universal';
+import * as messageKeys from '@/locales';
 
 class NavigationBar extends Component {
   constructor(props) {
@@ -201,7 +196,13 @@ class NavigationBar extends Component {
   renderHeaderLink(headerLinkName, submenu) {
     const {classes} = this.props;
     const {open, activatedMenuName} = this.state;
-
+    const menuEffect = {
+      INTRO: intl.get(messageKeys.HEADER_INTROL_SUB),
+      CONTENT: intl.get(messageKeys.HEADER_CONTENT_SUB),
+      ORGANIZE: intl.get(messageKeys.HEADER_ORGANIZE_SUB),
+      NETWORK: intl.get(messageKeys.HEADER_INTROL_SUB)
+    };
+    
     return (
       <div style={{position: 'relative', textAlign: 'center', margin: 'auto 2em'}}>
         <div>
@@ -228,13 +229,13 @@ class NavigationBar extends Component {
             {this.renderMenuIcon()}
             <div className={classes.navContainer}>
               <div className={classes.navLinkContainer}>
-                {this.renderHeaderLink('INTRO', menuData[0].submenu)}
-                {this.renderHeaderLink('CONTENT', menuData[1].submenu)}
+                {this.renderHeaderLink(intl.get(messageKeys.HEADER_INTROL), menuData[0].submenu)}
+                {this.renderHeaderLink(intl.get(messageKeys.HEADER_CONTENT), menuData[1].submenu)}
               </div>
               <WebTitle />
               <div className={classes.navLinkContainer}>
-                {this.renderHeaderLink('ORGANIZE', menuData[2].submenu)}
-                {this.renderHeaderLink('NETWORK', menuData[3].submenu)}
+                {this.renderHeaderLink(intl.get(messageKeys.HEADER_ORGANIZE), menuData[2].submenu)}
+                {this.renderHeaderLink(intl.get(messageKeys.HEADER_NETWORK), menuData[3].submenu)}
               </div>
             </div>
             <MenuContent

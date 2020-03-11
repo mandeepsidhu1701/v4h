@@ -17,6 +17,8 @@ import organizeIns from './assets/images/layout/submenu/organize-inspiration.png
 import organizeJoy from './assets/images/layout/submenu/organize-joy.png';
 import organizePros from './assets/images/layout/submenu/organize-prosperity.png';
 
+import * as messageKeys from '@/locales';
+
 const routes = [
   {
     path: '/',
@@ -33,28 +35,28 @@ const routes = [
   },
   {
     path: '/',
-    name: 'Home',
+    name: messageKeys.HEADER_INTROL_MENU_HOME,
     component: Home,
     menu: 'intro',
     image: introHome
   },
   {
     path: '/intro/compass',
-    name: 'Creation Compass',
+    name: messageKeys.HEADER_INTROL_MENU_COMPASS,
     component: null,
     menu: 'intro',
     image: introCopmpass
   },
   {
     path: '/intro/charter',
-    name: 'Charter',
+    name: messageKeys.HEADER_INTROL_MENU_CHARTER,
     component: null,
     menu: 'intro',
     image: introCharter
   },
   {
     path: '/intro/metamorphosis',
-    name: 'Metamorphosis',
+    name: messageKeys.HEADER_INTROL_MENU_META,
     component: null,
     menu: 'intro',
     image: introMeta
@@ -68,28 +70,28 @@ const routes = [
   },
   {
     path: '/content/quotes',
-    name: 'Quotes & Affirmations ',
+    name: messageKeys.HEADER_CONTENT_MENU_QUOTES,
     component: Quotes,
     menu: 'content',
     image: contentQuotes
   },
   {
     path: '/content/articles',
-    name: 'Articles',
+    name: messageKeys.HEADER_CONTENT_MENU_ARTICLES,
     component: Articles,
     menu: 'content',
     image: contentArticles
   },
   {
     path: '/content/videos',
-    name: 'Videos & Visualizations',
+    name: messageKeys.HEADER_CONTENT_MENU_VIDEOS,
     component: Videos,
     menu: 'content',
     image: contentVideos
   },
   {
     path: '/content/initiatives',
-    name: 'Sanctuary Initiatives',
+    name: messageKeys.HEADER_CONTENT_MENU_SANCTUARY,
     component: null,
     menu: 'content',
     image: contentInit
@@ -103,28 +105,28 @@ const routes = [
   },
   {
     path: '/organize/health',
-    name: 'Health',
+    name: messageKeys.HEADER_ORGANIZE_MENU_HEALTH,
     component: null,
     menu: 'organize',
     image: organizeHealth
   },
   {
     path: '/organize/prosperity',
-    name: 'Prosperity',
+    name: messageKeys.HEADER_ORGANIZE_MENU_PROSPERITY,
     component: null,
     menu: 'organize',
     image: organizePros
   },
   {
     path: '/organize/inspiration',
-    name: 'Inspiration',
+    name: messageKeys.HEADER_ORGANIZE_MENU_INSPAIRATION,
     component: null,
     menu: 'organize',
     image: organizeIns
   },
   {
     path: '/organize/joy',
-    name: 'Joy',
+    name: messageKeys.HEADER_ORGANIZE_MENU_JOY,
     component: null,
     menu: 'organize',
     image: organizeJoy
@@ -138,28 +140,28 @@ const routes = [
   },
   {
     path: '/network/contribute',
-    name: 'Contribute',
+    name: messageKeys.HEADER_NETWORK_MENU_CONTRIBUTE,
     component: null,
     menu: 'network',
     image: networkContribute
   },
   {
     path: '/network/sponsor',
-    name: 'Sponsor',
+    name: messageKeys.HEADER_NETWORK_MENU_SPONSOR,
     component: null,
     menu: 'network',
     image: networkSponsor
   },
   {
     path: '/network/disperse',
-    name: 'Disperse',
+    name: messageKeys.HEADER_NETWORK_MENU_DISPERSE,
     component: null,
     menu: 'network',
     image: networkDisperse
   },
   {
     path: '/profile',
-    name: 'Profile',
+    name: messageKeys.HEADER_NETWORK_MENU_PROFILE,
     component: null,
     menu: 'network',
     image: networkProfile

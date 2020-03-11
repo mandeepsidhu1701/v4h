@@ -5,6 +5,8 @@ import {withStyles, Popper, Fade, Grid, Card, CardMedia, CardContent, Typography
 import globeIcon from '../../../../assets/images/icons/globe-02.png';
 import sanctuaryIcon from '../../../../assets/images/icons/sanctuary-03.png';
 
+import intl from 'react-intl-universal';
+
 const styles = (theme) => ({
   popper: {
     [theme.breakpoints.down('sm')]: {
@@ -121,7 +123,7 @@ class MenuContent extends Component {
                         <CardContent className={classes.content}>
                           <Grid container>
                             <Grid item xs={size}>
-                              <Typography style={{cursor: 'pointer'}}>{menu.title}</Typography>
+                              <Typography style={{cursor: 'pointer'}}>{intl.get(menu.title)}</Typography>
                             </Grid>
                             {iconShow ? (
                               <Grid item xs={3}>
