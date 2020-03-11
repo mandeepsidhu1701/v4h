@@ -178,6 +178,16 @@ module.exports = {
 
 Set editor format tool to prettier
 
+#### Import statements
+
+When writing import statements, prefer to use alias `@` instead of relative paths, which is hard to write and not clear for review. Two different styles are listed below for comparison.
+```
+// Recommend
+import '@/components/ui/CardBox/CardBox'
+// Not recommend
+import '../../../../components/ui/CardBox/CardBox'
+```
+
 #### CSS Styles
 
 All CSS files are written in js styles.
