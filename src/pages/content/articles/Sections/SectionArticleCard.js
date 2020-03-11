@@ -1,13 +1,11 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Grid from '@material-ui/core/Grid';
-import {CardBox} from '../../../components/baseComponents';
-import articlesData from '../../../data/articlesData';
-
+import CardBox from '../../../../components/ui/CardBox/CardBox';
+import articlesData from '../../../../data/articlesData';
 
 export default function SectionArticleCard() {
-    return (
-        <div>
-            <Grid
+    return <Grid
                 container
                 direction="row"
                 justify="flex-start"
@@ -22,11 +20,9 @@ export default function SectionArticleCard() {
                             content={card.content}
                             topbtntext={card.topbtntext}
                             bottombtntext={card.bottombtntext}
-                            handleClick={this.handleClick}
+                            handleClick={() => {}}
                         />
                     </Grid>
                 ))}
             </Grid>
-        </div>
-    )
 }
