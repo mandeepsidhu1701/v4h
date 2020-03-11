@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Grid from '@material-ui/core/Grid';
 import CardBox from '@/components/ui/CardBox/CardBox';
 import articlesData from '@/data/articlesData';

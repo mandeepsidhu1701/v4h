@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles';
-import SectionArticleCard from './Sections/SectionArticleCard';
+import ArticleCard from './Sections/SectionArticleCard';
 
 const styles = (theme) => ({
   root: {
@@ -10,11 +10,7 @@ const styles = (theme) => ({
 
 class Articles extends Component {
   render() {
-    return (
-      <React.Fragment>
-        <SectionArticleCard />
-      </React.Fragment>
-    );
+    return <ArticleCard></ArticleCard>;
   }
 }
 

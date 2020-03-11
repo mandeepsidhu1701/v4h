@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {withStyles} from '@material-ui/core';
 import {Landing} from '../../components/layout/Landing';
 import styles from './HomeStyles';
+import SectionDescription from './Sections/SectionDescription'
 
 //TODO: what to do about spheres, correct size and position for small real-estate screens / mobile?
 
@@ -40,7 +41,9 @@ class Home extends React.Component {
             onAnimationEnd={this.onAnimationEnd}
           />
         ) : null}
-        {this.state.landingShow === true ? null : <div style={{background: 'rgba(0,0,0,0.2)', height: '200vh'}}></div>}
+        {this.state.landingShow === true ? 
+          null : 
+          <SectionDescription></SectionDescription>}
       </React.Fragment>
     );
   }
