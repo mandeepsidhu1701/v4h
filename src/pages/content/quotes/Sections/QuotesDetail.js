@@ -1,5 +1,8 @@
 import React , { Component } from 'react';
 import { Card, CardMedia, Typography, Grid } from '@material-ui/core';
+import ForwardArrow from '../../../../assets/images/icons/forwardArrow.svg';
+import BackArrow from '../../../../assets/images/icons/backArrow.svg';
+
 
 const style = {
   //width: '1920px',
@@ -17,7 +20,6 @@ const style = {
   backgroundRepeat : 'no-repeat',
   backgroundSize : '100% auto, cover',
   backgroundColor: 'rgba(255, 255, 255, 1)',
-
   // border : '0 0 0 5',
   // borderStyle : 'solid none none none',
   // borderColor : 'rgb(230, 230, 230)',
@@ -52,14 +54,14 @@ class QuotesDetail extends Component {
               <Grid item border={5} style={{borderStyle : 'solid none solid none', borderColor : 'rgb(230, 230, 230)', border : '4', display : 'flex', flexDirection : 'column', justifyContent : 'center'}}>
                 <Grid container direction="row" align='center' lineHeight="8">
                   <Grid item xs={4} style={{display : 'flex', flexDirection : 'column', justifyContent : 'center'}}>
-                    <img src='/images/back_arrow.svg'/>
+                    <img src={BackArrow}/>
                   </Grid>
                   <Grid item xs={4}>
                     <img src='/images/flipping_icon.jpg'/>
                     <div style={{color : "#66b3ff", fontWeight : '700'}}>Wisdom & Success</div>
                   </Grid>
                   <Grid item xs={4} style={{display : 'flex', flexDirection : 'column', justifyContent : 'center'}}>
-                    <img src='/images/forward_arrow_small.svg'/>
+                    <img src={ForwardArrow}/>
                   </Grid>
                 </Grid>
               </Grid>

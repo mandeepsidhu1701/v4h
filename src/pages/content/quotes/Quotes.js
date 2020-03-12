@@ -1,58 +1,75 @@
 import React, {Component} from 'react';
-import Grid from '@material-ui/core/Grid';
-import {Typography} from '@material-ui/core';
-import ShadableCard from './Sections/ShadableCard';
-import {tableTitles, vitalityData, wisdomData, empowermentData, clarityData} from './Sections/quoteData';
+import {withStyles} from '@material-ui/core/styles';
+
+import QuotesDetail from './Sections/QuotesDetail';
+import QuotesMain from './QuotesMain';
+import QuotesMainExpanded from './Sections/QuotesMainExpanded';
+
+const styles = (theme) => ({
+  root: {
+    flexGrow: 1
+  },
+
+  cardWrapper: {
+    display: 'inline-block',
+    position: 'relative',
+    cursor: 'pointer'
+  },
+
+  cardShader: {
+    position: 'absolute',
+    backgroundColor: 'rgba(0, 0, 255, 0.3)',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    display: 'block'
+  }
+});
+
+const style = {
+  //overflow: 'hidden',
+  //backgroundImage : 'url(/images/matt-hardy-562566-unsplash@2x.png)',
+  //backgroundPosition : 'center',
+  //backgroundRepeat : 'no-repeat',
+  backgroundSize: '100% auto, cover',
+  paddingTop : '88px',
+};
 
 class Quotes extends Component {
+  goDetail = (e) => {
+    this.setState({detailPage: true});
+  };
+
+  goExpanded = (e) => {
+    this.setState({expanded: true, detailPage: false});
+  };
+
+  constructor(props) {
+    super(props);
+    this.goDetail = this.goDetail.bind(this);
+    this.goExpanded = this.goExpanded.bind(this);
+    this.state = {
+      detailPage: false,
+      prodid: null,
+      expanded: false
+    };
+  }
+
   render() {
-    const rowNum = [1, 2, 3, 4, 5];
     return (
-      <>
-        {/** table header */}
-        <Grid container direction="row" justify="flex-start" style={{paddingLeft: 120, paddingRight: 120}}>
-          {tableTitles.map((item) => {
-            return (
-              <Grid item xs={3} style={{marginTop: 20, marginBottom: 20}} key={item}>
-                <Typography align="center" style={{color: '#ffffff'}}>
-                  {item}
-                </Typography>
-              </Grid>
-            );
-          })}
-          {/** pictures */}
-          {rowNum.map((item, rowNo) => {
-            let pics = [];
-            pics.push(
-              /** vitalityData */
-              <Grid item xs={3} key={vitalityData[rowNo].id}>
-                <ShadableCard item={vitalityData[rowNo]} goDetail={this.props.goDetail}></ShadableCard>
-              </Grid>
-            );
-            pics.push(
-              /** wisdomData */
-              <Grid item xs={3} key={wisdomData[rowNo].id}>
-                <ShadableCard item={wisdomData[rowNo]} goDetail={this.props.goDetail}></ShadableCard>
-              </Grid>
-            );
-            pics.push(
-              /** empowermentData */
-              <Grid item xs={3} key={empowermentData[rowNo].id}>
-                <ShadableCard item={empowermentData[rowNo]} goDetail={this.props.goDetail}></ShadableCard>
-              </Grid>
-            );
-            pics.push(
-              /** clarityData */
-              <Grid item xs={3} key={clarityData[rowNo].id}>
-                <ShadableCard item={clarityData[rowNo]} goDetail={this.props.goDetail}></ShadableCard>
-              </Grid>
-            );
-            return <>{pics}</>;
-          })}
-        </Grid>
-      </>
+      <div style={style}>
+        {this.state.detailPage ? (
+          <QuotesDetail prodid={this.state.prodid}></QuotesDetail>
+        ) : this.state.expanded ? (
+          <QuotesMainExpanded goDetail={this.goDetail} goExpanded={this.goExpanded}></QuotesMainExpanded>
+        ) : (
+          <QuotesMain goDetail={this.goDetail} goExpanded={this.goExpanded}></QuotesMain>
+        )}
+        <div>footer</div>
+      </div>
     );
   }
 }
 
-export default Quotes;
+export default withStyles(styles, {withTheme: true})(Quotes);
