@@ -149,7 +149,7 @@ class NavigationBar extends Component {
         <div key={i}>
           <ListItem button onClick={this.handleSideSubmenuOpen(i)}>
             {this.state.sideSubmenuOpen[i] ? <ExpandMore /> : <ChevronRightIcon />}
-            <ListItemText primary={menuData[i].name} className={classes.sideMainMenu} />
+            <ListItemText primary={intl.get(menuData[i].name)} className={classes.sideMainMenu} />
           </ListItem>
           <Collapse in={this.state.sideSubmenuOpen[i]} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
@@ -157,7 +157,7 @@ class NavigationBar extends Component {
                 <ListItem button key={m.title}>
                   <ListItemText>
                     <Link to={m.link} className={classes.sidemenuLink}>
-                      {m.title}
+                      {intl.get(m.title)}
                     </Link>
                   </ListItemText>
                 </ListItem>
