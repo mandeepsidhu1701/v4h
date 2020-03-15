@@ -248,7 +248,8 @@ const styles = (theme) => ({
     }
   },
   butterflyGreyIcon: {
-    width: '10%',
+    width: '73px',
+    height : '56px',
     [theme.breakpoints.only('sm')]: {
       width: '100%',
       margin: '2rem 0'
