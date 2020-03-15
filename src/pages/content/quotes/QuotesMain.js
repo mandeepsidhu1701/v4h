@@ -3,12 +3,15 @@ import Grid from '@material-ui/core/Grid';
 import {Typography} from '@material-ui/core';
 import ShadableCard from './Sections/ShadableCard';
 import {tableTitles, vitalityData, wisdomData, empowermentData, clarityData} from './Sections/quoteData';
+import NavBar from './NavBar';
 
 class QuotesMain extends Component {
   render() {
     const rowNum = [1, 2, 3, 4, 5];
     return (
       <>
+        {/** navigation bar */}
+        <NavBar goExpanded={this.props.goExpanded}/>
         {/** table header */}
         <Grid container direction="row" justify="flex-start" style={{paddingLeft: 120, paddingRight: 120}}>
           {tableTitles.map((item) => {
