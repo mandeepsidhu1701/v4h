@@ -4,6 +4,11 @@ import {withStyles, IconButton, Grid, Button} from '@material-ui/core';
 import PlayCircleOutline from '@material-ui/icons/PlayCircleOutline';
 
 import {Carousel, CarouselSlide} from '../../../components/ui/Carousel';
+import ButterflyLarge from '../../../assets/images/icons/butterflyLarge.png';
+import UrbanSanctuary from '../../../assets/images/icons/urbanSanctuary.png';
+import Planting from '../../../assets/images/content/landing/planting.png';
+import Group from '../../../assets/images/content/landing/group.png';
+import Metawheel from '../../../assets/images/content/landing/metawheel.png';
 import data from '../../../data/homeData';
 import styles from '../HomeStyles';
 
@@ -66,7 +71,7 @@ function SectionDescription(props) {
                   {/* TODO get butterfly image */}
                   <img
                     className={classes.butterflyGreyIcon}
-                    src="/images/home/square_wireframe.jpg"
+                    src={ButterflyLarge}
                     alt="Urban Sanctuary Logo"
                   />
                 </Grid>
@@ -111,13 +116,14 @@ function SectionDescription(props) {
                 </Grid>
               </Grid>
             </Grid>
+
           </Grid>
         </Grid>
-        {/* <Grid item xs={12} sm={12} md={6}>
+        <Grid item xs={12} sm={12} md={6}>
           <div className={classes.videoParentContainer}>
             <div className={classes.videoContainer}>
               <span className={`${classes.fontBase} ${classes.videoContainerTitle}`}>OUR VOLUNTEER BASED HCN TEAM</span>
-              <video ref="vidRef" className={classes.videoVolunteers} controls={playVideo}>
+              <video className={classes.videoVolunteers} controls poster={data.volunteerVideoPoster}>
                 <source src={data.volunteerVideoURL} type="video/mp4" />
                 Your browser does not support HTML5 video.
               </video>
@@ -133,7 +139,7 @@ function SectionDescription(props) {
               Larking. Watch this brief video to see out team (video of volunteers and me talking about HCN).
             </div>
           </div>
-        </Grid> */}
+        </Grid>
       </Grid>
       <Grid container className={classes.gridContainerPadding}>
         <Grid item xs={12} sm={12} md={9}>
@@ -147,7 +153,7 @@ function SectionDescription(props) {
               {/* TODO get correct image */}
               <img
                 className={classes.urbanSanctuaryImage}
-                src="/images/home/square_wireframe.jpg"
+                src={UrbanSanctuary}
                 alt="Urban Sanctuary Logo"
               />
             </Grid>
@@ -168,7 +174,7 @@ function SectionDescription(props) {
         <Grid item sm={1} md={5} />
         <Grid item xs={12} sm={10} md={6}>
           {/* TODO get correct image */}
-          <img className={classes.metawheelImage} src="/images/home/square_wireframe.jpg" alt="Metawheel Graphic" />
+          <img className={classes.metawheelImage} src={Metawheel} alt="Metawheel Graphic" />
           <div className={`${classes.fontBase} ${classes.metawheelTitle}`}>TAKE THE METAWHEEL JOURNEY</div>
           <div className={`${classes.fontBase} ${classes.metawheelText}`}>Sanctuary Human Advancement Architecture</div>
         </Grid>

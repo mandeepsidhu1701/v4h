@@ -228,7 +228,7 @@ export const SECOND_GENOME = 'second genome';
 ├── src/ --------------------------# main react project
 │ ├── _tests_ ---------------------# auto generate test cases file
 │ ├── assets ----------------------# static files
-│ │ ├── images --------------------# images
+│ │ ├── images --------------------# images  names are in camelcase starting with lower case
 │ │ ├── css -----------------------# other third-party css files,font
 │ │ └── js ------------------------# other third-party js files
 │ ├── components/ -----------------# components folder
