@@ -40,6 +40,29 @@ export const HEADER_NETWORK_MENU_SPONSOR = 'header_network_menu_sponsor';
 export const HEADER_NETWORK_MENU_DISPERSE = 'header_network_menu_disperse';
 export const HEADER_NETWORK_MENU_PROFILE = 'header_network_menu_profile';
 
+//SIGN UP FORM
+export const AUTH_SIGN_UP_FORM_NAME_LABEL = 'auth_sign_up_form_name_label';
+export const AUTH_SIGN_UP_FORM_NAME_TITLE = 'auth_sign_up_form_name_title';
+export const AUTH_SIGN_UP_FORM_NAME_PLACEHOLDER = 'auth_sign_up_form_name_placeholder';
+export const AUTH_SIGN_UP_FORM_PHONE_LABEL = 'auth_sign_up_form_phone_label';
+export const AUTH_SIGN_UP_FORM_PHONE_TITLE = 'auth_sign_up_form_phone_title';
+export const AUTH_SIGN_UP_FORM_PHONE_PLACEHOLDER = 'auth_sign_up_form_phone_placeholder';
+export const AUTH_SIGN_UP_FORM_EMAIL_LABEL = 'auth_sign_up_form_email_label';
+export const AUTH_SIGN_UP_FORM_EMAIL_TITLE = 'auth_sign_up_form_email_title';
+export const AUTH_SIGN_UP_FORM_EMAIL_PLACEHOLDER = 'auth_sign_up_form_email_placeholder';
+export const AUTH_SIGN_UP_FORM_PASSWORD_LABEL = 'auth_sign_up_form_password_label';
+export const AUTH_SIGN_UP_FORM_PASSWORD_TITLE = 'auth_sign_up_form_password_title';
+export const AUTH_SIGN_UP_FORM_PASSWORD_PLACEHOLDER = 'auth_sign_up_form_password_placeholder';
+export const AUTH_VERIFY_EXISTING_ACCOUNT = 'auth_verify_existing_account';
+export const AUTH_SIGN_UP_FORM_DONATE_BOX = 'auth_sign_up_form_donate_box';
+export const AUTH_SIGN_UP_FORM_PERMISSION_BOX = 'auth_sign_up_form_permission_box';
+export const AUTH_SIGN_UP_FORM_BUTTON = 'auth_sign_up_form_button';
+export const AUTH_SIGN_UP_FORM_ERROR_INVALID_PASSWORD = 'auth_sign_up_form_error_invalid_password';
+export const AUTH_SIGN_UP_FORM_ERROR_INVALID_PHONE_NUMBER='auth_sign_up_form_error_invalid_phone_number';
+export const AUTH_SIGN_UP_FORM_ERROR_INVALID_EMAIL_ADDRESS='auth_sign_up_form_error_invalid_email_address';
+export const AUTH_SIGN_UP_FORM_TEXT_HEADING='auth_sign_up_form_text_heading';
+export const AUTH_SIGN_UP_FORM_TEXT_CONTENT='auth_sign_up_form_text_content';
+export const AUTH_SIGN_UP_FORM_TEXT_PRIVACY='auth_sign_up_form_text_privacy';
 
 export const locales = {
   'en-US': require('./en-US'),
