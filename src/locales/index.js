@@ -58,11 +58,25 @@ export const AUTH_SIGN_UP_FORM_DONATE_BOX = 'auth_sign_up_form_donate_box';
 export const AUTH_SIGN_UP_FORM_PERMISSION_BOX = 'auth_sign_up_form_permission_box';
 export const AUTH_SIGN_UP_FORM_BUTTON = 'auth_sign_up_form_button';
 export const AUTH_SIGN_UP_FORM_ERROR_INVALID_PASSWORD = 'auth_sign_up_form_error_invalid_password';
-export const AUTH_SIGN_UP_FORM_ERROR_INVALID_PHONE_NUMBER='auth_sign_up_form_error_invalid_phone_number';
-export const AUTH_SIGN_UP_FORM_ERROR_INVALID_EMAIL_ADDRESS='auth_sign_up_form_error_invalid_email_address';
-export const AUTH_SIGN_UP_FORM_TEXT_HEADING='auth_sign_up_form_text_heading';
-export const AUTH_SIGN_UP_FORM_TEXT_CONTENT='auth_sign_up_form_text_content';
-export const AUTH_SIGN_UP_FORM_TEXT_PRIVACY='auth_sign_up_form_text_privacy';
+export const AUTH_SIGN_UP_FORM_ERROR_INVALID_PHONE_NUMBER = 'auth_sign_up_form_error_invalid_phone_number';
+export const AUTH_SIGN_UP_FORM_ERROR_INVALID_EMAIL_ADDRESS = 'auth_sign_up_form_error_invalid_email_address';
+export const AUTH_SIGN_UP_FORM_TEXT_HEADING = 'auth_sign_up_form_text_heading';
+export const AUTH_SIGN_UP_FORM_TEXT_CONTENT = 'auth_sign_up_form_text_content';
+export const AUTH_SIGN_UP_FORM_TEXT_PRIVACY = 'auth_sign_up_form_text_privacy';
+
+//VERIFY FORM
+export const AUTH_VERIFICATION_CODE_MESSAGE = 'auth_verification_code_message';
+export const AUTH_VERIFY_FORM_NAME_LABEL = 'auth_verify_form_name_label';
+export const AUTH_VERIFY_FORM_NAME_TITLE = 'auth_verify_form_name_title';
+export const AUTH_VERIFY_FORM_NAME_PLACEHOLDER = 'auth_verify_form_name_placeholder';
+export const AUTH_VERIFY_FORM_CODE_LABEL = 'auth_verify_form_code_label';
+export const AUTH_VERIFY_FORM_CODE_TITLE = 'auth_verify_form_code_title';
+export const AUTH_VERIFY_FORM_CODE_PLACEHOLDER = 'auth_verify_form_code_placeholder';
+export const AUTH_VERIFY_FORM_BUTTON = 'auth_verify_form_button';
+export const AUTH_VERIFY_FORM_ERROR_CODE_MISMATCH = 'auth_verify_form_error_code_mismatch';
+export const AUTH_VERIFY_FORM_ERROR_LIMIT_EXCEEDED = 'auth_verify_form_error_limit_exceeded';
+export const AUTH_VERIFY_FORM_ERROR_CONFIRMED = 'auth_verify_form_error_confirmed';
+export const AUTH_VERIFY_FORM_ERROR_USER_NOT_FOUND = 'auth_verify_form_error_user_not_found';
 
 export const locales = {
   'en-US': require('./en-US'),

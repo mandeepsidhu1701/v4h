@@ -16,6 +16,8 @@ import {
   SIGN_IN_PASSWORD_TITLE
 } from '../sign-in-constant';
 import {formStyles} from './SignInFormStyles';
+import intl from 'react-intl-universal';
+import * as messageKeys from '@/locales';
 
 class SignInForm extends Component {
   handleSignIn = (event) => {

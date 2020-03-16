@@ -1,18 +1,12 @@
 import React, {Component} from 'react';
 import {withStyles, Grid, FormGroup, InputLabel, TextField, Button} from '@material-ui/core';
 import {
-  IS_VERIFIED,
-  VERIFICATION_CODE_MESSAGE,
-  VERIFY_FORM_BUTTON,
-  VERIFY_FORM_CODE_LABEL,
-  VERIFY_FORM_CODE_PLACEHOLDER,
-  VERIFY_FORM_CODE_TITLE,
-  VERIFY_FORM_NAME_LABEL,
-  VERIFY_FORM_NAME_PLACEHOLDER,
-  VERIFY_FORM_NAME_TITLE
+  IS_VERIFIED
 } from '../sign-up-constant';
 import ErrorBar from '../../ui/ErrorBar';
 import {verifyFormStyles} from './Styles';
+import intl from 'react-intl-universal';
+import * as messageKeys from '@/locales';
 
 class VerifyForm extends Component {
   handleVerification = (event) => {
@@ -35,13 +29,13 @@ class VerifyForm extends Component {
       if (typeof error === 'string') {
         errorMessage = error;
       } else if (error.code === 'CodeMismatchException') {
-        errorMessage = 'The validation code provided was not correct. Please enter the correct code and try again';
+        errorMessage = intl.get(messageKeys.AUTH_VERIFY_FORM_ERROR_CODE_MISMATCH);
       } else if (error.code === 'LimitExceededException') {
-        errorMessage = 'Verification attempt limit exceeded. Please wait a few minutes and try again';
+        errorMessage = intl.get(messageKeys.AUTH_VERIFY_FORM_ERROR_LIMIT_EXCEEDED);
       } else if (error.message.includes('Current status is CONFIRMED')) {
-        errorMessage = 'This user has already been confirmed. Have you entered the correct username?';
+        errorMessage = intl.get(messageKeys.AUTH_VERIFY_FORM_ERROR_CONFIRMED);
       } else if (error.code === 'UserNotFoundException' || error.message.includes('User is disabled')) {
-        errorMessage = 'This user was not recognized. Have you entered the correct username?';
+        errorMessage = intl.get(messageKeys.AUTH_VERIFY_FORM_ERROR_USER_NOT_FOUND);
       } else {
         errorMessage = error.message;
       }
@@ -59,13 +53,13 @@ class VerifyForm extends Component {
             {errorMessage ? (
               <ErrorBar error={errorMessage} />
             ) : (
-              <p className={`${classes.signUpText} ${classes.textAlert}`}>{VERIFICATION_CODE_MESSAGE}</p>
+              <p className={`${classes.signUpText} ${classes.textAlert}`}>{intl.get(messageKeys.AUTH_VERIFICATION_CODE_MESSAGE)}</p>
             )}
           </Grid>
           <Grid container>
             <Grid item xs={12} sm={12} md={12} lg={6}>
               <FormGroup className={classes.inputGroup}>
-                <InputLabel className={classes.label}>{VERIFY_FORM_NAME_LABEL}</InputLabel>
+                <InputLabel className={classes.label}>{intl.get(messageKeys.AUTH_VERIFY_FORM_NAME_LABEL)}</InputLabel>
                 <TextField
                   id="username"
                   name="username"
@@ -75,8 +69,8 @@ class VerifyForm extends Component {
                   className={classes.input}
                   value={this.props.inputs.username}
                   onChange={this.props.handleFormInput}
-                  title={VERIFY_FORM_NAME_TITLE}
-                  placeholder={VERIFY_FORM_NAME_PLACEHOLDER}
+                  title={intl.get(messageKeys.AUTH_VERIFY_FORM_NAME_TITLE)}
+                  placeholder={intl.get(messageKeys.AUTH_VERIFY_FORM_NAME_PLACEHOLDER)}
                   inputProps={{
                     className: classes.inputBase
                   }}
@@ -86,7 +80,7 @@ class VerifyForm extends Component {
             </Grid>
             <Grid item xs={12} sm={12} md={12} lg={6}>
               <FormGroup className={classes.inputGroup}>
-                <InputLabel className={classes.label}>{VERIFY_FORM_CODE_LABEL}</InputLabel>
+                <InputLabel className={classes.label}>{intl.get(messageKeys.AUTH_VERIFY_FORM_CODE_LABEL)}</InputLabel>
                 <TextField
                   id="verify-code"
                   name="code"
@@ -96,8 +90,8 @@ class VerifyForm extends Component {
                   className={classes.input}
                   value={this.props.inputs.code}
                   onChange={this.props.handleFormInput}
-                  title={VERIFY_FORM_CODE_TITLE}
-                  placeholder={VERIFY_FORM_CODE_PLACEHOLDER}
+                  title={intl.get(messageKeys.AUTH_VERIFY_FORM_CODE_TITLE)}
+                  placeholder={intl.get(messageKeys.AUTH_VERIFY_FORM_CODE_PLACEHOLDER)}
                   inputProps={{
                     className: classes.inputBase
                   }}
@@ -109,28 +103,19 @@ class VerifyForm extends Component {
 
           <Grid item xs={12} sm={12} md={12} lg={12}>
             <section>
-              <p className={classes.signUpTextHeading}>become a vfh global citizen</p>
+              <p className={classes.signUpTextHeading}>{intl.get(messageKeys.AUTH_SIGN_UP_FORM_TEXT_HEADING)}</p>
               <p className={`${classes.signUpText} ${classes.textJustify}`}>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
-                rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
-                explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui
-                dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora
-                incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum
-                exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem
-                vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum
-                qui dolorem eum fugiat quo voluptas nulla pariatur?
+                {intl.get(messageKeys.AUTH_SIGN_UP_FORM_TEXT_CONTENT)}
               </p>
               <p className={`${classes.signUpText} ${classes.textJustify}`}>
-                <strong>Data Privacy Statement:</strong> In being a part of HCN your data is kept private and
-                confidential, bring used only for the purpose you signed up for.
+                {intl.getHTML(messageKeys.AUTH_SIGN_UP_FORM_TEXT_PRIVACY)}
               </p>
             </section>
           </Grid>
 
           <Grid item xs={12} sm={12} md={12} lg={12}>
             <Button type="submit" className={classes.submitButton}>
-              {VERIFY_FORM_BUTTON}
+              {intl.get(messageKeys.AUTH_VERIFY_FORM_BUTTON)}
             </Button>
           </Grid>
         </Grid>

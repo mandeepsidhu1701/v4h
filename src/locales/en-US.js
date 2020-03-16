@@ -63,5 +63,19 @@ module.exports = {
   exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem
   vel eum`,
   auth_sign_up_form_text_privacy: `<strong>Data Privacy Statement</strong>: In being a part of HCN your data is kept private and
-  confidential, being used only for the purpose you signed up for.`
+  confidential, being used only for the purpose you signed up for.`,
+  auth_verification_code_message:
+    'An verification code has been sent to the email you provided. Please enter the code below.',
+  auth_verify_form_name_label: 'Name',
+  auth_verify_form_name_title: 'This username must match the one you signed up with',
+  auth_verify_form_name_placeholder: 'Enter Name',
+  auth_verify_form_code_label: 'Verification Code',
+  auth_verify_form_code_title: 'The Verification code in the email you received',
+  auth_verify_form_code_placeholder: 'Enter Code',
+  auth_verify_form_button: 'VERIFY',
+  auth_verify_form_error_code_mismatch:
+    'The validation code provided was not correct. Please enter the correct code and try again',
+  auth_verify_form_error_limit_exceeded: 'Verification attempt limit exceeded. Please wait a few minutes and try again',
+  auth_verify_form_error_confirmed: 'This user has already been confirmed. Have you entered the correct username?',
+  auth_verify_form_error_user_not_found: 'This user was not recognized. Have you entered the correct username?'
 };
