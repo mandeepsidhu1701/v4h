@@ -77,5 +77,17 @@ module.exports = {
     'The validation code provided was not correct. Please enter the correct code and try again',
   auth_verify_form_error_limit_exceeded: 'Verification attempt limit exceeded. Please wait a few minutes and try again',
   auth_verify_form_error_confirmed: 'This user has already been confirmed. Have you entered the correct username?',
-  auth_verify_form_error_user_not_found: 'This user was not recognized. Have you entered the correct username?'
+  auth_verify_form_error_user_not_found: 'This user was not recognized. Have you entered the correct username?',
+  auth_signup_sidebar_health_heading: 'HEALTH',
+  auth_signup_sidebar_health_text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud`,
+  auth_signup_sidebar_prosperity_heading: 'PROSPERITY',
+  auth_signup_sidebar_prosperity_text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud`,
+  auth_signup_sidebar_inspiration_heading: 'INSPIRATION',
+  auth_signup_sidebar_inspiration_text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud`,
+  auth_signup_sidebar_joy_heading: 'JOY',
+  auth_signup_sidebar_joy_text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud`
 };

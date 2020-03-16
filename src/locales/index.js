@@ -78,6 +78,17 @@ export const AUTH_VERIFY_FORM_ERROR_LIMIT_EXCEEDED = 'auth_verify_form_error_lim
 export const AUTH_VERIFY_FORM_ERROR_CONFIRMED = 'auth_verify_form_error_confirmed';
 export const AUTH_VERIFY_FORM_ERROR_USER_NOT_FOUND = 'auth_verify_form_error_user_not_found';
 
+//SignUpSidebar
+
+export const AUTH_SIGNUP_SIDEBAR_HEALTH_HEADING = 'auth_signup_sidebar_health_heading';
+export const AUTH_SIGNUP_SIDEBAR_HEALTH_TEXT = 'auth_signup_sidebar_health_text';
+export const AUTH_SIGNUP_SIDEBAR_PROSPERITY_HEADING = 'auth_signup_sidebar_prosperity_heading';
+export const AUTH_SIGNUP_SIDEBAR_PROSPERITY_TEXT = 'auth_signup_sidebar_prosperity_text';
+export const AUTH_SIGNUP_SIDEBAR_INSPIRATION_HEADING = 'auth_signup_sidebar_inspiration_heading';
+export const AUTH_SIGNUP_SIDEBAR_INSPIRATION_TEXT = 'auth_signup_sidebar_inspiration_text';
+export const AUTH_SIGNUP_SIDEBAR_JOY_HEADING = 'auth_signup_sidebar_joy_heading';
+export const AUTH_SIGNUP_SIDEBAR_JOY_TEXT = 'auth_signup_sidebar_joy_text';
+
 export const locales = {
   'en-US': require('./en-US'),
   'de-DE': require('./de-DE')

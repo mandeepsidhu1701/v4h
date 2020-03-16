@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {withStyles, Grid} from '@material-ui/core';
 import {Sphere} from '../../../../ui';
 import {sideBarStyles} from './Styles';
+import intl from 'react-intl-universal';
+import * as messageKeys from '@/locales';
 
 class SignUpSidebar extends Component {
   render() {
@@ -10,10 +12,9 @@ class SignUpSidebar extends Component {
       <aside className={classes.signUpSidebarBase}>
         <Grid container className={classes.signUpSidebarSection}>
           <Grid item xs={12} sm={8}>
-            <p className={`${classes.signUpSidebarHeading} ${classes.textGreen}`}>HEALTH</p>
+            <p className={`${classes.signUpSidebarHeading} ${classes.textGreen}`}>{intl.get(messageKeys.AUTH_SIGNUP_SIDEBAR_HEALTH_HEADING)}</p>
             <p className={classes.signUpSidebarText}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              {intl.get(messageKeys.AUTH_SIGNUP_SIDEBAR_HEALTH_TEXT)}
             </p>
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -24,10 +25,9 @@ class SignUpSidebar extends Component {
         </Grid>
         <Grid container className={classes.signUpSidebarSection}>
           <Grid item xs={12} sm={8}>
-            <p className={`${classes.signUpSidebarHeading} ${classes.textBlue}`}>PROSPERITY</p>
+            <p className={`${classes.signUpSidebarHeading} ${classes.textBlue}`}>{intl.get(messageKeys.AUTH_SIGNUP_SIDEBAR_PROSPERITY_HEADING)}</p>
             <p className={classes.signUpSidebarText}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              {intl.get(messageKeys.AUTH_SIGNUP_SIDEBAR_PROSPERITY_TEXT)}
             </p>
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -38,10 +38,9 @@ class SignUpSidebar extends Component {
         </Grid>
         <Grid container className={classes.signUpSidebarSection}>
           <Grid item xs={12} sm={8}>
-            <p className={`${classes.signUpSidebarHeading} ${classes.textPink}`}>INSPIRATION</p>
+            <p className={`${classes.signUpSidebarHeading} ${classes.textPink}`}>{intl.get(messageKeys.AUTH_SIGNUP_SIDEBAR_INSPIRATION_HEADING)}</p>
             <p className={classes.signUpSidebarText}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              {intl.get(messageKeys.AUTH_SIGNUP_SIDEBAR_INSPIRATION_TEXT)}
             </p>
           </Grid>
           <Grid item xs={12} sm={4}>
@@ -52,10 +51,9 @@ class SignUpSidebar extends Component {
         </Grid>
         <Grid container className={classes.signUpSidebarSection}>
           <Grid item xs={12} sm={8}>
-            <p className={`${classes.signUpSidebarHeading} ${classes.textYellow}`}>JOY</p>
+            <p className={`${classes.signUpSidebarHeading} ${classes.textYellow}`}>{intl.get(messageKeys.AUTH_SIGNUP_SIDEBAR_JOY_HEADING)}</p>
             <p className={classes.signUpSidebarText}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              {intl.get(messageKeys.AUTH_SIGNUP_SIDEBAR_JOY_TEXT)}
             </p>
           </Grid>
           <Grid item xs={12} sm={4}>
