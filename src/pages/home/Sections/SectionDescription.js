@@ -12,6 +12,8 @@ import Metawheel from '../../../assets/images/content/landing/metawheel.png';
 import data from '../../../data/homeData';
 import styles from '../HomeStyles';
 
+import PageWrapper from './BackVideoWithAppBarWrapper';
+
 function SectionDescription(props) {
   const {classes} = props;
 
@@ -28,7 +30,11 @@ function SectionDescription(props) {
   });
 
   return (
-    <div style={{background: 'url(/images/matt-hardy-562566-unsplash@2x.png)'}}>
+    <div>
+      <PageWrapper 
+          source="https://media.istockphoto.com/videos/beautiful-water-surface-in-slow-motion-looped-animation-hd-1080-video-id473357245"
+          className={classes.overflowHidden}
+        >
       <Grid container className={classes.gridContainerPadding}>
         <Grid item xs={1} sm={2} md={3} />
         <Grid item xs={10} sm={8} md={6}>
@@ -180,6 +186,7 @@ function SectionDescription(props) {
         </Grid>
         <Grid item sm={1} md={1} />
       </Grid>
+      </PageWrapper>
     </div>
   );
 }
