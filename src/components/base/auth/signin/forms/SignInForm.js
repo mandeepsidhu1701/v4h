@@ -4,16 +4,7 @@ import {withStyles, FormGroup, InputLabel, TextField, Button, Checkbox, Grid} fr
 import CheckboxOutlineCheckedIcon from '../../ui/CheckboxOutlineCheckedIcon';
 import ErrorBar from '../../ui/ErrorBar';
 import {
-  CHECK_BOX_LABEL,
-  FORGOT_PASSWORD,
   IS_LOGGED_IN,
-  LOGIN_BUTTON,
-  SIGN_IN_EMAIL_LABEL,
-  SIGN_IN_EMAIL_PLACEHOLDER,
-  SIGN_IN_EMAIL_TITLE,
-  SIGN_IN_PASSWORD_LABEL,
-  SIGN_IN_PASSWORD_PLACEHOLDER,
-  SIGN_IN_PASSWORD_TITLE
 } from '../sign-in-constant';
 import {formStyles} from './SignInFormStyles';
 import intl from 'react-intl-universal';
@@ -41,11 +32,11 @@ class SignInForm extends Component {
       if (typeof error === 'string') {
         errorMessage = error;
       } else if (error.code === 'UserNotFoundException') {
-        errorMessage = 'Incorrect username or password.';
+        errorMessage = intl.get(messageKeys.AUTH_SIGN_IN_ERROR_USER_NOT_FOUND);
       } else if (error.message.includes('User is disabled')) {
-        errorMessage = 'The user has been disabled. Please contact the administrator if you believe this is in error.';
+        errorMessage = intl.get(messageKeys.AUTH_SIGN_IN_ERROR_USER_DISABLED);
       } else if (error.message === 'The username should either be a string or one of the sign in types') {
-        errorMessage = 'Incorrect username or password.';
+        errorMessage = intl.get(messageKeys.AUTH_SIGN_IN_ERROR_USER_PASSWORD_MISMATCH);
       } else {
         errorMessage = error.message;
       }
@@ -65,7 +56,7 @@ class SignInForm extends Component {
           ) : null}
           <Grid item xs={12} sm={12} md={6}>
             <FormGroup className={classes.loginInputGroup}>
-              <InputLabel className={classes.loginLabel}>{SIGN_IN_EMAIL_LABEL}</InputLabel>
+              <InputLabel className={classes.loginLabel}>{intl.get(messageKeys.AUTH_SIGN_IN_EMAIL_LABEL)}</InputLabel>
               <TextField
                 id="username"
                 name="username"
@@ -75,8 +66,8 @@ class SignInForm extends Component {
                 className={classes.loginInput}
                 value={this.props.username}
                 onChange={this.props.handleFormInput}
-                title={SIGN_IN_EMAIL_TITLE}
-                placeholder={SIGN_IN_EMAIL_PLACEHOLDER}
+                title={intl.get(messageKeys.AUTH_SIGN_IN_EMAIL_TITLE)}
+                placeholder={intl.get(messageKeys.AUTH_SIGN_IN_EMAIL_PLACEHOLDER)}
                 inputProps={{
                   className: classes.loginInputBase
                 }}
@@ -86,7 +77,7 @@ class SignInForm extends Component {
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
             <FormGroup className={classes.loginInputGroup}>
-              <InputLabel className={classes.loginLabel}>{SIGN_IN_PASSWORD_LABEL}</InputLabel>
+              <InputLabel className={classes.loginLabel}>{intl.get(messageKeys.AUTH_SIGN_IN_PASSWORD_LABEL)}</InputLabel>
               <TextField
                 id="password"
                 name="password"
@@ -96,8 +87,8 @@ class SignInForm extends Component {
                 variant="outlined"
                 className={classes.loginInput}
                 value={this.props.password}
-                title={SIGN_IN_PASSWORD_TITLE}
-                placeholder={SIGN_IN_PASSWORD_PLACEHOLDER}
+                title={intl.get(messageKeys.AUTH_SIGN_IN_PASSWORD_TITLE)}
+                placeholder={intl.get(messageKeys.AUTH_SIGN_IN_PASSWORD_PLACEHOLDER)}
                 onChange={this.props.handleFormInput}
                 required
                 inputProps={{
@@ -116,18 +107,18 @@ class SignInForm extends Component {
                 onChange={this.props.handleFormInput}
                 name="rememberme"
               />
-              <InputLabel className={classes.checkBoxLabel}>{CHECK_BOX_LABEL}</InputLabel>
+              <InputLabel className={classes.checkBoxLabel}>{intl.get(messageKeys.AUTH_SIGN_IN_CHECK_BOX_LABEL)}</InputLabel>
             </FormGroup>
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
             <RouterLink to="#" className={classes.loginLink}>
-              {FORGOT_PASSWORD}
+              {intl.get(messageKeys.AUTH_SIGN_IN_FORGOT_PASSWORD)}
             </RouterLink>
           </Grid>
 
           <Grid item xs={12} sm={12}>
             <Button type="submit" className={classes.loginButton}>
-              {LOGIN_BUTTON}
+              {intl.get(messageKeys.AUTH_SIGN_IN_LOGIN_BUTTON)}
             </Button>
           </Grid>
         </Grid>

@@ -89,6 +89,20 @@ export const AUTH_SIGNUP_SIDEBAR_INSPIRATION_TEXT = 'auth_signup_sidebar_inspira
 export const AUTH_SIGNUP_SIDEBAR_JOY_HEADING = 'auth_signup_sidebar_joy_heading';
 export const AUTH_SIGNUP_SIDEBAR_JOY_TEXT = 'auth_signup_sidebar_joy_text';
 
+//SIGN IN FORM
+export const AUTH_SIGN_IN_EMAIL_LABEL = 'auth_sign_in_email_label';
+export const AUTH_SIGN_IN_EMAIL_TITLE = 'auth_sign_in_email_title';
+export const AUTH_SIGN_IN_EMAIL_PLACEHOLDER = 'auth_sign_in_email_placeholder';
+export const AUTH_SIGN_IN_PASSWORD_LABEL = 'auth_sign_in_password_label';
+export const AUTH_SIGN_IN_PASSWORD_TITLE = 'auth_sign_in_password_title';
+export const AUTH_SIGN_IN_PASSWORD_PLACEHOLDER = 'auth_sign_in_password_placeholder';
+export const AUTH_SIGN_IN_CHECK_BOX_LABEL = 'auth_sign_in_check_box_label';
+export const AUTH_SIGN_IN_FORGOT_PASSWORD = 'auth_sign_in_forgot_password';
+export const AUTH_SIGN_IN_LOGIN_BUTTON = 'auth_sign_in_login_button';
+export const AUTH_SIGN_IN_ERROR_USER_NOT_FOUND = 'auth_sign_in_error_user_not_found';
+export const AUTH_SIGN_IN_ERROR_USER_PASSWORD_MISMATCH = 'auth_sign_in_error_user_password_mismatch';
+export const AUTH_SIGN_IN_ERROR_USER_DISABLED = 'auth_sign_in_error_user_disabled';
+
 export const locales = {
   'en-US': require('./en-US'),
   'de-DE': require('./de-DE')

@@ -89,5 +89,18 @@ module.exports = {
   dolore magna aliqua. Ut enim ad minim veniam, quis nostrud`,
   auth_signup_sidebar_joy_heading: 'JOY',
   auth_signup_sidebar_joy_text: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud`
+  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud`,
+  auth_sign_in_email_label: 'Email',
+  auth_sign_in_email_title: 'Please enter your username here.',
+  auth_sign_in_email_placeholder: 'Enter Email',
+  auth_sign_in_password_label: 'Password',
+  auth_sign_in_password_title:
+    'Must have lower case, upper case, numbers and special chars, and a minimum length of 12.',
+  auth_sign_in_password_placeholder: 'Enter Password',
+  auth_sign_in_check_box_label: 'Remember Me',
+  auth_sign_in_forgot_password: 'Forgot Password',
+  auth_sign_in_login_button: 'LOGIN',
+  auth_sign_in_error_user_not_found: 'Incorrect username or password.',
+  auth_sign_in_error_user_password_mismatch: 'Incorrect username or password.',
+  auth_sign_in_error_user_disabled: 'The user has been disabled. Please contact the administrator if you believe this is in error.'
 };
