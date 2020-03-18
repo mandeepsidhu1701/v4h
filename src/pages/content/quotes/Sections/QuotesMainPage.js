@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles';
 
-import QuotesDetail from './Sections/QuotesDetail';
-import QuotesMain from './QuotesMain';
-import QuotesMainExpanded from './Sections/QuotesMainExpanded';
+import QuotesDetail from './QuotesDetail';
+import QuotesMain from '../QuotesMain';
+import QuotesMainExpanded from './QuotesMainExpanded';
 
 const styles = (theme) => ({
   root: {

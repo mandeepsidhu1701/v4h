@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 
-import QuotePage from './OneQuote';
+import QuotePage from './Sections/QuotesMainPage';
 
 const mapStateToProps = (state) => {
   return {};
