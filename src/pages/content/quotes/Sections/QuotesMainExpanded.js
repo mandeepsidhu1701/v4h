@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import {Typography} from '@material-ui/core';
 
 import ShadableCard from './ShadableCard';
-import {tableTitles, vitalityData, wisdomData, empowermentData, clarityData} from './quoteData';
+import {tableTitles, vitalityData, wisdomData, empowermentData, clarityData} from '../../../../data/quoteData';
 
 class QuotesMainExpandedPage extends Component {
   render() {

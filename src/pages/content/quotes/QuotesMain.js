@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import Grid from '@material-ui/core/Grid';
 import {Typography} from '@material-ui/core';
 import ShadableCard from './Sections/ShadableCard';
-import {tableTitles, vitalityData, wisdomData, empowermentData, clarityData} from './Sections/quoteData';
+import styles from './QuoteStyles';
+
+import {tableTitles, vitalityData, wisdomData, empowermentData, clarityData} from '../../../data/quoteData';
 import NavBar from './NavBar';
 
 class QuotesMain extends Component {

@@ -9,22 +9,6 @@ const styles = (theme) => ({
   root: {
     flexGrow: 1
   },
-
-  cardWrapper: {
-    display: 'inline-block',
-    position: 'relative',
-    cursor: 'pointer'
-  },
-
-  cardShader: {
-    position: 'absolute',
-    backgroundColor: 'rgba(0, 0, 255, 0.3)',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    display: 'block'
-  }
 });
 
 const style = {
