@@ -3,11 +3,11 @@ import {withRouter, Link as RouterLink} from 'react-router-dom';
 import {withStyles, IconButton, Grid, Button} from '@material-ui/core';
 import PlayCircleOutline from '@material-ui/icons/PlayCircleOutline';
 
-import {Carousel, CarouselSlide} from '../../../components/ui/Carousel';
-import ButterflyLarge from '../../../assets/images/icons/butterflyLarge.png';
-import UrbanSanctuary from '../../../assets/images/icons/urbanSanctuary.png';
-import Metawheel from '../../../assets/images/content/landing/metawheel.png';
-import data from '../../../data/homeData';
+import {Carousel, CarouselSlide} from '@/components/ui/Carousel';
+import ButterflyLarge from '@/assets/images/icons/butterflyLarge.png';
+import UrbanSanctuary from '@/assets/images/icons/urbanSanctuary.png';
+import Metawheel from '@/assets/images/content/landing/metawheel.png';
+import data from '@/data/homeData';
 import styles from '../HomeStyles';
 
 import PageWrapper from './BackVideoWithAppBarWrapper';
@@ -85,11 +85,11 @@ function SectionDescription(props) {
             <Grid item xs={12} sm={12} md={12}>
               <Grid container direction="column" className={classes.metamorphicMediaContainer}>
                 <Grid item>
-  <div className={`${classes.fontBase} ${classes.metamorphicMediaTitle}`}>{data.text.metamorphicTitle}</div>
+                  <div className={`${classes.fontBase} ${classes.metamorphicMediaTitle}`}>{data.text.metamorphicTitle}</div>
                 </Grid>
                 <Grid item>
                   <div className={`${classes.fontBase} ${classes.metamorphicMediaText}`}>
-                    {data.text.metamorphicMediaText}
+                    {data.text.metamorphicText}
                   </div>
                 </Grid>
                 <Grid item>
