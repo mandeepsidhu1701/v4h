@@ -11,7 +11,7 @@ const styles = (theme) => ({
     border: 'solid 2px rgba(205,164,96, 1)',
     fontWeight: 700,
     marginBottom: '4rem',
-    fontSize: '0.5rem',
+    fontSize: '12px',
     backgroundColor: 'rgba(255,255,255,0.25)',
     padding: '0.25rem 1.25rem'
   },
@@ -251,11 +251,9 @@ const styles = (theme) => ({
     width: '73px',
     height : '56px',
     [theme.breakpoints.only('sm')]: {
-      width: '100%',
       margin: '2rem 0'
     },
     [theme.breakpoints.only('xs')]: {
-      width: '100%',
       margin: '2rem 0'
     }
   },
