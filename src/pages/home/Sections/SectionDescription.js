@@ -39,13 +39,13 @@ function SectionDescription(props) {
           <p className={classes.inspireQuote}>
             {data.text.inspireQuote}
           </p>
-  <p className={classes.inspireQuoteCitation}>{data.text.inspireQuoteAuther}</p>
+          <p className={classes.inspireQuoteCitation}>{data.text.inspireQuoteAuther}</p>
         </Grid>
         <Grid item xs={1} sm={2} md={3} />
       </Grid>
       <Grid container className={classes.gridContainerPadding}>
         <Grid item xs={12} sm={12} md={4}>
-          <p className={`${classes.paragraphTextSmall} ${classes.siteDescriptionContainer}`}>
+          <p className={`${classes.fontBase} ${classes.paragraphTextSmall} ${classes.siteDescriptionContainer}`}>
             {data.text.siteDescription}
           </p>
           <p className={classes.paragraphTextSmall}>

@@ -1,7 +1,7 @@
 const styles = (theme) => ({
   /** general */
   fontBase: {
-    fontFamily: 'Roboto',
+    fontFamily: 'Calibri',
     color: 'white',
     letterSpacing: '2px',
     lineHeight: 1.5,
@@ -56,7 +56,6 @@ const styles = (theme) => ({
     left: '50%',
     zIndex: 93,
     textAlign: 'center',
-    fontFamily: 'Roboto',
     fontSize: '1.75rem',
     color: 'rgba(29,80,95,1)',
     opacity: '0.35',
@@ -77,7 +76,6 @@ const styles = (theme) => ({
     left: '66%',
     zIndex: 91,
     textAlign: 'center',
-    fontFamily: 'Roboto',
     fontSize: '2.625rem',
     fontWeight: '900',
     color: 'white',
@@ -201,7 +199,7 @@ const styles = (theme) => ({
     }
   },
   inspireQuote: {
-    fontFamily: 'Roboto',
+    fontFamily: 'Bahnschrift',
     fontSize: '2.75rem',
     fontWeight: 600,
     color: 'white',
@@ -221,7 +219,6 @@ const styles = (theme) => ({
   },
   inspireQuoteCitation: {
     color: 'white',
-    fontFamily: 'Roboto',
     fontWeight: 100,
     opacity: 0.75,
     textAlign: 'right',
@@ -234,9 +231,8 @@ const styles = (theme) => ({
     textAlign: 'left',
     transform: 'scale(1, 0.95)',
     lineHeight: 1.5,
-    fontFamily: 'Roboto',
-    fontSize: '0.88rem',
-    fontWeight: 500
+    fontSize: '16px',
+    fontWeight: 'normal'
   },
   siteDescriptionContainer: {
     marginTop: '18rem',
@@ -345,7 +341,7 @@ const styles = (theme) => ({
   },
   videoCaption: {
     padding: '1.5rem 3rem',
-    fontSize: '0.625rem',
+    fontSize: '16px',
     border: '1px solid white',
     textAlign: 'center',
     [theme.breakpoints.only('sm')]: {
