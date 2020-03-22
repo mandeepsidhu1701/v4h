@@ -267,14 +267,14 @@ const styles = (theme) => ({
     }
   },
   aboutUsTitle: {
-    color: 'black',
+    color: 'white',
     fontWeight: 700,
     fontSize: '1.125rem',
     paddingBottom: '4rem',
     letterSpacing: '3px'
   },
   aboutUsText: {
-    color: 'black',
+    color: 'white',
     fontSize: '0.75rem',
     lineHeight: 2
   },
