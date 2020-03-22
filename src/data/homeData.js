@@ -1,6 +1,6 @@
-import Planting from '../assets/images/content/landing/planting.png';
-import Group from '../assets/images/content/landing/group.png';
-import isVideo from '../assets/videos/is.mp4'
+import Planting from '@/assets/images/content/landing/planting.png';
+import Group from '@/assets/images/content/landing/group.png';
+import isVideo from '@/assets/videos/is.mp4'
 
 const dummyText =
   'Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum Lorum Ipsum';
