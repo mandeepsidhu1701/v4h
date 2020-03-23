@@ -47,9 +47,25 @@ const styles = (theme) => ({
       display: 'none'
     }
   },
+  navHeaderLink: {
+    position: 'relative', 
+    textAlign: 'center', 
+    margin: 'auto 2em',
+    [theme.breakpoints.down('md')]: {
+      margin: 'auto 1em'
+    },
+    [`@media (max-width: 1050px)`]: {
+      margin: 'auto 0.4em'
+    }
+  },
   navLink: {
-    ...theme.typography.button,
-    fontWeight: 'bold'
+    margin: '0 8px',
+    padding: '0.25rem',
+    fontSize: '1rem',
+    lineHeight: '1.75',
+    letterSpacing: '3px',
+    fontWeight: 'bold',
+    textTransform: 'uppercase'
   },
   navHover: {
     opacity: '0.11',

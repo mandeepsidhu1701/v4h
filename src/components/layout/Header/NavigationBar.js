@@ -204,7 +204,7 @@ class NavigationBar extends Component {
     };
     
     return (
-      <div style={{position: 'relative', textAlign: 'center', margin: 'auto 2em'}}>
+      <div className={classes.navHeaderLink}>
         <div>
           <Button className={classes.navLink} onClick={this.handleClick(submenu, headerLinkName)}>
             {headerLinkName}

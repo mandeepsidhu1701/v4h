@@ -4,7 +4,7 @@ const defaultTheme = createMuiTheme();
 
 const defaults = {
   navigationBar: {
-    width: 800
+    width: 960
   }
 };
 
