@@ -26,9 +26,7 @@ import MenuContent from './Submenu/MenuContent';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 import menuData from './Submenu/submenuData';
-
-import ButterflyImage from '../../../assets/images/icons/butterflyAppBar.png';
-import MetaWheelImage from '../../../assets/images/icons/metawheelAppBar.png';
+import UserInfoIconButtons from './UserInfoIconButtons/UserInfoIconButtons';
 
 import { MenuIcon } from '../../ui/icons'
 
@@ -251,14 +249,7 @@ class NavigationBar extends Component {
                 display: this.state.open ? 'block' : 'none'
               }}
             />
-            <div className={classes.iconButtonContainer}>
-              <IconButton className={classes.metaButton} color="inherit" aria-label="MetaWheel" size={'medium'}>
-                <Avatar alt="MetaWheel" src={MetaWheelImage} className={classes.metaIcon} />
-              </IconButton>
-              <IconButton className={classes.butterflyButton} color="inherit" aria-label="Butterfly" size={'medium'}>
-                <Avatar alt="Butterfly" src={ButterflyImage} className={classes.butterflyIcon} />
-              </IconButton>
-            </div>
+            <UserInfoIconButtons />
           </div>
         </Toolbar>
       </AppBar>
