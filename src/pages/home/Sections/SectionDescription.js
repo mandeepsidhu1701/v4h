@@ -4,6 +4,8 @@ import {withStyles, IconButton, Grid, Button} from '@material-ui/core';
 import PlayCircleOutline from '@material-ui/icons/PlayCircleOutline';
 
 import {Carousel, CarouselSlide} from '@/components/ui/Carousel';
+import {Carousel as CarouselNew} from '@/components/ui/CarouselNew';
+
 import ButterflyLarge from '@/assets/images/icons/butterflyLarge.png';
 import UrbanSanctuary from '@/assets/images/icons/urbanSanctuary.png';
 import Metawheel from '@/assets/images/content/landing/metawheel.png';
@@ -107,13 +109,12 @@ function SectionDescription(props) {
                 </Grid>
               </Grid>
             </Grid>
-
           </Grid>
         </Grid>
         <Grid item xs={12} sm={12} md={6}>
           <div className={classes.videoParentContainer}>
             <div className={classes.videoContainer}>
-  <span className={`${classes.fontBase} ${classes.videoContainerTitle}`}>{data.text.videoTitle}</span>
+              <span className={`${classes.fontBase} ${classes.videoContainerTitle}`}>{data.text.videoTitle}</span>
               <video className={classes.videoVolunteers} controls poster={data.volunteerVideoPoster}>
                 <source src={data.volunteerVideoURL} type="video/mp4" />
                 Your browser does not support HTML5 video.
@@ -133,9 +134,7 @@ function SectionDescription(props) {
       </Grid>
       <Grid container className={classes.gridContainerPadding}>
         <Grid item xs={12} sm={12} md={9}>
-          <Carousel direction="right" titlePosition="bottom" speed={8000}>
-            {slides}
-          </Carousel>
+          <CarouselNew></CarouselNew>
         </Grid>
         <Grid item xs={12} sm={12} md={2}>
           <Grid container direction="column" className={classes.urbanSanctuaryContainer}>
@@ -159,14 +158,13 @@ function SectionDescription(props) {
         </Grid>
         <Grid item md={1} />
       </Grid>
-
       <Grid container className={`${classes.gridContainerPadding} ${classes.metawheelContainer}`}>
         <Grid item sm={1} md={5} />
         <Grid item xs={12} sm={10} md={6}>
           {/* TODO get correct image */}
           <img className={classes.metawheelImage} src={Metawheel} alt="Metawheel Graphic" />
-  <div className={`${classes.fontBase} ${classes.metawheelTitle}`}>{data.text.metawheelTitle}</div>
-  <div className={`${classes.fontBase} ${classes.metawheelText}`}>{data.text.metawheelText}</div>
+          <div className={`${classes.fontBase} ${classes.metawheelTitle}`}>{data.text.metawheelTitle}</div>
+          <div className={`${classes.fontBase} ${classes.metawheelText}`}>{data.text.metawheelText}</div>
         </Grid>
         <Grid item sm={1} md={1} />
       </Grid>
