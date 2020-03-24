@@ -1,12 +1,15 @@
 const styles = (theme) => ({
   iconButtonContainer: {
-    marginRight: '2%',
+    marginRight: '35px',
     padding: '0 5px',
     marginTop: 5,
     marginBottom: 5,
     border: '1px solid #BBBBBB',
     borderRadius: 36,
-    display: 'flex'
+    display: 'flex',
+    [`@media (max-width:${theme.navigationBar.width}px)`]: {
+      marginRight: '10px'
+    }
   },
   metaButton: {
     marginRight: 4,

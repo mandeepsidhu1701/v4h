@@ -11,6 +11,7 @@
     "connected-react-router": "^6.4.0",
     "firebase-tools": "^6.3.1",
     "history": "^4.9.0",
+    "material-ui-popup-state": "^1.5.3",
     "prettier": "^1.19.1",
     "pure-react-carousel": "^1.21.1",
     "react": "^16.8.0",
