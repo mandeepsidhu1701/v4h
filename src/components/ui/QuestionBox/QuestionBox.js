@@ -23,7 +23,25 @@ const useStyles = (textColor) =>
     },
     listAnswer: {
       color: '#fff',
-      marginBottom: '1em'
+      marginBottom: '1.5em'
+    },
+    viewBtn: {
+      margin: '2em auto',
+      width: '100px',
+      height: '28px',
+      border: 'solid 2px #d2a75f',
+      fontSize: '0.8em',
+      lineHeight: '2.2',
+      textAlign: 'center',
+      letterSpacing: '1.5px',
+      '&:hover': {
+        backgroundColor: '#d2a75f'
+      }
+    },
+    linkStyle: {
+      textDecoration: 'none',
+      color: 'white',
+      fontWeight: 'bold'
     }
   });
 
@@ -42,7 +60,11 @@ function QuestionBox(props) {
         <div className={classes.listQuestions}>{props.questions[0]}</div>
         <div className={classes.listAnswer}>{props.questions[1]}</div>
       </div>
-      <div>VIEW MORE</div>
+      <div className={classes.viewBtn}>
+        <a href="#" className={classes.linkStyle}>
+          VIEW MORE
+        </a>
+      </div>
     </div>
   );
 }

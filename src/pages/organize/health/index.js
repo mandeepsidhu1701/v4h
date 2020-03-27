@@ -16,12 +16,13 @@ function Health({classes}) {
   const articleContent =
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus scelerisque luctus nibh ornare ultricies. Sed consequat commodo urna, eu pellentesque enim luctus quis. Suspendisse arcu elit, ullamcorper non mauris et, hendrerit consectetur sem. Aenean ac pretium turpis. Pellentesque vitae justo luctus, sodales enim a, suscipit libero. Sed consequat euismod convallis.  Donec auctor augue id ipsum dictum, vitae euismod……..';
 
+  const themeColor = '#52ac0a';
   return (
     <div className={classes.backgroundWrapper}>
       <div className={classes.content}>
         <Container maxWidth="lg">
           <SectionHeading title={title} description={description}></SectionHeading>{' '}
-          <SectionContent questions={questions} articleContent={articleContent} />
+          <SectionContent questions={questions} articleContent={articleContent} textColor={themeColor} />
         </Container>
       </div>
     </div>

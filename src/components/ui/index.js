@@ -6,5 +6,17 @@ import WebTitle from './WebTitle';
 import ScrollLink from './ScrollLink/ScrollLink';
 import QuestionBox from './QuestionBox/QuestionBox';
 import OrganizeArticleBox from './OrganizeArticleBox/OrganizeArticleBox';
+import SuspendisBox from './SuspendisBox/SuspendisBox';
 
-export {Sphere, AnimatedText, CardBox, Carousel, CarouselSlide, WebTitle, ScrollLink, QuestionBox, OrganizeArticleBox};
+export {
+  Sphere,
+  AnimatedText,
+  CardBox,
+  Carousel,
+  CarouselSlide,
+  WebTitle,
+  ScrollLink,
+  QuestionBox,
+  OrganizeArticleBox,
+  SuspendisBox
+};
