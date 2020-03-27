@@ -9,13 +9,22 @@ const useStyles = (textColor) =>
     avatar: {
       width: '100px',
       height: '100px',
-      margin: '20px auto'
+      margin: '20px auto',
+      [`@media (max-width:768px)`]: {
+        width: '60px',
+        height: '60px',
+        margin: '10px auto'
+      }
     },
     questionBox: {
       fontSize: '0.9em',
       fontWeight: 'normal',
       letterSpacing: '2px',
-      lineHeight: '1.5'
+      lineHeight: '1.5',
+      [`@media (max-width:768px)`]: {
+        fontSize: '0.75em',
+        lineHeight: '1.2'
+      }
     },
     listQuestions: {
       color: textColor,

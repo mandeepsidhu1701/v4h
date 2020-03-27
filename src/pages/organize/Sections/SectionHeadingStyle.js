@@ -35,16 +35,20 @@ const styles = (theme) => ({
     display: 'inline-block',
     verticalAlign: 'middle',
     marginRight: '1em',
-    marginLeft: '1em',
-    [theme.breakpoints.only('xs')]: {}
+    marginLeft: '1em'
   },
   contentDescription: {
     width: '100%',
-    fontWeight: '1.1em',
+    fontSize: '1.1em',
     color: 'white',
     margin: '20px auto 6%',
     lineHeight: '1.6',
-    letterSpacing: '2px'
+    letterSpacing: '2px',
+    [theme.breakpoints.only('xs')]: {
+      fontSize: '0.8em',
+      lineHeight: '1.5',
+      letterSpacing: '2px'
+    }
   }
 });
 export default styles;

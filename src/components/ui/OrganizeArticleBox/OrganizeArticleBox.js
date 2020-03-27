@@ -1,6 +1,7 @@
 import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import {Typography} from '@material-ui/core';
+import {useTheme} from '@material-ui/core/styles';
 
 const useStyles = (bgImage) =>
   makeStyles({
@@ -14,7 +15,11 @@ const useStyles = (bgImage) =>
     },
     textContent: {
       float: 'right',
-      width: '35%'
+      width: '35%',
+      [`@media (max-width:768px)`]: {
+        float: 'none',
+        width: '100%'
+      }
     },
     heading: {
       fontWeight: 'bold',
