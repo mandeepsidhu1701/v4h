@@ -4,5 +4,7 @@ import CardBox from './CardBox/CardBox';
 import {Carousel, CarouselSlide} from './Carousel';
 import WebTitle from './WebTitle';
 import ScrollLink from './ScrollLink/ScrollLink';
+import QuestionBox from './QuestionBox/QuestionBox';
+import OrganizeArticleBox from './OrganizeArticleBox/OrganizeArticleBox';
 
-export {Sphere, AnimatedText, CardBox, Carousel, CarouselSlide, WebTitle, ScrollLink};
+export {Sphere, AnimatedText, CardBox, Carousel, CarouselSlide, WebTitle, ScrollLink, QuestionBox, OrganizeArticleBox};

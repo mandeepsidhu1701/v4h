@@ -1,4 +1,4 @@
-import {Home, Articles, Quotes, Videos} from './pages';
+import {Home, Articles, Quotes, Videos, Health} from './pages';
 
 import introHome from './assets/images/layout/submenu/intro-home.png';
 import introCopmpass from './assets/images/layout/submenu/intro-compass.png';
@@ -106,7 +106,7 @@ const routes = [
   {
     path: '/organize/health',
     name: messageKeys.HEADER_ORGANIZE_MENU_HEALTH,
-    component: null,
+    component: Health,
     menu: 'organize',
     image: organizeHealth
   },
