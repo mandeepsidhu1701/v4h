@@ -1,7 +1,7 @@
 import React from 'react';
-import {withRouter} from 'react-router-dom';
-import {withStyles} from '@material-ui/core';
-import styles from './CarouselStyles';
+//import {withRouter} from 'react-router-dom';
+//import {withStyles} from '@material-ui/core';
+//import styles from './CarouselStyles';
 import {CSSTransition as ReactCSSTransitionGroup} from 'react-transition-group';
 
 import './Carousel.css'
@@ -11,12 +11,13 @@ class Carousel extends React.Component {
     super(props);
     this.state = { 
       items: [
-        '@/assets/images/content/landing/planting.png', 
+        'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/HA1RQCRQJ7.jpg', 
         'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/EVHXF4MUT6.jpg', 
         'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/D7VE3SK3RD.jpg', 
         'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/0XRFUE80AZ.jpg', 
         'https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/2DQJJ9RLVD.jpg'
         ], 
+      text:['VISION','MISSION','CHARTER','CREATION','METAWHEEL','INITIATIVES'],
       current: 0, 
       isNext: true,
     };
@@ -46,7 +47,7 @@ class Carousel extends React.Component {
     let index = this.state.current,
         length = this.state.items.length - 1;
     
-    if( index == length ) {
+    if( index === length ) {
       index = -1;
     }
     
@@ -82,16 +83,20 @@ class Carousel extends React.Component {
           }}
            >
              <div className="carousel_slide" key={index}>
-               <img src={src}/>
+               <img src={src} alt="slide"/>
              </div>
            </ReactCSSTransitionGroup>
            <button className="carousel_control carousel_control__prev" onClick={this.handlerPrev}><span></span></button>
            <button className="carousel_control carousel_control__next" onClick={this.handlerNext}><span></span></button>
            <div className="carousel_history">
+             <div className="carousel_desc">
+               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nesciunt officia fuga officiis omnis optio magnam numquam consequuntur. Voluptas ullam quaerat minus atque blanditiis vel nihil quo! Quod, ex omnis?</p>
+             </div>
             <History 
               current={this.state.current} 
               items={this.state.items}
               changeSilde={this.goToHistoryClick}
+              text={this.state.text}
             />
            </div>
         </div>
@@ -100,31 +105,30 @@ class Carousel extends React.Component {
 }
 
 class History extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     
     render() {
         let current = this.props.current;
         let items = this.props.items.map( (el, index) => {
-            let name = (index == current) ? 'active' : '';
+            let name = (index === current) ? 'active' : '';
             return (
                 <li key={index}>
                     <button 
                         className={name} 
                         onClick={ () => this.props.changeSilde(current, index) }
                     ></button>
+                    <div onClick={ () => this.props.changeSilde(current, index) }>{this.props.text[index]}</div>
                 </li>
             )
         });
     
         return (
-            <div>
-                <ul>{items}</ul>
-                <hr style={{border: '1px solid #d2a75f',marginTop:"-4px"}}/>
-            </div>
+        <React.Fragment>
+          <ul>{items}</ul>
+          <hr/>
+         </React.Fragment>
         )
     }
 }
 
-export default withRouter(withStyles(styles)(Carousel));
+export default Carousel;
+//export default withRouter(withStyles(styles)(Carousel));

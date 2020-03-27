@@ -3,7 +3,7 @@ import {withRouter, Link as RouterLink} from 'react-router-dom';
 import {withStyles, IconButton, Grid, Button} from '@material-ui/core';
 import PlayCircleOutline from '@material-ui/icons/PlayCircleOutline';
 
-import {Carousel, CarouselSlide} from '@/components/ui/Carousel';
+//import {Carousel, CarouselSlide} from '@/components/ui/Carousel';
 import {Carousel as CarouselNew} from '@/components/ui/CarouselNew';
 
 import ButterflyLarge from '@/assets/images/icons/butterflyLarge.png';
@@ -23,11 +23,13 @@ function SectionDescription(props) {
     setPlayVideo(true);
   };
 
+  /**
   const slides = data.corePrincipals.map((principle, i) => {
     return (
       <CarouselSlide key={principle.name} imageURL={principle.image} title={principle.name} text={principle.text} />
     );
   });
+ */
 
   return (
     <div>
