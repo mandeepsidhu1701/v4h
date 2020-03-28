@@ -50,20 +50,28 @@ const styles = (theme) => ({
     fontWeight: 'bold',
     letterSpacing: '2vw',
     color: 'white',
-    marginTop: '2vh'
+    marginTop: '2vh',
+    textTransform: 'uppercase'
   },
 
   linkContainer: {
-    width: 'calc(30vw + 240px)',
+    width: 'calc(25vw + 240px)',
     height: '59px',
     borderRadius: '30px',
     backgroundColor: 'rgb(12, 44, 23)',
-    paddingLeft: '20px',
+    paddingLeft: '1em',
+    paddingRight: '1em',
+    display: 'flex',
+    justifyContent: 'space-between',
     [theme.breakpoints.only('xs')]: {
-      width: '60%'
+      width: '60%',
+      display: 'block',
+      textAlign: 'center'
     },
     [theme.breakpoints.only('sm')]: {
-      width: '60%'
+      width: '60%',
+      display: 'block',
+      textAlign: 'center'
     }
   },
 

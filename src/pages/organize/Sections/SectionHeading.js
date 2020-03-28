@@ -1,9 +1,15 @@
 import React from 'react';
-import {withStyles, Typography, Grid} from '@material-ui/core';
+import {Link as RouterLink} from 'react-router-dom';
+import {makeStyles} from '@material-ui/core/styles';
 import styles from './SectionHeadingStyle';
+// Styled Component
+import {Typography, Grid} from '@material-ui/core';
 import {Sphere} from '@/components/ui';
 
-function SectionHeading({humanImage, title, description, classes, subHeading}) {
+const useStyles = makeStyles(styles);
+
+function SectionHeading({humanImage, title, description, subHeading}) {
+  const classes = useStyles();
   return (
     <Grid container className={classes.content}>
       <Grid item md={8} sm={8} xs={12} className={classes.headingPart}>
@@ -15,13 +21,21 @@ function SectionHeading({humanImage, title, description, classes, subHeading}) {
         <Typography className={classes.contentDescription}>{description}</Typography>
       </Grid>
       <Grid item md={4} sm={8} xs={12} className={classes.spherePart}>
-        <Sphere type={0} sphereRad={60} width={120} height={120} />
-        <Sphere type={1} sphereRad={60} width={120} height={120} />
-        <Sphere type={2} sphereRad={60} width={120} height={120} />
-        <Sphere type={3} sphereRad={60} width={120} height={120} />
+        <RouterLink to="/organize/health">
+          <Sphere type={0} sphereRad={60} width={120} height={120} />
+        </RouterLink>
+        <RouterLink to="/organize/prosperity">
+          <Sphere type={1} sphereRad={60} width={120} height={120} />
+        </RouterLink>
+        <RouterLink to="/organize/inspiration">
+          <Sphere type={2} sphereRad={60} width={120} height={120} />
+        </RouterLink>
+        <RouterLink to="/organize/joy">
+          <Sphere type={3} sphereRad={60} width={120} height={120} />
+        </RouterLink>
       </Grid>
     </Grid>
   );
 }
 
-export default withStyles(styles)(SectionHeading);
+export default SectionHeading;
