@@ -7,6 +7,9 @@ import ScrollLink from './ScrollLink/ScrollLink';
 import QuestionBox from './QuestionBox/QuestionBox';
 import OrganizeArticleBox from './OrganizeArticleBox/OrganizeArticleBox';
 import SuspendisBox from './SuspendisBox/SuspendisBox';
+import OrganizeVideoBox from './OrganizeVideoBox/OrganizeVideoBox';
+import OrganizeGuideBox from './OrganizeGuideBox/OrganizeGuideBox';
+import InitiativesBox from './InitiativesBox/InitiativesBox';
 
 export {
   Sphere,
@@ -18,5 +21,8 @@ export {
   ScrollLink,
   QuestionBox,
   OrganizeArticleBox,
-  SuspendisBox
+  SuspendisBox,
+  OrganizeVideoBox,
+  OrganizeGuideBox,
+  InitiativesBox
 };
