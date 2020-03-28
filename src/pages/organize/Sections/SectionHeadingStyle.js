@@ -2,41 +2,71 @@ const styles = (theme) => ({
   content: {
     paddingTop: '5vh'
   },
+  humanimg: {
+    display: 'block',
+    [theme.breakpoints.only('xs')]: {
+      display: 'none'
+    },
+    [theme.breakpoints.only('sm')]: {
+      display: 'none'
+    }
+  },
+  img: {
+    width: '200px',
+    height: '200px'
+  },
+  headingPart: {
+    order: 1,
+    [theme.breakpoints.only('xs')]: {
+      order: 2
+    },
+    [theme.breakpoints.only('sm')]: {
+      order: 2
+    }
+  },
+  spherePart: {
+    order: 2,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+    [theme.breakpoints.only('xs')]: {
+      order: 1,
+      display: 'flex',
+      flexDirection: 'row',
+      flexWrap: 'nowrap',
+      justifyContent: 'space-between'
+    },
+    [theme.breakpoints.only('sm')]: {
+      order: 1,
+      display: 'flex',
+      flexDirection: 'row',
+      flexWrap: 'nowrap',
+      justifyContent: 'space-between'
+    }
+  },
+
   mainHeading: {
-    fontSize: 'calc(8vw + 2em)',
+    fontSize: 'calc(7vw + 2em)',
     fontWeight: 'bold',
     letterSpacing: '2vw',
     color: 'white',
-    marginTop: '10vh'
+    marginTop: '2vh'
   },
+
   linkContainer: {
-    width: 'calc(30vw + 220px)',
+    width: 'calc(30vw + 240px)',
     height: '59px',
     borderRadius: '30px',
     backgroundColor: 'rgb(12, 44, 23)',
     paddingLeft: '20px',
     [theme.breakpoints.only('xs')]: {
-      width: '80%'
+      width: '60%'
+    },
+    [theme.breakpoints.only('sm')]: {
+      width: '60%'
     }
   },
-  oneLink: {
-    display: 'inline',
-    fontSize: '1.5em',
-    color: 'rgb(82, 172, 10)',
-    fontWeight: 'bold',
-    lineHeight: '2.4',
-    [theme.breakpoints.only('xs')]: {
-      display: 'block',
-      fontSize: '1em',
-      lineHeight: '1.8'
-    }
-  },
-  linkIcon: {
-    display: 'inline-block',
-    verticalAlign: 'middle',
-    marginRight: '1em',
-    marginLeft: '1em'
-  },
+
   contentDescription: {
     width: '100%',
     fontSize: '1.1em',
