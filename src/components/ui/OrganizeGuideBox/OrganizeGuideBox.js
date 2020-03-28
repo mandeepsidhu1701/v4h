@@ -1,5 +1,6 @@
 import React from 'react';
-import {Typography, Avatar, withStyles} from '@material-ui/core';
+import * as messageKeys from '@/locales';
+import {Typography, withStyles} from '@material-ui/core';
 
 const styles = (theme) => ({
   content: {
@@ -49,7 +50,7 @@ function OrganizeGuideBox(props) {
   return (
     <div className={classes.content}>
       <Typography align="center" className={classes.heading}>
-        GUIDE
+        {messageKeys.ORGANIZE_GUIDEBOX_TITLE}
       </Typography>
       <div className={classes.textBox}>
         {' '}
@@ -57,7 +58,7 @@ function OrganizeGuideBox(props) {
       </div>
       <div className={classes.viewBtn}>
         <a href="#" className={classes.linkStyle}>
-          TAKE ME THERE
+          {messageKeys.ORGANIZE_GUIDEBOX_TAKEME_BUTTON}
         </a>
       </div>
     </div>

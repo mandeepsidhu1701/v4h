@@ -60,7 +60,7 @@ function OrganizeVideoBox(props) {
     <div className={classes.content}>
       <div className={classes.btn}>
         <a href="#" className={classes.linkStyle}>
-          Health
+          {props.btnTitle}
         </a>
       </div>
       <div className={classes.bottomContainer}>

@@ -103,6 +103,33 @@ export const AUTH_SIGN_IN_ERROR_USER_NOT_FOUND = 'auth_sign_in_error_user_not_fo
 export const AUTH_SIGN_IN_ERROR_USER_PASSWORD_MISMATCH = 'auth_sign_in_error_user_password_mismatch';
 export const AUTH_SIGN_IN_ERROR_USER_DISABLED = 'auth_sign_in_error_user_disabled';
 
+//Organize UI component
+export const ORGANIZE_QUESTIONBOX_QA = 'Q & A';
+export const ORGANIZE_QUESTIONBOX_VIEWMORE_BUTTON = 'VIEW MORE';
+
+export const ORGANIZE_ARTICLEBOX_TITLE = 'Articles';
+
+export const ORGANIZE_GUIDEBOX_TITLE = 'GUIDE';
+export const ORGANIZE_GUIDEBOX_TAKEME_BUTTON = 'TAKE ME THERE';
+
+export const ORGANIZE_INITIATIVESBOX_TITLE = 'INITIATIVES';
+export const ORGANIZE_INITIATIVESBOX_VISION = 'VISION';
+export const ORGANIZE_INITIATIVESBOX_MISSION = 'MISSION';
+export const ORGANIZE_INITIATIVESBOX_CHARACTER = 'CHARACTER';
+export const ORGANIZE_INITIATIVESBOX_CREATION = 'CREATION COMPASS';
+export const ORGANIZE_INITIATIVESBOX_METAWHEEL = 'METAWHEEL';
+export const ORGANIZE_INITIATIVESBOX_INITIATIVES = 'INITIATIVES';
+
+//Organize Section content
+export const ORGANIZE_SECTIONCONTENT_SHARE = 'SHARE OUR VIDEOS';
+export const ORGANIZE_SECTIONCONTENT_VISIT = 'VISIT OUR WORKSHOPS';
+export const ORGANIZE_SECTIONCONTENT_GO_BUTTON = 'Go Now';
+
+//Organize Health Page
+export const ORGANIZE_HEALTHPAGE_TITLE = 'Health';
+export const ORGANIZE_HEALTHPAGE_SUBTITLE_1 = 'Vitality and Longevity';
+export const ORGANIZE_HEALTHPAGE_SUBTITLE_2 = 'Bio-interdependence';
+
 export const locales = {
   'en-US': require('./en-US'),
   'de-DE': require('./de-DE')

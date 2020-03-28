@@ -1,14 +1,21 @@
 import React from 'react';
+import * as messageKeys from '@/locales';
 import {Typography, Avatar} from '@material-ui/core';
 import {makeStyles} from '@material-ui/core/styles';
+
 const useStyles = (textColor) =>
   makeStyles({
     content: {
       padding: '4% 20px'
     },
+    qaHeading: {
+      fontWeight: 'bold',
+      letterSpacing: '5px',
+      marginTop: '1em'
+    },
     avatar: {
-      width: '100px',
-      height: '100px',
+      width: '80px',
+      height: '80px',
       margin: '20px auto',
       [`@media (max-width:768px)`]: {
         width: '60px',
@@ -31,11 +38,12 @@ const useStyles = (textColor) =>
       marginTop: '1em'
     },
     listAnswer: {
+      opacity: '0.9',
       color: '#fff',
-      marginBottom: '1.5em'
+      marginBottom: '1.4em'
     },
     viewBtn: {
-      margin: '2em auto',
+      margin: '1.5em auto',
       width: '100px',
       height: '28px',
       border: 'solid 2px #d2a75f',
@@ -59,7 +67,7 @@ function QuestionBox(props) {
   return (
     <div className={classes.content}>
       <Typography align="center" className={classes.qaHeading}>
-        Q & A
+        {messageKeys.ORGANIZE_QUESTIONBOX_QA}
       </Typography>
       <Avatar src={props.imagesrc} className={classes.avatar} />
       <div className={classes.questionBox}>
@@ -71,7 +79,7 @@ function QuestionBox(props) {
       </div>
       <div className={classes.viewBtn}>
         <a href="#" className={classes.linkStyle}>
-          VIEW MORE
+          {messageKeys.ORGANIZE_QUESTIONBOX_VIEWMORE_BUTTON}
         </a>
       </div>
     </div>

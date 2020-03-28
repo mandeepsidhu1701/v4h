@@ -1,7 +1,7 @@
 import React from 'react';
+import * as messageKeys from '@/locales';
 import {makeStyles} from '@material-ui/core/styles';
 import {Typography} from '@material-ui/core';
-import {useTheme} from '@material-ui/core/styles';
 
 const useStyles = (bgImage) =>
   makeStyles({
@@ -10,7 +10,6 @@ const useStyles = (bgImage) =>
       backgroundSize: 'auto 100%',
       backgroundRepeat: 'none',
       padding: '5%',
-      height: '100%',
       overflow: 'hidden'
     },
     textContent: {
@@ -28,11 +27,11 @@ const useStyles = (bgImage) =>
   });
 
 function OrganizeArticleBox(props) {
-  const classes = useStyles(props.bgImage)();
+  const classes = useStyles(props.articlebBgImage)();
   return (
     <div className={classes.content}>
       <div className={classes.textContent}>
-        <Typography className={classes.heading}>Articles</Typography>
+        <Typography className={classes.heading}>{messageKeys.ORGANIZE_ARTICLEBOX_TITLE}</Typography>
         <Typography>{props.articleContent}</Typography>
       </div>
     </div>

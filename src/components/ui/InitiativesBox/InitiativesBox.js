@@ -1,9 +1,9 @@
 import React from 'react';
+import * as messageKeys from '@/locales';
 import {makeStyles} from '@material-ui/core/styles';
 import {Typography} from '@material-ui/core';
-import InitiativesBg from '@/assets/images/organize/InitiativesBg.png';
 
-const useStyles = () =>
+const useStyles = (InitiativesBg) =>
   makeStyles({
     content: {
       backgroundImage: `url(${InitiativesBg})`,
@@ -54,17 +54,18 @@ const useStyles = () =>
     }
   });
 
-function InitiativesBox() {
-  const classes = useStyles()();
+function InitiativesBox(props) {
+  const classes = useStyles(props.initiativesBg)();
   return (
     <div className={classes.content}>
-      <Typography className={classes.heading}>INITIATIVES</Typography>
+      <Typography className={classes.heading}>{messageKeys.ORGANIZE_INITIATIVESBOX_TITLE}</Typography>
       <div className={classes.bottomContainer}>
-        <Typography className={classes.bottomHeading}>VISION</Typography>
-        <Typography className={classes.bottomHeading}>MISSION</Typography>
-        <Typography className={classes.bottomHeading}>CHARACTER</Typography>
-        <Typography className={classes.bottomHeading}>LOREM IPSUM</Typography>
-        <Typography className={classes.bottomHeading}>DOLOR SIT AMET</Typography>
+        <Typography className={classes.bottomHeading}>{messageKeys.ORGANIZE_INITIATIVESBOX_VISION}</Typography>
+        <Typography className={classes.bottomHeading}>{messageKeys.ORGANIZE_INITIATIVESBOX_MISSION}</Typography>
+        <Typography className={classes.bottomHeading}>{messageKeys.ORGANIZE_INITIATIVESBOX_CHARACTER}</Typography>
+        <Typography className={classes.bottomHeading}>{messageKeys.ORGANIZE_INITIATIVESBOX_CREATION}</Typography>
+        <Typography className={classes.bottomHeading}>{messageKeys.ORGANIZE_INITIATIVESBOX_METAWHEEL}</Typography>
+        <Typography className={classes.bottomHeading}>{messageKeys.ORGANIZE_INITIATIVESBOX_INITIATIVES}</Typography>
       </div>
     </div>
   );
